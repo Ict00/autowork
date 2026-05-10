@@ -1,0 +1,24 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "bottom": "autowork:block/breeze_collector/breeze_collector_on",
+    "side": "autowork:block/breeze_collector/breeze_collector_on",
+    "top": "autowork:block/breeze_collector/breeze_collector_on",
+    "front": "autowork:block/breeze_collector/breeze_collector_front_on",
+    "back": "autowork:block/chute/chute_body_top",
+    "particle": "autowork:block/breeze_collector/breeze_collector_front_on"
+  },
+  "elements": [
+    {   "from": [ 0, 0, 0 ],
+      "to": [ 16, 16, 16 ],
+      "faces": {
+        "down":  { "uv": [ 0, 0, 16, 16 ], "rotation": 270, "texture": "#side", "cullface": "down" },
+        "up":    { "uv": [ 0, 16, 16, 0 ], "rotation": 90, "texture": "#side", "cullface": "up" },
+        "north": { "uv": [ 0, 0, 16, 16 ], "texture": "#front", "cullface": "north" },
+        "south": { "uv": [ 0, 0, 16, 16 ], "texture": "#back", "cullface": "south" },
+        "west":  { "uv": [ 0, 0, 16, 16 ], "texture": "#side", "cullface": "west" },
+        "east":  { "uv": [ 0, 0, 16, 16 ], "rotation": 180, "texture": "#side", "cullface": "east" }
+      }
+    }
+  ]
+}
