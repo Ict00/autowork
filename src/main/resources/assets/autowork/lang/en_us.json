@@ -62,7 +62,7 @@
   "blockhelp.autowork.fan.details": "Just a fan.",
   "blockhelp.autowork.fan.addition": "Right-click to change wind direction",
 
-  "blockhelp.autowork.filterchute.top": "Storage/Other chute required",
+  "blockhelp.autowork.filterchute.top": "Other chute required",
   "blockhelp.autowork.filterchute.bottom": "Air/Storage/Other chute",
   "blockhelp.autowork.filterchute.details": "A chute but with filter",
   "blockhelp.autowork.filterchute.addition1": "Right-click with item to change filter",

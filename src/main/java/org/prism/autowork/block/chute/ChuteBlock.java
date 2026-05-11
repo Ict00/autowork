@@ -211,6 +211,10 @@ public class ChuteBlock extends Block implements BlockHelpProvider {
                     return false;
                 }
 
+                if (test.filter.isEmpty()) {
+                    continue;
+                }
+
                 if (other.is(test.filter.getItem())) {
                     if (test.blacklist) {
                         return false;
