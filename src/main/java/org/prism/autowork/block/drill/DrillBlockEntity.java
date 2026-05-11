@@ -4,6 +4,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.component.DataComponents;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
@@ -16,6 +17,7 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -151,7 +153,24 @@ public class DrillBlockEntity extends BlockEntity {
 
         if (speed < 0) return;
 
-        var maxProgress = speed*20;
+        float toolSpeed = tool.getDestroySpeed(blockInFront);
+
+        int effLevel = tool.getEnchantmentLevel(level.registryAccess().lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(Enchantments.EFFICIENCY));
+
+        if (effLevel > 0 && tool.isCorrectToolForDrops(blockInFront)) {
+            toolSpeed += effLevel * effLevel + 1;
+        }
+
+        var maxProgress = Math.max(1, (int)(speed * 20 / toolSpeed));
+
+        int durabilityDamage = 1 + (int)(speed / 3f);
+
+        int unbreakingLevel = tool.getEnchantmentLevel(level.registryAccess().lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(Enchantments.UNBREAKING));
+
+        boolean applyDamage = true;
+        if (unbreakingLevel > 0) {
+            applyDamage = level.random.nextInt(unbreakingLevel + 1) == 0;
+        }
 
         if (progress >= maxProgress) {
             LootParams.Builder params = new LootParams.Builder(level)
@@ -178,17 +197,16 @@ public class DrillBlockEntity extends BlockEntity {
             level.destroyBlock(front, false);
 
             if (tool.has(DataComponents.DAMAGE) && tool.has(DataComponents.MAX_DAMAGE)) {
-                var dmgCurrent = tool.get(DataComponents.DAMAGE);
-                var dmgMax = tool.get(DataComponents.MAX_DAMAGE);
-
-                dmgCurrent++;
-
-                if (dmgCurrent >= dmgMax) {
-                    level.playSound(null, pos, SoundEvents.ITEM_BREAK, SoundSource.BLOCKS, 1, 1.5f);
-                    tool = ItemStack.EMPTY;
-                }
-                else {
-                    tool.set(DataComponents.DAMAGE, dmgCurrent);
+                if (applyDamage) {
+                    var dmgCurrent = tool.get(DataComponents.DAMAGE);
+                    var dmgMax = tool.get(DataComponents.MAX_DAMAGE);
+                    dmgCurrent += durabilityDamage;
+                    if (dmgCurrent >= dmgMax) {
+                        level.playSound(null, pos, SoundEvents.ITEM_BREAK, SoundSource.BLOCKS, 1, 1.5f);
+                        tool = ItemStack.EMPTY;
+                    } else {
+                        tool.set(DataComponents.DAMAGE, dmgCurrent);
+                    }
                 }
             }
 
@@ -198,13 +216,10 @@ public class DrillBlockEntity extends BlockEntity {
         }
         else {
             progress++;
-            var progress_l = (int)((progress/maxProgress)*10);
-
-            if (progress_l%2!=0) {
-                level.playSound(null, pos,  blockInFront.getSoundType(level, pos, null).getBreakSound(), SoundSource.BLOCKS, 1, 1.5f);
-
+            var progress_l = (int)((float)progress / maxProgress * 10);
+            if (progress_l % 2 != 0) {
+                level.playSound(null, pos, blockInFront.getSoundType(level, pos, null).getBreakSound(), SoundSource.BLOCKS, 1, 1.5f);
             }
-
             level.destroyBlockProgress(-1, front, progress_l);
             this.setChanged();
         }

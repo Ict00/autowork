@@ -3,8 +3,10 @@ package org.prism.autowork.block.filterchute;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.ItemInteractionResult;
@@ -23,9 +25,13 @@ import net.minecraft.world.phys.BlockHitResult;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.prism.autowork.block.ModBlockEntities;
+import org.prism.autowork.block.ModBlocks;
 import org.prism.autowork.block.drill.DrillBlock;
 import org.prism.autowork.blockhelp.BlockHelpInfo;
 import org.prism.autowork.blockhelp.BlockHelpProvider;
+import org.prism.autowork.other.ModOther;
+
+import static org.prism.autowork.block.chute.ChuteBlock.doChuteStuff;
 
 public class FilterChuteBlock extends BaseEntityBlock implements BlockHelpProvider {
     public static final BooleanProperty BLACKLIST = BooleanProperty.create("blacklist");
@@ -66,6 +72,28 @@ public class FilterChuteBlock extends BaseEntityBlock implements BlockHelpProvid
         }
 
         return super.useItemOn(someStack, state, level, pos, player, p_316595_, p_316140_);
+    }
+
+    @Override
+    protected void onPlace(BlockState state, Level level, BlockPos pos, BlockState oldState, boolean movedByPiston) {
+        super.onPlace(state, level, pos, oldState, movedByPiston);
+
+        if (!level.isClientSide) {
+            level.scheduleTick(pos, asBlock(), 5);
+        }
+    }
+
+    @Override
+    protected void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
+        super.tick(state, level, pos, random);
+
+        if (level.getBlockState(pos.above()).is(ModBlocks.CHUTES)) {
+            level.scheduleTick(pos, asBlock(), 5);
+            return;
+        }
+
+        doChuteStuff(state, level, pos, asBlock(), pos.above());
+        level.scheduleTick(pos, asBlock(), 5);
     }
 
     @Override

@@ -67,34 +67,19 @@ public class ChuteBlock extends Block implements BlockHelpProvider {
         }
     }
 
-    @Override
-    protected void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
-        super.tick(state, level, pos, random);
+    public static void doChuteStuff(BlockState state, ServerLevel level, BlockPos pos, Block block) {
+        doChuteStuff(state, level, pos, block, pos);
+    }
 
-        if (!level.getBlockState(pos).getValue(UPPER)) {
-            return;
-        }
-
-        if (level.hasNeighborSignal(pos)) {
-            if (!state.getValue(POWERED)) {
-                level.setBlockAndUpdate(pos, state.setValue(POWERED, true));
-            }
-            level.scheduleTick(pos, asBlock(), 5);
-            return;
-        }
-        else {
-            if (state.getValue(POWERED)) {
-                level.setBlockAndUpdate(pos, state.setValue(POWERED, false));
-            }
-        }
-
+    public static void doChuteStuff(BlockState state, ServerLevel level, BlockPos pos, Block block, BlockPos seekPos) {
         var capTop = level.getCapability(Capabilities.ItemHandler.BLOCK, pos.above(), Direction.DOWN);
 
         if (capTop == null) {
-            level.scheduleTick(pos, asBlock(), 5);
+            level.scheduleTick(pos, block, 5);
             return;
         }
-        var seek = getEnd(level, pos);
+
+        var seek = getEnd(level, seekPos);
 
         var end = seek.pos;
 
@@ -142,6 +127,32 @@ public class ChuteBlock extends Block implements BlockHelpProvider {
                 }
             }
         }
+
+    }
+
+    @Override
+    protected void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
+        super.tick(state, level, pos, random);
+
+        if (!level.getBlockState(pos).getValue(UPPER)) {
+            return;
+        }
+
+        if (level.hasNeighborSignal(pos)) {
+            if (!state.getValue(POWERED)) {
+                level.setBlockAndUpdate(pos, state.setValue(POWERED, true));
+            }
+            level.scheduleTick(pos, asBlock(), 5);
+            return;
+        }
+        else {
+            if (state.getValue(POWERED)) {
+                level.setBlockAndUpdate(pos, state.setValue(POWERED, false));
+            }
+        }
+
+        doChuteStuff(state, level, pos, asBlock());
+
 
         level.scheduleTick(pos, asBlock(), 5);
     }
