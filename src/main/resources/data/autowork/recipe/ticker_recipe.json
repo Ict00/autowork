@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "pattern": [
+    "FAF",
+    "BCB",
+    "FAF"
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:redstone_lamp"
+    },
+    "B": {
+      "item": "minecraft:redstone"
+    },
+    "C": {
+      "item": "minecraft:repeater"
+    },
+    "F": {
+      "item": "minecraft:smooth_stone"
+    }
+  },
+  "result": {
+    "id": "autowork:ticker",
+    "count": 1
+  }
+}

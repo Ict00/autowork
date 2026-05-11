@@ -1,0 +1,72 @@
+{
+  "itemGroup.autowork": "Autowork",
+  "block.autowork.chute": "Желоб",
+  "block.autowork.filter_chute": "Фильтрующий желоб",
+  "block.autowork.fan": "Вентилятор",
+  "block.autowork.drill": "Бур",
+  "block.autowork.placer": "Размещатель",
+  "block.autowork.cartloader": "Загрузчик вагонеток",
+  "block.autowork.cartunloader": "Разгрузчик вагонеток",
+  "block.autowork.ticker": "Таймер",
+  "block.autowork.distributor": "Распределитель",
+  "block.autowork.ticker.set": "Установлено время: %dt",
+  "block.autowork.breeze_collector": "Сборщик Бриза",
+  "block.autowork.extractor": "Экстрактор",
+  "enchantment.autowork.crushing": "Дробление",
+
+  "blockhelp.show_more": "Нажмите Ctrl/Shift для подробностей",
+  "blockhelp.direction.west": "Запад",
+  "blockhelp.direction.east": "Восток",
+  "blockhelp.direction.north": "Север",
+  "blockhelp.direction.south": "Юг",
+  "blockhelp.direction.up": "Верх",
+  "blockhelp.direction.down": "Низ",
+  "blockhelp.direction.front": "Перед",
+  "blockhelp.direction.back": "Зад",
+  "blockhelp.multiblock": "Является мультиблочной структурой",
+  "blockhelp.storage": "Имеет хранилище",
+  "blockhelp.storage_required": "Требуется хранилище",
+  "blockhelp.no_storage": "НЕТ хранилища",
+  "blockhelp.works_when_powered": "Работает при подаче сигнала",
+  "blockhelp.works_when_unpowered": "Работает без сигнала",
+  "blockhelp.power_depends": "Работа зависит от силы сигнала",
+
+  "blockhelp.autowork.breeze_collector.front": "Собирает предметы",
+  "blockhelp.autowork.breeze_collector.details": "При подаче сигнала втягивает в себя все предметы перед собой",
+
+  "blockhelp.autowork.cartloader.top": "Требуется хранилище вагонеток с сундуком",
+  "blockhelp.autowork.cartloader.details": "Спавнит вагонетку, если оба хранилища доступны; затем перекладывает содержимое заднего хранилища в вагонетку",
+
+  "blockhelp.autowork.cartunloader.details": "Когда вагонетка проезжает мимо и оба хранилища доступны, разгрузчик опустошит её: содержимое уйдет в заднее хранилище, а сама вагонетка — в верхнее",
+
+  "blockhelp.autowork.chute.bottom": "Воздух/Хранилище",
+  "blockhelp.autowork.chute.details": "Перемещает предметы вниз",
+
+  "blockhelp.autowork.distributor.master.front": "В режиме 'Главный': сканирует узлы перед собой",
+  "blockhelp.autowork.distributor.node.front": "В режиме 'Узел': указывает на целевое хранилище",
+  "blockhelp.autowork.distributor.addition": "Все 'Узлы' должны смотреть в ту же сторону (на сундуки), а 'Главный' должен быть направлен на них",
+  "blockhelp.autowork.distributor.details": "Равномерно распределяет предметы между хранилищами через узлы",
+
+  "blockhelp.autowork.drill.front": "Блок для добычи",
+  "blockhelp.autowork.drill.details": "Разрушает блок используя вставленный инструмент; все выпавшие ресурсы попадают во внутренний инвентарь",
+  "blockhelp.autowork.drill.addition": "ПКМ, чтобы положить/достать предмет из бура",
+
+  "blockhelp.autowork.extractor.details": "Перемещает предметы из заднего хранилища в переднее",
+
+  "blockhelp.autowork.fan.front": "Ветер",
+  "blockhelp.autowork.fan.details": "Просто вентилятор.",
+  "blockhelp.autowork.fan.addition": "ПКМ, чтобы изменить направление ветра",
+
+  "blockhelp.autowork.filterchute.top": "Хранилище/Другой желоб",
+  "blockhelp.autowork.filterchute.bottom": "Воздух/Хранилище/Другой желоб",
+  "blockhelp.autowork.filterchute.details": "Желоб, но с фильтром",
+  "blockhelp.autowork.filterchute.addition1": "ПКМ предметом, чтобы сменить фильтр",
+  "blockhelp.autowork.filterchute.addition2": "Shift + ПКМ, чтобы переключить черный список",
+
+  "blockhelp.autowork.placer.front": "Место для блоков",
+  "blockhelp.autowork.placer.details": "Размещает блоки из своего инвентаря перед собой",
+
+  "blockhelp.autowork.ticker.back": "Требуется сигнал редстоуна",
+  "blockhelp.autowork.ticker.front": "Выход сигнала редстоуна",
+  "blockhelp.autowork.ticker.details": "Переименуйте часы в формат: XmYsZt и нажмите ПКМ по Таймеру, чтобы установить время"
+}

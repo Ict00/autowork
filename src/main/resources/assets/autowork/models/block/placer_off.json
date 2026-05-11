@@ -4,10 +4,10 @@
     "bottom": "autowork:block/drill/drill_bottom",
     "side": "autowork:block/drill/drill_side_off",
     "side2": "autowork:block/drill/drill_side_off2",
-    "top": "autowork:block/drill/drill_top_off",
-    "front": "autowork:block/drill/drill_front_off",
+    "top": "autowork:block/placer/placer_top_off",
+    "front": "autowork:block/placer/placer_front_off",
     "back": "autowork:block/drill/drill_back_off",
-    "particle": "autowork:block/drill/drill_front_off"
+    "particle": "autowork:block/placer/placer_front_off"
   },
   "elements": [
     {   "from": [ 0, 0, 0 ],

@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:block/block",
   "textures": {
-    "bottom": "autowork:block/fan/fan_top_inward",
+    "bottom": "autowork:block/fan/fan_top_off",
     "side": "autowork:block/fan/fan_side",
-    "top": "autowork:block/fan/fan_top_inward",
-    "front": "autowork:block/fan/fan_front",
-    "particle": "autowork:block/fan/fan_front"
+    "top": "autowork:block/fan/fan_top_off",
+    "front": "autowork:block/fan/fan_front_still",
+    "particle": "autowork:block/fan/fan_front_still"
   },
   "elements": [
     {   "from": [ 0, 0, 0 ],

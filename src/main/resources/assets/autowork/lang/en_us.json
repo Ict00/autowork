@@ -1,5 +1,78 @@
 {
-  "itemGroup.autowork": "Example Mod Tab",
-  "block.autowork.example_block": "Example Block",
-  "item.autowork.example_item": "Example Item"
+  "itemGroup.autowork": "Autowork",
+  "block.autowork.chute": "Chute",
+  "block.autowork.filter_chute": "Filter Chute",
+  "block.autowork.fan": "Fan",
+  "block.autowork.drill": "Drill",
+  "block.autowork.placer": "Placer",
+  "block.autowork.cartloader": "Cart Loader",
+  "block.autowork.cartunloader": "Cart Unloader",
+  "block.autowork.ticker": "Ticker",
+  "block.autowork.distributor": "Distributor",
+  "block.autowork.ticker.set": "Set time to: %dt",
+  "block.autowork.breeze_collector": "Breeze Collector",
+  "block.autowork.extractor": "Extractor",
+  "enchantment.autowork.crushing": "Crushing",
+
+
+
+  "blockhelp.show_more": "Press Ctrl/Shift for more info",
+  "blockhelp.direction.west": "West",
+  "blockhelp.direction.east": "East",
+  "blockhelp.direction.north": "North",
+  "blockhelp.direction.south": "South",
+  "blockhelp.direction.up": "Top",
+  "blockhelp.direction.down": "Bottom",
+  "blockhelp.direction.front": "Front",
+  "blockhelp.direction.back": "Back",
+  "blockhelp.multiblock": "Is a multiblock structure",
+  "blockhelp.storage": "Has storage",
+  "blockhelp.storage_required": "Storage required",
+  "blockhelp.no_storage": "Has NO storage",
+  "blockhelp.works_when_powered": "Works when powered",
+  "blockhelp.works_when_unpowered": "Works when unpowered",
+  "blockhelp.power_depends": "Work depends on signal strength",
+
+
+  "blockhelp.autowork.breeze_collector.front": "Collects items",
+  "blockhelp.autowork.breeze_collector.details": "When powered, sucks in all items in front of it",
+
+
+  "blockhelp.autowork.cartloader.top": "Storage of minecarts with chest required",
+  "blockhelp.autowork.cartloader.details": "Spawns a minecart if both storages are provided; then puts contents of the storage behind into minecart",
+
+
+  "blockhelp.autowork.cartunloader.details": "When minecart passes by and both storages are provided, Cart Unloader will unload it: all its contents would be transferred to the storage behind, and the minecart itself would appear in the storage above",
+
+  "blockhelp.autowork.chute.bottom": "Air/Storage",
+  "blockhelp.autowork.chute.details": "Transfers items downward",
+
+  "blockhelp.autowork.distributor.master.front": "When 'Master': scans the nodes in front of it",
+  "blockhelp.autowork.distributor.node.front": "When 'Node': points at the target storage",
+  "blockhelp.autowork.distributor.addition": "All 'Nodes' should face the same direction (and storages) and 'Master' should face them",
+  "blockhelp.autowork.distributor.details": "Evenly distributes items between storages using nodes",
+
+  "blockhelp.autowork.drill.front": "Block to mine",
+  "blockhelp.autowork.drill.details": "Destroys the block using given tool; all drops are collected in the internal storage",
+  "blockhelp.autowork.drill.addition": "Right-click to put/extract item from drill",
+
+  "blockhelp.autowork.extractor.details": "Transfers items from the storage in back to the storage in front",
+
+  "blockhelp.autowork.fan.front": "Wind",
+  "blockhelp.autowork.fan.details": "Just a fan.",
+  "blockhelp.autowork.fan.addition": "Right-click to change wind direction",
+
+  "blockhelp.autowork.filterchute.top": "Storage/Other chute required",
+  "blockhelp.autowork.filterchute.bottom": "Air/Storage/Other chute",
+  "blockhelp.autowork.filterchute.details": "A chute but with filter",
+  "blockhelp.autowork.filterchute.addition1": "Right-click with item to change filter",
+  "blockhelp.autowork.filterchute.addition2": "Shift + Right-click to toggle blacklist",
+
+  "blockhelp.autowork.placer.front": "Place for blocks",
+  "blockhelp.autowork.placer.details": "Places blocks from its storage in front of itself",
+
+  "blockhelp.autowork.ticker.back": "Redstone signal required",
+  "blockhelp.autowork.ticker.front": "Redstone signal output",
+  "blockhelp.autowork.ticker.details": "Rename clock to format: XmYsZt and then right-click the Ticker with it to set its timer"
+
 }

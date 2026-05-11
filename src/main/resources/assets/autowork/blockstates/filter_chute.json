@@ -1,13 +1,10 @@
 {
   "variants": {
-    "upper=true,powered=true": {
-      "model": "autowork:block/chute_upper_on"
+    "blacklist=true": {
+      "model": "autowork:block/filter_chute_blacklist"
     },
-    "upper=true,powered=false": {
-      "model": "autowork:block/chute_upper_off"
-    },
-    "upper=false": {
-      "model": "autowork:block/chute_body"
+    "blacklist=false": {
+      "model": "autowork:block/filter_chute"
     }
   }
 }

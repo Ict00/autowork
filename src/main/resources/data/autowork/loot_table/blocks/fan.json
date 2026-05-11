@@ -12,11 +12,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "autowork:drill"
+          "name": "autowork:fan"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "autowork:blocks/drill"
+  "random_sequence": "autowork:blocks/fan"
 }

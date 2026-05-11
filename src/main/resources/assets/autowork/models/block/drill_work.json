@@ -2,11 +2,12 @@
   "parent": "minecraft:block/block",
   "textures": {
     "bottom": "autowork:block/drill/drill_bottom",
-    "side": "autowork:block/drill/drill_side_off",
-    "top": "autowork:block/drill/drill_top_off",
-    "front": "autowork:block/drill/drill_front_off",
-    "back": "autowork:block/drill/drill_back_off",
-    "particle": "autowork:block/drill/drill_front_off"
+    "side": "autowork:block/drill/drill_side_on",
+    "side2": "autowork:block/drill/drill_side_on2",
+    "top": "autowork:block/drill/drill_top_on",
+    "front": "autowork:block/drill/drill_front_on",
+    "back": "autowork:block/drill/drill_back_on",
+    "particle": "autowork:block/drill/drill_front_on"
   },
   "elements": [
     {   "from": [ 0, 0, 0 ],
@@ -16,7 +17,7 @@
         "up":    { "uv": [ 0, 16, 16, 0 ], "texture": "#top", "cullface": "up" },
         "north": { "uv": [ 0, 0, 16, 16 ], "texture": "#front", "cullface": "north" },
         "south": { "uv": [ 0, 0, 16, 16 ], "texture": "#back", "cullface": "south" },
-        "west":  { "uv": [ 0, 0, 16, 16 ], "texture": "#side", "cullface": "west" },
+        "west":  { "uv": [ 0, 0, 16, 16 ], "texture": "#side2", "cullface": "west" },
         "east":  { "uv": [ 0, 0, 16, 16 ], "texture": "#side", "cullface": "east" }
       }
     }

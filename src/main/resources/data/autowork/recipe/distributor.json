@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "pattern": [
+    "AAC",
+    "ABC",
+    "CCC"
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:iron_ingot"
+    },
+    "C": {
+      "item": "minecraft:copper_ingot"
+    },
+    "B": {
+      "item": "minecraft:dropper"
+    }
+  },
+  "result": {
+    "id": "autowork:distributor",
+    "count": 1
+  }
+}

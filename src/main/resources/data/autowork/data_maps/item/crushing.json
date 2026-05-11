@@ -5,6 +5,37 @@
     },
     "minecraft:gravel": {
       "to": "minecraft:sand"
+    },
+    "minecraft:basalt":{
+      "to": "minecraft:blackstone"
+    },
+    "minecraft:blackstone": {
+      "to": "minecraft:soul_sand"
+    },
+    "minecraft:cobbled_deepslate": {
+      "to": "minecraft:gravel"
+    },
+    "minecraft:amethyst_block": {
+      "to": "minecraft:amethyst_shard",
+      "count": 4
+    },
+    "#minecraft:wool": {
+      "to": "minecraft:string",
+      "count": 4
+    },
+    "#c:chests/wooden": {
+      "to": "minecraft:oak_planks",
+      "count": 8
+    },
+    "#c:barrels/wooden": {
+      "to": "minecraft:oak_planks",
+      "count": 6
+    },
+    "minecraft:sandstone": {
+      "to": "minecraft:sand"
+    },
+    "minecraft:red_sandstone": {
+      "to": "minecraft:red_sand"
     }
   }
 }

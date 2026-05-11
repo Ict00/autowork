@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "upper=true,powered=true": {
+      "model": "autowork:block/chute_upper_on"
+    },
+    "upper=true,powered=false": {
+      "model": "autowork:block/chute_upper_off"
+    },
+    "upper=false": {
+      "model": "autowork:block/chute_body"
+    }
+  }
+}

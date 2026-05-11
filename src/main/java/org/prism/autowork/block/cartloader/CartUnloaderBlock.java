@@ -6,7 +6,10 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.vehicle.MinecartChest;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
@@ -15,16 +18,24 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.phys.AABB;
 import net.neoforged.neoforge.capabilities.Capabilities;
 import net.neoforged.neoforge.items.ItemHandlerHelper;
 import org.jetbrains.annotations.Nullable;
+import org.prism.autowork.blockhelp.BlockHelpInfo;
+import org.prism.autowork.blockhelp.BlockHelpProvider;
 import org.prism.autowork.other.ModUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-public class CartLoaderBlock extends Block {
+import java.util.List;
+
+public class CartUnloaderBlock extends Block implements BlockHelpProvider {
     public static final DirectionProperty FACING = DirectionProperty.create("facing");
     public static final BooleanProperty POWERED = BooleanProperty.create("powered");
+    private static final Logger log = LoggerFactory.getLogger(CartUnloaderBlock.class);
 
-    public CartLoaderBlock(Properties properties) {
+    public CartUnloaderBlock(Properties properties) {
         super(properties);
     }
 
@@ -43,30 +54,51 @@ public class CartLoaderBlock extends Block {
             var storageCap = level.getCapability(Capabilities.ItemHandler.BLOCK, back, facing);
 
             if (minecartCap != null && storageCap != null) {
-                for (int i = 0; i < minecartCap.getSlots(); i++) {
-                    var stack = minecartCap.getStackInSlot(i);
+                try {
+                    var aabb = new AABB(front).inflate(0.15);
+                    List<MinecartChest> entities = level.getEntitiesOfClass(
+                            MinecartChest.class,
+                            aabb,
+                            (et) -> {
+                                return et instanceof MinecartChest;
+                            }
+                    );
 
-                    if (stack.is(Items.CHEST_MINECART)) {
-                        minecartCap.extractItem(i, 1, false);
-                        var cart = new MinecartChest(level, front.getX(), front.getY(), front.getZ());
+                    if (entities.isEmpty()) {
+                        level.scheduleTick(pos, asBlock(), 20);
+                        return;
+                    }
 
-                        for (int x = 0; x < 27; x++) {
-                            var extracted = storageCap.extractItem(x, 64, false);
+                    for (int i = 0; i < entities.size(); i++) {
+                        var entity = entities.get(i);
+                        var items = entity.getItemStacks();
 
-                            if (!extracted.isEmpty()) {
-                                cart.setItem(x, extracted);
+                        for (int x = 0; x < items.size(); x++) {
+                            var remains = ItemHandlerHelper.insertItem(storageCap, items.get(x), false);
+
+                            if (!remains.isEmpty()) {
+                                var itemEntity = new ItemEntity(level, front.getX(), front.getY(), front.getZ(), remains);
+                                level.addFreshEntity(itemEntity);
                             }
                         }
 
-                        level.setBlockAndUpdate(pos, state.setValue(POWERED, true));
-                        level.playSound(null, pos, SoundEvents.DISPENSER_DISPENSE, SoundSource.BLOCKS);
-                        level.addFreshEntity(cart);
+                        var remains = ItemHandlerHelper.insertItem(minecartCap, new ItemStack(Items.CHEST_MINECART), false);
+                        if (!remains.isEmpty()) {
+                            var itemEntity = new ItemEntity(level, front.getX(), front.getY(), front.getZ(), remains);
+                            level.addFreshEntity(itemEntity);
+                        }
 
-                        return;
+                        entity.remove(Entity.RemovalReason.CHANGED_DIMENSION);
                     }
+                    level.setBlockAndUpdate(pos, state.setValue(POWERED, true));
+                    level.playSound(null, pos, SoundEvents.DISPENSER_DISPENSE, SoundSource.BLOCKS);
+                    return;
                 }
-                level.scheduleTick(pos, asBlock(), 2);
+                catch (Exception ex) {
+                    log.error("e: ", ex);
+                }
             }
+            level.scheduleTick(pos, asBlock(), 20);
         }
         else {
             if (state.getValue(POWERED)) {
@@ -92,6 +124,18 @@ public class CartLoaderBlock extends Block {
 
     @Override
     public @Nullable BlockState getStateForPlacement(BlockPlaceContext context) {
-        return this.defaultBlockState().setValue(POWERED, false).setValue(FACING, context.getNearestLookingDirection().getOpposite());
+        return this.defaultBlockState().setValue(POWERED, false).setValue(FACING, context.getHorizontalDirection().getOpposite());
+    }
+
+
+    @Override
+    public BlockHelpInfo getHelp() {
+        return BlockHelpInfo.builder()
+                .storage_required(Direction.UP)
+                .storage_required_back()
+                .details("blockhelp.autowork.cartunloader.details")
+                .no_storage()
+                .only_when_powered()
+                .build();
     }
 }

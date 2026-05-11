@@ -1,21 +1,23 @@
 {
   "parent": "minecraft:block/block",
   "textures": {
-    "bottom": "autowork:block/fan/fan_top_off",
-    "side": "autowork:block/fan/fan_side",
-    "top": "autowork:block/fan/fan_top_off",
-    "front": "autowork:block/fan/fan_front_still",
-    "particle": "autowork:block/fan/fan_front_still"
+    "bottom": "autowork:block/drill/drill_bottom",
+    "side": "autowork:block/drill/drill_side_off",
+    "side2": "autowork:block/drill/drill_side_off2",
+    "top": "autowork:block/drill/drill_top_off",
+    "front": "autowork:block/drill/drill_front_off",
+    "back": "autowork:block/drill/drill_back_off",
+    "particle": "autowork:block/drill/drill_front_off"
   },
   "elements": [
     {   "from": [ 0, 0, 0 ],
       "to": [ 16, 16, 16 ],
       "faces": {
-        "down":  { "uv": [ 0, 0, 16, 16 ], "texture": "#top", "cullface": "down" },
+        "down":  { "uv": [ 0, 0, 16, 16 ], "texture": "#bottom", "cullface": "down" },
         "up":    { "uv": [ 0, 16, 16, 0 ], "texture": "#top", "cullface": "up" },
         "north": { "uv": [ 0, 0, 16, 16 ], "texture": "#front", "cullface": "north" },
-        "south": { "uv": [ 0, 0, 16, 16 ], "texture": "#side", "cullface": "south" },
-        "west":  { "uv": [ 0, 0, 16, 16 ], "texture": "#side", "cullface": "west" },
+        "south": { "uv": [ 0, 0, 16, 16 ], "texture": "#back", "cullface": "south" },
+        "west":  { "uv": [ 0, 0, 16, 16 ], "texture": "#side2", "cullface": "west" },
         "east":  { "uv": [ 0, 0, 16, 16 ], "texture": "#side", "cullface": "east" }
       }
     }

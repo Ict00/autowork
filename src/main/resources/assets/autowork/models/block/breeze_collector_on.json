@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:block/block",
   "textures": {
-    "bottom": "autowork:block/extractor/extractor_side_on",
-    "side": "autowork:block/extractor/extractor_side_on",
-    "top": "autowork:block/extractor/extractor_side_on",
-    "front": "autowork:block/extractor/extractor_front",
+    "bottom": "autowork:block/breeze_collector/breeze_collector_on",
+    "side": "autowork:block/breeze_collector/breeze_collector_on",
+    "top": "autowork:block/breeze_collector/breeze_collector_on",
+    "front": "autowork:block/breeze_collector/breeze_collector_front_on",
     "back": "autowork:block/chute/chute_body_top",
-    "particle": "autowork:block/extractor/extractor_side_on"
+    "particle": "autowork:block/breeze_collector/breeze_collector_front_on"
   },
   "elements": [
     {   "from": [ 0, 0, 0 ],

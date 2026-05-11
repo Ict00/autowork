@@ -1,0 +1,16 @@
+{
+  "replace": false,
+  "values": [
+    "autowork:chute",
+    "autowork:extractor",
+    "autowork:placer",
+    "autowork:breeze_collector",
+    "autowork:cartloader",
+    "autowork:cartunloader",
+    "autowork:filter_chute",
+    "autowork:fan",
+    "autowork:distributor",
+    "autowork:ticker",
+    "autowork:drill"
+  ]
+}

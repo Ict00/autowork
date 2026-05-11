@@ -12,11 +12,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "autowork:fan"
+          "name": "autowork:breeze_collector"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "autowork:blocks/fan"
+  "random_sequence": "autowork:blocks/breeze_collector"
 }

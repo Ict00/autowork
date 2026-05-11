@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "pattern": [
+    "ABA"
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:iron_ingot"
+    },
+    "B": {
+      "tag": "c:chests"
+    }
+  },
+  "result": {
+    "id": "autowork:chute",
+    "count": 2
+  }
+}

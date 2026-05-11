@@ -12,11 +12,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "blastwork:potion_barrel"
+          "name": "autowork:drill"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "blastwork:blocks/potion_barrel"
+  "random_sequence": "autowork:blocks/drill"
 }

@@ -1,0 +1,8 @@
+{
+  "type": "autowork:crushing",
+  "conditions": [
+    {
+      "condition": "minecraft:true"
+    }
+  ]
+}

@@ -5,9 +5,9 @@
     "side": "autowork:block/drill/drill_side_off",
     "side2": "autowork:block/drill/drill_side_off2",
     "top": "autowork:block/cartloader/cartloader_top_off",
-    "front": "autowork:block/cartloader/cartloader_front_off",
-    "back": "autowork:block/drill/drill_back_off",
-    "particle": "autowork:block/cartloader/cartloader_front"
+    "front": "autowork:block/cartunloader/cartunloader_front_off",
+    "back": "autowork:block/cartloader/cartloader_back_off",
+    "particle": "autowork:block/cartunloader/cartunloader_front_off"
   },
   "elements": [
     {   "from": [ 0, 0, 0 ],

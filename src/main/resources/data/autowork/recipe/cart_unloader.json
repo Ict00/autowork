@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "pattern": [
+    "ARA",
+    "ACA",
+    "BAB"
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:copper_ingot"
+    },
+    "B": {
+      "item": "minecraft:redstone"
+    },
+    "C": {
+      "item": "minecraft:dropper"
+    },
+    "R": {
+      "tag": "minecraft:rails"
+    }
+  },
+  "result": {
+    "id": "autowork:cartunloader",
+    "count": 1
+  }
+}

@@ -12,11 +12,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "autowork:chute"
+          "name": "autowork:filter_chute"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "autowork:blocks/chute"
+  "random_sequence": "autowork:blocks/filter_chute"
 }

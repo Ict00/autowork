@@ -2,12 +2,12 @@
   "parent": "minecraft:block/block",
   "textures": {
     "bottom": "autowork:block/drill/drill_bottom",
-    "side": "autowork:block/drill/drill_side_off",
-    "side2": "autowork:block/drill/drill_side_off2",
-    "top": "autowork:block/placer/placer_top_off",
-    "front": "autowork:block/placer/placer_front_off",
-    "back": "autowork:block/drill/drill_back_off",
-    "particle": "autowork:block/placer/placer_front_off"
+    "side": "autowork:block/drill/drill_side_on",
+    "side2": "autowork:block/drill/drill_side_on2",
+    "top": "autowork:block/placer/placer_top_on",
+    "front": "autowork:block/placer/placer_front_on",
+    "back": "autowork:block/drill/drill_back_on",
+    "particle": "autowork:block/placer/placer_front_on"
   },
   "elements": [
     {   "from": [ 0, 0, 0 ],

@@ -1,7 +1,6 @@
 {
   "values": [
-    "sandssnow:whip_distance",
-    "sandssnow:firm_grip",
+    "autowork:crushing"
   ],
   "replace": false
 }

@@ -2,11 +2,11 @@
   "parent": "minecraft:block/cube",
   "textures": {
     "down": "autowork:block/chute/chute_body_top",
-    "east": "autowork:block/chute/filter_chute_body_side",
-    "north": "autowork:block/chute/filter_chute_body_side",
-    "particle": "autowork:block/chute/filter_chute_body_side",
-    "south": "autowork:block/chute/filter_chute_body_side",
+    "east": "autowork:block/chute/filter_chute_body_side_blacklist",
+    "north": "autowork:block/chute/filter_chute_body_side_blacklist",
+    "particle": "autowork:block/chute/filter_chute_body_side_blacklist",
+    "south": "autowork:block/chute/filter_chute_body_side_blacklist",
     "up": "autowork:block/chute/chute_body_top",
-    "west": "autowork:block/chute/filter_chute_body_side"
+    "west": "autowork:block/chute/filter_chute_body_side_blacklist"
   }
 }

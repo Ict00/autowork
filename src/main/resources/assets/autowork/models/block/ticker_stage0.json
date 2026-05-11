@@ -1,0 +1,24 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "bottom": "autowork:block/ticker/ticker_side_stage0",
+    "side": "autowork:block/ticker/ticker_side_stage0",
+    "top": "autowork:block/ticker/ticker_side_stage0",
+    "front": "autowork:block/ticker/ticker_front_off",
+    "back": "autowork:block/ticker/ticker_back_off",
+    "particle": "autowork:block/ticker/ticker_side_stage0"
+  },
+  "elements": [
+    {   "from": [ 0, 0, 0 ],
+      "to": [ 16, 16, 16 ],
+      "faces": {
+        "down":  { "uv": [ 0, 0, 16, 16 ], "rotation": 270, "texture": "#side", "cullface": "down" },
+        "up":    { "uv": [ 0, 16, 16, 0 ], "rotation": 90, "texture": "#side", "cullface": "up" },
+        "north": { "uv": [ 0, 0, 16, 16 ], "texture": "#front", "cullface": "north" },
+        "south": { "uv": [ 0, 0, 16, 16 ], "texture": "#back", "cullface": "south" },
+        "west":  { "uv": [ 0, 0, 16, 16 ], "texture": "#side", "cullface": "west" },
+        "east":  { "uv": [ 0, 0, 16, 16 ], "rotation": 180, "texture": "#side", "cullface": "east" }
+      }
+    }
+  ]
+}

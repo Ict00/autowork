@@ -1,75 +1,49 @@
 {
   "variants": {
-    "facing=down,wind_state=0": {
-      "model": "autowork:block/fan_still",
+    "facing=down,powered=false": {
+      "model": "autowork:block/drill_still",
       "x": 90
     },
-    "facing=east,wind_state=0": {
-      "model": "autowork:block/fan_still",
+    "facing=down,powered=true": {
+      "model": "autowork:block/drill_work",
+      "x": 90
+    },
+    "facing=east,powered=false": {
+      "model": "autowork:block/drill_still",
       "y": 90
     },
-    "facing=north,wind_state=0": {
-      "model": "autowork:block/fan_still"
+    "facing=east,powered=true": {
+      "model": "autowork:block/drill_work",
+      "y": 90
     },
-    "facing=south,wind_state=0": {
-      "model": "autowork:block/fan_still",
+    "facing=north,powered=false": {
+      "model": "autowork:block/drill_still"
+    },
+    "facing=north,powered=true": {
+      "model": "autowork:block/drill_work"
+    },
+    "facing=south,powered=false": {
+      "model": "autowork:block/drill_still",
       "y": 180
     },
-    "facing=up,wind_state=0": {
-      "model": "autowork:block/fan_still",
+    "facing=south,powered=true": {
+      "model": "autowork:block/drill_work",
+      "y": 180
+    },
+    "facing=up,powered=false": {
+      "model": "autowork:block/drill_still",
       "x": 270
     },
-    "facing=west,wind_state=0": {
-      "model": "autowork:block/fan_still",
+    "facing=up,powered=true": {
+      "model": "autowork:block/drill_work",
+      "x": 270
+    },
+    "facing=west,powered=false": {
+      "model": "autowork:block/drill_still",
       "y": 270
     },
-
-
-
-    "facing=down,wind_state=2": {
-      "model": "autowork:block/fan_inward",
-      "x": 90
-    },
-    "facing=down,wind_state=1": {
-      "model": "autowork:block/fan_outward",
-      "x": 90
-    },
-    "facing=east,wind_state=2": {
-      "model": "autowork:block/fan_inward",
-      "y": 90
-    },
-    "facing=east,wind_state=1": {
-      "model": "autowork:block/fan_outward",
-      "y": 90
-    },
-    "facing=north,wind_state=2": {
-      "model": "autowork:block/fan_inward"
-    },
-    "facing=north,wind_state=1": {
-      "model": "autowork:block/fan_outward"
-    },
-    "facing=south,wind_state=2": {
-      "model": "autowork:block/fan_inward",
-      "y": 180
-    },
-    "facing=south,wind_state=1": {
-      "model": "autowork:block/fan_outward",
-      "y": 180
-    },
-    "facing=up,wind_state=2": {
-      "model": "autowork:block/fan_inward",
-      "x": 270
-    },
-    "facing=up,wind_state=1": {
-      "model": "autowork:block/fan_outward",
-      "x": 270
-    },
-    "facing=west,wind_state=2": {
-      "model": "autowork:block/fan_inward",
-      "y": 270
-    },
-    "facing=west,wind_state=1": {
-      "model": "autowork:block/fan_outward",
+    "facing=west,powered=true": {
+      "model": "autowork:block/drill_work",
       "y": 270
     }
   }

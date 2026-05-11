@@ -1,0 +1,25 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "bottom": "autowork:block/distributor/distributor_slave_side",
+    "side": "autowork:block/distributor/distributor_slave_side",
+    "side2": "autowork:block/distributor/distributor_slave_side",
+    "top": "autowork:block/distributor/distributor_slave_side",
+    "front": "autowork:block/distributor/distributor_slave_front",
+    "back": "autowork:block/chute/chute_body_side",
+    "particle": "autowork:block/distributor/distributor_slave_front"
+  },
+  "elements": [
+    {   "from": [ 0, 0, 0 ],
+      "to": [ 16, 16, 16 ],
+      "faces": {
+        "down":  { "uv": [ 0, 0, 16, 16 ], "texture": "#bottom", "cullface": "down" },
+        "up":    { "uv": [ 0, 16, 16, 0 ], "texture": "#top", "cullface": "up" },
+        "north": { "uv": [ 0, 0, 16, 16 ], "texture": "#front", "cullface": "north" },
+        "south": { "uv": [ 0, 0, 16, 16 ], "texture": "#back", "cullface": "south" },
+        "west":  { "uv": [ 0, 0, 16, 16 ], "rotation": 90, "texture": "#side2", "cullface": "west" },
+        "east":  { "uv": [ 0, 0, 16, 16 ], "rotation": 270,"texture": "#side", "cullface": "east" }
+      }
+    }
+  ]
+}

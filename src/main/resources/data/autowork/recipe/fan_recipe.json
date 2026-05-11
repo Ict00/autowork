@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "pattern": [
+    "ADA",
+    "ACA",
+    "BAB"
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:iron_ingot"
+    },
+    "B": {
+      "item": "minecraft:redstone"
+    },
+    "C": {
+      "item": "minecraft:dropper"
+    },
+    "D": {
+      "item": "minecraft:iron_bars"
+    }
+  },
+  "result": {
+    "id": "autowork:fan",
+    "count": 1
+  }
+}

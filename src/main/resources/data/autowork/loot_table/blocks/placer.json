@@ -12,11 +12,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "autowork:extractor"
+          "name": "autowork:placer"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "autowork:blocks/extractor"
+  "random_sequence": "autowork:blocks/placer"
 }

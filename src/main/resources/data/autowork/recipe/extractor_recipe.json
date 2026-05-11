@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "pattern": [
+    "AA",
+    "CB",
+    "AA"
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:copper_ingot"
+    },
+    "B": {
+      "item": "minecraft:copper_block"
+    },
+    "C": {
+      "item": "minecraft:dropper"
+    }
+  },
+  "result": {
+    "id": "autowork:extractor",
+    "count": 1
+  }
+}

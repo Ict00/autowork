@@ -1,23 +1,23 @@
 {
   "parent": "minecraft:block/block",
   "textures": {
-    "bottom": "autowork:block/extractor/extractor_side_on",
-    "side": "autowork:block/extractor/extractor_side_on",
-    "top": "autowork:block/extractor/extractor_side_on",
+    "bottom": "autowork:block/extractor/extractor_side_off",
+    "side": "autowork:block/extractor/extractor_side_off",
+    "top": "autowork:block/extractor/extractor_side_off",
     "front": "autowork:block/extractor/extractor_front",
     "back": "autowork:block/chute/chute_body_top",
-    "particle": "autowork:block/extractor/extractor_side_on"
+    "particle": "autowork:block/extractor/extractor_side_off"
   },
   "elements": [
     {   "from": [ 0, 0, 0 ],
       "to": [ 16, 16, 16 ],
       "faces": {
-        "down":  { "uv": [ 0, 0, 16, 16 ], "texture": "#bottom", "cullface": "down" },
-        "up":    { "uv": [ 0, 16, 16, 0 ], "texture": "#top", "cullface": "up" },
+        "down":  { "uv": [ 0, 0, 16, 16 ], "rotation": 270, "texture": "#side", "cullface": "down" },
+        "up":    { "uv": [ 0, 16, 16, 0 ], "rotation": 90, "texture": "#side", "cullface": "up" },
         "north": { "uv": [ 0, 0, 16, 16 ], "texture": "#front", "cullface": "north" },
         "south": { "uv": [ 0, 0, 16, 16 ], "texture": "#back", "cullface": "south" },
-        "west":  { "uv": [ 0, 0, 16, 16 ], "rotation": 180, "texture": "#side", "cullface": "west" },
-        "east":  { "uv": [ 0, 0, 16, 16 ], "texture": "#side", "cullface": "east" }
+        "west":  { "uv": [ 0, 0, 16, 16 ], "texture": "#side", "cullface": "west" },
+        "east":  { "uv": [ 0, 0, 16, 16 ], "rotation": 180, "texture": "#side", "cullface": "east" }
       }
     }
   ]

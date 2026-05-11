@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "pattern": [
+    "FAD",
+    "CBE",
+    "FAD"
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:copper_ingot"
+    },
+    "B": {
+      "item": "minecraft:copper_block"
+    },
+    "C": {
+      "item": "minecraft:dropper"
+    },
+    "D": {
+      "item": "minecraft:breeze_rod"
+    },
+    "E": {
+      "item": "minecraft:wind_charge"
+    },
+    "F": {
+      "item": "minecraft:redstone"
+    }
+  },
+  "result": {
+    "id": "autowork:breeze_collector",
+    "count": 1
+  }
+}

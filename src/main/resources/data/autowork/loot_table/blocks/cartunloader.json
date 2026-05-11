@@ -12,11 +12,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "autowork:cartloader"
+          "name": "autowork:cartunloader"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "autowork:blocks/cartloader"
+  "random_sequence": "autowork:blocks/cartunloader"
 }
