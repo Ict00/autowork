@@ -14,6 +14,8 @@
   "block.autowork.extractor": "Экстрактор",
   "enchantment.autowork.crushing": "Дробление",
 
+  "autowork.crushing_description": "Требует зачарование 'Дробление'",
+
   "blockhelp.show_more": "Нажмите Ctrl/Shift для подробностей",
   "blockhelp.direction.west": "Запад",
   "blockhelp.direction.east": "Восток",

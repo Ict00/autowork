@@ -1,4 +1,8 @@
 {
+  "autowork.configuration.distributorRange": "Distributor scan range",
+  "autowork.configuration.crushingHudHelper": "Show 'Crushing' HUD",
+  "autowork.configuration.machinesWorkOnlyOnPulse": "[WIP] Machines work only on pulse redstone signal",
+
   "itemGroup.autowork": "Autowork",
   "block.autowork.chute": "Chute",
   "block.autowork.filter_chute": "Filter Chute",
@@ -14,7 +18,7 @@
   "block.autowork.extractor": "Extractor",
   "enchantment.autowork.crushing": "Crushing",
 
-
+  "autowork.crushing_description": "Requires 'Crushing' Enchantment",
 
   "blockhelp.show_more": "Press Ctrl/Shift for more info",
   "blockhelp.direction.west": "West",

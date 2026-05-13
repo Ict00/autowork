@@ -16,7 +16,7 @@ import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.neoforged.neoforge.capabilities.Capabilities;
 import net.neoforged.neoforge.items.IItemHandler;
 import net.neoforged.neoforge.items.ItemHandlerHelper;
-import org.prism.autowork.Config;
+import org.prism.autowork.CommonConfig;
 import org.prism.autowork.block.ModBlocks;
 import org.prism.autowork.blockhelp.BlockHelpInfo;
 import org.prism.autowork.blockhelp.BlockHelpProvider;
@@ -186,7 +186,7 @@ public class DistributorBlock extends Block implements BlockHelpProvider {
         boolean metMaster = false;
         Direction oldFacing = null;
 
-        for (int i = 0; i < Config.DISTRIBUTOR_RANGE.getAsInt(); i++) {
+        for (int i = 0; i < CommonConfig.DISTRIBUTOR_RANGE.getAsInt(); i++) {
 
             var curState = level.getBlockState(cur);
             if (!curState.is(ModBlocks.DISTRIBUTOR)) {

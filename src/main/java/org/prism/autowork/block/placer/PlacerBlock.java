@@ -3,6 +3,7 @@ package org.prism.autowork.block.placer;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
@@ -27,6 +28,7 @@ import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.neoforged.neoforge.capabilities.Capabilities;
 import net.neoforged.neoforge.items.ItemHandlerHelper;
 import org.jetbrains.annotations.Nullable;
+import org.prism.autowork.CommonConfig;
 import org.prism.autowork.block.ModBlockEntities;
 import org.prism.autowork.block.drill.DrillBlockEntity;
 import org.prism.autowork.block.filterchute.FilterChuteBlock;
@@ -67,38 +69,61 @@ public class PlacerBlock extends BaseEntityBlock implements BlockHelpProvider {
         super.onRemove(state, level, pos, newState, movedByPiston);
     }
 
+    protected void neighborChanged(BlockState state, Level level, BlockPos pos, Block block, BlockPos other, boolean p_52705_) {
+        if (!level.isClientSide && CommonConfig.MACHINES_ON_PULSE.getAsBoolean()) {
+            Direction direction = Direction.getNearest(
+                    pos.getX() - other.getX(),
+                    pos.getY() - other.getY(),
+                    pos.getZ() - other.getZ()
+            ).getOpposite();
+
+            boolean flag = level.hasSignal(other, direction);
+            boolean flag1 = state.getValue(POWERED);
+
+            if (flag && !flag1) {
+                level.scheduleTick(pos, this, 15);
+                level.setBlock(pos, state.setValue(POWERED, true), 2);
+            } else if (!flag && flag1) {
+                level.setBlock(pos, state.setValue(POWERED, false), 2);
+            }
+        }
+    }
+
     @Override
     protected void onPlace(BlockState state, Level level, BlockPos pos, BlockState oldState, boolean movedByPiston) {
         super.onPlace(state, level, pos, oldState, movedByPiston);
 
-        level.scheduleTick(pos, asBlock(), 10);
+        if (!CommonConfig.MACHINES_ON_PULSE.get())
+            level.scheduleTick(pos, asBlock(), 10);
     }
 
     @Override
     protected void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
         super.tick(state, level, pos, random);
 
-        if (!state.getValue(POWERED) && level.hasNeighborSignal(pos) && level.getBlockEntity(pos) instanceof PlacerBlockEntity be) {
+        if (state.getValue(POWERED) && level.getBlockEntity(pos) instanceof PlacerBlockEntity be) {
             var face = state.getValue(FACING);
             var front = ModUtils.lookTo(pos, face);
             var blockInFront = level.getBlockState(front);
 
             if (!blockInFront.canBeReplaced()) {
-                level.scheduleTick(pos, asBlock(), 10);
+                if (!CommonConfig.MACHINES_ON_PULSE.get())
+                    level.scheduleTick(pos, asBlock(), 10);
                 return;
             }
 
             var item = be.getOne();
 
-            if (item.isEmpty()) {
-                level.scheduleTick(pos, asBlock(), 10);
+            if (item.isEmpty() || !(item.getItem() instanceof BlockItem)) {
+                if (!CommonConfig.MACHINES_ON_PULSE.get())
+                    level.scheduleTick(pos, asBlock(), 10);
                 return;
             }
 
             var blockItem = (BlockItem)item.getItem();
 
             level.setBlockAndUpdate(front, blockItem.getBlock().defaultBlockState());
-            level.setBlockAndUpdate(pos, state.setValue(POWERED, true));
+            level.setBlockAndUpdate(pos, state.setValue(POWERED, false));
 
             level.playSound(null, pos, SoundEvents.DISPENSER_DISPENSE, SoundSource.BLOCKS, 1, 0.5f);
 
@@ -107,11 +132,12 @@ public class PlacerBlock extends BaseEntityBlock implements BlockHelpProvider {
             be.setChanged();
         }
         else {
-            if (state.getValue(POWERED)) {
-                level.setBlockAndUpdate(pos, state.setValue(POWERED, false));
+            if (!state.getValue(POWERED) && CommonConfig.MACHINES_ON_PULSE.get()) {
+                level.setBlockAndUpdate(pos, state.setValue(POWERED, true));
             }
             else {
-                level.scheduleTick(pos, asBlock(), 10);
+                if(!CommonConfig.MACHINES_ON_PULSE.get())
+                    level.scheduleTick(pos, asBlock(), 10);
             }
         }
     }

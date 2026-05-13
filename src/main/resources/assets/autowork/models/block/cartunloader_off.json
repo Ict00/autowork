@@ -2,8 +2,7 @@
   "parent": "minecraft:block/block",
   "textures": {
     "bottom": "autowork:block/drill/drill_bottom",
-    "side": "autowork:block/drill/drill_side_off",
-    "side2": "autowork:block/drill/drill_side_off2",
+    "side": "autowork:block/cartunloader/cartunloader_side_off",
     "top": "autowork:block/cartloader/cartloader_top_off",
     "front": "autowork:block/cartunloader/cartunloader_front_off",
     "back": "autowork:block/cartloader/cartloader_back_off",
@@ -17,7 +16,7 @@
         "up":    { "uv": [ 0, 16, 16, 0 ], "texture": "#top", "cullface": "up" },
         "north": { "uv": [ 0, 0, 16, 16 ], "texture": "#front", "cullface": "north" },
         "south": { "uv": [ 0, 0, 16, 16 ], "texture": "#back", "cullface": "south" },
-        "west":  { "uv": [ 0, 0, 16, 16 ], "texture": "#side2", "cullface": "west" },
+        "west":  { "uv": [ 16, 0, 0, 16 ], "texture": "#side", "cullface": "west" },
         "east":  { "uv": [ 0, 0, 16, 16 ], "texture": "#side", "cullface": "east" }
       }
     }
