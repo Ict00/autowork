@@ -10,6 +10,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -18,6 +19,7 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BaseEntityBlock;
+import net.minecraft.world.level.block.BedBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -25,6 +27,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.phys.BlockHitResult;
 import net.neoforged.neoforge.capabilities.Capabilities;
 import net.neoforged.neoforge.items.ItemHandlerHelper;
 import org.jetbrains.annotations.Nullable;
@@ -69,75 +72,74 @@ public class PlacerBlock extends BaseEntityBlock implements BlockHelpProvider {
         super.onRemove(state, level, pos, newState, movedByPiston);
     }
 
-    protected void neighborChanged(BlockState state, Level level, BlockPos pos, Block block, BlockPos other, boolean p_52705_) {
-        if (!level.isClientSide && CommonConfig.MACHINES_ON_PULSE.getAsBoolean()) {
-            Direction direction = Direction.getNearest(
-                    pos.getX() - other.getX(),
-                    pos.getY() - other.getY(),
-                    pos.getZ() - other.getZ()
-            ).getOpposite();
-
-            boolean flag = level.hasSignal(other, direction);
-            boolean flag1 = state.getValue(POWERED);
-
-            if (flag && !flag1) {
-                level.scheduleTick(pos, this, 15);
-                level.setBlock(pos, state.setValue(POWERED, true), 2);
-            } else if (!flag && flag1) {
-                level.setBlock(pos, state.setValue(POWERED, false), 2);
-            }
-        }
-    }
-
     @Override
     protected void onPlace(BlockState state, Level level, BlockPos pos, BlockState oldState, boolean movedByPiston) {
         super.onPlace(state, level, pos, oldState, movedByPiston);
 
-        if (!CommonConfig.MACHINES_ON_PULSE.get())
-            level.scheduleTick(pos, asBlock(), 10);
+        level.scheduleTick(pos, asBlock(), 10);
     }
 
     @Override
     protected void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
         super.tick(state, level, pos, random);
 
-        if (state.getValue(POWERED) && level.getBlockEntity(pos) instanceof PlacerBlockEntity be) {
+        if (!state.getValue(POWERED) && level.hasNeighborSignal(pos) && level.getBlockEntity(pos) instanceof PlacerBlockEntity be) {
             var face = state.getValue(FACING);
             var front = ModUtils.lookTo(pos, face);
             var blockInFront = level.getBlockState(front);
 
             if (!blockInFront.canBeReplaced()) {
-                if (!CommonConfig.MACHINES_ON_PULSE.get())
-                    level.scheduleTick(pos, asBlock(), 10);
+                level.scheduleTick(pos, asBlock(), 10);
                 return;
             }
 
             var item = be.getOne();
 
             if (item.isEmpty() || !(item.getItem() instanceof BlockItem)) {
-                if (!CommonConfig.MACHINES_ON_PULSE.get())
-                    level.scheduleTick(pos, asBlock(), 10);
+                level.scheduleTick(pos, asBlock(), 10);
                 return;
             }
 
             var blockItem = (BlockItem)item.getItem();
 
-            level.setBlockAndUpdate(front, blockItem.getBlock().defaultBlockState());
-            level.setBlockAndUpdate(pos, state.setValue(POWERED, false));
+            for (var dir : Direction.stream().toList()) {
+                try {
+                    var placedState = blockItem.getBlock().getStateForPlacement(new BlockPlaceContext(level, level.getRandomPlayer(), InteractionHand.MAIN_HAND, item, new BlockHitResult(ModUtils.blockPosVec(front), dir, pos, false)));
 
-            level.playSound(null, pos, SoundEvents.DISPENSER_DISPENSE, SoundSource.BLOCKS, 1, 0.5f);
+                    if (placedState.canSurvive(level, front)) {
+                        level.setBlockAndUpdate(front, placedState);
+                        level.setBlockAndUpdate(pos, state.setValue(POWERED, true));
 
+                        level.playSound(null, pos, SoundEvents.DISPENSER_DISPENSE, SoundSource.BLOCKS, 1, 0.5f);
+
+                        level.scheduleTick(pos, asBlock(), 10);
+                        be.setChanged();
+                        return;
+                    }
+                }
+                catch (Exception ex) {
+                    // Cowardly ignore
+                }
+            }
+
+            var e = ModUtils.direction2vec(face).scale(0.2f);
+            var newEntity = new ItemEntity(level, front.getX()+0.5, front.getY()+0.5, front.getZ()+0.5, item, e.x, e.y, e.z);
+
+            level.addFreshEntity(newEntity);
+
+            level.setBlockAndUpdate(pos, state.setValue(POWERED, true));
+
+            level.playSound(null, pos, SoundEvents.DISPENSER_FAIL, SoundSource.BLOCKS, 1, 0.5f);
             level.scheduleTick(pos, asBlock(), 10);
 
             be.setChanged();
         }
         else {
-            if (!state.getValue(POWERED) && CommonConfig.MACHINES_ON_PULSE.get()) {
-                level.setBlockAndUpdate(pos, state.setValue(POWERED, true));
+            if (state.getValue(POWERED)) {
+                level.setBlockAndUpdate(pos, state.setValue(POWERED, false));
             }
             else {
-                if(!CommonConfig.MACHINES_ON_PULSE.get())
-                    level.scheduleTick(pos, asBlock(), 10);
+                level.scheduleTick(pos, asBlock(), 10);
             }
         }
     }
