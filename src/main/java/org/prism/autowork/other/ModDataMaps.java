@@ -15,5 +15,5 @@ public class ModDataMaps {
                     ResourceLocation.fromNamespaceAndPath(Autowork.MODID, "crushing"),
                     Registries.ITEM,
                     CrushingMap.CODEC
-            ).build();
+            ).synced(CrushingMap.CODEC, true).build();
 }
