@@ -1,0 +1,81 @@
+{
+  "autowork.configuration.distributorRange": "Paylaştırıcı tarama menzili",
+  "autowork.configuration.crushingHudHelper": "'Öğütme' HUD'unu göster",
+  "autowork.configuration.machinesWorkOnlyOnPulse": "[Gelişim Aşamasında] Makineler sadece tek yüklük redstone sinyaliyle çalışır",
+
+  "itemGroup.autowork": "Autowork",
+  "block.autowork.chute": "Kanal",
+  "block.autowork.filter_chute": "Filtreli Kanal",
+  "block.autowork.fan": "Pervane",
+  "block.autowork.drill": "Matkap",
+  "block.autowork.placer": "Yerleştirici",
+  "block.autowork.cartloader": "Vagon Yükleyici",
+  "block.autowork.cartunloader": "Vagon Boşaltıcı",
+  "block.autowork.ticker": "Tıklayıcı",
+  "block.autowork.distributor": "Paylaştırıcı",
+  "block.autowork.ticker.set": "Süre şuna ayarlandı: %dt",
+  "block.autowork.breeze_collector": "Meltem Toplayıcı",
+  "block.autowork.extractor": "Aktarıcı",
+  "enchantment.autowork.crushing": "Öğütme",
+
+  "autowork.crushing_description": "'Öğütme' Büyüsü Gerekir",
+
+  "blockhelp.show_more": "Daha fazla bilgi için Ctrl/Shift'e basın",
+  "blockhelp.direction.west": "Batı",
+  "blockhelp.direction.east": "Doğu",
+  "blockhelp.direction.north": "Kuzey",
+  "blockhelp.direction.south": "Güney",
+  "blockhelp.direction.up": "Üst",
+  "blockhelp.direction.down": "Alt",
+  "blockhelp.direction.front": "Ön",
+  "blockhelp.direction.back": "Arka",
+  "blockhelp.multiblock": "Çok bloklu bir yapıda kullanılır",
+  "blockhelp.storage": "Depolamaya sahip",
+  "blockhelp.storage_required": "Depolama gerekli",
+  "blockhelp.no_storage": "Depolamaya sahip DEĞİL",
+  "blockhelp.works_when_powered": "Güç verilince çalışır",
+  "blockhelp.works_when_unpowered": "Güç verilmezse çalışır",
+  "blockhelp.power_depends": "Sinyal gücüne bağlı olarak çalışır",
+
+
+  "blockhelp.autowork.breeze_collector.front": "Eşyaları toplar",
+  "blockhelp.autowork.breeze_collector.details": "Güç verildiğinde önündeki eşyaları içine çeker",
+
+
+  "blockhelp.autowork.cartloader.top": "Sandıklı Vagon bulunduran depolama gerekli",
+  "blockhelp.autowork.cartloader.details": "İki depolama da sağlandığında önüne bir vagon yerleştirir; sonra arkasındaki depolamada bulunan eşyaları bu vagonun içine aktarır"
+
+  "blockhelp.autowork.cartunloader.details": "İki depolama da sağlandığında ve önünden bir vagon geçtiğinde, bu vagonun içinde bulunan eşyaları arkasındaki depolamaya, vagonun kendisini de üstündeki depolamaya aktarır",
+
+  "blockhelp.autowork.chute.bottom": "Hava/Depolama",
+  "blockhelp.autowork.chute.details": "Eşyaları aşağıya doğru aktarır",
+
+  "blockhelp.autowork.distributor.master.front": "'Ana' konumundayken: önündeki hücreleri tarar",
+  "blockhelp.autowork.distributor.node.front": "'Hücre' konumundayken: hedef depolamaya doğru bakar",
+  "blockhelp.autowork.distributor.addition": "Bütün 'Hücreler' aynı yöne (ve depolamalara) doğru bakmalı ve 'Ana' Paylaştırıcı da onlara doğru bakmalı",
+  "blockhelp.autowork.distributor.details": "Hücreleri kullanarak eşyaları depolamalar arasında eşit bir şekilde paylaştırır",
+
+  "blockhelp.autowork.drill.front": "Kırılacak blok",
+  "blockhelp.autowork.drill.details": "Verilen aleti kullanarak bloğu kırar; düşürülen bütün eşyalar dahili depolamada toplanır",
+  "blockhelp.autowork.drill.addition": "Eşya koymak/almak için Matkaba sağ tıklayın",
+
+  "blockhelp.autowork.extractor.details": "Arkasındaki depolamada bulunan eşyaları önündeki depolamaya aktarır",
+
+  "blockhelp.autowork.fan.front": "Rüzgar",
+  "blockhelp.autowork.fan.details": "Sadece bir pervane",
+  "blockhelp.autowork.fan.addition": "Rüzgar yönünü değiştirmek için sağ tıklayın",
+
+  "blockhelp.autowork.filterchute.top": "Depolama/başka bir Kanal gerekli",
+  "blockhelp.autowork.filterchute.bottom": "Hava/Depolama/Başka bir Kanal",
+  "blockhelp.autowork.filterchute.details": "Filtresi olan bir Kanal",
+  "blockhelp.autowork.filterchute.addition1": "Filtreyi değiştirmek için bir eşyayla sağ tıklayın",
+  "blockhelp.autowork.filterchute.addition2": "Shift + Sağ Tık ile kara liste moduna geçin",
+
+  "blockhelp.autowork.placer.front": "Blok yerleşim yeri",
+  "blockhelp.autowork.placer.details": "Depolamasındaki blokları kendi önüne yerleştirir",
+
+  "blockhelp.autowork.ticker.back": "Redstone sinyali gerekli",
+  "blockhelp.autowork.ticker.front": "Redstone sinyali çıktısı",
+  "blockhelp.autowork.ticker.details": "Bir saati dakika-saniye-tik sıralamasıyla şu formatta isimlendirin: XmYsZt (X/Y/Z yerine istediğiniz sayıları yazın. m/s/t'yi DEĞİŞTİRMEYİN) ve Tıklayıcının üstüne sağ tıklayarak zamanlayıcı kurun"
+
+}
