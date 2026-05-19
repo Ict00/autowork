@@ -43,7 +43,7 @@
 
 
   "blockhelp.autowork.cartloader.top": "Sandıklı Vagon bulunduran depolama gerekli",
-  "blockhelp.autowork.cartloader.details": "İki depolama da sağlandığında önüne bir vagon yerleştirir; sonra arkasındaki depolamada bulunan eşyaları bu vagonun içine aktarır"
+  "blockhelp.autowork.cartloader.details": "İki depolama da sağlandığında önüne bir vagon yerleştirir; sonra arkasındaki depolamada bulunan eşyaları bu vagonun içine aktarır",
 
   "blockhelp.autowork.cartunloader.details": "İki depolama da sağlandığında ve önünden bir vagon geçtiğinde, bu vagonun içinde bulunan eşyaları arkasındaki depolamaya, vagonun kendisini de üstündeki depolamaya aktarır",
 
