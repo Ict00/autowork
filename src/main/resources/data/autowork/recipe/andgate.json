@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "pattern": [
+    " A ",
+    "CBC",
+    "ADA"
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:redstone_torch"
+    },
+    "C": {
+      "item": "minecraft:stone"
+    },
+    "B": {
+      "item": "minecraft:quartz"
+    },
+    "D": {
+      "item": "minecraft:redstone"
+    }
+  },
+  "result": {
+    "id": "autowork:andgate",
+    "count": 1
+  }
+}

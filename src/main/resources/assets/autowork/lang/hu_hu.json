@@ -1,0 +1,82 @@
+{
+  "autowork.configuration.distributorRange": "Elosztó letapogatási hatókör",
+  "autowork.configuration.crushingHudHelper": "'Zúzó' HUD megjelenítése",
+  "autowork.configuration.machinesWorkOnlyOnPulse": "[WIP] Gépek kizárólag impulzusos redstone-jellel működnek",
+
+  "itemGroup.autowork": "Autowork",
+  "block.autowork.chute": "Akna",
+  "block.autowork.filter_chute": "Szűrőakna",
+  "block.autowork.fan": "Ventillátor",
+  "block.autowork.drill": "Fúró",
+  "block.autowork.placer": "Lerakó",
+  "block.autowork.cartloader": "Csilletöltő",
+  "block.autowork.cartunloader": "Csillekirakodó",
+  "block.autowork.ticker": "Ketyegő",
+  "block.autowork.distributor": "Elosztó",
+  "block.autowork.ticker.set": "Idő beállítása erre: %dt",
+  "block.autowork.breeze_collector": "Őrszél gyűjtő",
+  "block.autowork.extractor": "Kivonó",
+  "enchantment.autowork.crushing": "Zúzás",
+
+  "autowork.crushing_description": "'Zúzás' varázslat szükséges",
+
+  "blockhelp.show_more": "Ctrl/Shift megnyomása több információért",
+  "blockhelp.direction.west": "Nyugat",
+  "blockhelp.direction.east": "Kelet",
+  "blockhelp.direction.north": "Észak",
+  "blockhelp.direction.south": "Dél",
+  "blockhelp.direction.up": "Felső",
+  "blockhelp.direction.down": "Alsó",
+  "blockhelp.direction.front": "Elülső",
+  "blockhelp.direction.back": "Hátsó",
+  "blockhelp.multiblock": "Több blokkból álló struktúra",
+  "blockhelp.storage": "Van tárolókapacitása",
+  "blockhelp.storage_required": "Tároló szükséges",
+  "blockhelp.no_storage": "NINCS tárolókapacitása",
+  "blockhelp.works_when_powered": "Jel alatt működik",
+  "blockhelp.works_when_unpowered": "Jel nélkül működik",
+  "blockhelp.power_depends": "Jelerősségtől függően működik",
+
+
+  "blockhelp.autowork.breeze_collector.front": "Tárgyakat gyűjt",
+  "blockhelp.autowork.breeze_collector.details": "Jel alatt minden előtte lévő tárgyat beszív",
+
+
+  "blockhelp.autowork.cartloader.top": "Csilletároló, láda szükséges",
+  "blockhelp.autowork.cartloader.details": "Egy csillét helyez le ha mindkét oldalon van egy tároló; Azután a tároló tartalmát belehelyezi egy csillébe",
+
+
+  "blockhelp.autowork.cartunloader.details": "Mikor egy csille elhalad és tárolók vannak biztosítva, ki fogja rakodni a csillében lévő tartalmat hátulra és a csillét maga felé helyezi",
+
+  "blockhelp.autowork.chute.bottom": "Levegő/Tároló",
+  "blockhelp.autowork.chute.details": "Tárgyakat küld lefelé",
+
+  "blockhelp.autowork.distributor.master.front": "Ha 'Fő': letapogatja az előtte lévő csomópontokat",
+  "blockhelp.autowork.distributor.node.front": "Ha 'Csomópont': A célzott tárolóra mutat",
+  "blockhelp.autowork.distributor.addition": "Az összes 'Csomópontnak' ugyan abba az irányba kell nézniük (és a tárolókra) és a 'Főnek' pedig azokra",
+  "blockhelp.autowork.distributor.details": "Egyenletesen elosztja a tárgyakat Csomópontok segítségével",
+
+  "blockhelp.autowork.drill.front": "Bányászásra szánt blokk",
+  "blockhelp.autowork.drill.details": "Eszközt adva kibányássza a blokkot; Minden kidobott tárgy a belső tárolóban lesz összegyűjtve",
+  "blockhelp.autowork.drill.addition": "Jobb-klikk tárgy behelyezéséhez/kivételéhez",
+
+  "blockhelp.autowork.extractor.details": "Tárgyakat küld a hátsóból az elülső tárolóba",
+
+  "blockhelp.autowork.fan.front": "Szellő",
+  "blockhelp.autowork.fan.details": "Csak egy ventillátor",
+  "blockhelp.autowork.fan.addition": "Jobb-klikk a szellő irányának megváltoztatásához",
+
+  "blockhelp.autowork.filterchute.top": "Tároló/Másik akna szükséges",
+  "blockhelp.autowork.filterchute.bottom": "Levegő/Tároló/Másik akna",
+  "blockhelp.autowork.filterchute.details": "Egy akna de szűrővel",
+  "blockhelp.autowork.filterchute.addition1": "Jobb-klikk tárggyal a szűrő megváltoztatásához",
+  "blockhelp.autowork.filterchute.addition2": "Shift + Jobb-klikk a feketelista be- kikapcsolásához",
+
+  "blockhelp.autowork.placer.front": "Hely blokkoknak",
+  "blockhelp.autowork.placer.details": "Blokkokat helyez le a tárolójából maga elé",
+
+  "blockhelp.autowork.ticker.back": "Redstone-jel szükséges",
+  "blockhelp.autowork.ticker.front": "Redstone-jel kimenet",
+  "blockhelp.autowork.ticker.details": "Át kell nevezni egy órát '#m#s#t' formátumra (a # helyén számok) azután jobb-klikk egy ketyegőre az időzítő beállításához"
+
+}

@@ -161,13 +161,7 @@ public class DrillBlockEntity extends BlockEntity {
 
 
         var face = state.getValue(DrillBlock.FACING);
-        AtomicBoolean anySignal = new AtomicBoolean(false);
-        for (var d : Direction.values()) {
-            if (!d.equals(face.getOpposite()) && !d.equals(face) && level.hasSignal(ModUtils.lookTo(pos, d.getOpposite()), d)) {
-                anySignal.set(true);
-                break;
-            }
-        }
+        AtomicBoolean anySignal = new AtomicBoolean(level.hasNeighborSignal(pos));
 
         if (!anySignal.get()) {
             if (state.getValue(DrillBlock.POWERED)) {

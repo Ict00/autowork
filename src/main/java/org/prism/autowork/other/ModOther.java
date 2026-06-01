@@ -15,6 +15,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.block.Block;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.common.loot.IGlobalLootModifier;
 import net.neoforged.neoforge.registries.DeferredHolder;
@@ -22,6 +23,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import net.neoforged.neoforge.registries.NeoForgeRegistries;
 import org.prism.autowork.Autowork;
 import org.prism.autowork.block.ModBlocks;
+import org.prism.autowork.item.ModItems;
 import org.prism.autowork.other.lmod.CrushingModifier;
 
 import java.util.function.Supplier;
@@ -60,6 +62,11 @@ public class ModOther {
                         output.accept(ModBlocks.CARTUNLOADER);
                         output.accept(ModBlocks.TICKER);
                         output.accept(ModBlocks.DISTRIBUTOR);
+                        output.accept(ModBlocks.TRANSMITTER);
+                        output.accept(ModBlocks.AND_GATE);
+
+                        output.accept(ModItems.REDSTONE_CHARGE);
+                        output.accept(ModItems.WRENCH);
                     })
                     .build());
 
@@ -69,6 +76,9 @@ public class ModOther {
     );
 
     public static final TagKey<Item> TOOL_TAG = TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(Autowork.MODID, "tools"));
+    public static final TagKey<Block> FIXABLE_TAG = TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(Autowork.MODID, "fixable"));
+
+    public static final TagKey<Block> GLASSES = TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath("c", "glass_blocks"));
 
     public static void register(IEventBus bus) {
         LOOT_MODIFIERS.register(bus);

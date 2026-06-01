@@ -88,6 +88,28 @@ public record BlockHelpInfo(List<Component> technical, List<Component> details) 
             return this;
         }
 
+        public Builder left(String translation) {
+            tech.add(Component.empty()
+                    .append(Component.translatable("blockhelp.direction.left").withColor(0x47ffd1)
+                            .append(": ")
+                            .append(
+                                    Component.translatable(translation).withColor(0xffa647))
+
+                    ));
+            return this;
+        }
+
+        public Builder right(String translation) {
+            tech.add(Component.empty()
+                    .append(Component.translatable("blockhelp.direction.right").withColor(0x47ffd1)
+                            .append(": ")
+                            .append(
+                                    Component.translatable(translation).withColor(0xffa647))
+
+                    ));
+            return this;
+        }
+
         public Builder front(String translation) {
             tech.add(Component.empty()
                     .append(Component.translatable("blockhelp.direction.front").withColor(0x47ffd1)

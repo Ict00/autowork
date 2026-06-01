@@ -34,11 +34,8 @@ public class TickerBlockEntity extends BlockEntity {
 
     public void tick(ServerLevel level, BlockPos pos, BlockState state) {
         var face = state.getValue(TickerBlock.FACING);
-        var oppositeFace = face.getOpposite();
 
-
-
-        if (level.hasSignal(ModUtils.lookTo(pos, oppositeFace), face)) {
+        if (ModUtils.hasSignal(level, pos, face)) {
             var calculatedStage = Mth.clamp((int) (((float) curTick / setTicks) * 4f), 0, 4);
 
             if (state.getValue(TickerBlock.STAGE) != calculatedStage) {

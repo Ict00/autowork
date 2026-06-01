@@ -2,7 +2,9 @@ package org.prism.autowork.other;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
+import org.prism.autowork.CommonConfig;
 
 public class ModUtils {
     public static Vec3 direction2vec(Direction direction) {
@@ -14,6 +16,16 @@ public class ModUtils {
             case UP -> new Vec3(0, 1, 0);
             case DOWN -> new Vec3(0, -1, 0);
         };
+    }
+
+    public static boolean hasSignal(Level level, BlockPos pos, Direction face) {
+        var opp = face.getOpposite();
+        if (CommonConfig.NEW_REDSTONE_DETECTION.get()) {
+            return level.hasSignal(ModUtils.lookTo(pos, opp), face) || level.hasSignal(ModUtils.lookTo(pos, opp), opp);
+        }
+        else {
+            return level.hasSignal(ModUtils.lookTo(pos, opp), face);
+        }
     }
 
     public static BlockPos lookTo(BlockPos source, Direction dir) {

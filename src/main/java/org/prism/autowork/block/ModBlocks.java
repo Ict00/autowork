@@ -16,6 +16,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import org.prism.autowork.Autowork;
+import org.prism.autowork.block.andgate.AndGateBlock;
 import org.prism.autowork.block.breezecollector.BreezeCollectorBlock;
 import org.prism.autowork.block.cartloader.CartLoaderBlock;
 import org.prism.autowork.block.cartloader.CartUnloaderBlock;
@@ -27,6 +28,7 @@ import org.prism.autowork.block.fan.FanBlock;
 import org.prism.autowork.block.filterchute.FilterChuteBlock;
 import org.prism.autowork.block.placer.PlacerBlock;
 import org.prism.autowork.block.ticker.TickerBlock;
+import org.prism.autowork.block.transmitter.TransmitterBlock;
 import org.prism.autowork.blockhelp.HelpfulBlockItem;
 import org.prism.autowork.item.ModItems;
 
@@ -40,9 +42,14 @@ public class ModBlocks {
     public static final DeferredBlock<Block> BREEZE_COLLECTOR = registerBlock("breeze_collector",
             () -> new BreezeCollectorBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).sound(SoundType.METAL).requiresCorrectToolForDrops().isRedstoneConductor(ModBlocks::neverConductor)));
 
+    public static final DeferredBlock<Block> AND_GATE = registerBlock("andgate",
+            () -> new AndGateBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.COMPARATOR)));
+
     public static final DeferredBlock<Block> TICKER = registerBlock("ticker",
             () -> new TickerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).sound(SoundType.METAL).requiresCorrectToolForDrops().isRedstoneConductor(ModBlocks::neverConductor)));
 
+    public static final DeferredBlock<Block> TRANSMITTER = registerBlock("transmitter",
+            () -> new TransmitterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).sound(SoundType.METAL).requiresCorrectToolForDrops().isRedstoneConductor(ModBlocks::neverConductor)));
 
     public static final DeferredBlock<Block> CARTLOADER = registerBlock("cartloader",
             () -> new CartLoaderBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).sound(SoundType.METAL).requiresCorrectToolForDrops().isRedstoneConductor(ModBlocks::neverConductor)));

@@ -2,9 +2,17 @@
   "autowork.configuration.distributorRange": "Distributor scan range",
   "autowork.configuration.crushingHudHelper": "Show 'Crushing' HUD",
   "autowork.configuration.machinesWorkOnlyOnPulse": "[WIP] Machines work only on pulse redstone signal",
+  "autowork.configuration.transmitterSignalLifetime": "Transmitter's signal lifetime (in ticks)",
+  "autowork.configuration.newRedstoneDetection": "New redstone detection. May be better than older, may be buggier than older",
 
   "itemGroup.autowork": "Autowork",
+
+  "item.autowork.redstone_charge": "Redstone Charge",
+  "item.autowork.wrench": "Wrench",
+
   "block.autowork.chute": "Chute",
+  "block.autowork.transmitter": "Transmitter",
+  "block.autowork.andgate": "And Gate",
   "block.autowork.filter_chute": "Filter Chute",
   "block.autowork.fan": "Fan",
   "block.autowork.drill": "Drill",
@@ -20,8 +28,13 @@
 
   "autowork.crushing_description": "Requires 'Crushing' Enchantment",
 
+  "itemhelp.autowork.wrench": "Sometimes machines freeze (mostly because of crashes). Use wrench to make them tick again.",
+
+  "itemhelp.show_more": "Press Ctrl for more info",
   "blockhelp.show_more": "Press Ctrl/Shift for more info",
   "blockhelp.direction.west": "West",
+  "blockhelp.direction.left": "Left",
+  "blockhelp.direction.right": "Right",
   "blockhelp.direction.east": "East",
   "blockhelp.direction.north": "North",
   "blockhelp.direction.south": "South",
@@ -77,6 +90,14 @@
 
   "blockhelp.autowork.ticker.back": "Redstone signal required",
   "blockhelp.autowork.ticker.front": "Redstone signal output",
-  "blockhelp.autowork.ticker.details": "Rename clock to format: XmYsZt and then right-click the Ticker with it to set its timer"
+  "blockhelp.autowork.ticker.details": "Rename clock to format: XmYsZt and then right-click the Ticker with it to set its timer",
 
+  "blockhelp.autowork.transmitter.back": "When powered: shoots signal entity from front",
+  "blockhelp.autowork.transmitter.back2": "When receiving: emits signal",
+  "blockhelp.autowork.transmitter.front": "Receive/shoot signal",
+  "blockhelp.autowork.transmitter.details": "Used in cases when you need to transfer redstone signal by air",
+
+  "blockhelp.autowork.andgate.front": "Signal output",
+  "blockhelp.autowork.andgate.side": "Signal input",
+  "blockhelp.autowork.andgate.details": "Emits signal only when both sides are powered"
 }

@@ -16,10 +16,12 @@ import org.prism.autowork.block.ModBlockEntities;
 import org.prism.autowork.block.ModBlocks;
 import org.prism.autowork.block.drill.DrillBlockEntity;
 import org.prism.autowork.block.placer.PlacerBlockEntity;
+import org.prism.autowork.entities.ModEntities;
 import org.prism.autowork.item.ModItems;
 import org.prism.autowork.other.ModData;
 import org.prism.autowork.other.ModDataMaps;
 import org.prism.autowork.other.ModOther;
+import org.prism.autowork.particles.ModParticles;
 import org.slf4j.Logger;
 
 @Mod(Autowork.MODID)
@@ -33,7 +35,9 @@ public class Autowork {
         ModData.register(modEventBus);
         ModBlockEntities.register(modEventBus);
         ModItems.register(modEventBus);
+        ModEntities.register(modEventBus);
         ModOther.register(modEventBus);
+        ModParticles.register(modEventBus);
 
         modEventBus.addListener(this::registerCapabilityProvider);
         modEventBus.addListener(this::registerDataMapTypes);

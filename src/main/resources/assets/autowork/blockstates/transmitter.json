@@ -1,0 +1,101 @@
+{
+  "variants": {
+    "facing=down,power_state=0": {
+      "model": "autowork:block/transmitter_0",
+      "x": 90
+    },
+    "facing=down,power_state=1": {
+      "model": "autowork:block/transmitter_1",
+      "x": 90
+    },
+    "facing=down,power_state=2": {
+      "model": "autowork:block/transmitter_2",
+      "x": 90
+    },
+    "facing=down,power_state=3": {
+      "model": "autowork:block/transmitter_0",
+      "x": 90
+    },
+
+    "facing=east,power_state=0": {
+      "model": "autowork:block/transmitter_0",
+      "y": 90
+    },
+    "facing=east,power_state=1": {
+      "model": "autowork:block/transmitter_1",
+      "y": 90
+    },
+    "facing=east,power_state=2": {
+      "model": "autowork:block/transmitter_2",
+      "y": 90
+    },
+    "facing=east,power_state=3": {
+      "model": "autowork:block/transmitter_0",
+      "y": 90
+    },
+
+    "facing=north,power_state=0": {
+      "model": "autowork:block/transmitter_0"
+    },
+    "facing=north,power_state=1": {
+      "model": "autowork:block/transmitter_1"
+    },
+    "facing=north,power_state=2": {
+      "model": "autowork:block/transmitter_2"
+    },
+    "facing=north,power_state=3": {
+      "model": "autowork:block/transmitter_0"
+    },
+
+    "facing=south,power_state=0": {
+      "model": "autowork:block/transmitter_0",
+      "y": 180
+    },
+    "facing=south,power_state=1": {
+      "model": "autowork:block/transmitter_1",
+      "y": 180
+    },
+    "facing=south,power_state=2": {
+      "model": "autowork:block/transmitter_2",
+      "y": 180
+    },
+    "facing=south,power_state=3": {
+      "model": "autowork:block/transmitter_0",
+      "y": 180
+    },
+
+    "facing=up,power_state=0": {
+      "model": "autowork:block/transmitter_0",
+      "x": 270
+    },
+    "facing=up,power_state=1": {
+      "model": "autowork:block/transmitter_1",
+      "x": 270
+    },
+    "facing=up,power_state=2": {
+      "model": "autowork:block/transmitter_2",
+      "x": 270
+    },
+    "facing=up,power_state=3": {
+      "model": "autowork:block/transmitter_0",
+      "x": 270
+    },
+
+    "facing=west,power_state=0": {
+      "model": "autowork:block/transmitter_0",
+      "y": 270
+    },
+    "facing=west,power_state=1": {
+      "model": "autowork:block/transmitter_1",
+      "y": 270
+    },
+    "facing=west,power_state=2": {
+      "model": "autowork:block/transmitter_2",
+      "y": 270
+    },
+    "facing=west,power_state=3": {
+      "model": "autowork:block/transmitter_0",
+      "y": 270
+    }
+  }
+}

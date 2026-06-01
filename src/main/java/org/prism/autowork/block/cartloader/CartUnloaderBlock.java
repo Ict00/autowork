@@ -55,7 +55,7 @@ public class CartUnloaderBlock extends Block implements BlockHelpProvider {
 
             if (minecartCap != null && storageCap != null) {
                 try {
-                    var aabb = new AABB(front).inflate(0.15);
+                    var aabb = new AABB(front).inflate(0.2);
                     List<MinecartChest> entities = level.getEntitiesOfClass(
                             MinecartChest.class,
                             aabb,
@@ -65,16 +65,30 @@ public class CartUnloaderBlock extends Block implements BlockHelpProvider {
                     );
 
                     if (entities.isEmpty()) {
-                        level.scheduleTick(pos, asBlock(), 20);
+                        level.scheduleTick(pos, asBlock(), 10);
                         return;
                     }
 
+                    var filter = CartHelper.getCartName(level, pos, facing);
+                    boolean caughtAny = false;
+
                     for (int i = 0; i < entities.size(); i++) {
                         var entity = entities.get(i);
+
+                        if (filter != null) {
+                            if (entity.getCustomName() == null) {
+                                continue;
+                            }
+                            if (!entity.getCustomName().getString().equals(filter)) {
+                                continue;
+                            }
+                        }
+
                         var items = entity.getItemStacks();
 
                         for (int x = 0; x < items.size(); x++) {
                             var remains = ItemHandlerHelper.insertItem(storageCap, items.get(x), false);
+                            System.out.println(remains);
 
                             if (!remains.isEmpty()) {
                                 var itemEntity = new ItemEntity(level, front.getX(), front.getY(), front.getZ(), remains);
@@ -89,16 +103,22 @@ public class CartUnloaderBlock extends Block implements BlockHelpProvider {
                         }
 
                         entity.remove(Entity.RemovalReason.CHANGED_DIMENSION);
+                        caughtAny = true;
                     }
-                    level.setBlockAndUpdate(pos, state.setValue(POWERED, true));
-                    level.playSound(null, pos, SoundEvents.DISPENSER_DISPENSE, SoundSource.BLOCKS);
+                    if (caughtAny) {
+                        level.setBlockAndUpdate(pos, state.setValue(POWERED, true));
+                        level.playSound(null, pos, SoundEvents.DISPENSER_DISPENSE, SoundSource.BLOCKS);
+                    }
+                    else {
+                        level.scheduleTick(pos, asBlock(), 10);
+                    }
                     return;
                 }
                 catch (Exception ex) {
                     log.error("e: ", ex);
                 }
             }
-            level.scheduleTick(pos, asBlock(), 20);
+            level.scheduleTick(pos, asBlock(), 10);
         }
         else {
             if (state.getValue(POWERED)) {
@@ -114,7 +134,7 @@ public class CartUnloaderBlock extends Block implements BlockHelpProvider {
     protected void onPlace(BlockState state, Level level, BlockPos pos, BlockState oldState, boolean movedByPiston) {
         super.onPlace(state, level, pos, oldState, movedByPiston);
 
-        level.scheduleTick(pos, asBlock(), 20);
+        level.scheduleTick(pos, asBlock(), 10);
     }
 
     @Override

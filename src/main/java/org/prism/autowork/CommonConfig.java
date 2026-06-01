@@ -7,5 +7,12 @@ public class CommonConfig {
 
     public static final ModConfigSpec.IntValue DISTRIBUTOR_RANGE = BUILDER
             .defineInRange("distributorRange", 15, 2, 64);
+
+    public static final ModConfigSpec.BooleanValue NEW_REDSTONE_DETECTION = BUILDER
+            .define("newRedstoneDetection", true);
+
+    public static final ModConfigSpec.IntValue TRANSMITTER_SIGNAL_LIFETIME = BUILDER
+            .defineInRange("transmitterSignalLifetime", 80, 20, Integer.MAX_VALUE);
+
     static final ModConfigSpec SPEC = BUILDER.build();
 }

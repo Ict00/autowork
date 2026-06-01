@@ -11,6 +11,7 @@
     "autowork:fan",
     "autowork:distributor",
     "autowork:ticker",
+    "autowork:transmitter",
     "autowork:drill"
   ]
 }

@@ -1,0 +1,14 @@
+{
+  "values": [
+    "autowork:breeze_collector",
+    "autowork:transmitter",
+    "autowork:cartloader",
+    "autowork:cartunloader",
+    "autowork:distributor",
+    "autowork:extractor",
+    "autowork:fan",
+    "autowork:drill",
+    "autowork:chute",
+    "autowork:filter_chute"
+  ]
+}

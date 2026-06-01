@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "pattern": [
+    "ABA",
+    "CEC",
+    "CDC"
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:redstone_block"
+    },
+    "B": {
+      "item": "minecraft:gold_ingot"
+    },
+    "D": {
+      "item": "minecraft:dispenser"
+    },
+    "C": {
+      "item": "minecraft:iron_ingot"
+    },
+    "E": {
+      "item": "autowork:redstone_charge"
+    }
+  },
+  "result": {
+    "id": "autowork:transmitter",
+    "count": 2
+  }
+}

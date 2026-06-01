@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "pattern": [
+    " AA",
+    " BA",
+    "A  "
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:iron_ingot"
+    },
+    "B": {
+      "item": "minecraft:red_dye"
+    }
+  },
+  "result": {
+    "id": "autowork:wrench",
+    "count": 1
+  }
+}

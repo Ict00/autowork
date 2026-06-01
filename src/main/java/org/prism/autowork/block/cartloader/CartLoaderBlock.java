@@ -2,12 +2,14 @@ package org.prism.autowork.block.cartloader;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.vehicle.MinecartChest;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.NameTagItem;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -49,7 +51,12 @@ public class CartLoaderBlock extends Block implements BlockHelpProvider {
 
                     if (stack.is(Items.CHEST_MINECART)) {
                         minecartCap.extractItem(i, 1, false);
-                        var cart = new MinecartChest(level, front.getX(), front.getY(), front.getZ());
+                        var name = CartHelper.getCartName(level, pos, facing);
+                        var cart = new MinecartChest(level, front.getX()+0.5f, front.getY(), front.getZ()+0.5f);
+
+                        if (name != null) {
+                            cart.setCustomName(Component.literal(name));
+                        }
 
                         for (int x = 0; x < 27; x++) {
                             if (x >= storageCap.getSlots()) {
