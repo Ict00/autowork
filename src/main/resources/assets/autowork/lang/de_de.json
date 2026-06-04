@@ -1,0 +1,100 @@
+{
+  "autowork.configuration.distributorRange": "Scanreichweite des Verteilers",
+  "autowork.configuration.crushingHudHelper": "'Brecher'-HUD anzeigen",
+  "autowork.configuration.machinesWorkOnlyOnPulse": "[WIP] Maschinen arbeiten nur mit Redstone-Pulssignal",
+  "autowork.configuration.transmitterSignalLifetime": "Maximale Laufzeit von Sendersignalen (in Ticks)",
+  "autowork.configuration.newRedstoneDetection": "Neue Logik zur Erkennung von Redstonesignalen. Könnte möglicherweise besser, aber auch fehleranfälliger als die alte sein",
+
+  "itemGroup.autowork": "Autowork",
+
+  "item.autowork.redstone_charge": "Redstonekugel",
+  "item.autowork.wrench": "Engländer",
+
+  "block.autowork.chute": "Schacht",
+  "block.autowork.transmitter": "Sender",
+  "block.autowork.andgate": "UND-Gatter",
+  "block.autowork.filter_chute": "Filterschacht",
+  "block.autowork.fan": "Ventilator",
+  "block.autowork.drill": "Bohrer",
+  "block.autowork.placer": "Setzwerk",
+  "block.autowork.cartloader": "Lorenbelader",
+  "block.autowork.cartunloader": "Lorenentlader",
+  "block.autowork.ticker": "Taktgeber",
+  "block.autowork.distributor": "Verteiler",
+  "block.autowork.ticker.set": "Takt gesetzt auf: %dt",
+  "block.autowork.breeze_collector": "Böensammler",
+  "block.autowork.extractor": "Zieher",
+  "enchantment.autowork.crushing": "Brecher",
+
+  "autowork.crushing_description": "Benötigt die 'Brecher'-Verzauberung",
+
+  "itemhelp.autowork.wrench": "Es ist möglich, dass Maschinen – z. B. aufgrund von Abstürzen – einfrieren. Der Engländer kann sie zurücksetzen.",
+
+  "itemhelp.show_more": "Strg für weitere Informationen",
+  "blockhelp.show_more": "Strg/Umschalt für weitere Informationen",
+  "blockhelp.direction.west": "West",
+  "blockhelp.direction.left": "Links",
+  "blockhelp.direction.right": "Rechts",
+  "blockhelp.direction.east": "Ost",
+  "blockhelp.direction.north": "Nord",
+  "blockhelp.direction.south": "Süd",
+  "blockhelp.direction.up": "Oberseite",
+  "blockhelp.direction.down": "Unterseite",
+  "blockhelp.direction.front": "Vorderseite",
+  "blockhelp.direction.back": "Rückseite",
+  "blockhelp.multiblock": "Ist eine Multiblock-Struktur",
+  "blockhelp.storage": "Hat internes Lager",
+  "blockhelp.storage_required": "Benötigt Lager",
+  "blockhelp.no_storage": "Hat KEIN internes Lager",
+  "blockhelp.works_when_powered": "Arbeitet bei aktivem Redstonesignal",
+  "blockhelp.works_when_unpowered": "Arbeitet bei inaktivem Redstonesignal",
+  "blockhelp.power_depends": "Arbeitsleistung hängt von Signalstärke ab",
+
+  "blockhelp.autowork.breeze_collector.front": "Sammelt Gegenstände",
+  "blockhelp.autowork.breeze_collector.details": "Saugt bei aktivem Redstonesignal alle Gegenstände an, die sich vor ihm befinden.",
+
+  "blockhelp.autowork.cartloader.top": "Lager mit Güterloren erforderlich",
+  "blockhelp.autowork.cartloader.details": "Erzeugt eine Güterlore, wenn beide Lager verfügbar sind, und füllt sie dann mit dem Inhalt des Lagers an der Rückseite.",
+
+  "blockhelp.autowork.cartunloader.details": "Wenn eine Güterlore vorbeifährt und beide Lager verfügbar sind, wird sie vom Lorenentlader entladen: alle Inhalte werden in das Lager an der Rückseite gefüllt und die Lore selbst erscheint im Lager an der Oberseite",
+
+  "blockhelp.autowork.chute.bottom": "Luft/Lager",
+  "blockhelp.autowork.chute.details": "Überträgt Gegenstände nach unten",
+
+  "blockhelp.autowork.distributor.master.front": "'Master': scannt die davor anliegenden 'Nodes'",
+  "blockhelp.autowork.distributor.node.front": "'Node': zeigt auf das Ziellager",
+  "blockhelp.autowork.distributor.addition": "Alle 'Nodes' sollten in dieselbe Richtung (und auf dieselben Lager) zeigen, und 'Master' auf die Nodes",
+  "blockhelp.autowork.distributor.details": "Verteilt Gegenstände gleichmäßig auf mehrere Lager mithilfe von 'Nodes'",
+
+  "blockhelp.autowork.drill.front": "Block, der abgebaut werden soll",
+  "blockhelp.autowork.drill.details": "Zerstört den Block mithilfe des gegebenen Werkzeugs; die Ausbeute wird im internen Lager gesammelt",
+  "blockhelp.autowork.drill.addition": "Rechtsklick, um Gegenstände in den Bohrer zu geben bzw. aus ihm herauszunehmen",
+
+  "blockhelp.autowork.extractor.details": "Überträgt Gegenstände aus dem Lager an der Rückseite an das Lager an der Vorderseite",
+
+  "blockhelp.autowork.fan.front": "Wind",
+  "blockhelp.autowork.fan.details": "Ein gewöhnlicher Ventilator",
+  "blockhelp.autowork.fan.addition": "Rechtsklick zum Wechseln der Windrichtung",
+
+  "blockhelp.autowork.filterchute.top": "Lager/Weiterer Schacht erforderlich",
+  "blockhelp.autowork.filterchute.bottom": "Luft/Lager/Weiterer Schacht",
+  "blockhelp.autowork.filterchute.details": "Ein Schacht, aber mit Filterfunktion",
+  "blockhelp.autowork.filterchute.addition1": "Rechtsklick mit einem Gegenstand, um den Filter zu setzen",
+  "blockhelp.autowork.filterchute.addition2": "Umschalt + Rechtsklick, um Sperrliste zu (de)aktivieren",
+
+  "blockhelp.autowork.placer.front": "Ort für zu platzierende Blöcke",
+  "blockhelp.autowork.placer.details": "Setzt Blöcke aus seinem Lager vor sich selbst ab.",
+
+  "blockhelp.autowork.ticker.back": "Redstonesignal erforderlich",
+  "blockhelp.autowork.ticker.front": "Redstonesignal-Ausgabe",
+  "blockhelp.autowork.ticker.details": "Benenne eine Uhr im Format XmYsZt um und interagiere mit ihr per Rechtsklick mit dem Taktgeber, um den Takt einzurichten",
+
+  "blockhelp.autowork.transmitter.back": "Bei Redstonesignal: feuert eine Signal-Entität aus der Vorderseite",
+  "blockhelp.autowork.transmitter.back2": "Bei Empfang: erzeugt ein Redstonesignal",
+  "blockhelp.autowork.transmitter.front": "Empfängt/sendet Signal",
+  "blockhelp.autowork.transmitter.details": "Wird in Fällen verwendet, in denen du ein Redstonesignal über eine Distanz durch die Luft übertragen möchtest",
+
+  "blockhelp.autowork.andgate.front": "Signalausgabe",
+  "blockhelp.autowork.andgate.side": "Signaleingabe",
+  "blockhelp.autowork.andgate.details": "Gibt ein Signal aus, falls an beiden Seiten jeweils ein aktives Signal anliegt"
+}
