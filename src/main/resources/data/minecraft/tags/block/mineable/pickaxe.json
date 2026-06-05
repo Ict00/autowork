@@ -12,6 +12,8 @@
     "autowork:distributor",
     "autowork:ticker",
     "autowork:transmitter",
-    "autowork:drill"
+    "autowork:drill",
+    "autowork:toggler",
+    "autowork:railway_observer"
   ]
 }

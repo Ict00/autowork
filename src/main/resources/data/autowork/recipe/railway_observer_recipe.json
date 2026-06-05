@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "ingredients": [
+    {
+      "item": "minecraft:observer"
+    },
+    {
+      "tag": "minecraft:rails"
+    },
+    {
+      "tag": "minecraft:signs"
+    }
+  ],
+  "result": {
+    "id": "autowork:railway_observer",
+    "count": 1
+  }
+}

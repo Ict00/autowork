@@ -117,6 +117,7 @@ public class CartLoaderBlock extends Block implements BlockHelpProvider {
                 .details("blockhelp.autowork.cartloader.details")
                 .no_storage()
                 .only_when_powered()
+                .configurable_by_sign()
                 .build();
     }
 }

@@ -1,0 +1,158 @@
+{
+  "variants": {
+    "facing=east,powered=false,easter=none": {
+      "model": "autowork:block/railway/off_neutral",
+      "y": 90
+    },
+    "facing=east,powered=true,easter=none": {
+      "model": "autowork:block/railway/on_neutral",
+      "y": 90
+    },
+    "facing=north,powered=false,easter=none": {
+      "model": "autowork:block/railway/off_neutral"
+    },
+    "facing=north,powered=true,easter=none": {
+      "model": "autowork:block/railway/on_neutral"
+    },
+    "facing=south,powered=false,easter=none": {
+      "model": "autowork:block/railway/off_neutral",
+      "y": 180
+    },
+    "facing=south,powered=true,easter=none": {
+      "model": "autowork:block/railway/on_neutral",
+      "y": 180
+    },
+    "facing=west,powered=false,easter=none": {
+      "model": "autowork:block/railway/off_neutral",
+      "y": 270
+    },
+    "facing=west,powered=true,easter=none": {
+      "model": "autowork:block/railway/on_neutral",
+      "y": 270
+    },
+
+    "facing=east,powered=false,easter=ict": {
+      "model": "autowork:block/railway/off_ict",
+      "y": 90
+    },
+    "facing=east,powered=true,easter=ict": {
+      "model": "autowork:block/railway/on_ict",
+      "y": 90
+    },
+    "facing=north,powered=false,easter=ict": {
+      "model": "autowork:block/railway/off_ict"
+    },
+    "facing=north,powered=true,easter=ict": {
+      "model": "autowork:block/railway/on_ict"
+    },
+    "facing=south,powered=false,easter=ict": {
+      "model": "autowork:block/railway/off_ict",
+      "y": 180
+    },
+    "facing=south,powered=true,easter=ict": {
+      "model": "autowork:block/railway/on_ict",
+      "y": 180
+    },
+    "facing=west,powered=false,easter=ict": {
+      "model": "autowork:block/railway/off_ict",
+      "y": 270
+    },
+    "facing=west,powered=true,easter=ict": {
+      "model": "autowork:block/railway/on_ict",
+      "y": 270
+    },
+
+    "facing=east,powered=false,easter=yuzi": {
+      "model": "autowork:block/railway/off_yuzi",
+      "y": 90
+    },
+    "facing=east,powered=true,easter=yuzi": {
+      "model": "autowork:block/railway/on_yuzi",
+      "y": 90
+    },
+    "facing=north,powered=false,easter=yuzi": {
+      "model": "autowork:block/railway/off_yuzi"
+    },
+    "facing=north,powered=true,easter=yuzi": {
+      "model": "autowork:block/railway/on_yuzi"
+    },
+    "facing=south,powered=false,easter=yuzi": {
+      "model": "autowork:block/railway/off_yuzi",
+      "y": 180
+    },
+    "facing=south,powered=true,easter=yuzi": {
+      "model": "autowork:block/railway/on_yuzi",
+      "y": 180
+    },
+    "facing=west,powered=false,easter=yuzi": {
+      "model": "autowork:block/railway/off_yuzi",
+      "y": 270
+    },
+    "facing=west,powered=true,easter=yuzi": {
+      "model": "autowork:block/railway/on_yuzi",
+      "y": 270
+    },
+
+    "facing=east,powered=false,easter=ray": {
+      "model": "autowork:block/railway/off_ray",
+      "y": 90
+    },
+    "facing=east,powered=true,easter=ray": {
+      "model": "autowork:block/railway/on_ray",
+      "y": 90
+    },
+    "facing=north,powered=false,easter=ray": {
+      "model": "autowork:block/railway/off_ray"
+    },
+    "facing=north,powered=true,easter=ray": {
+      "model": "autowork:block/railway/on_ray"
+    },
+    "facing=south,powered=false,easter=ray": {
+      "model": "autowork:block/railway/off_ray",
+      "y": 180
+    },
+    "facing=south,powered=true,easter=ray": {
+      "model": "autowork:block/railway/on_ray",
+      "y": 180
+    },
+    "facing=west,powered=false,easter=ray": {
+      "model": "autowork:block/railway/off_ray",
+      "y": 270
+    },
+    "facing=west,powered=true,easter=ray": {
+      "model": "autowork:block/railway/on_ray",
+      "y": 270
+    },
+
+    "facing=east,powered=false,easter=sumber": {
+      "model": "autowork:block/railway/off_sumber",
+      "y": 90
+    },
+    "facing=east,powered=true,easter=sumber": {
+      "model": "autowork:block/railway/on_sumber",
+      "y": 90
+    },
+    "facing=north,powered=false,easter=sumber": {
+      "model": "autowork:block/railway/off_sumber"
+    },
+    "facing=north,powered=true,easter=sumber": {
+      "model": "autowork:block/railway/on_sumber"
+    },
+    "facing=south,powered=false,easter=sumber": {
+      "model": "autowork:block/railway/off_sumber",
+      "y": 180
+    },
+    "facing=south,powered=true,easter=sumber": {
+      "model": "autowork:block/railway/on_sumber",
+      "y": 180
+    },
+    "facing=west,powered=false,easter=sumber": {
+      "model": "autowork:block/railway/off_sumber",
+      "y": 270
+    },
+    "facing=west,powered=true,easter=sumber": {
+      "model": "autowork:block/railway/on_sumber",
+      "y": 270
+    }
+  }
+}
