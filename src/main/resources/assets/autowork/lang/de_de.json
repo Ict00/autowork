@@ -14,6 +14,8 @@
   "block.autowork.transmitter": "Sender",
   "block.autowork.andgate": "UND-Gatter",
   "block.autowork.filter_chute": "Filterschacht",
+  "block.autowork.railway_observer": "Schienen-Beobachter",
+  "block.autowork.toggler": "Schalter",
   "block.autowork.fan": "Ventilator",
   "block.autowork.drill": "Bohrer",
   "block.autowork.placer": "Setzwerk",
@@ -49,12 +51,21 @@
   "blockhelp.works_when_powered": "Arbeitet bei aktivem Redstonesignal",
   "blockhelp.works_when_unpowered": "Arbeitet bei inaktivem Redstonesignal",
   "blockhelp.power_depends": "Leistung hängt von der Signalstärke ab",
+  "blockhelp.sign_configurable": "Mithilfe von Schildern konfigurierbar",
 
   "blockhelp.autowork.breeze_collector.front": "Sammelt Gegenstände",
   "blockhelp.autowork.breeze_collector.details": "Saugt bei aktivem Redstonesignal alle Gegenstände ein, die sich vor ihm befinden",
 
   "blockhelp.autowork.cartloader.top": "Lager mit Güterloren erforderlich",
   "blockhelp.autowork.cartloader.details": "Falls beide Lager angeschlossen sind, kann der Lorenbelader eine Güterlore erzeugen und sie mit dem Inhalt des Lagers an der Rückseite beladen",
+
+  "blockhelp.autowork.cart.side": "Seite für ein Schild",
+
+  "blockhelp.autowork.railway.top": "Redstonesignal-Ausgabe",
+  "blockhelp.autowork.railway.details": "Erkennt Loren; mithilfe eines Schildes auch nach Name filterbar",
+
+  "blockhelp.autowork.toggler.back": "Redstonesignal-Ausgabe",
+  "blockhelp.autowork.toggler.details": "Funktioniert ähnlich wie eine Kupferleuchte, allerdings mit einer Ausgangsseite, die ein Redstonesignal ausgibt, wenn die Lampe leuchtet",
 
   "blockhelp.autowork.cartunloader.details": "Falls beide Lager angeschlossen sind und eine Güterlore vorbeifährt, wird sie vom Lorenentlader entladen: Ihre Inhalte werden in das Lager an der Rückseite übertragen und die Lore selbst erscheint im Lager an der Oberseite",
 
