@@ -14,6 +14,8 @@
   "block.autowork.transmitter": "Sender",
   "block.autowork.andgate": "UND-Gatter",
   "block.autowork.filter_chute": "Filterschacht",
+  "block.autowork.railway_observer": "Schienen-Beobachter",
+  "block.autowork.toggler": "Schalter",
   "block.autowork.fan": "Ventilator",
   "block.autowork.drill": "Bohrer",
   "block.autowork.placer": "Setzwerk",
@@ -28,7 +30,7 @@
 
   "autowork.crushing_description": "Benötigt die 'Brecher'-Verzauberung",
 
-  "itemhelp.autowork.wrench": "Es ist möglich, dass Maschinen – z. B. aufgrund von Abstürzen – einfrieren. Der Engländer kann sie zurücksetzen.",
+  "itemhelp.autowork.wrench": "Es ist möglich, dass Maschinen – z. B. aufgrund von Abstürzen – einfrieren. Der Engländer kann sie zurücksetzen",
 
   "itemhelp.show_more": "Strg für weitere Informationen",
   "blockhelp.show_more": "Strg/Umschalt für weitere Informationen",
@@ -43,58 +45,67 @@
   "blockhelp.direction.front": "Vorderseite",
   "blockhelp.direction.back": "Rückseite",
   "blockhelp.multiblock": "Ist eine Multiblock-Struktur",
-  "blockhelp.storage": "Hat internes Lager",
-  "blockhelp.storage_required": "Benötigt Lager",
+  "blockhelp.storage": "Hat ein internes Lager",
+  "blockhelp.storage_required": "Benötigt ein externes Lager",
   "blockhelp.no_storage": "Hat KEIN internes Lager",
   "blockhelp.works_when_powered": "Arbeitet bei aktivem Redstonesignal",
   "blockhelp.works_when_unpowered": "Arbeitet bei inaktivem Redstonesignal",
-  "blockhelp.power_depends": "Arbeitsleistung hängt von Signalstärke ab",
+  "blockhelp.power_depends": "Leistung hängt von der Signalstärke ab",
+  "blockhelp.sign_configurable": "Mithilfe von Schildern konfigurierbar",
 
   "blockhelp.autowork.breeze_collector.front": "Sammelt Gegenstände",
-  "blockhelp.autowork.breeze_collector.details": "Saugt bei aktivem Redstonesignal alle Gegenstände an, die sich vor ihm befinden.",
+  "blockhelp.autowork.breeze_collector.details": "Saugt bei aktivem Redstonesignal alle Gegenstände ein, die sich vor ihm befinden",
 
   "blockhelp.autowork.cartloader.top": "Lager mit Güterloren erforderlich",
-  "blockhelp.autowork.cartloader.details": "Erzeugt eine Güterlore, wenn beide Lager verfügbar sind, und füllt sie dann mit dem Inhalt des Lagers an der Rückseite.",
+  "blockhelp.autowork.cartloader.details": "Falls beide Lager angeschlossen sind, kann der Lorenbelader eine Güterlore erzeugen und sie mit dem Inhalt des Lagers an der Rückseite beladen",
 
-  "blockhelp.autowork.cartunloader.details": "Wenn eine Güterlore vorbeifährt und beide Lager verfügbar sind, wird sie vom Lorenentlader entladen: alle Inhalte werden in das Lager an der Rückseite gefüllt und die Lore selbst erscheint im Lager an der Oberseite",
+  "blockhelp.autowork.cart.side": "Seite für ein Schild",
+
+  "blockhelp.autowork.railway.top": "Redstonesignal-Ausgabe",
+  "blockhelp.autowork.railway.details": "Erkennt Loren; mithilfe eines Schildes auch nach Name filterbar",
+
+  "blockhelp.autowork.toggler.back": "Redstonesignal-Ausgabe",
+  "blockhelp.autowork.toggler.details": "Funktioniert ähnlich wie eine Kupferleuchte, allerdings mit einer Ausgangsseite, die ein Redstonesignal ausgibt, wenn die Lampe leuchtet",
+
+  "blockhelp.autowork.cartunloader.details": "Falls beide Lager angeschlossen sind und eine Güterlore vorbeifährt, wird sie vom Lorenentlader entladen: Ihre Inhalte werden in das Lager an der Rückseite übertragen und die Lore selbst erscheint im Lager an der Oberseite",
 
   "blockhelp.autowork.chute.bottom": "Luft/Lager",
-  "blockhelp.autowork.chute.details": "Überträgt Gegenstände nach unten",
+  "blockhelp.autowork.chute.details": "Gibt Gegenstände nach unten weiter",
 
-  "blockhelp.autowork.distributor.master.front": "'Master': scannt die davor anliegenden 'Nodes'",
-  "blockhelp.autowork.distributor.node.front": "'Node': zeigt auf das Ziellager",
-  "blockhelp.autowork.distributor.addition": "Alle 'Nodes' sollten in dieselbe Richtung (und auf dieselben Lager) zeigen, und 'Master' auf die Nodes",
-  "blockhelp.autowork.distributor.details": "Verteilt Gegenstände gleichmäßig auf mehrere Lager mithilfe von 'Nodes'",
+  "blockhelp.autowork.distributor.master.front": "'Master': scannt an der Vorderseite anliegende 'Nodes'",
+  "blockhelp.autowork.distributor.node.front": "'Node': zeigt auf ein Ziellager",
+  "blockhelp.autowork.distributor.addition": "Alle 'Nodes' sollten in dieselbe Richtung und dieselben Lager zeigen, und der 'Master' wiederum auf die Nodes",
+  "blockhelp.autowork.distributor.details": "Verteilt Gegenstände gleichmäßig mithilfe von 'Nodes' auf mehrere Lager",
 
   "blockhelp.autowork.drill.front": "Block, der abgebaut werden soll",
-  "blockhelp.autowork.drill.details": "Zerstört den Block mithilfe des gegebenen Werkzeugs; die Ausbeute wird im internen Lager gesammelt",
-  "blockhelp.autowork.drill.addition": "Rechtsklick, um Gegenstände in den Bohrer zu geben bzw. aus ihm herauszunehmen",
+  "blockhelp.autowork.drill.details": "Zerstört vorn anliegende Blöcke mithilfe des enthaltenen Werkzeugs; die Ausbeute wird im internen Lager gesammelt",
+  "blockhelp.autowork.drill.addition": "Rechtsklick, um Werkzeuge in den Bohrer zu geben bzw. aus ihm herauszunehmen",
 
   "blockhelp.autowork.extractor.details": "Überträgt Gegenstände aus dem Lager an der Rückseite an das Lager an der Vorderseite",
 
   "blockhelp.autowork.fan.front": "Wind",
-  "blockhelp.autowork.fan.details": "Ein gewöhnlicher Ventilator",
+  "blockhelp.autowork.fan.details": "Ein handelsüblicher Ventilator",
   "blockhelp.autowork.fan.addition": "Rechtsklick zum Wechseln der Windrichtung",
 
   "blockhelp.autowork.filterchute.top": "Lager/Weiterer Schacht erforderlich",
   "blockhelp.autowork.filterchute.bottom": "Luft/Lager/Weiterer Schacht",
-  "blockhelp.autowork.filterchute.details": "Ein Schacht, aber mit Filterfunktion",
-  "blockhelp.autowork.filterchute.addition1": "Rechtsklick mit einem Gegenstand, um den Filter zu setzen",
-  "blockhelp.autowork.filterchute.addition2": "Umschalt + Rechtsklick, um Sperrliste zu (de)aktivieren",
+  "blockhelp.autowork.filterchute.details": "Ein Schacht mit Filterfunktion",
+  "blockhelp.autowork.filterchute.addition1": "Rechtsklick mit einem Gegenstand, um den Filter zu kalibrieren",
+  "blockhelp.autowork.filterchute.addition2": "Umschalt + Rechtsklick, um die Sperrliste zu (de)aktivieren",
 
-  "blockhelp.autowork.placer.front": "Ort für zu platzierende Blöcke",
-  "blockhelp.autowork.placer.details": "Setzt Blöcke aus seinem Lager vor sich selbst ab.",
+  "blockhelp.autowork.placer.front": "Ort, an dem Blöcke platziert werden sollen",
+  "blockhelp.autowork.placer.details": "Setzt Blöcke aus dem internen Lager vor sich selbst ab",
 
   "blockhelp.autowork.ticker.back": "Redstonesignal erforderlich",
   "blockhelp.autowork.ticker.front": "Redstonesignal-Ausgabe",
-  "blockhelp.autowork.ticker.details": "Benenne eine Uhr im Format XmYsZt um und interagiere mit ihr per Rechtsklick mit dem Taktgeber, um den Takt einzurichten",
+  "blockhelp.autowork.ticker.details": "Der Takt kann mithilfe einer Uhr, die im Format XmYsZt umbenannt wurde, eingerichtet werden",
 
   "blockhelp.autowork.transmitter.back": "Bei Redstonesignal: feuert eine Signal-Entität aus der Vorderseite",
   "blockhelp.autowork.transmitter.back2": "Bei Empfang: erzeugt ein Redstonesignal",
-  "blockhelp.autowork.transmitter.front": "Empfängt/sendet Signal",
-  "blockhelp.autowork.transmitter.details": "Wird in Fällen verwendet, in denen du ein Redstonesignal über eine Distanz durch die Luft übertragen möchtest",
+  "blockhelp.autowork.transmitter.front": "Empfängt/feuert Signal-Entität",
+  "blockhelp.autowork.transmitter.details": "Kann verwendet werden, um ein Redstonesignal über eine Distanz hinweg durch die Luft zu übertragen",
 
   "blockhelp.autowork.andgate.front": "Signalausgabe",
   "blockhelp.autowork.andgate.side": "Signaleingabe",
-  "blockhelp.autowork.andgate.details": "Gibt ein Signal aus, falls an beiden Seiten jeweils ein aktives Signal anliegt"
+  "blockhelp.autowork.andgate.details": "Gibt ein Redstonesignal aus, falls an beiden Seiten jeweils ein aktives Redstonesignal anliegt"
 }
