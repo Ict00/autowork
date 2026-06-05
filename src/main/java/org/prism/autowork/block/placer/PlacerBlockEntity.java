@@ -17,8 +17,9 @@ import net.neoforged.neoforge.items.ItemHandlerHelper;
 import net.neoforged.neoforge.items.ItemStackHandler;
 import org.jetbrains.annotations.Nullable;
 import org.prism.autowork.block.ModBlockEntities;
+import org.prism.autowork.hudinv.HudInventoryProvider;
 
-public class PlacerBlockEntity extends BlockEntity {
+public class PlacerBlockEntity extends BlockEntity implements HudInventoryProvider {
     public ItemStackHandler handler = new ItemStackHandler(1) {
         @Override
         public boolean isItemValid(int slot, ItemStack stack) {

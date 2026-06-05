@@ -7,5 +7,7 @@ public class ClientConfig {
 
     public static final ModConfigSpec.BooleanValue CRUSHING_HUD_HELPER = BUILDER
             .define("crushingHudHelper", true);
+    public static final ModConfigSpec.BooleanValue BUFFER_HUD_RENDER = BUILDER
+            .define("bufferHudRender", true);
     static final ModConfigSpec SPEC = BUILDER.build();
 }
