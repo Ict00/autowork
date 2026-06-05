@@ -46,6 +46,11 @@ public record BlockHelpInfo(List<Component> technical, List<Component> details) 
             return this;
         }
 
+        public Builder configurable_by_sign() {
+            tech.add(Component.translatable("blockhelp.sign_configurable").withColor(0xb3b3b3));
+            return this;
+        }
+
         public Builder storage_required(Direction direction) {
             return direction("blockhelp.storage_required", direction);
         }

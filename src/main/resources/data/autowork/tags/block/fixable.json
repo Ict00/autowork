@@ -9,6 +9,7 @@
     "autowork:fan",
     "autowork:drill",
     "autowork:chute",
-    "autowork:filter_chute"
+    "autowork:filter_chute",
+    "autowork:railway_observer"
   ]
 }

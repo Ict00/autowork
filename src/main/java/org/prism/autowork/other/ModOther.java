@@ -60,6 +60,8 @@ public class ModOther {
                         output.accept(ModBlocks.BREEZE_COLLECTOR);
                         output.accept(ModBlocks.CARTLOADER);
                         output.accept(ModBlocks.CARTUNLOADER);
+                        output.accept(ModBlocks.RAILWAY_OBSERVER);
+                        output.accept(ModBlocks.TOGGLER);
                         output.accept(ModBlocks.TICKER);
                         output.accept(ModBlocks.DISTRIBUTOR);
                         output.accept(ModBlocks.TRANSMITTER);

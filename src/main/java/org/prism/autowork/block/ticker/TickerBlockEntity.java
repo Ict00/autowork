@@ -52,6 +52,11 @@ public class TickerBlockEntity extends BlockEntity {
             setChanged();
             updateNeighborsInFront(level, pos, state);
         }
+        else {
+            if (state.getValue(TickerBlock.STAGE) == 4) {
+                level.setBlockAndUpdate(pos, state.setValue(TickerBlock.STAGE, 0));
+            }
+        }
     }
 
     public void setTicks(int val) {

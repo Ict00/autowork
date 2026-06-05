@@ -27,7 +27,9 @@ import org.prism.autowork.block.extractor.ExtractorBlock;
 import org.prism.autowork.block.fan.FanBlock;
 import org.prism.autowork.block.filterchute.FilterChuteBlock;
 import org.prism.autowork.block.placer.PlacerBlock;
+import org.prism.autowork.block.railwayobserver.RailwayObserverBlock;
 import org.prism.autowork.block.ticker.TickerBlock;
+import org.prism.autowork.block.toggler.TogglerBlock;
 import org.prism.autowork.block.transmitter.TransmitterBlock;
 import org.prism.autowork.blockhelp.HelpfulBlockItem;
 import org.prism.autowork.item.ModItems;
@@ -47,6 +49,12 @@ public class ModBlocks {
 
     public static final DeferredBlock<Block> TICKER = registerBlock("ticker",
             () -> new TickerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).sound(SoundType.METAL).requiresCorrectToolForDrops().isRedstoneConductor(ModBlocks::neverConductor)));
+
+    public static final DeferredBlock<Block> RAILWAY_OBSERVER = registerBlock("railway_observer",
+            () -> new RailwayObserverBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).sound(SoundType.METAL).requiresCorrectToolForDrops().isRedstoneConductor(ModBlocks::neverConductor)));
+
+    public static final DeferredBlock<Block> TOGGLER = registerBlock("toggler",
+            () -> new TogglerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).sound(SoundType.METAL).requiresCorrectToolForDrops().isRedstoneConductor(ModBlocks::neverConductor).lightLevel((x) -> x.getValue(TogglerBlock.LIT) ? 15 : 0)));
 
     public static final DeferredBlock<Block> TRANSMITTER = registerBlock("transmitter",
             () -> new TransmitterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).sound(SoundType.METAL).requiresCorrectToolForDrops().isRedstoneConductor(ModBlocks::neverConductor)));

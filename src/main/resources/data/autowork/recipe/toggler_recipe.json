@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "pattern": [
+    "ACA",
+    "BBB"
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:redstone_torch"
+    },
+    "C": {
+      "item": "minecraft:copper_bulb"
+    },
+    "B": {
+      "item": "minecraft:gold_ingot"
+    }
+  },
+  "result": {
+    "id": "autowork:toggler",
+    "count": 1
+  }
+}

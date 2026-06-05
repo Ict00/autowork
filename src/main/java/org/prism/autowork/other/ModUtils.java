@@ -24,7 +24,7 @@ public class ModUtils {
             return level.hasSignal(ModUtils.lookTo(pos, opp), face) || level.hasSignal(ModUtils.lookTo(pos, opp), opp);
         }
         else {
-            return level.hasSignal(ModUtils.lookTo(pos, opp), face);
+            return level.hasSignal(ModUtils.lookTo(pos, face), opp);
         }
     }
 

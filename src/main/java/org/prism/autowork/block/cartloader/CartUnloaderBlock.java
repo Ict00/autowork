@@ -33,7 +33,6 @@ import java.util.List;
 public class CartUnloaderBlock extends Block implements BlockHelpProvider {
     public static final DirectionProperty FACING = DirectionProperty.create("facing");
     public static final BooleanProperty POWERED = BooleanProperty.create("powered");
-    private static final Logger log = LoggerFactory.getLogger(CartUnloaderBlock.class);
 
     public CartUnloaderBlock(Properties properties) {
         super(properties);
@@ -59,9 +58,7 @@ public class CartUnloaderBlock extends Block implements BlockHelpProvider {
                     List<MinecartChest> entities = level.getEntitiesOfClass(
                             MinecartChest.class,
                             aabb,
-                            (et) -> {
-                                return et instanceof MinecartChest;
-                            }
+                            (et) -> et instanceof MinecartChest
                     );
 
                     if (entities.isEmpty()) {
@@ -115,7 +112,7 @@ public class CartUnloaderBlock extends Block implements BlockHelpProvider {
                     return;
                 }
                 catch (Exception ex) {
-                    log.error("e: ", ex);
+
                 }
             }
             level.scheduleTick(pos, asBlock(), 10);
@@ -156,6 +153,7 @@ public class CartUnloaderBlock extends Block implements BlockHelpProvider {
                 .details("blockhelp.autowork.cartunloader.details")
                 .no_storage()
                 .only_when_powered()
+                .configurable_by_sign()
                 .build();
     }
 }

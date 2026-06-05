@@ -14,6 +14,8 @@
   "block.autowork.transmitter": "Transmitter",
   "block.autowork.andgate": "And Gate",
   "block.autowork.filter_chute": "Filter Chute",
+  "block.autowork.railway_observer": "Railway Observer",
+  "block.autowork.toggler": "Toggler",
   "block.autowork.fan": "Fan",
   "block.autowork.drill": "Drill",
   "block.autowork.placer": "Placer",
@@ -49,6 +51,7 @@
   "blockhelp.works_when_powered": "Works when powered",
   "blockhelp.works_when_unpowered": "Works when unpowered",
   "blockhelp.power_depends": "Work depends on signal strength",
+  "blockhelp.sign_configurable": "Configurable by signs",
 
 
   "blockhelp.autowork.breeze_collector.front": "Collects items",
@@ -58,6 +61,13 @@
   "blockhelp.autowork.cartloader.top": "Storage of minecarts with chest required",
   "blockhelp.autowork.cartloader.details": "Spawns a minecart if both storages are provided; then puts contents of the storage behind into minecart",
 
+  "blockhelp.autowork.cart.side": "Side for sign",
+
+  "blockhelp.autowork.railway.top": "Redstone output",
+  "blockhelp.autowork.railway.details": "Detects minecart, can filter them by name if sign is placed",
+
+  "blockhelp.autowork.toggler.back": "Redstone output",
+  "blockhelp.autowork.toggler.details": "Works like copper bulb but has one side with output; it emits signal when bulb is lit",
 
   "blockhelp.autowork.cartunloader.details": "When minecart passes by and both storages are provided, Cart Unloader will unload it: all its contents would be transferred to the storage behind, and the minecart itself would appear in the storage above",
 
