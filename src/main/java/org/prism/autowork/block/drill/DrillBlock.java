@@ -113,7 +113,7 @@ public class DrillBlock extends BaseEntityBlock implements BlockHelpProvider {
                     stack.setCount(0);
                 return ItemInteractionResult.SUCCESS;
             }
-            else if (be.hasTool() && player.getMainHandItem().isEmpty()) {
+            else if (be.hasTool() && player.getMainHandItem().isEmpty() && hit.getDirection() == state.getValue(FACING)) {
                 player.getInventory().add(be.extractTool());
                 return ItemInteractionResult.SUCCESS;
             }
