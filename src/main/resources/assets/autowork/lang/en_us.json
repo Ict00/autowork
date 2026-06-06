@@ -4,6 +4,7 @@
   "autowork.configuration.machinesWorkOnlyOnPulse": "[WIP] Machines work only on pulse redstone signal",
   "autowork.configuration.transmitterSignalLifetime": "Transmitter's signal lifetime (in ticks)",
   "autowork.configuration.newRedstoneDetection": "New redstone detection. May be better than older, may be buggier than older",
+  "autowork.configuration.bufferHudRender": "Render buffer's hud",
 
   "itemGroup.autowork": "Autowork",
 
@@ -17,14 +18,18 @@
   "block.autowork.railway_observer": "Railway Observer",
   "block.autowork.toggler": "Toggler",
   "block.autowork.fan": "Fan",
+  "block.autowork.buffer": "Buffer",
   "block.autowork.drill": "Drill",
   "block.autowork.placer": "Placer",
   "block.autowork.cartloader": "Cart Loader",
+  "block.autowork.buffered_cartloader": "Buffered Cart Loader",
   "block.autowork.cartunloader": "Cart Unloader",
+  "block.autowork.buffered_cartunloader": "Buffered Cart Unloader",
   "block.autowork.ticker": "Ticker",
   "block.autowork.distributor": "Distributor",
   "block.autowork.ticker.set": "Set time to: %dt",
   "block.autowork.breeze_collector": "Breeze Collector",
+  "block.autowork.buffered_breeze_collector": "Buffered Breeze Collector",
   "block.autowork.extractor": "Extractor",
   "enchantment.autowork.crushing": "Crushing",
 
@@ -44,6 +49,7 @@
   "blockhelp.direction.down": "Bottom",
   "blockhelp.direction.front": "Front",
   "blockhelp.direction.back": "Back",
+  "blockhelp.direction.side": "Other Sides",
   "blockhelp.multiblock": "Is a multiblock structure",
   "blockhelp.storage": "Has storage",
   "blockhelp.storage_required": "Storage required",
@@ -55,11 +61,20 @@
 
 
   "blockhelp.autowork.breeze_collector.front": "Collects items",
-  "blockhelp.autowork.breeze_collector.details": "When powered, sucks in all items in front of it",
+  "blockhelp.autowork.breeze_collector.details": "When powered, sucks in all items in front of it and puts them in storage behind",
 
+  "blockhelp.autowork.buffer.details": "Can hold 9 stacks. Right-click with item in your hand to put it in buffer or right-click without item to get last stack of buffer",
+
+  "blockhelp.autowork.buffered_breeze_collector.details": "When powered, sucks in all items in front of it and puts them in internal storage",
 
   "blockhelp.autowork.cartloader.top": "Storage of minecarts with chest required",
   "blockhelp.autowork.cartloader.details": "Spawns a minecart if both storages are provided; then puts contents of the storage behind into minecart",
+
+  "blockhelp.autowork.buffered_cartloader.side": "Content in",
+  "blockhelp.autowork.buffered_cartloader.top": "Minecarts in",
+  "blockhelp.autowork.buffered_cartloader.details": "Spawns a minecart if both storages are provided; then puts contents of its storage into minecart",
+
+  "blockhelp.autowork.buffered_cartunloader.details": "When minecart passes by, Cart Unloader will unload it: all its contents would be transferred to the internal storage",
 
   "blockhelp.autowork.cart.side": "Side for sign",
 

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "ABA",
+    "A A",
+    "ABA"
+  ],
+  "key": {
+    "A": {
+      "tag": "c:cobblestones"
+    },
+    "B": {
+      "tag": "minecraft:wooden_slabs"
+    }
+  },
+  "result": {
+    "id": "autowork:buffer",
+    "count": 1
+  }
+}

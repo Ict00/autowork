@@ -12,6 +12,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import org.jetbrains.annotations.Nullable;
@@ -21,7 +22,6 @@ import org.prism.autowork.entities.signal.SignalEntity;
 import org.prism.autowork.other.ModUtils;
 
 public class TransmitterBlock extends Block implements BlockHelpProvider {
-    public static final DirectionProperty FACING = DirectionProperty.create("facing");
     // 0 - off
     // 1 - receiving
     // 2 - emitting
@@ -37,7 +37,7 @@ public class TransmitterBlock extends Block implements BlockHelpProvider {
         super.neighborChanged(state, level, pos, p_60512_, q, p_60514_);
 
         if (!level.isClientSide) {
-            var face = state.getValue(FACING);
+            var face = state.getValue(BlockStateProperties.FACING);
 
             if (state.getValue(POWER_STATE) == 0) {
                 if (ModUtils.hasSignal(level, pos, face)) {
@@ -80,16 +80,16 @@ public class TransmitterBlock extends Block implements BlockHelpProvider {
 
     @Override
     protected int getSignal(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
-        return state.getValue(POWER_STATE) == 1 && state.getValue(FACING) == direction ? 15 : 0;
+        return state.getValue(POWER_STATE) == 1 && state.getValue(BlockStateProperties.FACING) == direction ? 15 : 0;
     }
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(FACING, POWER_STATE);
+        builder.add(BlockStateProperties.FACING, POWER_STATE);
     }
 
     @Override
     public @Nullable BlockState getStateForPlacement(BlockPlaceContext context) {
-        return this.defaultBlockState().setValue(POWER_STATE, 0).setValue(FACING, context.getNearestLookingDirection().getOpposite());
+        return this.defaultBlockState().setValue(POWER_STATE, 0).setValue(BlockStateProperties.FACING, context.getNearestLookingDirection().getOpposite());
     }
 
     @Override

@@ -6,79 +6,70 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.util.Mth;
+import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.phys.Vec3;
+import net.neoforged.neoforge.capabilities.Capabilities;
 import net.neoforged.neoforge.items.IItemHandler;
 import net.neoforged.neoforge.items.ItemHandlerHelper;
 import net.neoforged.neoforge.items.ItemStackHandler;
 import org.jetbrains.annotations.Nullable;
+import org.prism.autowork.Autowork;
 import org.prism.autowork.block.ModBlockEntities;
 import org.prism.autowork.block.ModBlocks;
+import org.prism.autowork.block.placer.PlacerBlock;
+import org.prism.autowork.hudinv.HudInventoryProvider;
 import org.prism.autowork.other.ModOther;
 import org.prism.autowork.other.ModUtils;
+import org.prism.autowork.screens.drill.DrillMenu;
 
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-public class DrillBlockEntity extends BlockEntity {
-    public ItemStackHandler handler = new ItemStackHandler(9);
-    public IItemHandler toolHandler = new IItemHandler() {
-        @Override
-        public int getSlots() {
-            return 1;
-        }
+public class DrillBlockEntity extends BlockEntity implements MenuProvider {
+    public ItemStackHandler handler = new ItemStackHandler(9) {
 
         @Override
-        public ItemStack getStackInSlot(int i) {
-            return tool;
-        }
-
-        @Override
-        public ItemStack insertItem(int i, ItemStack itemStack, boolean b) {
-            if (tool.isEmpty() && b) {
-                tool = itemStack;
-                setChanged();
-                return ItemStack.EMPTY;
+        protected void onContentsChanged(int slot) {
+            setChanged();
+            if (level != null && !level.isClientSide) {
+                level.sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), 2);
             }
-
-            return itemStack;
         }
+    };
 
+    public ItemStackHandler toolHandler = new ItemStackHandler(1) {
         @Override
-        public ItemStack extractItem(int i, int i1, boolean b) {
-            if (!tool.isEmpty()) {
-                var ret = tool;
-
-                if (!b) {
-                    tool = ItemStack.EMPTY;
-                }
-
-                return ret;
+        protected void onContentsChanged(int slot) {
+            tool = toolHandler.getStackInSlot(0);
+            setChanged();
+            if (level != null && !level.isClientSide) {
+                level.sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), 2);
             }
-
-            return ItemStack.EMPTY;
-        }
-
-        @Override
-        public int getSlotLimit(int i) {
-            return 1;
         }
 
         @Override
@@ -133,6 +124,9 @@ public class DrillBlockEntity extends BlockEntity {
     protected void loadAdditional(CompoundTag tag, HolderLookup.Provider provider) {
         super.loadAdditional(tag, provider);
         tool = ItemStack.parseOptional(provider, tag.getCompound("tool"));
+        if (!tool.isEmpty()) {
+            toolHandler.insertItem(0, tool, false);
+        }
         handler.deserializeNBT(provider, tag.getCompound("inventory"));
         progress = tag.getInt("progress");
     }
@@ -235,7 +229,7 @@ public class DrillBlockEntity extends BlockEntity {
                     dmgCurrent += durabilityDamage;
                     if (dmgCurrent >= dmgMax) {
                         level.playSound(null, pos, SoundEvents.ITEM_BREAK, SoundSource.BLOCKS, 1, 1.5f);
-                        tool = ItemStack.EMPTY;
+                        toolHandler.extractItem(0, 1, false);
                     } else {
                         tool.set(DataComponents.DAMAGE, dmgCurrent);
                     }
@@ -261,6 +255,10 @@ public class DrillBlockEntity extends BlockEntity {
     }
 
     public @Nullable IItemHandler getCapability(@Nullable Direction direction) {
+        if (direction == getBlockState().getValue(DrillBlock.FACING)) {
+            return toolHandler;
+        }
+
         return handler;
     }
 
@@ -283,5 +281,15 @@ public class DrillBlockEntity extends BlockEntity {
     @Override
     public CompoundTag getUpdateTag(HolderLookup.Provider registries) {
         return saveWithoutMetadata(registries);
+    }
+
+    @Override
+    public Component getDisplayName() {
+        return Component.empty();
+    }
+
+    @Override
+    public @Nullable AbstractContainerMenu createMenu(int i, Inventory inventory, Player player) {
+        return new DrillMenu(i, inventory, this);
     }
 }

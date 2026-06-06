@@ -1,11 +1,9 @@
 package org.prism.autowork.other;
 
 
-import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.client.renderer.RenderType;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
@@ -27,7 +25,6 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class HudRender {
     private static final int BH_X = 0;
     private static final int BH_Y = 0;
-    private static final int BH_D = 2;
 
     private static void renderItem(GuiGraphics gui, int x, int y, ItemStack stack, Font font) {
         gui.renderItem(stack, x, y);
@@ -44,7 +41,6 @@ public class HudRender {
 
         if (ClientConfig.BUFFER_HUD_RENDER.get()) {
             if (!(mc.hitResult instanceof BlockHitResult blockHit)) {
-                System.out.println("HATE");
                 return;
             }
 
@@ -52,39 +48,51 @@ public class HudRender {
             BlockEntity be = mc.level.getBlockEntity(pos);
 
             if (be == null) {
-                System.out.println("NOOO");
                 return;
             }
 
             GuiGraphics graphics = event.getGuiGraphics();
 
             if (be instanceof HudInventoryProvider prov) {
-                System.out.println("FUCK");
-                var texture = prov.hudTextureLoc();
+                int cX = (graphics.guiWidth() / 2) - (int)(prov.hudWidth(blockHit.getDirection())*1.5) + BH_X;
+                int cY = (graphics.guiHeight() / 2) - (prov.hudHeight(blockHit.getDirection())/2) + BH_Y;
 
-                if (texture != null) {
-                    graphics.blit(texture, BH_X, BH_Y,0,0,16,16,16,16);
-                }
+                int slots = prov.slotCount(blockHit.getDirection());
+                var sqrt = Math.sqrt(slots);
 
                 var handler = prov.getLookHandler(blockHit.getDirection(), mc.level, pos);
-                int slots = handler.handler().getSlots();
-                boolean inlineRender = Math.pow(Math.sqrt(slots), 2) == slots;
-                var slotWidth = prov.slotWidthOverride();
+                boolean inlineRender = Math.pow(sqrt, 2) != slots || slots == 1;
 
                 if (inlineRender) {
-                    System.out.println("YUP");
                     for (int i = 0; i < slots; i++) {
                         var ov = prov.hasOverrideLocationForSlot(i) ? prov.getSlotOverride(i) : null;
 
-                        int x = ov != null ? ov.getA() + BH_X : BH_X + i * slotWidth + BH_D;
-                        int y = ov != null ? ov.getB() + BH_Y : BH_Y;
+                        int x = ov != null ? ov.getA() + cX : cX + i * 16;
+                        int y = ov != null ? ov.getB() + cY : cY;
 
                         renderItem(graphics, x, y, handler.handler().getStackInSlot(i), mc.font);
                     }
                 }
                 else {
-                    System.out.println("NOPE");
-                    // TODO: implement
+                    int c = 0;
+                    int r = 0;
+
+                    for (int i = 0; i < slots; i++) {
+                        var ov = prov.hasOverrideLocationForSlot(i) ? prov.getSlotOverride(i) : null;
+
+                        int x = ov != null ? ov.getA() + cX : 1 + cX + c * (16);
+                        int y = ov != null ? ov.getB() + cY : 1 + cY + r * (16);
+
+                        renderItem(graphics, x, y, handler.handler().getStackInSlot(i), mc.font);
+
+                        if ((i+1)%sqrt == 0) {
+                            c = 0;
+                            r++;
+                        }
+                        else {
+                            c++;
+                        }
+                    }
                 }
             }
         }

@@ -5,6 +5,9 @@
     "autowork:extractor",
     "autowork:placer",
     "autowork:breeze_collector",
+    "autowork:buffered_breeze_collector",
+    "autowork:buffered_cartloader",
+    "autowork:buffered_cartunloader",
     "autowork:cartloader",
     "autowork:cartunloader",
     "autowork:filter_chute",
@@ -14,6 +17,7 @@
     "autowork:transmitter",
     "autowork:drill",
     "autowork:toggler",
-    "autowork:railway_observer"
+    "autowork:railway_observer",
+    "autowork:buffer"
   ]
 }

@@ -13,6 +13,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.projectile.AbstractHurtingProjectile;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.Vec3;
@@ -72,7 +73,7 @@ public class SignalEntity extends AbstractHurtingProjectile {
             return;
         }
         else if (state.is(ModBlocks.TRANSMITTER)) {
-            if (state.getValue(TransmitterBlock.FACING).equals(result.getDirection())) {
+            if (state.getValue(BlockStateProperties.FACING).equals(result.getDirection())) {
                 this.level().playSound(null, result.getBlockPos(), SoundEvents.VAULT_CLOSE_SHUTTER, SoundSource.BLOCKS, 1, 0.5f);
 
                 l.setBlockAndUpdate(result.getBlockPos(), state.setValue(TransmitterBlock.POWER_STATE, 1));

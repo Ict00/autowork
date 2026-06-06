@@ -11,6 +11,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.neoforged.neoforge.capabilities.Capabilities;
@@ -26,8 +27,6 @@ import java.util.List;
 
 public class DistributorBlock extends Block implements BlockHelpProvider {
     public static final BooleanProperty MASTER = BooleanProperty.create("master");
-    public static final DirectionProperty FACING = DirectionProperty.create("facing");
-
 
     public DistributorBlock(Properties properties) {
         super(properties);
@@ -38,7 +37,7 @@ public class DistributorBlock extends Block implements BlockHelpProvider {
         super.tick(state, level, pos, random);
 
         if (state.getValue(MASTER)) {
-            var slaveSeekResult = getSlaves(pos, level, state.getValue(FACING));
+            var slaveSeekResult = getSlaves(pos, level, state.getValue(BlockStateProperties.FACING));
 
             if (slaveSeekResult.metMaster) {
                 for (var slave : slaveSeekResult.slaves) {
@@ -158,12 +157,12 @@ public class DistributorBlock extends Block implements BlockHelpProvider {
 
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext context) {
-        return this.defaultBlockState().setValue(MASTER, true).setValue(FACING, context.getHorizontalDirection().getOpposite());
+        return this.defaultBlockState().setValue(MASTER, true).setValue(BlockStateProperties.FACING, context.getHorizontalDirection().getOpposite());
     }
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(MASTER, FACING);
+        builder.add(MASTER, BlockStateProperties.FACING);
     }
 
     @Override
@@ -193,7 +192,7 @@ public class DistributorBlock extends Block implements BlockHelpProvider {
                 break;
             }
             var isMaster = curState.getValue(MASTER).booleanValue();
-            var facing = curState.getValue(FACING);
+            var facing = curState.getValue(BlockStateProperties.FACING);
 
             if (isMaster) {
                 metMaster = true;

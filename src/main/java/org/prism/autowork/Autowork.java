@@ -1,6 +1,7 @@
 package org.prism.autowork;
 
 import com.mojang.logging.LogUtils;
+import net.minecraft.world.ItemInteractionResult;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
@@ -10,18 +11,26 @@ import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.capabilities.Capabilities;
 import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
 import net.neoforged.neoforge.common.NeoForge;
+import net.neoforged.neoforge.event.entity.player.UseItemOnBlockEvent;
+import net.neoforged.neoforge.event.level.BlockEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 import net.neoforged.neoforge.registries.datamaps.RegisterDataMapTypesEvent;
 import org.prism.autowork.block.ModBlockEntities;
 import org.prism.autowork.block.ModBlocks;
+import org.prism.autowork.block.breezecollector.buffered.BufferedBreezeCollectorBlockEntity;
+import org.prism.autowork.block.buffer.BufferBlockEntity;
+import org.prism.autowork.block.cart_manipulators.buffered.loader.CartLoaderBufferedBlockEntity;
+import org.prism.autowork.block.cart_manipulators.buffered.unloader.CartUnloaderBufferedBlockEntity;
 import org.prism.autowork.block.drill.DrillBlockEntity;
 import org.prism.autowork.block.placer.PlacerBlockEntity;
 import org.prism.autowork.entities.ModEntities;
+import org.prism.autowork.hudinv.HudInventoryProvider;
 import org.prism.autowork.item.ModItems;
 import org.prism.autowork.other.ModData;
 import org.prism.autowork.other.ModDataMaps;
 import org.prism.autowork.other.ModOther;
 import org.prism.autowork.particles.ModParticles;
+import org.prism.autowork.screens.ModMenus;
 import org.slf4j.Logger;
 
 @Mod(Autowork.MODID)
@@ -35,6 +44,7 @@ public class Autowork {
         ModData.register(modEventBus);
         ModBlockEntities.register(modEventBus);
         ModItems.register(modEventBus);
+        ModMenus.register(modEventBus);
         ModEntities.register(modEventBus);
         ModOther.register(modEventBus);
         ModParticles.register(modEventBus);
@@ -69,6 +79,30 @@ public class Autowork {
                 Capabilities.ItemHandler.BLOCK,
                 ModBlockEntities.PLACER_BE.get(),
                 PlacerBlockEntity::getCapability
+        );
+
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                ModBlockEntities.BUFFER_BE.get(),
+                BufferBlockEntity::getCapability
+        );
+
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                ModBlockEntities.CARTLOADER_BUFFERED_BE.get(),
+                CartLoaderBufferedBlockEntity::getCapability
+        );
+
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                ModBlockEntities.CARTUNLOADER_BUFFERED_BE.get(),
+                CartUnloaderBufferedBlockEntity::getCapability
+        );
+
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                ModBlockEntities.BUFFERED_BREEZE_COLLECTOR_BE.get(),
+                BufferedBreezeCollectorBlockEntity::getCapability
         );
     }
 }

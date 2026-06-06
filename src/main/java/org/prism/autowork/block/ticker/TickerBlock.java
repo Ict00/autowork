@@ -25,6 +25,7 @@ import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.BlockHitResult;
@@ -38,7 +39,6 @@ import org.prism.autowork.blockhelp.BlockHelpProvider;
 
 public class TickerBlock extends BaseEntityBlock implements BlockHelpProvider {
     public static final MapCodec<TickerBlock> CODEC = simpleCodec(TickerBlock::new);
-    public static final DirectionProperty FACING = DirectionProperty.create("facing");
     public static final IntegerProperty STAGE = IntegerProperty.create("stage", 0, 4);
 
     public TickerBlock(Properties p_49224_) {
@@ -61,7 +61,7 @@ public class TickerBlock extends BaseEntityBlock implements BlockHelpProvider {
     }
 
     protected int getSignal(BlockState blockState, BlockGetter blockAccess, BlockPos pos, Direction side) {
-        return blockState.getValue(STAGE) == 4 && blockState.getValue(FACING).getOpposite() == side ? 15 : 0;
+        return blockState.getValue(STAGE) == 4 && blockState.getValue(BlockStateProperties.FACING).getOpposite() == side ? 15 : 0;
     }
 
     @Override
@@ -126,7 +126,7 @@ public class TickerBlock extends BaseEntityBlock implements BlockHelpProvider {
 
     @Override
     protected int getDirectSignal(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
-        if (state.getValue(STAGE) == 4 && direction == state.getValue(FACING).getOpposite()) {
+        if (state.getValue(STAGE) == 4 && direction == state.getValue(BlockStateProperties.FACING).getOpposite()) {
             return 15;
         }
 
@@ -135,12 +135,12 @@ public class TickerBlock extends BaseEntityBlock implements BlockHelpProvider {
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(FACING, STAGE);
+        builder.add(BlockStateProperties.FACING, STAGE);
     }
 
     @Override
     public @Nullable BlockState getStateForPlacement(BlockPlaceContext context) {
-        return this.defaultBlockState().setValue(STAGE, 0).setValue(FACING, context.getNearestLookingDirection().getOpposite());
+        return this.defaultBlockState().setValue(STAGE, 0).setValue(BlockStateProperties.FACING, context.getNearestLookingDirection().getOpposite());
     }
 
     @Override

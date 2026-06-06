@@ -1,13 +1,17 @@
 {
   "values": [
     "autowork:breeze_collector",
+    "autowork:buffered_breeze_collector",
     "autowork:transmitter",
     "autowork:cartloader",
+    "autowork:buffered_cartloader",
+    "autowork:buffered_cartunloader",
     "autowork:cartunloader",
     "autowork:distributor",
     "autowork:extractor",
     "autowork:fan",
     "autowork:drill",
+    "autowork:placer",
     "autowork:chute",
     "autowork:filter_chute",
     "autowork:railway_observer"

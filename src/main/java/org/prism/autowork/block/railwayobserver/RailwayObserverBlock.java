@@ -13,12 +13,11 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.BooleanProperty;
-import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.phys.AABB;
 import org.jetbrains.annotations.Nullable;
-import org.prism.autowork.block.cartloader.CartHelper;
+import org.prism.autowork.block.cart_manipulators.CartHelper;
 import org.prism.autowork.blockhelp.BlockHelpInfo;
 import org.prism.autowork.blockhelp.BlockHelpProvider;
 import org.prism.autowork.other.ModUtils;
@@ -26,8 +25,6 @@ import org.prism.autowork.other.ModUtils;
 import java.util.List;
 
 public class RailwayObserverBlock extends Block implements BlockHelpProvider {
-    public static final DirectionProperty FACING = DirectionProperty.create("facing");
-    public static final BooleanProperty POWERED = BooleanProperty.create("powered");
     public static final EnumProperty<EasterState> EASTER_STATE = EnumProperty.<EasterState>create("easter", EasterState.class);
     public RailwayObserverBlock(Properties properties) {
         super(properties);
@@ -44,7 +41,7 @@ public class RailwayObserverBlock extends Block implements BlockHelpProvider {
     protected void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
         super.tick(state, level, pos, random);
 
-        var facing = state.getValue(FACING);
+        var facing = state.getValue(BlockStateProperties.FACING);
         var front = ModUtils.lookTo(pos, facing);
 
         if (!level.getBlockState(front).is(BlockTags.RAILS)) {
@@ -52,7 +49,7 @@ public class RailwayObserverBlock extends Block implements BlockHelpProvider {
             return;
         }
 
-        var isPowered = state.getValue(POWERED);
+        var isPowered = state.getValue(BlockStateProperties.POWERED);
 
         var filter = CartHelper.getCartName(level, pos, facing);
 
@@ -106,7 +103,7 @@ public class RailwayObserverBlock extends Block implements BlockHelpProvider {
 
         if (!entities.isEmpty() && filter == null) {
             if (!isPowered) {
-                level.setBlockAndUpdate(pos, state.setValue(POWERED, true));
+                level.setBlockAndUpdate(pos, state.setValue(BlockStateProperties.POWERED, true));
             }
             else {
                 level.scheduleTick(pos, asBlock(), 2);
@@ -116,7 +113,7 @@ public class RailwayObserverBlock extends Block implements BlockHelpProvider {
 
         if (entities.isEmpty()) {
             if (isPowered) {
-                level.setBlockAndUpdate(pos, state.setValue(POWERED, false));
+                level.setBlockAndUpdate(pos, state.setValue(BlockStateProperties.POWERED, false));
                 return;
             }
             level.scheduleTick(pos, asBlock(), 2);
@@ -134,7 +131,7 @@ public class RailwayObserverBlock extends Block implements BlockHelpProvider {
                 continue;
             }
             if (!isPowered) {
-                level.setBlockAndUpdate(pos, state.setValue(POWERED, true));
+                level.setBlockAndUpdate(pos, state.setValue(BlockStateProperties.POWERED, true));
                 return;
             }
             else {
@@ -143,7 +140,7 @@ public class RailwayObserverBlock extends Block implements BlockHelpProvider {
             }
         }
         if (isPowered) {
-            level.setBlockAndUpdate(pos, state.setValue(POWERED, false));
+            level.setBlockAndUpdate(pos, state.setValue(BlockStateProperties.POWERED, false));
             return;
         }
 
@@ -156,12 +153,12 @@ public class RailwayObserverBlock extends Block implements BlockHelpProvider {
     }
 
     protected int getSignal(BlockState blockState, BlockGetter blockAccess, BlockPos pos, Direction side) {
-        return blockState.getValue(POWERED) && side == Direction.DOWN ? 15 : 0;
+        return blockState.getValue(BlockStateProperties.POWERED) && side == Direction.DOWN ? 15 : 0;
     }
 
     @Override
     protected int getDirectSignal(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
-        if (state.getValue(POWERED) && direction == Direction.DOWN) {
+        if (state.getValue(BlockStateProperties.POWERED) && direction == Direction.DOWN) {
             return 15;
         }
 
@@ -170,12 +167,12 @@ public class RailwayObserverBlock extends Block implements BlockHelpProvider {
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(FACING, POWERED, EASTER_STATE);
+        builder.add(BlockStateProperties.FACING, BlockStateProperties.POWERED, EASTER_STATE);
     }
 
     @Override
     public @Nullable BlockState getStateForPlacement(BlockPlaceContext context) {
-        return this.defaultBlockState().setValue(POWERED, false).setValue(EASTER_STATE, EasterState.NONE).setValue(FACING, context.getHorizontalDirection().getOpposite());
+        return this.defaultBlockState().setValue(BlockStateProperties.POWERED, false).setValue(EASTER_STATE, EasterState.NONE).setValue(BlockStateProperties.FACING, context.getHorizontalDirection().getOpposite());
     }
 
     public enum EasterState implements StringRepresentable {
@@ -204,6 +201,7 @@ public class RailwayObserverBlock extends Block implements BlockHelpProvider {
     public BlockHelpInfo getHelp() {
         return BlockHelpInfo.builder()
                 .direction("blockhelp.autowork.railway.top", Direction.UP)
+                .side("blockhelp.autowork.cart.side")
                 .details("blockhelp.autowork.railway.details")
                 .configurable_by_sign()
                 .build();

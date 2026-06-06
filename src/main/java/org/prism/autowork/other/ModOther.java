@@ -58,10 +58,14 @@ public class ModOther {
                         output.accept(ModBlocks.EXTRACTOR);
                         output.accept(ModBlocks.PLACER);
                         output.accept(ModBlocks.BREEZE_COLLECTOR);
+                        output.accept(ModBlocks.BUFFERED_BREEZE_COLLECTOR);
                         output.accept(ModBlocks.CARTLOADER);
+                        output.accept(ModBlocks.BUFFERED_CARTLOADER);
                         output.accept(ModBlocks.CARTUNLOADER);
+                        output.accept(ModBlocks.BUFFERED_CARTUNLOADER);
                         output.accept(ModBlocks.RAILWAY_OBSERVER);
                         output.accept(ModBlocks.TOGGLER);
+                        output.accept(ModBlocks.BUFFER);
                         output.accept(ModBlocks.TICKER);
                         output.accept(ModBlocks.DISTRIBUTOR);
                         output.accept(ModBlocks.TRANSMITTER);
@@ -79,7 +83,6 @@ public class ModOther {
 
     public static final TagKey<Item> TOOL_TAG = TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(Autowork.MODID, "tools"));
     public static final TagKey<Block> FIXABLE_TAG = TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(Autowork.MODID, "fixable"));
-
     public static final TagKey<Block> GLASSES = TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath("c", "glass_blocks"));
 
     public static void register(IEventBus bus) {

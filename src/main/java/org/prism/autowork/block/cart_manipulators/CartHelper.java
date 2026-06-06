@@ -1,4 +1,4 @@
-package org.prism.autowork.block.cartloader;
+package org.prism.autowork.block.cart_manipulators;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 public class CartHelper {
 
     public static @Nullable String getCartName(Level level, BlockPos pos, Direction facing) {
-        Direction[] possibleDirs = { facing.getClockWise(), facing.getCounterClockWise()};
+        Direction[] possibleDirs = { facing.getClockWise(), facing.getCounterClockWise(), facing.getOpposite()};
 
         for (Direction dir : possibleDirs) {
             var bPos = ModUtils.lookTo(pos, dir);

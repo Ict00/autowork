@@ -5,6 +5,10 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import org.prism.autowork.Autowork;
+import org.prism.autowork.block.breezecollector.buffered.BufferedBreezeCollectorBlockEntity;
+import org.prism.autowork.block.buffer.BufferBlockEntity;
+import org.prism.autowork.block.cart_manipulators.buffered.loader.CartLoaderBufferedBlockEntity;
+import org.prism.autowork.block.cart_manipulators.buffered.unloader.CartUnloaderBufferedBlockEntity;
 import org.prism.autowork.block.drill.DrillBlockEntity;
 import org.prism.autowork.block.filterchute.FilterChuteBlockEntity;
 import org.prism.autowork.block.placer.PlacerBlockEntity;
@@ -16,9 +20,29 @@ public class ModBlockEntities {
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES =
             DeferredRegister.create(BuiltInRegistries.BLOCK_ENTITY_TYPE, Autowork.MODID);
 
+    public static final Supplier<BlockEntityType<BufferBlockEntity>> BUFFER_BE =
+            BLOCK_ENTITIES.register("buffer_be", () -> BlockEntityType.Builder.of(
+                    BufferBlockEntity::new, ModBlocks.BUFFER.get()
+            ).build(null));
+
+    public static final Supplier<BlockEntityType<BufferedBreezeCollectorBlockEntity>> BUFFERED_BREEZE_COLLECTOR_BE =
+            BLOCK_ENTITIES.register("buffered_breeze_collector_be", () -> BlockEntityType.Builder.of(
+                    BufferedBreezeCollectorBlockEntity::new, ModBlocks.BUFFERED_BREEZE_COLLECTOR.get()
+            ).build(null));
+
     public static final Supplier<BlockEntityType<DrillBlockEntity>> DRILL_BE =
             BLOCK_ENTITIES.register("drill_be", () -> BlockEntityType.Builder.of(
                     DrillBlockEntity::new, ModBlocks.DRILL.get()
+            ).build(null));
+
+    public static final Supplier<BlockEntityType<CartLoaderBufferedBlockEntity>> CARTLOADER_BUFFERED_BE =
+            BLOCK_ENTITIES.register("cartloader_be", () -> BlockEntityType.Builder.of(
+                    CartLoaderBufferedBlockEntity::new, ModBlocks.BUFFERED_CARTLOADER.get()
+            ).build(null));
+
+    public static final Supplier<BlockEntityType<CartUnloaderBufferedBlockEntity>> CARTUNLOADER_BUFFERED_BE =
+            BLOCK_ENTITIES.register("cartunloader_be", () -> BlockEntityType.Builder.of(
+                    CartUnloaderBufferedBlockEntity::new, ModBlocks.BUFFERED_CARTUNLOADER.get()
             ).build(null));
 
     public static final Supplier<BlockEntityType<TickerBlockEntity>> TICKER_BE =

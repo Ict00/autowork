@@ -12,6 +12,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.DispenserBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.neoforged.neoforge.capabilities.Capabilities;
@@ -22,9 +23,6 @@ import org.prism.autowork.blockhelp.BlockHelpProvider;
 import org.prism.autowork.other.ModUtils;
 
 public class ExtractorBlock extends Block implements BlockHelpProvider {
-    public static final DirectionProperty FACING = DirectionProperty.create("facing");
-    public static final BooleanProperty POWERED = BooleanProperty.create("powered");
-
     public ExtractorBlock(Properties properties) {
         super(properties);
     }
@@ -45,9 +43,9 @@ public class ExtractorBlock extends Block implements BlockHelpProvider {
     protected void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
         super.tick(state, level, pos, random);
 
-        if (!state.getValue(POWERED) && level.hasNeighborSignal(pos)) {
-            var face = state.getValue(FACING);
-            var backFace = state.getValue(FACING).getOpposite();
+        if (!state.getValue(BlockStateProperties.POWERED) && level.hasNeighborSignal(pos)) {
+            var face = state.getValue(BlockStateProperties.FACING);
+            var backFace = state.getValue(BlockStateProperties.FACING).getOpposite();
 
             var front = ModUtils.lookTo(pos, face);
             var back = ModUtils.lookTo(pos, backFace);
@@ -70,7 +68,7 @@ public class ExtractorBlock extends Block implements BlockHelpProvider {
                         var extracted = capA.extractItem(i, canMove, false);
                         ItemHandlerHelper.insertItemStacked(capB, extracted, false);
 
-                        level.setBlockAndUpdate(pos, state.setValue(POWERED, true));
+                        level.setBlockAndUpdate(pos, state.setValue(BlockStateProperties.POWERED, true));
                         level.playSound(null, pos, SoundEvents.DISPENSER_DISPENSE, SoundSource.BLOCKS);
                         return;
                     }
@@ -79,8 +77,8 @@ public class ExtractorBlock extends Block implements BlockHelpProvider {
             level.scheduleTick(pos, asBlock(), 10);
         }
         else {
-            if (state.getValue(POWERED)) {
-                level.setBlockAndUpdate(pos, state.setValue(POWERED, false));
+            if (state.getValue(BlockStateProperties.POWERED)) {
+                level.setBlockAndUpdate(pos, state.setValue(BlockStateProperties.POWERED, false));
             }
             else {
                 level.scheduleTick(pos, asBlock(), 10);
@@ -90,12 +88,12 @@ public class ExtractorBlock extends Block implements BlockHelpProvider {
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(FACING, POWERED);
+        builder.add(BlockStateProperties.FACING, BlockStateProperties.POWERED);
     }
 
     @Override
     public @Nullable BlockState getStateForPlacement(BlockPlaceContext context) {
-        return this.defaultBlockState().setValue(POWERED, false).setValue(FACING, context.getNearestLookingDirection().getOpposite());
+        return this.defaultBlockState().setValue(BlockStateProperties.POWERED, false).setValue(BlockStateProperties.FACING, context.getNearestLookingDirection().getOpposite());
     }
 
     @Override

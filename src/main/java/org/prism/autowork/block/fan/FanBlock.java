@@ -22,6 +22,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.DropperBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
@@ -42,9 +43,6 @@ public class FanBlock extends Block implements BlockHelpProvider {
     // 1 - outward
     // 2 - inward
     public static final IntegerProperty WIND_STATE = IntegerProperty.create("wind_state", 0, 2);
-    public static final DirectionProperty FACING = DirectionProperty.create("facing");
-
-
     public FanBlock(Properties p_49795_) {
         super(p_49795_);
     }
@@ -84,7 +82,7 @@ public class FanBlock extends Block implements BlockHelpProvider {
             }
         }
 
-        var dir = ModUtils.direction2vec(state.getValue(FACING));
+        var dir = ModUtils.direction2vec(state.getValue(BlockStateProperties.FACING));
         var power = ModUtils.vecMultiply(dir, signal);
 
         var aBlock = ModUtils.blockPosVec(pos).add(0.5, 0.5, 0.5);
@@ -133,12 +131,12 @@ public class FanBlock extends Block implements BlockHelpProvider {
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(FACING, WIND_STATE);
+        builder.add(BlockStateProperties.FACING, WIND_STATE);
     }
 
     @Override
     public @Nullable BlockState getStateForPlacement(BlockPlaceContext context) {
-        return this.defaultBlockState().setValue(FACING, context.getNearestLookingDirection().getOpposite()).setValue(WIND_STATE, 0);
+        return this.defaultBlockState().setValue(BlockStateProperties.FACING, context.getNearestLookingDirection().getOpposite()).setValue(WIND_STATE, 0);
     }
 
 
@@ -162,7 +160,7 @@ public class FanBlock extends Block implements BlockHelpProvider {
             return;
         }
 
-        Direction facing = state.getValue(FACING);
+        Direction facing = state.getValue(BlockStateProperties.FACING);
 
         Vec3 dir = new Vec3(
                 facing.getStepX(),

@@ -126,6 +126,16 @@ public record BlockHelpInfo(List<Component> technical, List<Component> details) 
             return this;
         }
 
+        public Builder side(String translation) {
+            tech.add(Component.empty()
+                    .append(Component.translatable("blockhelp.direction.side").withColor(0x47ffd1)
+                            .append(": ")
+                            .append(
+                                    Component.translatable(translation).withColor(0xffa647))
+                    ));
+            return this;
+        }
+
         public Builder back(String translation) {
             tech.add(Component.empty()
                     .append(Component.translatable("blockhelp.direction.back").withColor(0x47ffd1)

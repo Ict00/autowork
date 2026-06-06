@@ -6,10 +6,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.tags.ItemTags;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
-import net.minecraft.world.ItemInteractionResult;
-import net.minecraft.world.SimpleMenuProvider;
+import net.minecraft.world.*;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
@@ -34,6 +31,7 @@ import org.jetbrains.annotations.Nullable;
 import org.prism.autowork.block.ModBlockEntities;
 import org.prism.autowork.blockhelp.BlockHelpInfo;
 import org.prism.autowork.blockhelp.BlockHelpProvider;
+import org.prism.autowork.hudinv.HudInventoryProvider;
 import org.prism.autowork.other.ModOther;
 
 public class DrillBlock extends BaseEntityBlock implements BlockHelpProvider {
@@ -86,13 +84,13 @@ public class DrillBlock extends BaseEntityBlock implements BlockHelpProvider {
                 for (int i = 0; i < be.handler.getSlots(); i++) {
                     var stack = be.handler.getStackInSlot(i);
                     if (!stack.isEmpty()) {
-                        var newItemEntity = new ItemEntity(level, pos.getX(), pos.getY(), pos.getZ(), stack);
+                        var newItemEntity = new ItemEntity(level, pos.getX()+0.5, pos.getY()+0.5, pos.getZ()+0.5, stack);
                         level.addFreshEntity(newItemEntity);
                     }
                 }
 
                 if (be.hasTool()) {
-                    var toolEntity = new ItemEntity(level, pos.getX(), pos.getY(), pos.getZ(), be.extractTool());
+                    var toolEntity = new ItemEntity(level, pos.getX()+0.5, pos.getY()+0.5, pos.getZ()+0.5, be.extractTool());
 
                     level.addFreshEntity(toolEntity);
                 }
@@ -103,28 +101,34 @@ public class DrillBlock extends BaseEntityBlock implements BlockHelpProvider {
     }
 
     @Override
-    protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
-        if (!level.isClientSide) {
-            if (level.getBlockEntity(pos) instanceof DrillBlockEntity be && be.hasTool() && player.getMainHandItem().isEmpty()) {
-                player.getInventory().add(be.extractTool());
-                return InteractionResult.SUCCESS;
-            }
-        }
-
-        return super.useWithoutItem(state, level, pos, player, hitResult);
+    protected @Nullable MenuProvider getMenuProvider(BlockState state, Level level, BlockPos pos) {
+        return  new SimpleMenuProvider((DrillBlockEntity)level.getBlockEntity(pos), Component.empty());
     }
 
     @Override
-    protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult p_316140_) {
-        if (!level.isClientSide) {
-            if (stack.is(ModOther.TOOL_TAG) && level.getBlockEntity(pos) instanceof DrillBlockEntity be && !be.hasTool()) {
+    protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
+        if (level.getBlockEntity(pos) instanceof DrillBlockEntity be) {
+            if (stack.is(ModOther.TOOL_TAG) && !be.hasTool() && hit.getDirection() == state.getValue(FACING)) {
                 if(be.putTool(stack))
                     stack.setCount(0);
                 return ItemInteractionResult.SUCCESS;
             }
+            else if (be.hasTool() && player.getMainHandItem().isEmpty()) {
+                player.getInventory().add(be.extractTool());
+                return ItemInteractionResult.SUCCESS;
+            }
+            else {
+                if (!level.isClientSide) {
+                    player.openMenu(
+                            (MenuProvider) level.getBlockEntity(pos),
+                            buf -> buf.writeBlockPos(pos)
+                    );
+                    return ItemInteractionResult.SUCCESS;
+                }
+            }
         }
 
-        return super.useItemOn(stack, state, level, pos, player, hand, p_316140_);
+        return ItemInteractionResult.sidedSuccess(level.isClientSide);
     }
 
     @Override

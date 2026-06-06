@@ -25,9 +25,6 @@ import org.prism.autowork.other.ModUtils;
 
 public class TogglerBlock extends Block implements BlockHelpProvider {
     public static final MapCodec<TogglerBlock> CODEC = simpleCodec(TogglerBlock::new);
-    public static final BooleanProperty POWERED = BlockStateProperties.POWERED;
-    public static final DirectionProperty FACING = DirectionProperty.create("facing");
-    public static final BooleanProperty LIT = BlockStateProperties.LIT;
 
     protected @NotNull MapCodec<? extends TogglerBlock> codec() {
         return CODEC;
@@ -44,7 +41,7 @@ public class TogglerBlock extends Block implements BlockHelpProvider {
     }
 
     protected void neighborChanged(BlockState state, Level p_308955_, BlockPos pos, Block p_308949_, BlockPos lPos, boolean p_309085_) {
-        if (p_308955_ instanceof ServerLevel serverlevel && !ModUtils.lookTo(pos, state.getValue(FACING).getOpposite()).equals(lPos)) {
+        if (p_308955_ instanceof ServerLevel serverlevel && !ModUtils.lookTo(pos, state.getValue(BlockStateProperties.FACING).getOpposite()).equals(lPos)) {
             this.checkAndFlip(state, serverlevel, pos);
         }
     }
@@ -56,7 +53,7 @@ public class TogglerBlock extends Block implements BlockHelpProvider {
 
     @Override
     protected int getDirectSignal(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
-        if (state.getValue(LIT) && direction == state.getValue(FACING)) {
+        if (state.getValue(BlockStateProperties.LIT) && direction == state.getValue(BlockStateProperties.FACING)) {
             return 15;
         }
 
@@ -64,12 +61,12 @@ public class TogglerBlock extends Block implements BlockHelpProvider {
     }
 
     protected int getSignal(BlockState blockState, BlockGetter blockAccess, BlockPos pos, Direction side) {
-        return blockState.getValue(LIT) && blockState.getValue(FACING) == side ? 15 : 0;
+        return blockState.getValue(BlockStateProperties.LIT) && blockState.getValue(BlockStateProperties.FACING) == side ? 15 : 0;
     }
 
     public void checkAndFlip(BlockState state, ServerLevel level, BlockPos pos) {
         boolean flag = false;
-        var facing = state.getValue(FACING);
+        var facing = state.getValue(BlockStateProperties.FACING);
 
         for (var d : Direction.values()) {
             if (d != facing) {
@@ -80,24 +77,24 @@ public class TogglerBlock extends Block implements BlockHelpProvider {
             }
         }
 
-        if (flag != state.getValue(POWERED)) {
+        if (flag != state.getValue(BlockStateProperties.POWERED)) {
             BlockState blockstate = state;
-            if (!state.getValue(POWERED)) {
-                blockstate = state.cycle(LIT);
-                level.playSound(null, pos, blockstate.getValue(LIT) ? SoundEvents.COPPER_BULB_TURN_ON : SoundEvents.COPPER_BULB_TURN_OFF, SoundSource.BLOCKS);
+            if (!state.getValue(BlockStateProperties.POWERED)) {
+                blockstate = state.cycle(BlockStateProperties.LIT);
+                level.playSound(null, pos, blockstate.getValue(BlockStateProperties.LIT) ? SoundEvents.COPPER_BULB_TURN_ON : SoundEvents.COPPER_BULB_TURN_OFF, SoundSource.BLOCKS);
             }
 
-            level.setBlockAndUpdate(pos, blockstate.setValue(POWERED, flag));
+            level.setBlockAndUpdate(pos, blockstate.setValue(BlockStateProperties.POWERED, flag));
         }
     }
 
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(LIT, POWERED, FACING);
+        builder.add(BlockStateProperties.LIT, BlockStateProperties.POWERED, BlockStateProperties.FACING);
     }
 
     @Override
     public @Nullable BlockState getStateForPlacement(BlockPlaceContext context) {
-        return this.defaultBlockState().setValue(LIT, false).setValue(POWERED, false).setValue(FACING, context.getClickedFace());
+        return this.defaultBlockState().setValue(BlockStateProperties.LIT, false).setValue(BlockStateProperties.POWERED, false).setValue(BlockStateProperties.FACING, context.getClickedFace());
     }
 
     @Override
