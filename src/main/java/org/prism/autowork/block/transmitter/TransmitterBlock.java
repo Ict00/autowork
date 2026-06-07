@@ -63,7 +63,7 @@ public class TransmitterBlock extends Block implements BlockHelpProvider {
     protected void onPlace(BlockState state, Level level, BlockPos pos, BlockState oldState, boolean movedByPiston) {
         super.onPlace(state, level, pos, oldState, movedByPiston);
         if (state.getValue(POWER_STATE) != 0) {
-            level.scheduleTick(pos, asBlock(), 10);
+            level.scheduleTick(pos, asBlock(), 20);
         }
     }
 

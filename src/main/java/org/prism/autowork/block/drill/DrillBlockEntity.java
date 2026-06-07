@@ -83,7 +83,7 @@ public class DrillBlockEntity extends BlockEntity implements MenuProvider {
 
     public boolean putTool(ItemStack tool) {
         if (this.tool.isEmpty()) {
-            this.tool = tool.copy();
+            toolHandler.insertItem(0, tool.copy(), false);
             setChanged();
             return true;
         }
