@@ -1,0 +1,10 @@
+{
+  "type": "autowork:bulk_smelting",
+  "amount": 1000,
+  "block": {
+    "item": "minecraft:raw_gold_block"
+  },
+  "result": {
+    "id": "minecraft:gold_block"
+  }
+}

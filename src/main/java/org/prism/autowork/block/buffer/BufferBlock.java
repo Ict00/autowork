@@ -71,11 +71,11 @@ public class BufferBlock extends BaseEntityBlock implements BlockHelpProvider {
 
     @Override
     protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
-        if (level.getBlockEntity(pos) instanceof HudInventoryProvider prov) {
+        if (level.getBlockEntity(pos) instanceof HudInventoryProvider prov && !level.isClientSide) {
             return prov.useOn(player.getMainHandItem(), hit.getDirection(), level, pos, player).result();
         }
 
-        return super.useWithoutItem(state, level, pos, player, hit);
+        return InteractionResult.sidedSuccess(level.isClientSide);
     }
 
     @Override

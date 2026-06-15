@@ -2,6 +2,9 @@ package org.prism.autowork.other;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
+import net.mcexpanded.fancytabsections.FancyTabSections;
+import net.mcexpanded.fancytabsections.creativetab.ConglomerateOfItems;
+import net.mcexpanded.fancytabsections.creativetab.SectionColored;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -51,30 +54,92 @@ public class ModOther {
                     .icon(() -> new ItemStack(Items.ITEM_FRAME))
                     .title(Component.translatable("itemGroup.autowork"))
                     .displayItems((idp, output) -> {
-                        output.accept(ModBlocks.CHUTE);
-                        output.accept(ModBlocks.FILTER_CHUTE);
-                        output.accept(ModBlocks.FAN);
-                        output.accept(ModBlocks.DRILL);
-                        output.accept(ModBlocks.EXTRACTOR);
-                        output.accept(ModBlocks.PLACER);
-                        output.accept(ModBlocks.BREEZE_COLLECTOR);
-                        output.accept(ModBlocks.BUFFERED_BREEZE_COLLECTOR);
-                        output.accept(ModBlocks.CARTLOADER);
-                        output.accept(ModBlocks.BUFFERED_CARTLOADER);
-                        output.accept(ModBlocks.CARTUNLOADER);
-                        output.accept(ModBlocks.BUFFERED_CARTUNLOADER);
-                        output.accept(ModBlocks.RAILWAY_OBSERVER);
-                        output.accept(ModBlocks.TOGGLER);
-                        output.accept(ModBlocks.BUFFER);
-                        output.accept(ModBlocks.TICKER);
-                        output.accept(ModBlocks.DISTRIBUTOR);
-                        output.accept(ModBlocks.TRANSMITTER);
-                        output.accept(ModBlocks.AND_GATE);
 
-                        output.accept(ModItems.REDSTONE_CHARGE);
-                        output.accept(ModItems.WRENCH);
                     })
                     .build());
+
+    static void addItems() {
+        var tabRs = ResourceLocation.fromNamespaceAndPath(Autowork.MODID, "autowork_tab");
+        FancyTabSections.addSection(tabRs,
+                new SectionColored(
+                        Autowork.loc("base_machines"),
+                        Component.translatable("creativetab.autowork.base_machines"),
+                        0xff2b2b2b,
+                        0xfffcfcfc,
+                        ConglomerateOfItems.create()
+                                .add(ModBlocks.CHUTE)
+                                .add(ModBlocks.FILTER_CHUTE)
+                                .add(ModBlocks.EXTRACTOR)
+                                .add(ModBlocks.DRILL)
+                                .add(ModBlocks.PLACER)
+                                .add(ModBlocks.FAN)
+                                .add(ModBlocks.BREEZE_COLLECTOR)
+                                .add(ModBlocks.BUFFERED_BREEZE_COLLECTOR)
+                                .add(ModBlocks.BUFFER)
+                                .add(ModBlocks.DISTRIBUTOR)
+                                .add(ModBlocks.SCULK_MOVER)
+                )
+        );
+
+        FancyTabSections.addSection(tabRs,
+                new SectionColored(
+                        Autowork.loc("railway"),
+                        Component.translatable("creativetab.autowork.railway"),
+                        0xffbdbdbd,
+                        0xfffcfcfc,
+                        ConglomerateOfItems.create()
+                                .add(ModBlocks.RAILWAY_OBSERVER)
+                                .add(ModBlocks.CARTLOADER)
+                                .add(ModBlocks.CARTUNLOADER)
+                                .add(ModBlocks.CARTREFILLER)
+                                .add(ModBlocks.BUFFERED_CARTLOADER)
+                                .add(ModBlocks.BUFFERED_CARTUNLOADER)
+                                .add(ModBlocks.BUFFERED_CARTREFILLER)
+                )
+        );
+
+        FancyTabSections.addSection(tabRs,
+                new SectionColored(
+                        Autowork.loc("fluids"),
+                        Component.translatable("creativetab.autowork.fluids"),
+                        0xff121536,
+                        0xff78c7ff,
+                        ConglomerateOfItems.create()
+                                .add(ModBlocks.FLUID_EXTRACTOR)
+                                .add(ModBlocks.SPILLER)
+                                .add(ModBlocks.SMELTER)
+                                .add(ModBlocks.FLUID_BARREL)
+                                .add(ModBlocks.PUMP)
+                )
+        );
+
+        FancyTabSections.addSection(tabRs,
+                new SectionColored(
+                        Autowork.loc("redstone"),
+                        Component.translatable("creativetab.autowork.redstone"),
+                        0xff5c1111,
+                        0xfffa3232,
+                        ConglomerateOfItems.create()
+                                .add(ModBlocks.AND_GATE)
+                                .add(ModBlocks.TRANSMITTER)
+                                .add(ModBlocks.TOGGLER)
+                                .add(ModBlocks.TICKER)
+                                .add(ModBlocks.PRECISE_OBSERVER)
+                )
+        );
+
+        FancyTabSections.addSection(tabRs,
+                new SectionColored(
+                        Autowork.loc("misc"),
+                        Component.translatable("creativetab.autowork.misc"),
+                        0xff7d2b19,
+                        0xfffa5732,
+                        ConglomerateOfItems.create()
+                                .add(ModItems.WRENCH)
+                                .add(ModItems.REDSTONE_CHARGE)
+                )
+        );
+    }
 
     public static final ResourceKey<Enchantment> CRUSHING_ENCHANTMENT = ResourceKey.create(
             Registries.ENCHANTMENT,
@@ -85,8 +150,13 @@ public class ModOther {
     public static final TagKey<Block> FIXABLE_TAG = TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(Autowork.MODID, "fixable"));
     public static final TagKey<Block> GLASSES = TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath("c", "glass_blocks"));
 
+    public static final TagKey<Block> BLOCK_ENTITY_MOVABLE = TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(Autowork.MODID, "block_entity_movable"));
+    public static final TagKey<Block> MOVABLE = TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(Autowork.MODID, "movable"));
+
+
     public static void register(IEventBus bus) {
         LOOT_MODIFIERS.register(bus);
         CREATIVE_MODE_TABS.register(bus);
+        addItems();
     }
 }

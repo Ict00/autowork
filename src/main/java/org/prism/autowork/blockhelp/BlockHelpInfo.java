@@ -41,8 +41,18 @@ public record BlockHelpInfo(List<Component> technical, List<Component> details) 
             return this;
         }
 
+        public Builder fluid_storage() {
+            tech.add(Component.translatable("blockhelp.fluid_storage").withColor(0xb3b3b3));
+            return this;
+        }
+
         public Builder no_storage() {
             tech.add(Component.translatable("blockhelp.no_storage").withColor(0xb3b3b3));
+            return this;
+        }
+
+        public Builder no_fluid_storage() {
+            tech.add(Component.translatable("blockhelp.no_fluid_storage").withColor(0xb3b3b3));
             return this;
         }
 
@@ -61,6 +71,11 @@ public record BlockHelpInfo(List<Component> technical, List<Component> details) 
         public Builder storage_required_back() {
             return back("blockhelp.storage_required");
         }
+
+        public Builder fluid_storage_required_back() {
+            return back("blockhelp.fluid_storage_required");
+        }
+
 
         public Builder power_depends_on_signal() {
             tech.add(Component.translatable("blockhelp.power_depends").withColor(0xb3b3b3));

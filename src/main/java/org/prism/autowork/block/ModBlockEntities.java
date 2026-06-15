@@ -8,10 +8,15 @@ import org.prism.autowork.Autowork;
 import org.prism.autowork.block.breezecollector.buffered.BufferedBreezeCollectorBlockEntity;
 import org.prism.autowork.block.buffer.BufferBlockEntity;
 import org.prism.autowork.block.cart_manipulators.buffered.loader.CartLoaderBufferedBlockEntity;
+import org.prism.autowork.block.cart_manipulators.buffered.refiller.CartRefillerBufferedBlockEntity;
 import org.prism.autowork.block.cart_manipulators.buffered.unloader.CartUnloaderBufferedBlockEntity;
 import org.prism.autowork.block.drill.DrillBlockEntity;
 import org.prism.autowork.block.filterchute.FilterChuteBlockEntity;
+import org.prism.autowork.block.fluidbarrel.FluidBarrelBlockEntity;
 import org.prism.autowork.block.placer.PlacerBlockEntity;
+import org.prism.autowork.block.precise_observer.PreciseObserverBlock;
+import org.prism.autowork.block.precise_observer.PreciseObserverBlockEntity;
+import org.prism.autowork.block.pump.PumpBlockEntity;
 import org.prism.autowork.block.ticker.TickerBlockEntity;
 
 import java.util.function.Supplier;
@@ -25,6 +30,16 @@ public class ModBlockEntities {
                     BufferBlockEntity::new, ModBlocks.BUFFER.get()
             ).build(null));
 
+    public static final Supplier<BlockEntityType<PumpBlockEntity>> PUMP_BE =
+            BLOCK_ENTITIES.register("pump_be", () -> BlockEntityType.Builder.of(
+                    PumpBlockEntity::new, ModBlocks.PUMP.get()
+            ).build(null));
+
+    public static final Supplier<BlockEntityType<FluidBarrelBlockEntity>> FLUID_BARREL_BE =
+            BLOCK_ENTITIES.register("fluid_barrel_be", () -> BlockEntityType.Builder.of(
+                    FluidBarrelBlockEntity::new, ModBlocks.FLUID_BARREL.get()
+            ).build(null));
+
     public static final Supplier<BlockEntityType<BufferedBreezeCollectorBlockEntity>> BUFFERED_BREEZE_COLLECTOR_BE =
             BLOCK_ENTITIES.register("buffered_breeze_collector_be", () -> BlockEntityType.Builder.of(
                     BufferedBreezeCollectorBlockEntity::new, ModBlocks.BUFFERED_BREEZE_COLLECTOR.get()
@@ -35,9 +50,19 @@ public class ModBlockEntities {
                     DrillBlockEntity::new, ModBlocks.DRILL.get()
             ).build(null));
 
+    public static final Supplier<BlockEntityType<PreciseObserverBlockEntity>> PRECISE_OBSERVER_BE =
+            BLOCK_ENTITIES.register("precise_observer_be", () -> BlockEntityType.Builder.of(
+                    PreciseObserverBlockEntity::new, ModBlocks.PRECISE_OBSERVER.get()
+            ).build(null));
+
     public static final Supplier<BlockEntityType<CartLoaderBufferedBlockEntity>> CARTLOADER_BUFFERED_BE =
             BLOCK_ENTITIES.register("cartloader_be", () -> BlockEntityType.Builder.of(
                     CartLoaderBufferedBlockEntity::new, ModBlocks.BUFFERED_CARTLOADER.get()
+            ).build(null));
+
+    public static final Supplier<BlockEntityType<CartRefillerBufferedBlockEntity>> CARTREFILLER_BUFFERED_BE =
+            BLOCK_ENTITIES.register("cartrefiller_be", () -> BlockEntityType.Builder.of(
+                    CartRefillerBufferedBlockEntity::new, ModBlocks.BUFFERED_CARTREFILLER.get()
             ).build(null));
 
     public static final Supplier<BlockEntityType<CartUnloaderBufferedBlockEntity>> CARTUNLOADER_BUFFERED_BE =

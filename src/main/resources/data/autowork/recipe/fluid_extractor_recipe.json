@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "AEA",
+    "DCD",
+    "DFD"
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:prismarine_crystals"
+    },
+    "C": {
+      "item": "minecraft:dispenser"
+    },
+    "D": {
+      "item": "minecraft:prismarine_shard"
+    },
+    "E": {
+      "item": "minecraft:copper_block"
+    },
+    "F": {
+      "item": "autowork:chute"
+    }
+  },
+  "result": {
+    "id": "autowork:fluid_extractor",
+    "count": 1
+  }
+}

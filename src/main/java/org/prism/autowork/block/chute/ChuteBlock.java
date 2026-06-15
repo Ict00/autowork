@@ -48,6 +48,9 @@ public class ChuteBlock extends Block implements BlockHelpProvider {
             level.setBlockAndUpdate(pos, state.setValue(UPPER, false));
             return;
         }
+        else if (!state.getValue(UPPER)) {
+            level.setBlockAndUpdate(pos, state.setValue(UPPER, true));
+        }
 
         level.scheduleTick(pos, asBlock(), 5);
     }

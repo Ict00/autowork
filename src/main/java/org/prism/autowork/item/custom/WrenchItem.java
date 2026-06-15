@@ -28,8 +28,18 @@ public class WrenchItem extends Item {
                 context.getLevel().scheduleTick(pos, block, 1);
                 context.getLevel().playSound(null, pos, SoundEvents.VAULT_ACTIVATE, SoundSource.PLAYERS, 1, 1.5f);
 
+                if (state.getBlock() instanceof IWrenchable wrenchable) {
+                    wrenchable.wrench(context.getLevel(), pos, state);
+                }
+
                 return InteractionResult.SUCCESS;
             }
+            if (state.getBlock() instanceof IWrenchable wrenchable) {
+                context.getLevel().playSound(null, pos, SoundEvents.VAULT_ACTIVATE, SoundSource.PLAYERS, 1, 1.5f);
+                wrenchable.wrench(context.getLevel(), pos, state);
+                return InteractionResult.SUCCESS;
+            }
+
         }
 
         return super.useOn(context);

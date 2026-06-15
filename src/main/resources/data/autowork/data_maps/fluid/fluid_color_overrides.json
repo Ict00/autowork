@@ -1,0 +1,13 @@
+{
+"values": {
+    "minecraft:lava": {
+      "color": 4294281794
+    },
+    "create:honey": {
+      "color": 4294948193
+    },
+    "create:chocolate": {
+      "color": 4290601529
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "values": [
+    "minecraft:beehive",
+    "minecraft:bee_nest",
+    "#c:player_workstations/furnaces",
+    "#c:villager_job_sites",
+    "#minecraft:anvil",
+    "minecraft:budding_amethyst"
+  ]
+}

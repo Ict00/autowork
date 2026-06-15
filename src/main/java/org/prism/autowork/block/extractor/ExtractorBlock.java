@@ -28,11 +28,6 @@ public class ExtractorBlock extends Block implements BlockHelpProvider {
     }
 
     @Override
-    protected void neighborChanged(BlockState state, Level level, BlockPos pos, Block block, BlockPos p_60513_, boolean p_60514_) {
-        super.neighborChanged(state, level, pos, block, p_60513_, p_60514_);
-    }
-
-    @Override
     protected void onPlace(BlockState state, Level level, BlockPos pos, BlockState oldState, boolean movedByPiston) {
         super.onPlace(state, level, pos, oldState, movedByPiston);
 

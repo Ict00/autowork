@@ -13,6 +13,8 @@ import net.neoforged.neoforge.client.gui.ConfigurationScreen;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 import org.prism.autowork.block.ModBlockEntities;
 import org.prism.autowork.block.filterchute.FilterChuteBlockRenderer;
+import org.prism.autowork.block.fluidbarrel.FluidBarrelBlockRenderer;
+import org.prism.autowork.block.precise_observer.PreciseObserverRenderer;
 import org.prism.autowork.entities.ModEntities;
 import org.prism.autowork.entities.signal.SignalEntityModel;
 import org.prism.autowork.entities.signal.SignalEntityRenderer;
@@ -21,9 +23,11 @@ import org.prism.autowork.particles.SignalParticles;
 import org.prism.autowork.screens.ModMenus;
 import org.prism.autowork.screens.breeze_collector.BreezeCollectorScreen;
 import org.prism.autowork.screens.cartloader.CartLoaderScreen;
+import org.prism.autowork.screens.cartrefiller.CartRefillerScreen;
 import org.prism.autowork.screens.cartunloader.CartUnloaderScreen;
 import org.prism.autowork.screens.drill.DrillScreen;
 import org.prism.autowork.screens.placer.PlacerScreen;
+import org.prism.autowork.screens.pump.PumpScreen;
 
 @Mod(value = Autowork.MODID, dist = Dist.CLIENT)
 @EventBusSubscriber(modid = Autowork.MODID, value = Dist.CLIENT)
@@ -45,6 +49,12 @@ public class AutoworkClient {
     static void registerBER(EntityRenderersEvent.RegisterRenderers event) {
         event.registerBlockEntityRenderer(ModBlockEntities.FILTER_CHUTE_BE.get(),
                 FilterChuteBlockRenderer::new);
+
+        event.registerBlockEntityRenderer(ModBlockEntities.PRECISE_OBSERVER_BE.get(),
+                PreciseObserverRenderer::new);
+
+        event.registerBlockEntityRenderer(ModBlockEntities.FLUID_BARREL_BE.get(),
+                FluidBarrelBlockRenderer::new);
     }
 
     @SubscribeEvent
@@ -53,7 +63,9 @@ public class AutoworkClient {
         event.register(ModMenus.PLACER_MENU.get(), PlacerScreen::new);
         event.register(ModMenus.CARTLOADER_MENU.get(), CartLoaderScreen::new);
         event.register(ModMenus.CARTUNLOADER_MENU.get(), CartUnloaderScreen::new);
+        event.register(ModMenus.CARTREFILLER_MENU.get(), CartRefillerScreen::new);
         event.register(ModMenus.BREEZE_COLLECTOR_MENU.get(), BreezeCollectorScreen::new);
+        event.register(ModMenus.PUMP_MENU.get(), PumpScreen::new);
     }
 
     @SubscribeEvent

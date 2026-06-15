@@ -1,0 +1,13 @@
+{
+  "type": "autowork:spilling",
+  "block": {
+    "item": "minecraft:snow_block"
+  },
+  "fluid": {
+    "id": "minecraft:water",
+    "amount": 1000
+  },
+  "result": {
+    "id": "minecraft:ice"
+  }
+}

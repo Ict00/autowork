@@ -1,0 +1,17 @@
+
+{
+  "variants": {
+    "state=done": {
+      "model": "autowork:block/pump/done"
+    },
+    "state=still": {
+      "model": "autowork:block/pump/still"
+    },
+    "state=working": {
+      "model": "autowork:block/pump/working"
+    },
+    "state=stuck": {
+      "model": "autowork:block/pump/stuck"
+    }
+  }
+}

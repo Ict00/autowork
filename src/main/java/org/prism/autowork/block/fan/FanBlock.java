@@ -2,29 +2,21 @@ package org.prism.autowork.block.fan;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.MoverType;
-import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.DropperBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.block.state.properties.BooleanProperty;
-import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.BlockHitResult;
@@ -82,10 +74,10 @@ public class FanBlock extends Block implements BlockHelpProvider {
             }
         }
 
-        var dir = ModUtils.direction2vec(state.getValue(BlockStateProperties.FACING));
+        var dir = ModUtils.getLookVector(level, pos, state.getValue(BlockStateProperties.FACING));
         var power = ModUtils.vecMultiply(dir, signal);
 
-        var aBlock = ModUtils.blockPosVec(pos).add(0.5, 0.5, 0.5);
+        var aBlock = ModUtils.blockPos2Vec(ModUtils.safeBlockPos(pos, level)).add(0.5, 0.5, 0.5);
         var bBlock = power.add(aBlock);
 
         var t = aBlock.add(dir);
@@ -101,10 +93,10 @@ public class FanBlock extends Block implements BlockHelpProvider {
         );
 
         if (hit.getType() == HitResult.Type.BLOCK) {
-            bBlock = hit.getLocation();
+            bBlock = ModUtils.safeVecPos(hit.getLocation(), level);
         }
 
-        var aabb = new AABB(aBlock, bBlock).inflate(0.5);
+        var aabb = ModUtils.safeAABBfromTwoVec(aBlock, bBlock, level).inflate(0.5);
 
         List<Entity> entities = level.getEntities(
                 null,
@@ -185,7 +177,7 @@ public class FanBlock extends Block implements BlockHelpProvider {
         );
 
         if (hit.getType() == HitResult.Type.BLOCK) {
-            end = hit.getLocation();
+            end = ModUtils.safeVecPos(hit.getLocation(), level);
         }
 
         double length = start.distanceTo(end);

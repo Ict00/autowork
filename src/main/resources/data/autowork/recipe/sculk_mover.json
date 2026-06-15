@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "pattern": [
+    "AHA",
+    "CSC",
+    "ARA"
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:sculk"
+    },
+    "H": {
+      "item": "minecraft:echo_shard"
+    },
+    "C": {
+      "tag": "c:cobblestones"
+    },
+    "S": {
+      "item": "minecraft:sculk_shrieker"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    }
+  },
+  "result": {
+    "id": "autowork:sculk_mover",
+    "count": 1
+  }
+}

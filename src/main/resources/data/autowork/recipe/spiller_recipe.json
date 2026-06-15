@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "AAA",
+    "ECE",
+    "DFD"
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:prismarine_crystals"
+    },
+    "C": {
+      "item": "minecraft:dispenser"
+    },
+    "D": {
+      "item": "minecraft:prismarine_shard"
+    },
+    "E": {
+      "item": "minecraft:lapis_lazuli"
+    },
+    "F": {
+      "item": "autowork:chute"
+    }
+  },
+  "result": {
+    "id": "autowork:spiller",
+    "count": 1
+  }
+}

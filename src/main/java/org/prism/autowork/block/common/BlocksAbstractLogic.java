@@ -103,6 +103,80 @@ public final class BlocksAbstractLogic {
         }
     }
 
+    public static void cartRefillerTick(Level level, BlockPos pos, BlockState state, Supplier<IItemHandler> storageCapGet) {
+        if (!state.getValue(BlockStateProperties.POWERED) && level.hasNeighborSignal(pos)) {
+            var facing = state.getValue(BlockStateProperties.FACING);
+
+            var front = ModUtils.lookTo(pos, facing);
+
+            var storageCap = storageCapGet.get();
+
+            if (storageCap != null) {
+                try {
+                    var aabb = new AABB(front).inflate(0.2);
+                    List<MinecartChest> entities = level.getEntitiesOfClass(
+                            MinecartChest.class,
+                            aabb,
+                            (et) -> et instanceof MinecartChest
+                    );
+
+                    if (entities.isEmpty()) {
+                        return;
+                    }
+
+                    var filter = CartHelper.getCartName(level, pos, facing);
+                    boolean caughtAny = false;
+
+                    for (MinecartChest entity : entities) {
+                        if (filter != null) {
+                            if (entity.getCustomName() == null) {
+                                continue;
+                            }
+                            if (!entity.getCustomName().getString().equals(filter)) {
+                                continue;
+                            }
+                        }
+
+                        var items = entity.getCapability(Capabilities.ItemHandler.ENTITY);
+
+                        for (int i = 0; i < storageCap.getSlots(); i++) {
+                            var st = storageCap.getStackInSlot(i);
+
+                            if (!st.isEmpty()) {
+                                var remains = ItemHandlerHelper.insertItem(items, st.copy(), false);
+
+                                if (remains.isEmpty()) {
+                                    storageCap.extractItem(i, st.getCount(), false);
+                                }
+                                else if (remains.getCount() < st.getCount()) {
+                                    storageCap.extractItem(i, st.getCount() - remains.getCount(), false);
+                                }
+                                else {
+                                    break;
+                                }
+                            }
+                        }
+
+                        caughtAny = true;
+                        break;
+                    }
+                    if (caughtAny) {
+                        level.setBlockAndUpdate(pos, state.setValue(BlockStateProperties.POWERED, true));
+                        level.playSound(null, pos, SoundEvents.DISPENSER_DISPENSE, SoundSource.BLOCKS);
+                    }
+                }
+                catch (Exception ignored) {
+
+                }
+            }
+        }
+        else {
+            if (state.getValue(BlockStateProperties.POWERED)) {
+                level.setBlockAndUpdate(pos, state.setValue(BlockStateProperties.POWERED, false));
+            }
+        }
+    }
+
 
     public static void cartLoaderTick(Level level, BlockPos pos, BlockState state, Supplier<IItemHandler> minecartCapGet,
                                       Supplier<IItemHandler> storageCapGet) {
@@ -215,7 +289,7 @@ public final class BlocksAbstractLogic {
             return;
         }
 
-        var facing = state.getValue(BlockStateProperties.FACING);
+        var facing = ModUtils.getLook(level, pos, state.getValue(BlockStateProperties.FACING));
 
         var container = containerGet.get();
 
@@ -226,7 +300,7 @@ public final class BlocksAbstractLogic {
         var face = ModUtils.direction2vec(facing);
         var aabbAdd = ModUtils.vecMultiply(face, aabbSide/2.0);
 
-        var aabb = new AABB(pos);
+        var aabb = ModUtils.safeAABBfromPos(pos.mutable(), level);
         aabb = aabb.inflate(aabbSide).move(aabbAdd.add(aabbAdd));
 
         List<ItemEntity> entities = level.getEntitiesOfClass(
@@ -235,10 +309,9 @@ public final class BlocksAbstractLogic {
                 (et) -> et instanceof ItemEntity
         );
 
-        var start = ModUtils.blockPosVec(ModUtils.lookTo(pos, facing));
+        var start = ModUtils.blockPos2Vec(ModUtils.safeBlockPos(ModUtils.lookTo(pos, facing), level));
 
-        for (int i = 0; i < entities.size(); i++) {
-            var entity = entities.get(i);
+        for (var entity : entities) {
             var position = entity.position();
 
             if (Math.sqrt(entity.distanceToSqr(start)) <= 1.5f) {
@@ -246,8 +319,7 @@ public final class BlocksAbstractLogic {
 
                 if (!remains.isEmpty()) {
                     entity.setItem(remains);
-                }
-                else {
+                } else {
                     level.playSound(null, pos, SoundEvents.DISPENSER_DISPENSE, SoundSource.BLOCKS);
                     entity.remove(Entity.RemovalReason.DISCARDED);
                 }
@@ -258,7 +330,7 @@ public final class BlocksAbstractLogic {
             var delta = ModUtils.vecDivide(position.subtract(start), 2.5);
             delta = ModUtils.vecDivide(delta, 10);
 
-            entity.addDeltaMovement(delta.multiply(-1,-1,-1));
+            entity.addDeltaMovement(delta.multiply(-1, -1, -1));
             entity.hurtMarked = true;
         }
     }

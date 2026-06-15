@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "open=false": {
+      "model": "autowork:block/fluid_barrel_closed"
+    },
+    "open=true": {
+      "model": "autowork:block/fluid_barrel_open"
+    }
+  }
+}

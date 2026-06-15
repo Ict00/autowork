@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "c:barrels"
+    }
+  ],
+  "result": {
+    "id": "autowork:fluid_barrel",
+    "count": 1
+  }
+}

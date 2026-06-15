@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "autowork:block/pump/pump_bottom",
+    "east": "autowork:block/pump/pump_stuck_side",
+    "north": "autowork:block/pump/pump_stuck_side",
+    "particle": "autowork:block/pump/pump_stuck_side",
+    "south": "autowork:block/pump/pump_stuck_side",
+    "up": "autowork:block/pump/pump_top",
+    "west": "autowork:block/pump/pump_stuck_side"
+  }
+}

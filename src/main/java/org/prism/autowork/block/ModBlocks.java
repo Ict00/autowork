@@ -21,8 +21,10 @@ import org.prism.autowork.block.breezecollector.BreezeCollectorBlock;
 import org.prism.autowork.block.breezecollector.buffered.BufferedBreezeCollectorBlock;
 import org.prism.autowork.block.buffer.BufferBlock;
 import org.prism.autowork.block.cart_manipulators.buffered.loader.CartLoaderBufferedBlock;
+import org.prism.autowork.block.cart_manipulators.buffered.refiller.CartRefillerBufferedBlock;
 import org.prism.autowork.block.cart_manipulators.buffered.unloader.CartUnloaderBufferedBlock;
 import org.prism.autowork.block.cart_manipulators.unbuffered.CartLoaderBlock;
+import org.prism.autowork.block.cart_manipulators.unbuffered.CartRefillerBlock;
 import org.prism.autowork.block.cart_manipulators.unbuffered.CartUnloaderBlock;
 import org.prism.autowork.block.chute.ChuteBlock;
 import org.prism.autowork.block.distributor.DistributorBlock;
@@ -30,8 +32,15 @@ import org.prism.autowork.block.drill.DrillBlock;
 import org.prism.autowork.block.extractor.ExtractorBlock;
 import org.prism.autowork.block.fan.FanBlock;
 import org.prism.autowork.block.filterchute.FilterChuteBlock;
+import org.prism.autowork.block.fluidbarrel.FluidBarrelBlock;
+import org.prism.autowork.block.fluidextractor.FluidExtractorBlock;
 import org.prism.autowork.block.placer.PlacerBlock;
+import org.prism.autowork.block.precise_observer.PreciseObserverBlock;
+import org.prism.autowork.block.pump.PumpBlock;
 import org.prism.autowork.block.railwayobserver.RailwayObserverBlock;
+import org.prism.autowork.block.sculkmover.SculkMoverBlock;
+import org.prism.autowork.block.smelter.SmelterBlock;
+import org.prism.autowork.block.spiller.SpillerBlock;
 import org.prism.autowork.block.ticker.TickerBlock;
 import org.prism.autowork.block.toggler.TogglerBlock;
 import org.prism.autowork.block.transmitter.TransmitterBlock;
@@ -52,6 +61,13 @@ public class ModBlocks {
     public static final DeferredBlock<Block> BREEZE_COLLECTOR = registerBlock("breeze_collector",
             () -> new BreezeCollectorBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).sound(SoundType.METAL).requiresCorrectToolForDrops().isRedstoneConductor(ModBlocks::neverConductor)));
 
+    public static final DeferredBlock<Block> PUMP = registerBlock("pump",
+            () -> new PumpBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).sound(SoundType.METAL).requiresCorrectToolForDrops().isRedstoneConductor(ModBlocks::neverConductor)));
+
+
+    public static final DeferredBlock<Block> SCULK_MOVER = registerBlock("sculk_mover",
+            () -> new SculkMoverBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).sound(SoundType.METAL).requiresCorrectToolForDrops().isRedstoneConductor(ModBlocks::neverConductor)));
+
     public static final DeferredBlock<Block> BUFFER = registerBlock("buffer",
             () -> new BufferBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).sound(SoundType.METAL).requiresCorrectToolForDrops().isRedstoneConductor(ModBlocks::neverConductor)));
 
@@ -64,6 +80,12 @@ public class ModBlocks {
     public static final DeferredBlock<Block> RAILWAY_OBSERVER = registerBlock("railway_observer",
             () -> new RailwayObserverBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).sound(SoundType.METAL).requiresCorrectToolForDrops().isRedstoneConductor(ModBlocks::neverConductor)));
 
+    public static final DeferredBlock<Block> PRECISE_OBSERVER = registerBlock("precise_observer",
+            () -> new PreciseObserverBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).sound(SoundType.METAL).requiresCorrectToolForDrops().isRedstoneConductor(ModBlocks::neverConductor)));
+
+    public static final DeferredBlock<Block> FLUID_BARREL = registerBlock("fluid_barrel",
+            () -> new FluidBarrelBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD).sound(SoundType.WOOD).isRedstoneConductor(ModBlocks::neverConductor)), false);
+
     public static final DeferredBlock<Block> TOGGLER = registerBlock("toggler",
             () -> new TogglerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).sound(SoundType.METAL).requiresCorrectToolForDrops().isRedstoneConductor(ModBlocks::neverConductor).lightLevel((x) -> x.getValue(BlockStateProperties.LIT) ? 15 : 0)));
 
@@ -75,6 +97,12 @@ public class ModBlocks {
 
     public static final DeferredBlock<Block> CARTLOADER = registerBlock("cartloader",
             () -> new CartLoaderBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).sound(SoundType.METAL).requiresCorrectToolForDrops().isRedstoneConductor(ModBlocks::neverConductor)));
+
+    public static final DeferredBlock<Block> CARTREFILLER = registerBlock("cartrefiller",
+            () -> new CartRefillerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).sound(SoundType.METAL).requiresCorrectToolForDrops().isRedstoneConductor(ModBlocks::neverConductor)));
+
+    public static final DeferredBlock<Block> BUFFERED_CARTREFILLER = registerBlock("buffered_cartrefiller",
+            () -> new CartRefillerBufferedBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).sound(SoundType.METAL).requiresCorrectToolForDrops().isRedstoneConductor(ModBlocks::neverConductor)));
 
     public static final DeferredBlock<Block> CARTUNLOADER = registerBlock("cartunloader",
             () -> new CartUnloaderBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).sound(SoundType.METAL).requiresCorrectToolForDrops().isRedstoneConductor(ModBlocks::neverConductor)));
@@ -90,6 +118,15 @@ public class ModBlocks {
 
     public static final DeferredBlock<Block> EXTRACTOR = registerBlock("extractor",
             () -> new ExtractorBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).sound(SoundType.METAL).requiresCorrectToolForDrops().isRedstoneConductor(ModBlocks::neverConductor)));
+
+    public static final DeferredBlock<Block> FLUID_EXTRACTOR = registerBlock("fluid_extractor",
+            () -> new FluidExtractorBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).sound(SoundType.METAL).requiresCorrectToolForDrops().isRedstoneConductor(ModBlocks::neverConductor)));
+
+    public static final DeferredBlock<Block> SPILLER = registerBlock("spiller",
+            () -> new SpillerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).sound(SoundType.METAL).requiresCorrectToolForDrops().isRedstoneConductor(ModBlocks::neverConductor)));
+
+    public static final DeferredBlock<Block> SMELTER = registerBlock("smelter",
+            () -> new SmelterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).sound(SoundType.METAL).requiresCorrectToolForDrops().isRedstoneConductor(ModBlocks::neverConductor)));
 
     public static final DeferredBlock<Block> FAN = registerBlock("fan",
             () -> new FanBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).sound(SoundType.METAL).requiresCorrectToolForDrops().isRedstoneConductor(ModBlocks::neverConductor)));

@@ -1,0 +1,13 @@
+{
+  "type": "autowork:spilling",
+  "block": {
+    "item": "minecraft:cobblestone"
+  },
+  "fluid": {
+    "id": "minecraft:lava",
+    "amount": 1000
+  },
+  "result": {
+    "id": "minecraft:magma_block"
+  }
+}

@@ -1,12 +1,19 @@
 {
   "autowork.configuration.distributorRange": "Distributor scan range",
   "autowork.configuration.crushingHudHelper": "Show 'Crushing' HUD",
-  "autowork.configuration.machinesWorkOnlyOnPulse": "[WIP] Machines work only on pulse redstone signal",
   "autowork.configuration.transmitterSignalLifetime": "Transmitter's signal lifetime (in ticks)",
   "autowork.configuration.newRedstoneDetection": "New redstone detection. May be better than older, may be buggier than older",
   "autowork.configuration.bufferHudRender": "Render buffer's hud",
+  "autowork.configuration.sculkMoverRange": "Sculk Mover range",
+  "autowork.configuration.pumpRange": "Pump range",
 
   "itemGroup.autowork": "Autowork",
+
+  "creativetab.autowork.base_machines": "Base Machines",
+  "creativetab.autowork.railway": "Railway",
+  "creativetab.autowork.redstone": "Redstone",
+  "creativetab.autowork.fluids": "Fluids",
+  "creativetab.autowork.misc": "Misc",
 
   "item.autowork.redstone_charge": "Redstone Charge",
   "item.autowork.wrench": "Wrench",
@@ -21,17 +28,30 @@
   "block.autowork.buffer": "Buffer",
   "block.autowork.drill": "Drill",
   "block.autowork.placer": "Placer",
+  "block.autowork.pump": "Pump",
   "block.autowork.cartloader": "Cart Loader",
+  "block.autowork.cartrefiller": "Cart Refiller",
   "block.autowork.buffered_cartloader": "Buffered Cart Loader",
   "block.autowork.cartunloader": "Cart Unloader",
   "block.autowork.buffered_cartunloader": "Buffered Cart Unloader",
+  "block.autowork.buffered_cartrefiller": "Buffered Cart Refiller",
   "block.autowork.ticker": "Ticker",
   "block.autowork.distributor": "Distributor",
   "block.autowork.ticker.set": "Set time to: %dt",
   "block.autowork.breeze_collector": "Breeze Collector",
   "block.autowork.buffered_breeze_collector": "Buffered Breeze Collector",
   "block.autowork.extractor": "Extractor",
+  "block.autowork.fluid_extractor": "Fluid Extractor",
+  "block.autowork.fluid_barrel": "Fluid Barrel",
+  "block.autowork.precise_observer": "Precise Observer",
+  "block.autowork.sculk_mover": "Sculk Mover",
+  "block.autowork.spiller": "Spiller",
+  "block.autowork.smelter": "Smelter",
   "enchantment.autowork.crushing": "Crushing",
+
+  "autowork.recipe.spilling": "Spilling",
+  "autowork.recipe.smelting": "Smelting",
+  "autowork.recipe.required": "%dmb of Lava",
 
   "autowork.crushing_description": "Requires 'Crushing' Enchantment",
 
@@ -52,8 +72,11 @@
   "blockhelp.direction.side": "Other Sides",
   "blockhelp.multiblock": "Is a multiblock structure",
   "blockhelp.storage": "Has storage",
+  "blockhelp.fluid_storage": "Has fluid storage",
   "blockhelp.storage_required": "Storage required",
+  "blockhelp.fluid_storage_required": "Fluid storage required",
   "blockhelp.no_storage": "Has NO storage",
+  "blockhelp.no_fluid_storage": "Has NO fluid storage",
   "blockhelp.works_when_powered": "Works when powered",
   "blockhelp.works_when_unpowered": "Works when unpowered",
   "blockhelp.power_depends": "Work depends on signal strength",
@@ -69,6 +92,8 @@
 
   "blockhelp.autowork.cartloader.top": "Storage of minecarts with chest required",
   "blockhelp.autowork.cartloader.details": "Spawns a minecart if both storages are provided; then puts contents of the storage behind into minecart",
+
+  "blockhelp.autowork.cartrefiller.details": "Puts items into already existing minecart with chest in front of it",
 
   "blockhelp.autowork.buffered_cartloader.side": "Content in",
   "blockhelp.autowork.buffered_cartloader.top": "Minecarts in",
@@ -99,6 +124,30 @@
   "blockhelp.autowork.drill.addition": "Right-click to put/extract item from drill",
 
   "blockhelp.autowork.extractor.details": "Transfers items from the storage in back to the storage in front",
+
+  "blockhelp.autowork.pump.details": "When has fuel and liquid below itself, starts pulling the fluid to it and then tries to put it into fluid storage above. When pump finishes it's work it emits redstone signal.",
+  "blockhelp.autowork.pump.top": "Fluid Storage",
+  "blockhelp.autowork.pump.bottom": "Empty space/Fluid",
+
+  "blockhelp.autowork.sculk_mover.front": "Block detection side",
+  "blockhelp.autowork.sculk_mover.details": "Moves blocks in front of itself closer when powered with redstone, including some that are not movable by pistons",
+
+  "blockhelp.autowork.fluid_extractor.front": "Empty block/Fluid storage",
+  "blockhelp.autowork.fluid_extractor.back": "Fluid block/Fluid storage",
+  "blockhelp.autowork.fluid_extractor.details": "Replaces block in front of itself with fluid behind. If there is a storage in front of it, it'll put the fluid in it. If there is a storage behind AND in front of it, it'll transfer 1000mb of fluid",
+
+  "blockhelp.autowork.smelter.front": "Block to transform",
+  "blockhelp.autowork.smelter.details": "Tries to convert one block into another using lava",
+
+  "blockhelp.autowork.spiller.front": "Fluid placement",
+  "blockhelp.autowork.spiller.details": "Places fluid from storage in front of itself if there is space. If not, it'll try to convert block in front of itself using fluid",
+
+  "blockhelp.autowork.precise_observer.back": "Redstone output",
+  "blockhelp.autowork.precise_observer.front": "Observable block",
+  "blockhelp.autowork.precise_observer.details": "Configurable observer; will emit signal only when specific block is in front of it",
+
+  "blockhelp.autowork.fluid_barrel.capacity": "Capacity of 5000mb",
+  "blockhelp.autowork.fluid_barrel.details": "Fluids can be inserted/extracted manually when fluid is opened. Drops itself with fluid contents when broken",
 
   "blockhelp.autowork.fan.front": "Wind",
   "blockhelp.autowork.fan.details": "Just a fan.",

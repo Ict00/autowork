@@ -1,6 +1,7 @@
 package org.prism.autowork;
 
 import com.mojang.logging.LogUtils;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.ItemInteractionResult;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -20,16 +21,20 @@ import org.prism.autowork.block.ModBlocks;
 import org.prism.autowork.block.breezecollector.buffered.BufferedBreezeCollectorBlockEntity;
 import org.prism.autowork.block.buffer.BufferBlockEntity;
 import org.prism.autowork.block.cart_manipulators.buffered.loader.CartLoaderBufferedBlockEntity;
+import org.prism.autowork.block.cart_manipulators.buffered.refiller.CartRefillerBufferedBlockEntity;
 import org.prism.autowork.block.cart_manipulators.buffered.unloader.CartUnloaderBufferedBlockEntity;
 import org.prism.autowork.block.drill.DrillBlockEntity;
+import org.prism.autowork.block.fluidbarrel.FluidBarrelBlockEntity;
+import org.prism.autowork.block.fluidbarrel.FluidBarrelItemWrapper;
 import org.prism.autowork.block.placer.PlacerBlockEntity;
+import org.prism.autowork.block.pump.PumpBlockEntity;
 import org.prism.autowork.entities.ModEntities;
-import org.prism.autowork.hudinv.HudInventoryProvider;
 import org.prism.autowork.item.ModItems;
 import org.prism.autowork.other.ModData;
 import org.prism.autowork.other.ModDataMaps;
 import org.prism.autowork.other.ModOther;
 import org.prism.autowork.particles.ModParticles;
+import org.prism.autowork.recipe.ModRecipes;
 import org.prism.autowork.screens.ModMenus;
 import org.slf4j.Logger;
 
@@ -48,6 +53,7 @@ public class Autowork {
         ModEntities.register(modEventBus);
         ModOther.register(modEventBus);
         ModParticles.register(modEventBus);
+        ModRecipes.register(modEventBus);
 
         modEventBus.addListener(this::registerCapabilityProvider);
         modEventBus.addListener(this::registerDataMapTypes);
@@ -62,10 +68,15 @@ public class Autowork {
 
     private void registerDataMapTypes(RegisterDataMapTypesEvent event) {
         event.register(ModDataMaps.CRUSHING_MAP);
+        event.register(ModDataMaps.FLUID_COLOR_OVERRIDES);
     }
 
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event) {
+    }
+
+    public static ResourceLocation loc(String id) {
+        return ResourceLocation.fromNamespaceAndPath(Autowork.MODID, id);
     }
 
     public void registerCapabilityProvider(RegisterCapabilitiesEvent event) {
@@ -73,6 +84,12 @@ public class Autowork {
                 Capabilities.ItemHandler.BLOCK,
                 ModBlockEntities.DRILL_BE.get(),
                 DrillBlockEntity::getCapability
+        );
+
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
+                ModBlockEntities.FLUID_BARREL_BE.get(),
+                FluidBarrelBlockEntity::getCapability
         );
 
         event.registerBlockEntity(
@@ -85,6 +102,13 @@ public class Autowork {
                 Capabilities.ItemHandler.BLOCK,
                 ModBlockEntities.BUFFER_BE.get(),
                 BufferBlockEntity::getCapability
+        );
+
+
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                ModBlockEntities.PUMP_BE.get(),
+                PumpBlockEntity::getCapability
         );
 
         event.registerBlockEntity(
@@ -101,8 +125,19 @@ public class Autowork {
 
         event.registerBlockEntity(
                 Capabilities.ItemHandler.BLOCK,
+                ModBlockEntities.CARTREFILLER_BUFFERED_BE.get(),
+                CartRefillerBufferedBlockEntity::getCapability
+        );
+
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
                 ModBlockEntities.BUFFERED_BREEZE_COLLECTOR_BE.get(),
                 BufferedBreezeCollectorBlockEntity::getCapability
         );
+
+        event.registerItem(
+                Capabilities.FluidHandler.ITEM,
+                (itemStack, context) -> new FluidBarrelItemWrapper(itemStack),
+                ModItems.FLUID_BARREL_ITEM.get());
     }
 }

@@ -154,17 +154,17 @@ public class DrillBlockEntity extends BlockEntity implements MenuProvider {
         }
 
 
-        var face = state.getValue(DrillBlock.FACING);
+        var face = state.getValue(BlockStateProperties.FACING);
         AtomicBoolean anySignal = new AtomicBoolean(level.hasNeighborSignal(pos));
 
         if (!anySignal.get()) {
-            if (state.getValue(DrillBlock.POWERED)) {
-                level.setBlockAndUpdate(pos, state.setValue(DrillBlock.POWERED, false));
+            if (state.getValue(BlockStateProperties.POWERED)) {
+                level.setBlockAndUpdate(pos, state.setValue(BlockStateProperties.POWERED, false));
             }
             return;
         }
-        if (!state.getValue(DrillBlock.POWERED)) {
-            level.setBlockAndUpdate(pos, state.setValue(DrillBlock.POWERED, true));
+        if (!state.getValue(BlockStateProperties.POWERED)) {
+            level.setBlockAndUpdate(pos, state.setValue(BlockStateProperties.POWERED, true));
         }
         var front = ModUtils.lookTo(pos, face);
         var blockInFront = level.getBlockState(front);
@@ -255,7 +255,7 @@ public class DrillBlockEntity extends BlockEntity implements MenuProvider {
     }
 
     public @Nullable IItemHandler getCapability(@Nullable Direction direction) {
-        if (direction == getBlockState().getValue(DrillBlock.FACING)) {
+        if (direction == getBlockState().getValue(BlockStateProperties.FACING)) {
             return toolHandler;
         }
 

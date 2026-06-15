@@ -1,0 +1,10 @@
+{
+  "type": "autowork:bulk_smelting",
+  "amount": 1000,
+  "block": {
+    "item": "minecraft:raw_copper_block"
+  },
+  "result": {
+    "id": "minecraft:copper_block"
+  }
+}

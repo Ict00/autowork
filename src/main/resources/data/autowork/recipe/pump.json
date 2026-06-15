@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "AFA",
+    "ECE",
+    "DFD"
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:copper_ingot"
+    },
+    "C": {
+      "item": "minecraft:furnace"
+    },
+    "D": {
+      "item": "minecraft:prismarine_shard"
+    },
+    "E": {
+      "tag": "c:cobblestones"
+    },
+    "F": {
+      "item": "autowork:chute"
+    }
+  },
+  "result": {
+    "id": "autowork:pump",
+    "count": 1
+  }
+}

@@ -4,10 +4,12 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.material.Fluid;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.datamaps.DataMapType;
 import org.prism.autowork.Autowork;
 import org.prism.autowork.other.datamaps.CrushingMap;
+import org.prism.autowork.other.datamaps.FluidColorOverride;
 
 public class ModDataMaps {
     public static final DataMapType<Item, CrushingMap> CRUSHING_MAP =
@@ -16,4 +18,11 @@ public class ModDataMaps {
                     Registries.ITEM,
                     CrushingMap.CODEC
             ).synced(CrushingMap.CODEC, true).build();
+
+    public static final DataMapType<Fluid, FluidColorOverride> FLUID_COLOR_OVERRIDES =
+            DataMapType.builder(
+                    ResourceLocation.fromNamespaceAndPath(Autowork.MODID, "fluid_color_overrides"),
+                    Registries.FLUID,
+                    FluidColorOverride.CODEC
+            ).synced(FluidColorOverride.CODEC, true).build();
 }

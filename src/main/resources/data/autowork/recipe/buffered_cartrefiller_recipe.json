@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "autowork:cartrefiller"
+    },
+    {
+      "item": "autowork:buffer"
+    }
+  ],
+  "result": {
+    "id": "autowork:buffered_cartrefiller",
+    "count": 1
+  }
+}

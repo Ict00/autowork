@@ -1,52 +1,31 @@
 package org.prism.autowork.block.placer;
 
 import com.mojang.serialization.MapCodec;
-import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.*;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.*;
-import net.minecraft.world.level.block.entity.AbstractFurnaceBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
-import net.minecraft.world.level.storage.loot.LootParams;
-import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.phys.BlockHitResult;
-import net.neoforged.neoforge.capabilities.Capabilities;
-import net.neoforged.neoforge.items.ItemHandlerHelper;
 import org.jetbrains.annotations.Nullable;
-import org.prism.autowork.Autowork;
-import org.prism.autowork.CommonConfig;
 import org.prism.autowork.block.ModBlockEntities;
-import org.prism.autowork.block.drill.DrillBlockEntity;
-import org.prism.autowork.block.filterchute.FilterChuteBlock;
 import org.prism.autowork.blockhelp.BlockHelpInfo;
 import org.prism.autowork.blockhelp.BlockHelpProvider;
-import org.prism.autowork.hudinv.HudInventoryProvider;
 import org.prism.autowork.other.ModUtils;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class PlacerBlock extends BaseEntityBlock implements BlockHelpProvider {
     public static final MapCodec<PlacerBlock> CODEC = simpleCodec(PlacerBlock::new);
@@ -127,13 +106,16 @@ public class PlacerBlock extends BaseEntityBlock implements BlockHelpProvider {
 
             for (var dir : Direction.stream().toList()) {
                 try {
-                    var placedState = blockItem.getBlock().getStateForPlacement(new BlockPlaceContext(level, level.getRandomPlayer(), InteractionHand.MAIN_HAND, item, new BlockHitResult(ModUtils.blockPosVec(front), dir, pos, false)));
+                    var placedState = blockItem.getBlock().getStateForPlacement(new BlockPlaceContext(level, level.getRandomPlayer(), InteractionHand.MAIN_HAND, item, new BlockHitResult(ModUtils.blockPos2Vec(front), dir, pos, false)));
 
                     if (placedState.canSurvive(level, front)) {
                         level.setBlockAndUpdate(front, placedState);
                         level.setBlockAndUpdate(pos, state.setValue(POWERED, true));
 
                         level.playSound(null, pos, SoundEvents.DISPENSER_DISPENSE, SoundSource.BLOCKS, 1, 0.5f);
+                        if (blockItem instanceof ISpecialPlaceable placeable) {
+                            placeable.placePostAction(item, level, front);
+                        }
 
                         level.scheduleTick(pos, asBlock(), 10);
                         be.setChanged();

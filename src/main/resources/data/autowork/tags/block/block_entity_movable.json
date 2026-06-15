@@ -1,0 +1,19 @@
+{
+  "values": [
+    "minecraft:furnace",
+    "#autowork:fixable",
+    "autowork:ticker",
+    "autowork:fluid_barrel",
+    "minecraft:blast_furnace",
+    "minecraft:smoker",
+    "#minecraft:campfires",
+    "minecraft:beacon",
+    "minecraft:spawner",
+    "minecraft:beehive",
+    "minecraft:bee_nest",
+    "#c:barrels",
+    "#c:player_workstations/furnaces",
+    "#c:villager_job_sites",
+    "#minecraft:anvil"
+  ]
+}
