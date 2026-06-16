@@ -11,6 +11,7 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.item.crafting.RecipeManager;
 import org.prism.autowork.Autowork;
@@ -19,6 +20,7 @@ import org.prism.autowork.compat.wJei.crushing.FakeCrushingRecipe;
 import org.prism.autowork.compat.wJei.crushing.FakeCrushingRecipeCategory;
 import org.prism.autowork.compat.wJei.smelting.SmeltingRecipeCategory;
 import org.prism.autowork.compat.wJei.spilling.SpillingRecipeCategory;
+import org.prism.autowork.other.ModOther;
 import org.prism.autowork.other.datamaps.CrushingMap;
 import org.prism.autowork.recipe.BulkSmeltRecipe.BulkSmeltRecipe;
 import org.prism.autowork.recipe.ModRecipes;
@@ -85,5 +87,9 @@ public class AutoworkJeiPlugin implements IModPlugin {
 
         registration.addRecipeCatalyst(new ItemStack(ModBlocks.SMELTER.asItem()),
                 SmeltingRecipeCategory.SMELTING_RTYPE);
+
+        registration.addRecipeCatalyst(Items.DIAMOND_PICKAXE, FakeCrushingRecipeCategory.RTYPE);
+        registration.addRecipeCatalyst(Items.NETHERITE_PICKAXE, FakeCrushingRecipeCategory.RTYPE);
+        registration.addRecipeCatalyst(Items.IRON_PICKAXE, FakeCrushingRecipeCategory.RTYPE);
     }
 }

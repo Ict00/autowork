@@ -20,6 +20,8 @@ import org.prism.autowork.Autowork;
 public class FakeCrushingRecipeCategory implements IRecipeCategory<FakeCrushingRecipe> {
     private final IDrawable icon;
 
+    public static final RecipeType<FakeCrushingRecipe> RTYPE =  RecipeType.create(Autowork.MODID, "crushing", FakeCrushingRecipe.class);
+
     public FakeCrushingRecipeCategory(IGuiHelper helper) {
         this.icon = helper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(Items.ENCHANTED_BOOK));
     }
@@ -27,7 +29,7 @@ public class FakeCrushingRecipeCategory implements IRecipeCategory<FakeCrushingR
 
     @Override
     public RecipeType<FakeCrushingRecipe> getRecipeType() {
-        return RecipeType.create(Autowork.MODID, "crushing", FakeCrushingRecipe.class);
+        return RTYPE;
     }
 
     @Override
