@@ -16,7 +16,7 @@ public record BlockHelpInfo(List<Component> technical, List<Component> details) 
         private List<Component> tech;
         private List<Component> details;
 
-        protected Builder() {
+        public Builder() {
             details = new ArrayList<>();
             tech = new ArrayList<>();
         }

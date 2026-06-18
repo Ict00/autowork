@@ -3,6 +3,7 @@
   "values": [
     "autowork:chute",
     "autowork:extractor",
+    "autowork:redstone_hub",
     "autowork:fluid_extractor",
     "autowork:precise_observer",
     "autowork:spiller",

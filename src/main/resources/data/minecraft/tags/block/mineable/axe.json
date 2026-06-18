@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "autowork:fluid_barrel"
+    "autowork:fluid_barrel",
+    "autowork:redstone_coil"
   ]
 }

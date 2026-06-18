@@ -125,6 +125,8 @@ public class ModOther {
                                 .add(ModBlocks.TOGGLER)
                                 .add(ModBlocks.TICKER)
                                 .add(ModBlocks.PRECISE_OBSERVER)
+                                .add(ModBlocks.REDSTONE_HUB_BLOCK)
+                                .add(ModBlocks.REDSTONE_COIL)
                 )
         );
 

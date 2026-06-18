@@ -13,6 +13,8 @@ import org.joml.Quaterniondc;
 import org.joml.Vector3d;
 import org.prism.autowork.CommonConfig;
 
+import java.util.Arrays;
+
 public class ModUtils {
     public static Vec3 direction2vec(Direction direction) {
         return switch (direction) {
@@ -45,6 +47,20 @@ public class ModUtils {
         }
 
         return new AABB(aP, bP);
+    }
+
+    public static boolean hasNeighborSignal(Level level, BlockPos pos) {
+        return level.hasNeighborSignal(pos);
+    }
+
+    public static boolean hasNeighborSignalExcluding(Level level, BlockPos pos, Direction ... exclude) {
+        var lst = Arrays.stream(exclude).toList();
+        for (var dir : Direction.values()) {
+            if (!lst.contains(dir) && hasSignal(level, pos, dir)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public static AABB safeAABBfromTwoPos(BlockPos a, BlockPos b, Level level) {

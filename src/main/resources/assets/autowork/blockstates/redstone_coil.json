@@ -1,0 +1,53 @@
+
+{
+  "variants": {
+    "power=0": {
+      "model": "autowork:block/redstone_coil/0"
+    },
+    "power=1": {
+      "model": "autowork:block/redstone_coil/1"
+    },
+    "power=2": {
+      "model": "autowork:block/redstone_coil/2"
+    },
+    "power=3": {
+      "model": "autowork:block/redstone_coil/3"
+    },
+    "power=4": {
+      "model": "autowork:block/redstone_coil/4"
+    },
+    "power=5": {
+      "model": "autowork:block/redstone_coil/5"
+    },
+    "power=6": {
+      "model": "autowork:block/redstone_coil/6"
+    },
+    "power=7": {
+      "model": "autowork:block/redstone_coil/7"
+    },
+    "power=8": {
+      "model": "autowork:block/redstone_coil/8"
+    },
+    "power=9": {
+      "model": "autowork:block/redstone_coil/9"
+    },
+    "power=10": {
+      "model": "autowork:block/redstone_coil/10"
+    },
+    "power=11": {
+      "model": "autowork:block/redstone_coil/11"
+    },
+    "power=12": {
+      "model": "autowork:block/redstone_coil/12"
+    },
+    "power=13": {
+      "model": "autowork:block/redstone_coil/13"
+    },
+    "power=14": {
+      "model": "autowork:block/redstone_coil/14"
+    },
+    "power=15": {
+      "model": "autowork:block/redstone_coil/15"
+    }
+  }
+}

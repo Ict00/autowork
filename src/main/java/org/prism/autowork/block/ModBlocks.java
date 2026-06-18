@@ -38,6 +38,8 @@ import org.prism.autowork.block.placer.PlacerBlock;
 import org.prism.autowork.block.precise_observer.PreciseObserverBlock;
 import org.prism.autowork.block.pump.PumpBlock;
 import org.prism.autowork.block.railwayobserver.RailwayObserverBlock;
+import org.prism.autowork.block.redstone_coil.RedstoneCoilBlock;
+import org.prism.autowork.block.redstone_hub.RedstoneHubBlock;
 import org.prism.autowork.block.sculkmover.SculkMoverBlock;
 import org.prism.autowork.block.smelter.SmelterBlock;
 import org.prism.autowork.block.spiller.SpillerBlock;
@@ -57,6 +59,15 @@ public class ModBlocks {
     public static final DeferredBlock<Block> BUFFERED_BREEZE_COLLECTOR = registerBlock("buffered_breeze_collector",
             () -> new BufferedBreezeCollectorBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).sound(SoundType.METAL).requiresCorrectToolForDrops().isRedstoneConductor(ModBlocks::neverConductor)));
 
+    public static final DeferredBlock<Block> REDSTONE_HUB_BLOCK = registerBlock("redstone_hub",
+            () -> new RedstoneHubBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE)
+                    .sound(SoundType.METAL)
+                    .requiresCorrectToolForDrops()
+                    .isRedstoneConductor(ModBlocks::neverConductor)));
+
+    public static final DeferredBlock<Block> REDSTONE_COIL = registerBlock("redstone_coil",
+            () -> new RedstoneCoilBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)
+                    .isRedstoneConductor(ModBlocks::neverConductor).lightLevel((x) -> x.getValue(BlockStateProperties.POWER))));
 
     public static final DeferredBlock<Block> BREEZE_COLLECTOR = registerBlock("breeze_collector",
             () -> new BreezeCollectorBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).sound(SoundType.METAL).requiresCorrectToolForDrops().isRedstoneConductor(ModBlocks::neverConductor)));

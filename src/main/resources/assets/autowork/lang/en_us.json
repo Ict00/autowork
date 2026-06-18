@@ -19,6 +19,8 @@
   "item.autowork.wrench": "Wrench",
 
   "block.autowork.chute": "Chute",
+  "block.autowork.redstone_hub": "Redstone Hub",
+  "block.autowork.redstone_coil": "Redstone Coil",
   "block.autowork.transmitter": "Transmitter",
   "block.autowork.andgate": "And Gate",
   "block.autowork.filter_chute": "Filter Chute",
@@ -56,6 +58,18 @@
   "autowork.crushing_description": "Requires 'Crushing' Enchantment",
 
   "itemhelp.autowork.wrench": "Sometimes machines freeze (mostly because of crashes). Use wrench to make them tick again.",
+
+  "blockhelp.autowork.redstone_coil.details": "Emits concrete power of signal, configurable by right-clicking",
+  "blockhelp.autowork.redstone_coil.side": "Redstone Output",
+
+  "blockhelp.autowork.redstone_hub.side": "Redstone output/input",
+  "blockhelp.autowork.redstone_hub.front": "Other redstone hubs",
+  "blockhelp.autowork.redstone_hub.details": "All outputs emit redstone signal when any of input side has redstone signal. Node's mode can be changed by right-clicking",
+  "blockhelp.autowork.redstone_hub.none_mode": "NONE: Does nothing",
+  "blockhelp.autowork.redstone_hub.input_mode": "INPUT: Only receives signal",
+  "blockhelp.autowork.redstone_hub.output_mode": "OUTPUT: Only emits signal",
+
+  "blockhelp.warn.critical": "⚠ WIP! Might cause crashes. Report critical issues on Github.",
 
   "itemhelp.show_more": "Press Ctrl for more info",
   "blockhelp.show_more": "Press Ctrl/Shift for more info",

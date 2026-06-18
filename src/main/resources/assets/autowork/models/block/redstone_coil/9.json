@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "autowork:block/redstone_coil/top_off",
+    "east": "autowork:block/redstone_coil/9",
+    "north": "autowork:block/redstone_coil/9",
+    "particle": "autowork:block/redstone_coil/9",
+    "south": "autowork:block/redstone_coil/9",
+    "up": "autowork:block/redstone_coil/top_off",
+    "west": "autowork:block/redstone_coil/9"
+  }
+}

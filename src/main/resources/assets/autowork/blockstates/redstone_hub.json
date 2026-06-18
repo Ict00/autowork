@@ -1,0 +1,439 @@
+{
+  "variants": {
+    "facing=north,state=middle,redstone=input,powered=false": {
+      "model": "autowork:block/redstone_hub/middle/input_off"
+    },
+    "facing=north,state=middle,redstone=input,powered=true": {
+      "model": "autowork:block/redstone_hub/middle/input_on"
+    },
+    "facing=north,state=middle,redstone=output,powered=false": {
+      "model": "autowork:block/redstone_hub/middle/output_off"
+    },
+    "facing=north,state=middle,redstone=output,powered=true": {
+      "model": "autowork:block/redstone_hub/middle/output_on"
+    },
+    "facing=north,state=middle,redstone=none,powered=false": {
+      "model": "autowork:block/redstone_hub/middle/none_off"
+    },
+    "facing=north,state=middle,redstone=none,powered=true": {
+      "model": "autowork:block/redstone_hub/middle/none_on"
+    },
+
+    "facing=north,state=start,redstone=input,powered=false": {
+      "model": "autowork:block/redstone_hub/start/input_off",
+      "y": 180
+    },
+    "facing=north,state=start,redstone=input,powered=true": {
+      "model": "autowork:block/redstone_hub/start/input_on",
+      "y": 180
+    },
+    "facing=north,state=start,redstone=output,powered=false": {
+      "model": "autowork:block/redstone_hub/start/output_off",
+      "y": 180
+    },
+    "facing=north,state=start,redstone=output,powered=true": {
+      "model": "autowork:block/redstone_hub/start/output_on",
+      "y": 180
+    },
+    "facing=north,state=start,redstone=none,powered=false": {
+      "model": "autowork:block/redstone_hub/start/none_off",
+      "y": 180
+    },
+    "facing=north,state=start,redstone=none,powered=true": {
+      "model": "autowork:block/redstone_hub/start/none_on",
+      "y": 180
+    },
+
+    "facing=north,state=end,redstone=input,powered=false": {
+      "model": "autowork:block/redstone_hub/end/input_off"
+    },
+    "facing=north,state=end,redstone=input,powered=true": {
+      "model": "autowork:block/redstone_hub/end/input_on"
+    },
+    "facing=north,state=end,redstone=output,powered=false": {
+      "model": "autowork:block/redstone_hub/end/output_off"
+    },
+    "facing=north,state=end,redstone=output,powered=true": {
+      "model": "autowork:block/redstone_hub/end/output_on"
+    },
+    "facing=north,state=end,redstone=none,powered=false": {
+      "model": "autowork:block/redstone_hub/end/none_off"
+    },
+    "facing=north,state=end,redstone=none,powered=true": {
+      "model": "autowork:block/redstone_hub/end/none_on"
+    },
+
+    "facing=south,state=middle,redstone=input,powered=false": {
+      "model": "autowork:block/redstone_hub/middle/input_off",
+      "y": 180
+    },
+    "facing=south,state=middle,redstone=input,powered=true": {
+      "model": "autowork:block/redstone_hub/middle/input_on",
+      "y": 180
+    },
+    "facing=south,state=middle,redstone=output,powered=false": {
+      "model": "autowork:block/redstone_hub/middle/output_off",
+      "y": 180
+    },
+    "facing=south,state=middle,redstone=output,powered=true": {
+      "model": "autowork:block/redstone_hub/middle/output_on",
+      "y": 180
+    },
+    "facing=south,state=middle,redstone=none,powered=false": {
+      "model": "autowork:block/redstone_hub/middle/none_off",
+      "y": 180
+    },
+    "facing=south,state=middle,redstone=none,powered=true": {
+      "model": "autowork:block/redstone_hub/middle/none_on",
+      "y": 180
+    },
+
+    "facing=south,state=start,redstone=input,powered=false": {
+      "model": "autowork:block/redstone_hub/start/input_off"
+    },
+    "facing=south,state=start,redstone=input,powered=true": {
+      "model": "autowork:block/redstone_hub/start/input_on"
+    },
+    "facing=south,state=start,redstone=output,powered=false": {
+      "model": "autowork:block/redstone_hub/start/output_off"
+    },
+    "facing=south,state=start,redstone=output,powered=true": {
+      "model": "autowork:block/redstone_hub/start/output_on"
+    },
+    "facing=south,state=start,redstone=none,powered=false": {
+      "model": "autowork:block/redstone_hub/start/none_off"
+    },
+    "facing=south,state=start,redstone=none,powered=true": {
+      "model": "autowork:block/redstone_hub/start/none_on"
+    },
+
+    "facing=south,state=end,redstone=input,powered=false": {
+      "model": "autowork:block/redstone_hub/end/input_off",
+      "y": 180
+    },
+    "facing=south,state=end,redstone=input,powered=true": {
+      "model": "autowork:block/redstone_hub/end/input_on",
+      "y": 180
+    },
+    "facing=south,state=end,redstone=output,powered=false": {
+      "model": "autowork:block/redstone_hub/end/output_off",
+      "y": 180
+    },
+    "facing=south,state=end,redstone=output,powered=true": {
+      "model": "autowork:block/redstone_hub/end/output_on",
+      "y": 180
+    },
+    "facing=south,state=end,redstone=none,powered=false": {
+      "model": "autowork:block/redstone_hub/end/none_off",
+      "y": 180
+    },
+    "facing=south,state=end,redstone=none,powered=true": {
+      "model": "autowork:block/redstone_hub/end/none_on",
+      "y": 180
+    },
+
+    "facing=east,state=middle,redstone=input,powered=false": {
+      "model": "autowork:block/redstone_hub/middle/input_off",
+      "y": 90
+    },
+    "facing=east,state=middle,redstone=input,powered=true": {
+      "model": "autowork:block/redstone_hub/middle/input_on",
+      "y": 90
+    },
+    "facing=east,state=middle,redstone=output,powered=false": {
+      "model": "autowork:block/redstone_hub/middle/output_off",
+      "y": 90
+    },
+    "facing=east,state=middle,redstone=output,powered=true": {
+      "model": "autowork:block/redstone_hub/middle/output_on",
+      "y": 90
+    },
+    "facing=east,state=middle,redstone=none,powered=false": {
+      "model": "autowork:block/redstone_hub/middle/none_off",
+      "y": 90
+    },
+    "facing=east,state=middle,redstone=none,powered=true": {
+      "model": "autowork:block/redstone_hub/middle/none_on",
+      "y": 90
+    },
+
+    "facing=east,state=start,redstone=input,powered=false": {
+      "model": "autowork:block/redstone_hub/start/input_off",
+      "y": 270
+    },
+    "facing=east,state=start,redstone=input,powered=true": {
+      "model": "autowork:block/redstone_hub/start/input_on",
+      "y": 270
+    },
+    "facing=east,state=start,redstone=output,powered=false": {
+      "model": "autowork:block/redstone_hub/start/output_off",
+      "y": 270
+    },
+    "facing=east,state=start,redstone=output,powered=true": {
+      "model": "autowork:block/redstone_hub/start/output_on",
+      "y": 270
+    },
+    "facing=east,state=start,redstone=none,powered=false": {
+      "model": "autowork:block/redstone_hub/start/none_off",
+      "y": 270
+    },
+    "facing=east,state=start,redstone=none,powered=true": {
+      "model": "autowork:block/redstone_hub/start/none_on",
+      "y": 270
+    },
+
+    "facing=east,state=end,redstone=input,powered=false": {
+      "model": "autowork:block/redstone_hub/end/input_off",
+      "y": 90
+    },
+    "facing=east,state=end,redstone=input,powered=true": {
+      "model": "autowork:block/redstone_hub/end/input_on",
+      "y": 90
+    },
+    "facing=east,state=end,redstone=output,powered=false": {
+      "model": "autowork:block/redstone_hub/end/output_off",
+      "y": 90
+    },
+    "facing=east,state=end,redstone=output,powered=true": {
+      "model": "autowork:block/redstone_hub/end/output_on",
+      "y": 90
+    },
+    "facing=east,state=end,redstone=none,powered=false": {
+      "model": "autowork:block/redstone_hub/end/none_off",
+      "y": 90
+    },
+    "facing=east,state=end,redstone=none,powered=true": {
+      "model": "autowork:block/redstone_hub/end/none_on",
+      "y": 90
+    },
+
+    "facing=west,state=middle,redstone=input,powered=false": {
+      "model": "autowork:block/redstone_hub/middle/input_off",
+      "y": 270
+    },
+    "facing=west,state=middle,redstone=input,powered=true": {
+      "model": "autowork:block/redstone_hub/middle/input_on",
+      "y": 270
+    },
+    "facing=west,state=middle,redstone=output,powered=false": {
+      "model": "autowork:block/redstone_hub/middle/output_off",
+      "y": 270
+    },
+    "facing=west,state=middle,redstone=output,powered=true": {
+      "model": "autowork:block/redstone_hub/middle/output_on",
+      "y": 270
+    },
+    "facing=west,state=middle,redstone=none,powered=false": {
+      "model": "autowork:block/redstone_hub/middle/none_off",
+      "y": 270
+    },
+    "facing=west,state=middle,redstone=none,powered=true": {
+      "model": "autowork:block/redstone_hub/middle/none_on",
+      "y": 270
+    },
+
+    "facing=west,state=start,redstone=input,powered=false": {
+      "model": "autowork:block/redstone_hub/start/input_off",
+      "y": 90
+    },
+    "facing=west,state=start,redstone=input,powered=true": {
+      "model": "autowork:block/redstone_hub/start/input_on",
+      "y": 90
+    },
+    "facing=west,state=start,redstone=output,powered=false": {
+      "model": "autowork:block/redstone_hub/start/output_off",
+      "y": 90
+    },
+    "facing=west,state=start,redstone=output,powered=true": {
+      "model": "autowork:block/redstone_hub/start/output_on",
+      "y": 90
+    },
+    "facing=west,state=start,redstone=none,powered=false": {
+      "model": "autowork:block/redstone_hub/start/none_off",
+      "y": 90
+    },
+    "facing=west,state=start,redstone=none,powered=true": {
+      "model": "autowork:block/redstone_hub/start/none_on",
+      "y": 90
+    },
+
+    "facing=west,state=end,redstone=input,powered=false": {
+      "model": "autowork:block/redstone_hub/end/input_off",
+      "y": 270
+    },
+    "facing=west,state=end,redstone=input,powered=true": {
+      "model": "autowork:block/redstone_hub/end/input_on",
+      "y": 270
+    },
+    "facing=west,state=end,redstone=output,powered=false": {
+      "model": "autowork:block/redstone_hub/end/output_off",
+      "y": 270
+    },
+    "facing=west,state=end,redstone=output,powered=true": {
+      "model": "autowork:block/redstone_hub/end/output_on",
+      "y": 270
+    },
+    "facing=west,state=end,redstone=none,powered=false": {
+      "model": "autowork:block/redstone_hub/end/none_off",
+      "y": 270
+    },
+    "facing=west,state=end,redstone=none,powered=true": {
+      "model": "autowork:block/redstone_hub/end/none_on",
+      "y": 270
+    },
+
+    "facing=down,state=middle,redstone=input,powered=false": {
+      "model": "autowork:block/redstone_hub/middle/input_off",
+      "x": 90
+    },
+    "facing=down,state=middle,redstone=input,powered=true": {
+      "model": "autowork:block/redstone_hub/middle/input_on",
+      "x": 90
+    },
+    "facing=down,state=middle,redstone=output,powered=false": {
+      "model": "autowork:block/redstone_hub/middle/output_off",
+      "x": 90
+    },
+    "facing=down,state=middle,redstone=output,powered=true": {
+      "model": "autowork:block/redstone_hub/middle/output_on",
+      "x": 90
+    },
+    "facing=down,state=middle,redstone=none,powered=false": {
+      "model": "autowork:block/redstone_hub/middle/none_off",
+      "x": 90
+    },
+    "facing=down,state=middle,redstone=none,powered=true": {
+      "model": "autowork:block/redstone_hub/middle/none_on",
+      "x": 90
+    },
+
+    "facing=down,state=start,redstone=input,powered=false": {
+      "model": "autowork:block/redstone_hub/start/input_off",
+      "x": 270
+    },
+    "facing=down,state=start,redstone=input,powered=true": {
+      "model": "autowork:block/redstone_hub/start/input_on",
+      "x": 270
+    },
+    "facing=down,state=start,redstone=output,powered=false": {
+      "model": "autowork:block/redstone_hub/start/output_off",
+      "x": 270
+    },
+    "facing=down,state=start,redstone=output,powered=true": {
+      "model": "autowork:block/redstone_hub/start/output_on",
+      "x": 270
+    },
+    "facing=down,state=start,redstone=none,powered=false": {
+      "model": "autowork:block/redstone_hub/start/none_off",
+      "x": 270
+    },
+    "facing=down,state=start,redstone=none,powered=true": {
+      "model": "autowork:block/redstone_hub/start/none_on",
+      "x": 270
+    },
+
+    "facing=down,state=end,redstone=input,powered=false": {
+      "model": "autowork:block/redstone_hub/end/input_off",
+      "x": 90
+    },
+    "facing=down,state=end,redstone=input,powered=true": {
+      "model": "autowork:block/redstone_hub/end/input_on",
+      "x": 90
+    },
+    "facing=down,state=end,redstone=output,powered=false": {
+      "model": "autowork:block/redstone_hub/end/output_off",
+      "x": 90
+    },
+    "facing=down,state=end,redstone=output,powered=true": {
+      "model": "autowork:block/redstone_hub/end/output_on",
+      "x": 90
+    },
+    "facing=down,state=end,redstone=none,powered=false": {
+      "model": "autowork:block/redstone_hub/end/none_off",
+      "x": 90
+    },
+    "facing=down,state=end,redstone=none,powered=true": {
+      "model": "autowork:block/redstone_hub/end/none_on",
+      "x": 90
+    },
+
+    "facing=up,state=middle,redstone=input,powered=false": {
+      "model": "autowork:block/redstone_hub/middle/input_off",
+      "x": 270
+    },
+    "facing=up,state=middle,redstone=input,powered=true": {
+      "model": "autowork:block/redstone_hub/middle/input_on",
+      "x": 270
+    },
+    "facing=up,state=middle,redstone=output,powered=false": {
+      "model": "autowork:block/redstone_hub/middle/output_off",
+      "x": 270
+    },
+    "facing=up,state=middle,redstone=output,powered=true": {
+      "model": "autowork:block/redstone_hub/middle/output_on",
+      "x": 270
+    },
+    "facing=up,state=middle,redstone=none,powered=false": {
+      "model": "autowork:block/redstone_hub/middle/none_off",
+      "x": 270
+    },
+    "facing=up,state=middle,redstone=none,powered=true": {
+      "model": "autowork:block/redstone_hub/middle/none_on",
+      "x": 270
+    },
+
+    "facing=up,state=start,redstone=input,powered=false": {
+      "model": "autowork:block/redstone_hub/start/input_off",
+      "x": 90
+    },
+    "facing=up,state=start,redstone=input,powered=true": {
+      "model": "autowork:block/redstone_hub/start/input_on",
+      "x": 90
+    },
+    "facing=up,state=start,redstone=output,powered=false": {
+      "model": "autowork:block/redstone_hub/start/output_off",
+      "x": 90
+    },
+    "facing=up,state=start,redstone=output,powered=true": {
+      "model": "autowork:block/redstone_hub/start/output_on",
+      "x": 90
+    },
+    "facing=up,state=start,redstone=none,powered=false": {
+      "model": "autowork:block/redstone_hub/start/none_off",
+      "x": 90
+    },
+    "facing=up,state=start,redstone=none,powered=true": {
+      "model": "autowork:block/redstone_hub/start/none_on",
+      "x": 90
+    },
+
+    "facing=up,state=end,redstone=input,powered=false": {
+      "model": "autowork:block/redstone_hub/end/input_off",
+      "x": 270
+    },
+    "facing=up,state=end,redstone=input,powered=true": {
+      "model": "autowork:block/redstone_hub/end/input_on",
+      "x": 270
+    },
+    "facing=up,state=end,redstone=output,powered=false": {
+      "model": "autowork:block/redstone_hub/end/output_off",
+      "x": 270
+    },
+    "facing=up,state=end,redstone=output,powered=true": {
+      "model": "autowork:block/redstone_hub/end/output_on",
+      "x": 270
+    },
+    "facing=up,state=end,redstone=none,powered=false": {
+      "model": "autowork:block/redstone_hub/end/none_off",
+      "x": 270
+    },
+    "facing=up,state=end,redstone=none,powered=true": {
+      "model": "autowork:block/redstone_hub/end/none_on",
+      "x": 270
+    },
+
+    "state=single": {
+      "model": "autowork:block/redstone_hub/single/other"
+    }
+  }
+}

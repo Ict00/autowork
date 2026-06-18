@@ -19,6 +19,11 @@ public class HelpfulBlockItem extends BlockItem {
         super.appendHoverText(stack, context, components, tooltip);
         if (stack.getItem() instanceof BlockItem bi) {
             if (bi.getBlock() instanceof BlockHelpProvider prov) {
+                if (bi.getBlock() instanceof WarningProvider warnProv) {
+                    components.add(Component.translatable(warnProv.getWarning()).withColor(warnProv.warnLevel().getColor()));
+                }
+
+
                 var help = prov.getHelp();
                 var addedAny = false;
 
