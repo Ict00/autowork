@@ -15,6 +15,7 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.LiquidBlock;
@@ -29,6 +30,7 @@ import org.jetbrains.annotations.Nullable;
 import org.prism.autowork.CommonConfig;
 import org.prism.autowork.block.ModBlockEntities;
 import org.prism.autowork.block.ModBlocks;
+import org.prism.autowork.item.ModItems;
 import org.prism.autowork.screens.placer.PlacerMenu;
 import org.prism.autowork.screens.pump.PumpMenu;
 
@@ -36,7 +38,7 @@ public class PumpBlockEntity extends BlockEntity implements MenuProvider {
     public ItemStackHandler handler = new ItemStackHandler(1) {
         @Override
         public boolean isItemValid(int slot, ItemStack stack) {
-            return stack.getBurnTime(null) > 0;
+            return stack.getBurnTime(null) > 0 && !stack.is(Items.LAVA_BUCKET);
         }
 
         @Override
