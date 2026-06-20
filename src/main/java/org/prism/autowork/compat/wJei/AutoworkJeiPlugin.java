@@ -18,10 +18,13 @@ import org.prism.autowork.Autowork;
 import org.prism.autowork.block.ModBlocks;
 import org.prism.autowork.compat.wJei.crushing.FakeCrushingRecipe;
 import org.prism.autowork.compat.wJei.crushing.FakeCrushingRecipeCategory;
+import org.prism.autowork.compat.wJei.enriching.FakeEnrichingRecipe;
+import org.prism.autowork.compat.wJei.enriching.FakeEnrichingRecipeCategory;
 import org.prism.autowork.compat.wJei.smelting.SmeltingRecipeCategory;
 import org.prism.autowork.compat.wJei.spilling.SpillingRecipeCategory;
 import org.prism.autowork.other.ModOther;
 import org.prism.autowork.other.datamaps.CrushingMap;
+import org.prism.autowork.other.datamaps.EnrichingMap;
 import org.prism.autowork.recipe.BulkSmeltRecipe.BulkSmeltRecipe;
 import org.prism.autowork.recipe.ModRecipes;
 import org.prism.autowork.recipe.SpillingRecipe.SpillingRecipe;
@@ -45,6 +48,7 @@ public class AutoworkJeiPlugin implements IModPlugin {
         registration.addRecipeCategories(new SpillingRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
         registration.addRecipeCategories(new SmeltingRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
         registration.addRecipeCategories(new FakeCrushingRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
+        registration.addRecipeCategories(new FakeEnrichingRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
     }
 
     @Override
@@ -67,6 +71,22 @@ public class AutoworkJeiPlugin implements IModPlugin {
 
         registration.addRecipes(RecipeType.create(Autowork.MODID, "crushing", FakeCrushingRecipe.class), recipes);
 
+        List<FakeEnrichingRecipe> enrichingRecipes = new ArrayList<>();
+
+        for (Item item : BuiltInRegistries.ITEM) {
+
+            var stack = EnrichingMap.getConversion(item);
+
+
+            if (!stack.isEmpty()) {
+                enrichingRecipes.add(new FakeEnrichingRecipe(item, stack));
+            }
+        }
+
+        registration.addRecipes(RecipeType.create(Autowork.MODID, "enriching", FakeEnrichingRecipe.class), enrichingRecipes);
+
+
+
         List<SpillingRecipe> spilling_recipes = recipeManager.getAllRecipesFor(ModRecipes.SPILLING_RECIPE_TYPE.get())
                 .stream().map(RecipeHolder::value).toList();
 
@@ -88,6 +108,7 @@ public class AutoworkJeiPlugin implements IModPlugin {
         registration.addRecipeCatalyst(new ItemStack(ModBlocks.SMELTER.asItem()),
                 SmeltingRecipeCategory.SMELTING_RTYPE);
 
+        registration.addRecipeCatalyst(ModBlocks.ENRICHER, FakeEnrichingRecipeCategory.RTYPE);
         registration.addRecipeCatalyst(Items.DIAMOND_PICKAXE, FakeCrushingRecipeCategory.RTYPE);
         registration.addRecipeCatalyst(Items.NETHERITE_PICKAXE, FakeCrushingRecipeCategory.RTYPE);
         registration.addRecipeCatalyst(Items.IRON_PICKAXE, FakeCrushingRecipeCategory.RTYPE);
