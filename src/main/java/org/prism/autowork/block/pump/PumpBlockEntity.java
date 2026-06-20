@@ -88,12 +88,6 @@ public class PumpBlockEntity extends BlockEntity implements MenuProvider {
                 }
             }
             case WORKING -> {
-                var upperCap = level.getCapability(Capabilities.FluidHandler.BLOCK, getBlockPos().above(), Direction.DOWN);
-
-                if (upperCap == null) {
-                    return;
-                }
-
                 if (burnTime <= 0) {
                     var st = handler.getStackInSlot(0);
                     if (!st.isEmpty()) {
@@ -123,6 +117,12 @@ public class PumpBlockEntity extends BlockEntity implements MenuProvider {
                                 }
 
                                 if (i == 0) {
+                                    var upperCap = level.getCapability(Capabilities.FluidHandler.BLOCK, getBlockPos().above(), Direction.DOWN);
+
+                                    if (upperCap == null) {
+                                        return;
+                                    }
+
                                     var constructed = new FluidStack(lb.fluid.builtInRegistryHolder(), 1000);
                                     if (upperCap.fill(constructed, IFluidHandler.FluidAction.SIMULATE) == 1000) {
                                         upperCap.fill(constructed, IFluidHandler.FluidAction.EXECUTE);

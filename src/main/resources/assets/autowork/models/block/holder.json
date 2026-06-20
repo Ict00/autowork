@@ -1,0 +1,46 @@
+{
+	"format_version": "1.9.0",
+	"credit": "Made with Blockbench",
+	"parent": "minecraft:block/block",
+	"texture_size": [32, 32],
+	"textures": {
+		"0": "autowork:block/holder/texture",
+		"particle": "autowork:block/holder/texture"
+	},
+	"elements": [
+		{
+			"from": [3, 3, 0],
+			"to": [13, 13, 1],
+			"rotation": {"angle": 0, "axis": "x", "origin": [7, 9, 0]},
+			"faces": {
+				"north": {"uv": [5, 5, 0, 10], "rotation": 180, "texture": "#0"},
+				"east": {"uv": [0, 10.5, 5, 11], "rotation": 270, "texture": "#0"},
+				"south": {"uv": [5, 5, 0, 0], "texture": "#0"},
+				"west": {"uv": [0, 11.5, 5, 12], "rotation": 90, "texture": "#0"},
+				"up": {"uv": [0, 10, 5, 10.5], "rotation": 180, "texture": "#0"},
+				"down": {"uv": [0, 11, 5, 11.5], "texture": "#0"}
+			}
+		},
+		{
+			"from": [4, 4, 1],
+			"to": [12, 12, 9],
+			"rotation": {"angle": 0, "axis": "x", "origin": [4, 12, 1]},
+			"faces": {
+				"north": {"uv": [13, 8, 9, 12], "rotation": 180, "texture": "#0"},
+				"east": {"uv": [5, 4, 9, 8], "rotation": 270, "texture": "#0"},
+				"south": {"uv": [13, 8, 9, 4], "texture": "#0"},
+				"west": {"uv": [9, 0, 13, 4], "rotation": 90, "texture": "#0"},
+				"up": {"uv": [5, 0, 9, 4], "rotation": 180, "texture": "#0"},
+				"down": {"uv": [5, 8, 9, 12], "texture": "#0"}
+			}
+		}
+	],
+	"groups": [
+		{
+			"name": "group",
+			"origin": [8, 8, 8],
+			"color": 0,
+			"children": [0, 1]
+		}
+	]
+}

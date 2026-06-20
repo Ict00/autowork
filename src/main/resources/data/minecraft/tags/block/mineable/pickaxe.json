@@ -4,6 +4,7 @@
     "autowork:chute",
     "autowork:extractor",
     "autowork:redstone_hub",
+    "autowork:holder",
     "autowork:fluid_extractor",
     "autowork:precise_observer",
     "autowork:spiller",
@@ -25,6 +26,27 @@
     "autowork:drill",
     "autowork:toggler",
     "autowork:railway_observer",
-    "autowork:buffer"
+    "autowork:buffer",
+
+
+    "autowork:deepslate_enriched_coal_ore",
+    "autowork:deepslate_enriched_diamond_ore",
+    "autowork:deepslate_enriched_copper_ore",
+    "autowork:deepslate_enriched_emerald_ore",
+    "autowork:deepslate_enriched_gold_ore",
+    "autowork:deepslate_enriched_iron_ore",
+    "autowork:deepslate_enriched_lapis_ore",
+    "autowork:deepslate_enriched_redstone_ore",
+
+    "autowork:enriched_coal_ore",
+    "autowork:enriched_diamond_ore",
+    "autowork:enriched_copper_ore",
+    "autowork:enriched_emerald_ore",
+    "autowork:enriched_gold_ore",
+    "autowork:enriched_iron_ore",
+    "autowork:enriched_lapis_ore",
+    "autowork:enriched_redstone_ore",
+    "autowork:enriched_nether_gold_ore",
+    "autowork:enriched_nether_quartz_ore"
   ]
 }

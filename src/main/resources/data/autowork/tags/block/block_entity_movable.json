@@ -3,6 +3,7 @@
     "minecraft:furnace",
     "#autowork:fixable",
     "autowork:ticker",
+    "autowork:enricher",
     "autowork:fluid_barrel",
     "minecraft:blast_furnace",
     "minecraft:smoker",

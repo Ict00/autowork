@@ -1,0 +1,15 @@
+{
+  "values": [
+    "autowork:deepslate_enriched_diamond_ore",
+    "autowork:enriched_diamond_ore",
+
+    "autowork:deepslate_enriched_emerald_ore",
+    "autowork:enriched_emerald_ore",
+
+    "autowork:deepslate_enriched_gold_ore",
+    "autowork:enriched_gold_ore",
+
+    "autowork:deepslate_enriched_redstone_ore",
+    "autowork:enriched_redstone_ore"
+  ]
+}

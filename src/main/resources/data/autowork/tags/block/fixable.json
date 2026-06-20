@@ -21,6 +21,8 @@
     "autowork:placer",
     "autowork:chute",
     "autowork:filter_chute",
-    "autowork:railway_observer"
+    "autowork:railway_observer",
+    "autowork:enricher",
+    "autowork:redstone_hub"
   ]
 }

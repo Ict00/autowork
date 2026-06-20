@@ -9,6 +9,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.datamaps.DataMapType;
 import org.prism.autowork.Autowork;
 import org.prism.autowork.other.datamaps.CrushingMap;
+import org.prism.autowork.other.datamaps.EnrichingMap;
 import org.prism.autowork.other.datamaps.FluidColorOverride;
 
 public class ModDataMaps {
@@ -18,6 +19,13 @@ public class ModDataMaps {
                     Registries.ITEM,
                     CrushingMap.CODEC
             ).synced(CrushingMap.CODEC, true).build();
+
+    public static final DataMapType<Item, EnrichingMap> ENRICHING_MAP =
+            DataMapType.builder(
+                    ResourceLocation.fromNamespaceAndPath(Autowork.MODID, "enriching"),
+                    Registries.ITEM,
+                    EnrichingMap.CODEC
+            ).synced(EnrichingMap.CODEC, true).build();
 
     public static final DataMapType<Fluid, FluidColorOverride> FLUID_COLOR_OVERRIDES =
             DataMapType.builder(

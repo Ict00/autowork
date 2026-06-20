@@ -14,6 +14,7 @@ import org.prism.autowork.screens.cartloader.CartLoaderMenu;
 import org.prism.autowork.screens.cartrefiller.CartRefillerMenu;
 import org.prism.autowork.screens.cartunloader.CartUnloaderMenu;
 import org.prism.autowork.screens.drill.DrillMenu;
+import org.prism.autowork.screens.enricher.EnricherMenu;
 import org.prism.autowork.screens.placer.PlacerMenu;
 import org.prism.autowork.screens.pump.PumpMenu;
 
@@ -27,6 +28,8 @@ public class ModMenus {
     public static final DeferredHolder<MenuType<?>, MenuType<PumpMenu>> PUMP_MENU =
             regType("pump_menu", PumpMenu::new);
 
+    public static final DeferredHolder<MenuType<?>, MenuType<EnricherMenu>> ENRICHER_MENU =
+            regType("enricher_menu", EnricherMenu::new);
 
     public static final DeferredHolder<MenuType<?>, MenuType<PlacerMenu>> PLACER_MENU =
             regType("placer_menu", PlacerMenu::new);

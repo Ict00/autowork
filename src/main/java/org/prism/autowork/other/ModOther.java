@@ -1,12 +1,9 @@
 package org.prism.autowork.other;
 
-import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import net.mcexpanded.fancytabsections.FancyTabSections;
 import net.mcexpanded.fancytabsections.creativetab.ConglomerateOfItems;
 import net.mcexpanded.fancytabsections.creativetab.SectionColored;
-import net.minecraft.core.component.DataComponentType;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
@@ -17,7 +14,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantment;
-import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.common.loot.IGlobalLootModifier;
@@ -78,6 +74,7 @@ public class ModOther {
                                 .add(ModBlocks.BUFFER)
                                 .add(ModBlocks.DISTRIBUTOR)
                                 .add(ModBlocks.SCULK_MOVER)
+                                .add(ModBlocks.ENRICHER)
                 )
         );
 
@@ -137,8 +134,38 @@ public class ModOther {
                         0xff7d2b19,
                         0xfffa5732,
                         ConglomerateOfItems.create()
+                                .add(ModBlocks.HOLDER)
                                 .add(ModItems.WRENCH)
                                 .add(ModItems.REDSTONE_CHARGE)
+                )
+        );
+
+        FancyTabSections.addSection(tabRs,
+                new SectionColored(
+                        Autowork.loc("ores"),
+                        Component.translatable("creativetab.autowork.ores"),
+                        0xffbdbdbd,
+                        0xfffcfcfc,
+                        ConglomerateOfItems.create()
+                                .add(ModBlocks.ENRICHER)
+                                .add(ModBlocks.ENRICHED_NETHER_GOLD_ORE)
+                                .add(ModBlocks.ENRICHED_NETHER_QUARTZ_ORE)
+                                .add(ModBlocks.ENRICHED_COAL_ORE)
+                                .add(ModBlocks.ENRICHED_IRON_ORE)
+                                .add(ModBlocks.ENRICHED_COPPER_ORE)
+                                .add(ModBlocks.ENRICHED_GOLD_ORE)
+                                .add(ModBlocks.ENRICHED_LAPIS_ORE)
+                                .add(ModBlocks.ENRICHED_REDSTONE_ORE)
+                                .add(ModBlocks.ENRICHED_DIAMOND_ORE)
+                                .add(ModBlocks.ENRICHED_EMERALD_ORE)
+                                .add(ModBlocks.DEEPSLATE_ENRICHED_COAL_ORE)
+                                .add(ModBlocks.DEEPSLATE_ENRICHED_IRON_ORE)
+                                .add(ModBlocks.DEEPSLATE_ENRICHED_COPPER_ORE)
+                                .add(ModBlocks.DEEPSLATE_ENRICHED_GOLD_ORE)
+                                .add(ModBlocks.DEEPSLATE_ENRICHED_LAPIS_ORE)
+                                .add(ModBlocks.DEEPSLATE_ENRICHED_REDSTONE_ORE)
+                                .add(ModBlocks.DEEPSLATE_ENRICHED_DIAMOND_ORE)
+                                .add(ModBlocks.DEEPSLATE_ENRICHED_EMERALD_ORE)
                 )
         );
     }

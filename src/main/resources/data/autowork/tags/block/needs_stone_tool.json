@@ -1,0 +1,16 @@
+{
+  "values": [
+    "autowork:deepslate_enriched_copper_ore",
+    "autowork:deepslate_enriched_coal_ore",
+    "autowork:deepslate_enriched_iron_ore",
+    "autowork:deepslate_enriched_lapis_ore",
+
+    "autowork:enriched_copper_ore",
+    "autowork:enriched_coal_ore",
+    "autowork:enriched_iron_ore",
+    "autowork:enriched_lapis_ore",
+
+    "autowork:enriched_nether_gold_ore",
+    "autowork:enriched_nether_quartz_ore"
+  ]
+}

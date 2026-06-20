@@ -1,0 +1,58 @@
+{
+  "values": {
+    "minecraft:copper_ore": {
+      "to": "autowork:enriched_copper_ore"
+    },
+    "minecraft:deepslate_copper_ore": {
+      "to": "autowork:deepslate_enriched_copper_ore"
+    },
+    "minecraft:diamond_ore": {
+      "to": "autowork:enriched_diamond_ore"
+    },
+    "minecraft:deepslate_diamond_ore": {
+      "to": "autowork:deepslate_enriched_diamond_ore"
+    },
+    "minecraft:coal_ore": {
+      "to": "autowork:enriched_coal_ore"
+    },
+    "minecraft:deepslate_coal_ore": {
+      "to": "autowork:deepslate_enriched_coal_ore"
+    },
+    "minecraft:emerald_ore": {
+      "to": "autowork:enriched_emerald_ore"
+    },
+    "minecraft:deepslate_emerald_ore": {
+      "to": "autowork:deepslate_enriched_emerald_ore"
+    },
+    "minecraft:gold_ore": {
+      "to": "autowork:enriched_gold_ore"
+    },
+    "minecraft:deepslate_gold_ore": {
+      "to": "autowork:deepslate_enriched_gold_ore"
+    },
+    "minecraft:nether_gold_ore": {
+      "to": "autowork:enriched_nether_gold_ore"
+    },
+    "minecraft:nether_quartz_ore": {
+      "to": "autowork:enriched_nether_quartz_ore"
+    },
+    "minecraft:deepslate_iron_ore": {
+      "to": "autowork:deepslate_enriched_iron_ore"
+    },
+    "minecraft:iron_ore": {
+      "to": "autowork:enriched_iron_ore"
+    },
+    "minecraft:deepslate_redstone_ore": {
+      "to": "autowork:deepslate_enriched_redstone_ore"
+    },
+    "minecraft:redstone_ore": {
+      "to": "autowork:enriched_redstone_ore"
+    },
+    "minecraft:deepslate_lapis_ore": {
+      "to": "autowork:deepslate_enriched_lapis_ore"
+    },
+    "minecraft:lapis_ore": {
+      "to": "autowork:enriched_lapis_ore"
+    }
+  }
+}

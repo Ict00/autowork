@@ -1,0 +1,27 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "autowork:block/holder",
+      "x": 90
+    },
+    "facing=up": {
+      "model": "autowork:block/holder",
+      "x": 270
+    },
+    "facing=north": {
+      "model": "autowork:block/holder"
+    },
+    "facing=south": {
+      "model": "autowork:block/holder",
+      "x": 180
+    },
+    "facing=west": {
+      "model": "autowork:block/holder",
+      "y": 270
+    },
+    "facing=east": {
+      "model": "autowork:block/holder",
+      "y": 90
+    }
+  }
+}

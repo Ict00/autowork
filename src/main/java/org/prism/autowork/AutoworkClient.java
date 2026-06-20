@@ -1,5 +1,7 @@
 package org.prism.autowork;
 
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.RenderType;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
@@ -12,8 +14,10 @@ import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 import net.neoforged.neoforge.client.gui.ConfigurationScreen;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 import org.prism.autowork.block.ModBlockEntities;
+import org.prism.autowork.block.ModBlocks;
 import org.prism.autowork.block.filterchute.FilterChuteBlockRenderer;
 import org.prism.autowork.block.fluidbarrel.FluidBarrelBlockRenderer;
+import org.prism.autowork.block.holder.HolderBlockRenderer;
 import org.prism.autowork.block.precise_observer.PreciseObserverRenderer;
 import org.prism.autowork.entities.ModEntities;
 import org.prism.autowork.entities.signal.SignalEntityModel;
@@ -26,6 +30,7 @@ import org.prism.autowork.screens.cartloader.CartLoaderScreen;
 import org.prism.autowork.screens.cartrefiller.CartRefillerScreen;
 import org.prism.autowork.screens.cartunloader.CartUnloaderScreen;
 import org.prism.autowork.screens.drill.DrillScreen;
+import org.prism.autowork.screens.enricher.EnricherScreen;
 import org.prism.autowork.screens.placer.PlacerScreen;
 import org.prism.autowork.screens.pump.PumpScreen;
 
@@ -43,6 +48,8 @@ public class AutoworkClient {
                 ModEntities.SIGNAL_ENTITY.get(),
                 SignalEntityRenderer::new
         );
+
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.HOLDER.get(), RenderType.cutout());
     }
 
     @SubscribeEvent
@@ -52,6 +59,9 @@ public class AutoworkClient {
 
         event.registerBlockEntityRenderer(ModBlockEntities.PRECISE_OBSERVER_BE.get(),
                 PreciseObserverRenderer::new);
+
+        event.registerBlockEntityRenderer(ModBlockEntities.HOLDER_BE.get(),
+                HolderBlockRenderer::new);
 
         event.registerBlockEntityRenderer(ModBlockEntities.FLUID_BARREL_BE.get(),
                 FluidBarrelBlockRenderer::new);
@@ -66,6 +76,7 @@ public class AutoworkClient {
         event.register(ModMenus.CARTREFILLER_MENU.get(), CartRefillerScreen::new);
         event.register(ModMenus.BREEZE_COLLECTOR_MENU.get(), BreezeCollectorScreen::new);
         event.register(ModMenus.PUMP_MENU.get(), PumpScreen::new);
+        event.register(ModMenus.ENRICHER_MENU.get(), EnricherScreen::new);
     }
 
     @SubscribeEvent

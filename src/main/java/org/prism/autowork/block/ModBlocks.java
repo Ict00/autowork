@@ -8,6 +8,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.RedStoneOreBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
@@ -29,11 +30,13 @@ import org.prism.autowork.block.cart_manipulators.unbuffered.CartUnloaderBlock;
 import org.prism.autowork.block.chute.ChuteBlock;
 import org.prism.autowork.block.distributor.DistributorBlock;
 import org.prism.autowork.block.drill.DrillBlock;
+import org.prism.autowork.block.enricher.EnricherBlock;
 import org.prism.autowork.block.extractor.ExtractorBlock;
 import org.prism.autowork.block.fan.FanBlock;
 import org.prism.autowork.block.filterchute.FilterChuteBlock;
 import org.prism.autowork.block.fluidbarrel.FluidBarrelBlock;
 import org.prism.autowork.block.fluidextractor.FluidExtractorBlock;
+import org.prism.autowork.block.holder.HolderBlock;
 import org.prism.autowork.block.placer.PlacerBlock;
 import org.prism.autowork.block.precise_observer.PreciseObserverBlock;
 import org.prism.autowork.block.pump.PumpBlock;
@@ -75,9 +78,68 @@ public class ModBlocks {
     public static final DeferredBlock<Block> PUMP = registerBlock("pump",
             () -> new PumpBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).sound(SoundType.METAL).requiresCorrectToolForDrops().isRedstoneConductor(ModBlocks::neverConductor)));
 
+    public static final DeferredBlock<Block> HOLDER = registerBlock("holder",
+            () -> new HolderBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GLASS).isRedstoneConductor(ModBlocks::neverConductor)));
+
+    public static final DeferredBlock<Block> ENRICHER = registerBlock("enricher",
+            () -> new EnricherBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).sound(SoundType.METAL).requiresCorrectToolForDrops().isRedstoneConductor(ModBlocks::neverConductor)));
 
     public static final DeferredBlock<Block> SCULK_MOVER = registerBlock("sculk_mover",
             () -> new SculkMoverBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).sound(SoundType.METAL).requiresCorrectToolForDrops().isRedstoneConductor(ModBlocks::neverConductor)));
+
+    public static final DeferredBlock<Block> ENRICHED_REDSTONE_ORE = registerBlock("enriched_redstone_ore",
+            () -> new RedStoneOreBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.LAPIS_ORE)));
+
+    public static final DeferredBlock<Block> DEEPSLATE_ENRICHED_REDSTONE_ORE = registerBlock("deepslate_enriched_redstone_ore",
+            () -> new RedStoneOreBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE_LAPIS_ORE)));
+
+    public static final DeferredBlock<Block> ENRICHED_LAPIS_ORE = registerBlock("enriched_lapis_ore",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.LAPIS_ORE)));
+
+    public static final DeferredBlock<Block> DEEPSLATE_ENRICHED_LAPIS_ORE = registerBlock("deepslate_enriched_lapis_ore",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE_LAPIS_ORE)));
+
+    public static final DeferredBlock<Block> ENRICHED_COPPER_ORE = registerBlock("enriched_copper_ore",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.COPPER_ORE)));
+
+    public static final DeferredBlock<Block> DEEPSLATE_ENRICHED_COPPER_ORE = registerBlock("deepslate_enriched_copper_ore",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE_COPPER_ORE)));
+
+    public static final DeferredBlock<Block> ENRICHED_DIAMOND_ORE = registerBlock("enriched_diamond_ore",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DIAMOND_ORE)));
+
+    public static final DeferredBlock<Block> DEEPSLATE_ENRICHED_DIAMOND_ORE = registerBlock("deepslate_enriched_diamond_ore",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE_DIAMOND_ORE)));
+
+    public static final DeferredBlock<Block> ENRICHED_COAL_ORE = registerBlock("enriched_coal_ore",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.COAL_ORE)));
+
+    public static final DeferredBlock<Block> DEEPSLATE_ENRICHED_COAL_ORE = registerBlock("deepslate_enriched_coal_ore",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE_COAL_ORE)));
+
+    public static final DeferredBlock<Block> ENRICHED_EMERALD_ORE = registerBlock("enriched_emerald_ore",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.EMERALD_ORE)));
+
+    public static final DeferredBlock<Block> DEEPSLATE_ENRICHED_EMERALD_ORE = registerBlock("deepslate_enriched_emerald_ore",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE_EMERALD_ORE)));
+
+    public static final DeferredBlock<Block> ENRICHED_IRON_ORE = registerBlock("enriched_iron_ore",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_ORE)));
+
+    public static final DeferredBlock<Block> DEEPSLATE_ENRICHED_IRON_ORE = registerBlock("deepslate_enriched_iron_ore",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE_IRON_ORE)));
+
+    public static final DeferredBlock<Block> ENRICHED_NETHER_GOLD_ORE = registerBlock("enriched_nether_gold_ore",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.NETHER_GOLD_ORE)));
+
+    public static final DeferredBlock<Block> ENRICHED_NETHER_QUARTZ_ORE = registerBlock("enriched_nether_quartz_ore",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.NETHER_QUARTZ_ORE)));
+
+    public static final DeferredBlock<Block> ENRICHED_GOLD_ORE = registerBlock("enriched_gold_ore",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.GOLD_ORE)));
+
+    public static final DeferredBlock<Block> DEEPSLATE_ENRICHED_GOLD_ORE = registerBlock("deepslate_enriched_gold_ore",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE_GOLD_ORE)));
 
     public static final DeferredBlock<Block> BUFFER = registerBlock("buffer",
             () -> new BufferBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).sound(SoundType.METAL).requiresCorrectToolForDrops().isRedstoneConductor(ModBlocks::neverConductor)));

@@ -5,6 +5,7 @@
   "autowork.configuration.newRedstoneDetection": "New redstone detection. May be better than older, may be buggier than older",
   "autowork.configuration.bufferHudRender": "Render buffer's hud",
   "autowork.configuration.sculkMoverRange": "Sculk Mover range",
+  "autowork.configuration.holderDecorRender": "Render decorations of item when looking at holder",
   "autowork.configuration.pumpRange": "Pump range",
 
   "itemGroup.autowork": "Autowork",
@@ -14,15 +15,18 @@
   "creativetab.autowork.redstone": "Redstone",
   "creativetab.autowork.fluids": "Fluids",
   "creativetab.autowork.misc": "Misc",
+  "creativetab.autowork.ores": "Ores",
 
   "item.autowork.redstone_charge": "Redstone Charge",
   "item.autowork.wrench": "Wrench",
 
   "block.autowork.chute": "Chute",
+  "block.autowork.holder": "Holder",
   "block.autowork.redstone_hub": "Redstone Hub",
   "block.autowork.redstone_coil": "Redstone Coil",
   "block.autowork.transmitter": "Transmitter",
   "block.autowork.andgate": "And Gate",
+  "block.autowork.enricher": "Enricher",
   "block.autowork.filter_chute": "Filter Chute",
   "block.autowork.railway_observer": "Railway Observer",
   "block.autowork.toggler": "Toggler",
@@ -51,6 +55,25 @@
   "block.autowork.smelter": "Smelter",
   "enchantment.autowork.crushing": "Crushing",
 
+  "block.autowork.enriched_lapis_ore": "Enriched Lapis Ore",
+  "block.autowork.deepslate_enriched_lapis_ore": "Deepslate Enriched Lapis Ore",
+  "block.autowork.enriched_redstone_ore": "Enriched Redstone Ore",
+  "block.autowork.deepslate_enriched_redstone_ore": "Deepslate Enriched Redstone Ore",
+  "block.autowork.enriched_copper_ore": "Enriched Copper Ore",
+  "block.autowork.deepslate_enriched_copper_ore": "Deepslate Enriched Copper Ore",
+  "block.autowork.enriched_iron_ore": "Enriched Iron Ore",
+  "block.autowork.deepslate_enriched_iron_ore": "Deepslate Enriched Iron Ore",
+  "block.autowork.enriched_diamond_ore": "Enriched Diamond Ore",
+  "block.autowork.deepslate_enriched_diamond_ore": "Deepslate Enriched Diamond Ore",
+  "block.autowork.enriched_coal_ore": "Enriched Coal Ore",
+  "block.autowork.deepslate_enriched_coal_ore": "Deepslate Enriched Coal Ore",
+  "block.autowork.enriched_emerald_ore": "Enriched Emerald Ore",
+  "block.autowork.deepslate_enriched_emerald_ore": "Deepslate Enriched Emerald Ore",
+  "block.autowork.enriched_gold_ore": "Enriched Gold Ore",
+  "block.autowork.deepslate_enriched_gold_ore": "Deepslate Enriched Gold Ore",
+  "block.autowork.enriched_nether_gold_ore": "Enriched Nether Gold Ore",
+  "block.autowork.enriched_nether_quartz_ore": "Enriched Nether Quartz Ore",
+
   "autowork.recipe.spilling": "Spilling",
   "autowork.recipe.smelting": "Smelting",
   "autowork.recipe.required": "%dmb of Lava",
@@ -68,6 +91,12 @@
   "blockhelp.autowork.redstone_hub.none_mode": "NONE: Does nothing",
   "blockhelp.autowork.redstone_hub.input_mode": "INPUT: Only receives signal",
   "blockhelp.autowork.redstone_hub.output_mode": "OUTPUT: Only emits signal",
+
+  "blockhelp.autowork.holder.details": "Holds item in itself. If item can contain fluid, energy or other items, it'll 'proxy' its capabilities through the block (works best with other mods; probably)",
+  "blockhelp.autowork.holder.bottom": "Fluid/Item/Energy proxy to item",
+
+  "blockhelp.autowork.enricher.details": "Enriches ore in front of itself when has fuel. Enriched ore drops a little bit more of resources than normal one",
+  "blockhelp.autowork.enricher.front": "Place for ores",
 
   "blockhelp.warn.critical": "⚠ WIP! Might cause crashes. Report critical issues on Github.",
 

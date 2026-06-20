@@ -16,6 +16,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.RenderGuiLayerEvent;
 import org.prism.autowork.Autowork;
 import org.prism.autowork.ClientConfig;
+import org.prism.autowork.block.holder.HolderBlockEntity;
 import org.prism.autowork.hudinv.HudInventoryProvider;
 import org.prism.autowork.other.datamaps.CrushingMap;
 
@@ -37,6 +38,32 @@ public class HudRender {
 
         if (mc.player == null || mc.level == null) {
             return;
+        }
+
+        if (ClientConfig.HOLDER_DECORATIONS_RENDER.get()) {
+            if (!(mc.hitResult instanceof BlockHitResult blockHit)) {
+                return;
+            }
+
+            BlockPos pos = blockHit.getBlockPos();
+            BlockEntity ube = mc.level.getBlockEntity(pos);
+
+            if (ube == null) {
+                return;
+            }
+
+            if (ube instanceof HolderBlockEntity be) {
+                GuiGraphics graphics = event.getGuiGraphics();
+
+                var item = be.handler.getStackInSlot(0);
+
+                if (!item.isEmpty()) {
+                    var x = graphics.guiWidth() / 2 - 9;
+                    var y = graphics.guiHeight() / 2 - 9;
+
+                    graphics.renderItemDecorations(Minecraft.getInstance().font, item, x, y);
+                }
+            }
         }
 
         if (ClientConfig.BUFFER_HUD_RENDER.get()) {

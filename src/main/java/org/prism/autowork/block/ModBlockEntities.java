@@ -11,8 +11,10 @@ import org.prism.autowork.block.cart_manipulators.buffered.loader.CartLoaderBuff
 import org.prism.autowork.block.cart_manipulators.buffered.refiller.CartRefillerBufferedBlockEntity;
 import org.prism.autowork.block.cart_manipulators.buffered.unloader.CartUnloaderBufferedBlockEntity;
 import org.prism.autowork.block.drill.DrillBlockEntity;
+import org.prism.autowork.block.enricher.EnricherBlockEntity;
 import org.prism.autowork.block.filterchute.FilterChuteBlockEntity;
 import org.prism.autowork.block.fluidbarrel.FluidBarrelBlockEntity;
+import org.prism.autowork.block.holder.HolderBlockEntity;
 import org.prism.autowork.block.placer.PlacerBlockEntity;
 import org.prism.autowork.block.precise_observer.PreciseObserverBlock;
 import org.prism.autowork.block.precise_observer.PreciseObserverBlockEntity;
@@ -24,6 +26,16 @@ import java.util.function.Supplier;
 public class ModBlockEntities {
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES =
             DeferredRegister.create(BuiltInRegistries.BLOCK_ENTITY_TYPE, Autowork.MODID);
+
+    public static final Supplier<BlockEntityType<EnricherBlockEntity>> ENRICHER_BE =
+            BLOCK_ENTITIES.register("enricher_be", () -> BlockEntityType.Builder.of(
+                    EnricherBlockEntity::new, ModBlocks.ENRICHER.get()
+            ).build(null));
+
+    public static final Supplier<BlockEntityType<HolderBlockEntity>> HOLDER_BE =
+            BLOCK_ENTITIES.register("holder_be", () -> BlockEntityType.Builder.of(
+                    HolderBlockEntity::new, ModBlocks.HOLDER.get()
+            ).build(null));
 
     public static final Supplier<BlockEntityType<BufferBlockEntity>> BUFFER_BE =
             BLOCK_ENTITIES.register("buffer_be", () -> BlockEntityType.Builder.of(

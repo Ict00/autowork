@@ -24,8 +24,10 @@ import org.prism.autowork.block.cart_manipulators.buffered.loader.CartLoaderBuff
 import org.prism.autowork.block.cart_manipulators.buffered.refiller.CartRefillerBufferedBlockEntity;
 import org.prism.autowork.block.cart_manipulators.buffered.unloader.CartUnloaderBufferedBlockEntity;
 import org.prism.autowork.block.drill.DrillBlockEntity;
+import org.prism.autowork.block.enricher.EnricherBlockEntity;
 import org.prism.autowork.block.fluidbarrel.FluidBarrelBlockEntity;
 import org.prism.autowork.block.fluidbarrel.FluidBarrelItemWrapper;
+import org.prism.autowork.block.holder.HolderBlockEntity;
 import org.prism.autowork.block.placer.PlacerBlockEntity;
 import org.prism.autowork.block.pump.PumpBlockEntity;
 import org.prism.autowork.entities.ModEntities;
@@ -69,6 +71,7 @@ public class Autowork {
     private void registerDataMapTypes(RegisterDataMapTypesEvent event) {
         event.register(ModDataMaps.CRUSHING_MAP);
         event.register(ModDataMaps.FLUID_COLOR_OVERRIDES);
+        event.register(ModDataMaps.ENRICHING_MAP);
     }
 
     @SubscribeEvent
@@ -88,8 +91,26 @@ public class Autowork {
 
         event.registerBlockEntity(
                 Capabilities.FluidHandler.BLOCK,
+                ModBlockEntities.HOLDER_BE.get(),
+                HolderBlockEntity::getProxyFluid
+        );
+
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                ModBlockEntities.HOLDER_BE.get(),
+                HolderBlockEntity::getProxyItem
+        );
+
+        event.registerBlockEntity(
+                Capabilities.FluidHandler.BLOCK,
                 ModBlockEntities.FLUID_BARREL_BE.get(),
                 FluidBarrelBlockEntity::getCapability
+        );
+
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                ModBlockEntities.ENRICHER_BE.get(),
+                EnricherBlockEntity::getCapability
         );
 
         event.registerBlockEntity(

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "pattern": [
+    " A ",
+    "A A",
+    "CCC"
+  ],
+  "key": {
+    "A": {
+      "tag": "c:glass_blocks"
+    },
+    "C": {
+      "item": "minecraft:smooth_stone"
+    }
+  },
+  "result": {
+    "id": "autowork:holder",
+    "count": 1
+  }
+}
