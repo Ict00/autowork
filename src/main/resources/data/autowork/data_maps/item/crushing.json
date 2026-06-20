@@ -75,6 +75,10 @@
     "minecraft:honeycomb_block": {
       "to": "minecraft:honeycomb",
       "count": 4
+    },
+    "minecraft:magma_block": {
+      "to": "minecraft:magma_cream",
+      "count": 4
     }
   }
 }

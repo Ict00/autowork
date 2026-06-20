@@ -53,6 +53,9 @@
     },
     "minecraft:lapis_ore": {
       "to": "autowork:enriched_lapis_ore"
+    },
+    "minecraft:sand": {
+      "to": "minecraft:dirt"
     }
   }
 }
