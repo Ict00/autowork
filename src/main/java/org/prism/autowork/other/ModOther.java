@@ -4,6 +4,7 @@ import com.mojang.serialization.MapCodec;
 import net.mcexpanded.fancytabsections.FancyTabSections;
 import net.mcexpanded.fancytabsections.creativetab.ConglomerateOfItems;
 import net.mcexpanded.fancytabsections.creativetab.SectionColored;
+import net.mcexpanded.fancytabsections.creativetab.SectionTextured;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
@@ -56,11 +57,25 @@ public class ModOther {
 
     static void addItems() {
         var tabRs = ResourceLocation.fromNamespaceAndPath(Autowork.MODID, "autowork_tab");
+
         FancyTabSections.addSection(tabRs,
-                new SectionColored(
+                new SectionTextured(
+                        Autowork.loc("misc"),
+                        Component.translatable("creativetab.autowork.misc"),
+                        Autowork.loc("textures/gui/sections/misc.png"),
+                        0xfffcd442,
+                        ConglomerateOfItems.create()
+                                .add(ModBlocks.HOLDER)
+                                .add(ModItems.WRENCH)
+                                .add(ModItems.REDSTONE_CHARGE)
+                )
+        );
+
+        FancyTabSections.addSection(tabRs,
+                new SectionTextured(
                         Autowork.loc("base_machines"),
                         Component.translatable("creativetab.autowork.base_machines"),
-                        0xff2b2b2b,
+                        Autowork.loc("textures/gui/sections/base_machines.png"),
                         0xfffcfcfc,
                         ConglomerateOfItems.create()
                                 .add(ModBlocks.CHUTE)
@@ -79,10 +94,10 @@ public class ModOther {
         );
 
         FancyTabSections.addSection(tabRs,
-                new SectionColored(
+                new SectionTextured(
                         Autowork.loc("railway"),
                         Component.translatable("creativetab.autowork.railway"),
-                        0xffbdbdbd,
+                        Autowork.loc("textures/gui/sections/railway.png"),
                         0xfffcfcfc,
                         ConglomerateOfItems.create()
                                 .add(ModBlocks.RAILWAY_OBSERVER)
@@ -96,10 +111,10 @@ public class ModOther {
         );
 
         FancyTabSections.addSection(tabRs,
-                new SectionColored(
+                new SectionTextured(
                         Autowork.loc("fluids"),
                         Component.translatable("creativetab.autowork.fluids"),
-                        0xff121536,
+                        Autowork.loc("textures/gui/sections/fluids.png"),
                         0xff78c7ff,
                         ConglomerateOfItems.create()
                                 .add(ModBlocks.FLUID_EXTRACTOR)
@@ -111,11 +126,11 @@ public class ModOther {
         );
 
         FancyTabSections.addSection(tabRs,
-                new SectionColored(
+                new SectionTextured(
                         Autowork.loc("redstone"),
                         Component.translatable("creativetab.autowork.redstone"),
-                        0xff5c1111,
-                        0xfffa3232,
+                        Autowork.loc("textures/gui/sections/redstone.png"),
+                        0xfffc5947,
                         ConglomerateOfItems.create()
                                 .add(ModBlocks.AND_GATE)
                                 .add(ModBlocks.TRANSMITTER)
@@ -128,23 +143,10 @@ public class ModOther {
         );
 
         FancyTabSections.addSection(tabRs,
-                new SectionColored(
-                        Autowork.loc("misc"),
-                        Component.translatable("creativetab.autowork.misc"),
-                        0xff7d2b19,
-                        0xfffa5732,
-                        ConglomerateOfItems.create()
-                                .add(ModBlocks.HOLDER)
-                                .add(ModItems.WRENCH)
-                                .add(ModItems.REDSTONE_CHARGE)
-                )
-        );
-
-        FancyTabSections.addSection(tabRs,
-                new SectionColored(
+                new SectionTextured(
                         Autowork.loc("ores"),
                         Component.translatable("creativetab.autowork.ores"),
-                        0xffbdbdbd,
+                        Autowork.loc("textures/gui/sections/ores.png"),
                         0xfffcfcfc,
                         ConglomerateOfItems.create()
                                 .add(ModBlocks.ENRICHER)
