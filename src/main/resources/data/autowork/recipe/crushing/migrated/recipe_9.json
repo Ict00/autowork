@@ -1,0 +1,1 @@
+{ "type": "autowork:crushing", "block": { "item": "minecraft:sandstone" }, "result": { "id": "minecraft:sand", "count": 4 } }

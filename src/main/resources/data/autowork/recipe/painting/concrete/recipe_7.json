@@ -1,0 +1,1 @@
+{ "type": "autowork:painting", "dye": { "item": "minecraft:red_dye" }, "input": { "tag": "c:concretes" }, "result": { "id": "minecraft:red_concrete" } }

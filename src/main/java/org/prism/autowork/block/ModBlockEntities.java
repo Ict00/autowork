@@ -15,6 +15,7 @@ import org.prism.autowork.block.enricher.EnricherBlockEntity;
 import org.prism.autowork.block.filterchute.FilterChuteBlockEntity;
 import org.prism.autowork.block.fluidbarrel.FluidBarrelBlockEntity;
 import org.prism.autowork.block.holder.HolderBlockEntity;
+import org.prism.autowork.block.painter.PainterBlockEntity;
 import org.prism.autowork.block.placer.PlacerBlockEntity;
 import org.prism.autowork.block.precise_observer.PreciseObserverBlock;
 import org.prism.autowork.block.precise_observer.PreciseObserverBlockEntity;
@@ -26,6 +27,11 @@ import java.util.function.Supplier;
 public class ModBlockEntities {
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES =
             DeferredRegister.create(BuiltInRegistries.BLOCK_ENTITY_TYPE, Autowork.MODID);
+
+    public static final Supplier<BlockEntityType<PainterBlockEntity>> PAINTER_BE =
+            BLOCK_ENTITIES.register("painter_be", () -> BlockEntityType.Builder.of(
+                    PainterBlockEntity::new, ModBlocks.PAINTER.get()
+            ).build(null));
 
     public static final Supplier<BlockEntityType<EnricherBlockEntity>> ENRICHER_BE =
             BLOCK_ENTITIES.register("enricher_be", () -> BlockEntityType.Builder.of(

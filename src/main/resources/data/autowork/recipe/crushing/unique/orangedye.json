@@ -1,0 +1,10 @@
+{
+  "type": "autowork:crushing",
+  "block": {
+    "item": "minecraft:honey_block"
+  },
+  "result": {
+    "id": "minecraft:orange_dye",
+    "count": 9
+  }
+}

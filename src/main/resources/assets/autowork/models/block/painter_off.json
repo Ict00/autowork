@@ -1,0 +1,36 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "side": "autowork:block/painter/painter_side",
+    "front": "autowork:block/painter/painter_front",
+    "indicator_side": "autowork:block/painter/painter_side_colorless",
+    "indicator_front": "autowork:block/painter/painter_front_colorless",
+    "back": "autowork:block/painter/painter_back_off",
+    "particle": "autowork:block/painter/painter_side"
+  },
+  "elements": [
+    {
+      "from": [ 0, 0, 0 ],
+      "to": [ 16, 16, 16 ],
+      "faces": {
+        "down":  { "uv": [ 0, 0, 16, 16 ], "rotation": 270, "texture": "#side", "cullface": "down" },
+        "up":    { "uv": [ 0, 16, 16, 0 ], "rotation": 90, "texture": "#side", "cullface": "up" },
+        "north": { "uv": [ 0, 0, 16, 16 ], "texture": "#front", "cullface": "north" },
+        "south": { "uv": [ 0, 0, 16, 16 ], "texture": "#back", "cullface": "south" },
+        "west":  { "uv": [ 0, 0, 16, 16 ], "texture": "#side", "cullface": "west" },
+        "east":  { "uv": [ 0, 0, 16, 16 ], "rotation": 180, "texture": "#side", "cullface": "east" }
+      }
+    },
+    {
+      "from": [ 0, 0, 0 ],
+      "to": [ 16, 16, 16 ],
+      "faces": {
+        "down":  { "uv": [ 0, 0, 16, 16 ], "rotation": 270, "texture": "#indicator_side", "cullface": "down", "tintindex": 0 },
+        "up":    { "uv": [ 0, 16, 16, 0 ], "rotation": 90, "texture": "#indicator_side", "cullface": "up", "tintindex": 0 },
+        "north": { "uv": [ 0, 0, 16, 16 ], "texture": "#indicator_front", "cullface": "north", "tintindex": 0 },
+        "west":  { "uv": [ 0, 0, 16, 16 ], "texture": "#indicator_side", "cullface": "west", "tintindex": 0 },
+        "east":  { "uv": [ 0, 0, 16, 16 ], "rotation": 180, "texture": "#indicator_side", "cullface": "east", "tintindex": 0 }
+      }
+    }
+  ]
+}

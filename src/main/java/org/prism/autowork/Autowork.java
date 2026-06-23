@@ -2,7 +2,7 @@ package org.prism.autowork;
 
 import com.mojang.logging.LogUtils;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.ItemInteractionResult;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
@@ -11,9 +11,8 @@ import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.capabilities.Capabilities;
 import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
+import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
 import net.neoforged.neoforge.common.NeoForge;
-import net.neoforged.neoforge.event.entity.player.UseItemOnBlockEvent;
-import net.neoforged.neoforge.event.level.BlockEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 import net.neoforged.neoforge.registries.datamaps.RegisterDataMapTypesEvent;
 import org.prism.autowork.block.ModBlockEntities;
@@ -28,6 +27,7 @@ import org.prism.autowork.block.enricher.EnricherBlockEntity;
 import org.prism.autowork.block.fluidbarrel.FluidBarrelBlockEntity;
 import org.prism.autowork.block.fluidbarrel.FluidBarrelItemWrapper;
 import org.prism.autowork.block.holder.HolderBlockEntity;
+import org.prism.autowork.block.painter.PainterBlockEntity;
 import org.prism.autowork.block.placer.PlacerBlockEntity;
 import org.prism.autowork.block.pump.PumpBlockEntity;
 import org.prism.autowork.entities.ModEntities;
@@ -59,6 +59,7 @@ public class Autowork {
 
         modEventBus.addListener(this::registerCapabilityProvider);
         modEventBus.addListener(this::registerDataMapTypes);
+        modEventBus.addListener(this::registerColors);
 
         NeoForge.EVENT_BUS.register(this);
 
@@ -82,11 +83,34 @@ public class Autowork {
         return ResourceLocation.fromNamespaceAndPath(Autowork.MODID, id);
     }
 
+    public void registerColors(RegisterColorHandlersEvent.Block event) {
+        event.register((state, level, pos, tintIndex) -> {
+            if (level == null || pos == null) {
+                return 0xfff2d585;
+            }
+            BlockEntity be = level.getBlockEntity(pos);
+            if (be instanceof PainterBlockEntity painter) {
+                var c = painter.getColor();
+                if (c == -1) {
+                    return 0xfff2d585;
+                }
+                return c;
+            }
+            return 0xfff2d585;
+        }, ModBlocks.PAINTER.get());
+    }
+
     public void registerCapabilityProvider(RegisterCapabilitiesEvent event) {
         event.registerBlockEntity(
                 Capabilities.ItemHandler.BLOCK,
                 ModBlockEntities.DRILL_BE.get(),
                 DrillBlockEntity::getCapability
+        );
+
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                ModBlockEntities.PAINTER_BE.get(),
+                PainterBlockEntity::getCapability
         );
 
         event.registerBlockEntity(

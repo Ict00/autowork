@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " BA",
+    "DCA",
+    " BA"
+  ],
+  "key": {
+    "A": {
+      "tag": "minecraft:wool"
+    },
+    "B": {
+      "tag": "minecraft:planks"
+    },
+    "C": {
+      "item": "minecraft:loom"
+    },
+    "D": {
+      "item": "minecraft:redstone"
+    }
+  },
+  "result": {
+    "id": "autowork:painter",
+    "count": 1
+  }
+}

@@ -1,0 +1,1 @@
+{ "type": "autowork:crushing", "block": { "item": "minecraft:deepslate_bricks" }, "result": { "id": "minecraft:cracked_deepslate_bricks" } }

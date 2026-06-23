@@ -1,0 +1,10 @@
+{
+  "type": "autowork:crushing",
+  "block": {
+    "item": "minecraft:coal_block"
+  },
+  "result": {
+    "id": "minecraft:black_dye",
+    "count": 9
+  }
+}

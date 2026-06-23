@@ -1,0 +1,1 @@
+{ "type": "autowork:painting", "dye": { "item": "minecraft:white_dye" }, "input": { "tag": "minecraft:terracotta" }, "result": { "id": "minecraft:white_terracotta" } }

@@ -1,0 +1,10 @@
+{
+  "type": "autowork:crushing",
+  "block": {
+    "item": "minecraft:bone_block"
+  },
+  "result": {
+    "id": "minecraft:white_dye",
+    "count": 9
+  }
+}

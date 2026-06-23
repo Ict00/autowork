@@ -18,7 +18,6 @@ import net.minecraft.world.item.Items;
 import org.jetbrains.annotations.Nullable;
 import org.prism.autowork.Autowork;
 import org.prism.autowork.block.ModBlocks;
-import org.prism.autowork.compat.wJei.crushing.FakeCrushingRecipe;
 
 public class FakeEnrichingRecipeCategory implements IRecipeCategory<FakeEnrichingRecipe>{
     private final IDrawable icon;
@@ -50,7 +49,7 @@ public class FakeEnrichingRecipeCategory implements IRecipeCategory<FakeEnrichin
 
     @Override
     public Component getTitle() {
-        return Component.translatable("block.autowork.enricher");
+        return Component.translatable("autowork.recipe.enriching");
     }
 
     @Override
@@ -65,7 +64,7 @@ public class FakeEnrichingRecipeCategory implements IRecipeCategory<FakeEnrichin
 
     @Override
     public int getWidth() {
-        return 180;
+        return 100;
     }
 
     @Override

@@ -13,6 +13,9 @@ import net.neoforged.neoforge.common.loot.IGlobalLootModifier;
 import net.neoforged.neoforge.common.loot.LootModifier;
 import org.prism.autowork.other.ModOther;
 import org.prism.autowork.other.datamaps.CrushingMap;
+import org.prism.autowork.recipe.CrushingRecipe.CrushingRecipeInput;
+import org.prism.autowork.recipe.ModRecipes;
+import org.prism.autowork.recipe.PaintRecipe.PaintRecipeInput;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
@@ -38,15 +41,25 @@ public class CrushingModifier extends LootModifier {
                 }
             });
 
+            var level = lootContext.getLevel();
+
             if (hasCrushing.get()) {
                 for (int i = 0; i < generated.size(); i++) {
                     var item = generated.get(i);
 
-                    var t = CrushingMap.getConversion(item.getItem());
+                    var input = new CrushingRecipeInput(item);
 
-                    if (!t.isEmpty()) {
-                        t.setCount(t.getCount()*item.getCount());
-                        generated.set(i, t);
+
+                    var optionalRecipe = level.getRecipeManager().getRecipeFor(ModRecipes.CRUSHING_RECIPE_TYPE.get(), input, level);
+
+                    if (optionalRecipe.isPresent()) {
+                        var actualRecipe = optionalRecipe.get().value();
+                        var t = actualRecipe.getResultItem(null);
+
+                        if (!t.isEmpty()) {
+                            t.setCount(t.getCount()*item.getCount());
+                            generated.set(i, t);
+                        }
                     }
                 }
             }

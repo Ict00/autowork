@@ -7,6 +7,7 @@
   "autowork.configuration.sculkMoverRange": "Sculk Mover range",
   "autowork.configuration.holderDecorRender": "Render decorations of item when looking at holder",
   "autowork.configuration.pumpRange": "Pump range",
+  "autowork.configuration.chestMinecartLoadChunks": "Minecarts with chest loading chunks",
 
   "itemGroup.autowork": "Autowork",
 
@@ -21,6 +22,7 @@
   "item.autowork.wrench": "Wrench",
 
   "block.autowork.chute": "Chute",
+  "block.autowork.painter": "Painter",
   "block.autowork.holder": "Holder",
   "block.autowork.redstone_hub": "Redstone Hub",
   "block.autowork.redstone_coil": "Redstone Coil",
@@ -54,6 +56,7 @@
   "block.autowork.spiller": "Spiller",
   "block.autowork.smelter": "Smelter",
   "enchantment.autowork.crushing": "Crushing",
+  "enchantment.autowork.crushing.desc": "Crushes certain blocks when mined, enabling different drops.",
 
   "block.autowork.enriched_lapis_ore": "Enriched Lapis Ore",
   "block.autowork.deepslate_enriched_lapis_ore": "Deepslate Enriched Lapis Ore",
@@ -75,6 +78,8 @@
   "block.autowork.enriched_nether_quartz_ore": "Enriched Nether Quartz Ore",
 
   "autowork.recipe.spilling": "Spilling",
+  "autowork.recipe.painting": "Painting",
+  "autowork.recipe.enriching": "Enriching",
   "autowork.recipe.smelting": "Smelting",
   "autowork.recipe.required": "%dmb of Lava",
 
@@ -97,6 +102,9 @@
 
   "blockhelp.autowork.enricher.details": "Enriches ore in front of itself when has fuel. Enriched ore drops a little bit more of resources than normal one",
   "blockhelp.autowork.enricher.front": "Place for ores",
+
+  "blockhelp.autowork.painter.front": "Block to dye",
+  "blockhelp.autowork.painter.details": "Tries to dye the block in front of it using given dye",
 
   "blockhelp.warn.critical": "⚠ WIP! Might cause crashes. Report critical issues on Github.",
 

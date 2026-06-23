@@ -1,0 +1,1 @@
+{ "type": "autowork:painting", "dye": { "item": "minecraft:purple_dye" }, "input": { "tag": "autowork:dying/glass" }, "result": { "id": "minecraft:purple_stained_glass" } }

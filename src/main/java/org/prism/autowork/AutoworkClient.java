@@ -31,6 +31,7 @@ import org.prism.autowork.screens.cartrefiller.CartRefillerScreen;
 import org.prism.autowork.screens.cartunloader.CartUnloaderScreen;
 import org.prism.autowork.screens.drill.DrillScreen;
 import org.prism.autowork.screens.enricher.EnricherScreen;
+import org.prism.autowork.screens.painter.PainterScreen;
 import org.prism.autowork.screens.placer.PlacerScreen;
 import org.prism.autowork.screens.pump.PumpScreen;
 
@@ -50,6 +51,7 @@ public class AutoworkClient {
         );
 
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.HOLDER.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.PAINTER.get(), RenderType.cutout());
     }
 
     @SubscribeEvent
@@ -77,6 +79,7 @@ public class AutoworkClient {
         event.register(ModMenus.BREEZE_COLLECTOR_MENU.get(), BreezeCollectorScreen::new);
         event.register(ModMenus.PUMP_MENU.get(), PumpScreen::new);
         event.register(ModMenus.ENRICHER_MENU.get(), EnricherScreen::new);
+        event.register(ModMenus.PAINTER_MENU.get(), PainterScreen::new);
     }
 
     @SubscribeEvent

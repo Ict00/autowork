@@ -24,6 +24,7 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.material.PushReaction;
 import org.jetbrains.annotations.Nullable;
 import org.prism.autowork.CommonConfig;
+import org.prism.autowork.block.common.BlocksAbstractLogic;
 import org.prism.autowork.blockhelp.BlockHelpInfo;
 import org.prism.autowork.blockhelp.BlockHelpProvider;
 import org.prism.autowork.other.ModOther;
@@ -68,7 +69,6 @@ public class SculkMoverBlock extends Block implements BlockHelpProvider {
             poses.add(cPos.immutable());
 
             if (level.getBlockState(cPos).isAir()) {
-
                 for (int i = 0; i < CommonConfig.SCULK_MOVER_RANGE.get(); i++) {
                     cPos.move(facing);
 
@@ -79,44 +79,18 @@ public class SculkMoverBlock extends Block implements BlockHelpProvider {
                             break;
                         }
 
-                        CompoundTag tag = null;
-                        var access = level.registryAccess();
-
-                        if (level.getBlockEntity(cPos) instanceof BlockEntity be) {
-                            if (currentState.is(ModOther.BLOCK_ENTITY_MOVABLE)) {
-                                tag = be.saveCustomOnly(access);
-                                be.setRemoved();
-                            } else {
-                                break;
-                            }
-                        }
-                        else {
-                            if (currentState.getPistonPushReaction() == PushReaction.DESTROY ||
-                            currentState.getPistonPushReaction() == PushReaction.IGNORE ||
-                            currentState.getPistonPushReaction() == PushReaction.BLOCK || currentState.getDestroySpeed(level, cPos) == -1) {
-                                if (!currentState.is(ModOther.MOVABLE)) {
-                                    break;
-                                }
-                            }
-                        }
-
                         var previousPos = ModUtils.lookTo(cPos, facing.getOpposite());
 
-                        level.setBlock(cPos, Blocks.AIR.defaultBlockState(), 2);
-                        level.setBlock(previousPos, currentState, 2);
-                        level.sendBlockUpdated(previousPos, currentState, currentState, 3);
+                        var res = BlocksAbstractLogic.abstractMover(level, cPos, previousPos);
+                        if (res) {
+                            for (var pp : poses) {
+                                level.sendParticles(ParticleTypes.SONIC_BOOM, pp.getX() + 0.5, pp.getY() + 0.5, pp.getZ() + 0.5, i, 0, 0, 0, 1);
+                            }
 
-                        if (tag != null) {
-                            level.getBlockEntity(previousPos).loadWithComponents(tag, access);
+                            level.setBlockAndUpdate(pos, state.setValue(BlockStateProperties.POWERED, true));
+                            level.playSound(null, pos, SoundEvents.WARDEN_SONIC_BOOM, SoundSource.BLOCKS, 1, 2);
+
                         }
-
-                        for (var pp : poses) {
-                            level.sendParticles(ParticleTypes.SONIC_BOOM, pp.getX() + 0.5, pp.getY() + 0.5, pp.getZ() + 0.5, i, 0, 0, 0, 1);
-                        }
-
-                        level.setBlockAndUpdate(pos, state.setValue(BlockStateProperties.POWERED, true));
-                        level.playSound(null, pos, SoundEvents.WARDEN_SONIC_BOOM, SoundSource.BLOCKS, 1, 2);
-
                         break;
                     }
                     if (i % 2 == 0) {

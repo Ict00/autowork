@@ -3,6 +3,7 @@ package org.prism.autowork.block.common;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -13,14 +14,18 @@ import net.minecraft.world.entity.vehicle.MinecartChest;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.capabilities.Capabilities;
 import net.neoforged.neoforge.items.IItemHandler;
 import net.neoforged.neoforge.items.ItemHandlerHelper;
 import org.prism.autowork.block.cart_manipulators.CartHelper;
+import org.prism.autowork.other.ModOther;
 import org.prism.autowork.other.ModUtils;
 
 import java.util.List;
@@ -28,6 +33,46 @@ import java.util.function.Supplier;
 
 public final class BlocksAbstractLogic {
     private BlocksAbstractLogic() { }
+
+    public static boolean abstractMover(Level level, BlockPos from, BlockPos to) {
+        var currentState = level.getBlockState(from);
+        var toState = level.getBlockState(to);
+
+        if (!toState.canBeReplaced()) {
+            return false;
+        }
+
+        CompoundTag tag = null;
+        var access = level.registryAccess();
+
+        if (level.getBlockEntity(from) instanceof BlockEntity be) {
+            if (currentState.is(ModOther.BLOCK_ENTITY_MOVABLE)) {
+                tag = be.saveCustomOnly(access);
+                be.setRemoved();
+            } else {
+                return false;
+            }
+        }
+        else {
+            if (currentState.getPistonPushReaction() == PushReaction.DESTROY ||
+                    currentState.getPistonPushReaction() == PushReaction.IGNORE ||
+                    currentState.getPistonPushReaction() == PushReaction.BLOCK || currentState.getDestroySpeed(level, from) == -1) {
+                if (!currentState.is(ModOther.MOVABLE)) {
+                    return false;
+                }
+            }
+        }
+
+        level.setBlock(from, Blocks.AIR.defaultBlockState(), 2);
+        level.setBlock(to, currentState, 2);
+        level.sendBlockUpdated(to, currentState, currentState, 3);
+
+        if (tag != null) {
+            level.getBlockEntity(to).loadWithComponents(tag, access);
+        }
+
+        return true;
+    }
 
     public static void cartUnloaderTick(Level level, BlockPos pos, BlockState state, Supplier<IItemHandler> minecartCapGet,
                                         Supplier<IItemHandler> storageCapGet) {

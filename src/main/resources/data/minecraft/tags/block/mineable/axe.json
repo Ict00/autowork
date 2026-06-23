@@ -2,6 +2,7 @@
   "replace": false,
   "values": [
     "autowork:fluid_barrel",
-    "autowork:redstone_coil"
+    "autowork:redstone_coil",
+    "autowork:painter"
   ]
 }

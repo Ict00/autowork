@@ -1,0 +1,12 @@
+{
+  "type": "autowork:painting",
+  "dye": {
+    "item": "minecraft:black_dye"
+  },
+  "input": {
+    "item": "minecraft:prismarine_bricks"
+  },
+  "result": {
+    "id": "minecraft:dark_prismarine"
+  }
+}

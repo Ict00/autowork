@@ -1,0 +1,1 @@
+{ "type": "autowork:crushing", "block": { "item": "minecraft:prismarine_bricks" }, "result": { "id": "minecraft:prismarine_shard", "count": 4 } }

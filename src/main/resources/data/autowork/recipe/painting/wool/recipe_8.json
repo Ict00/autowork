@@ -1,0 +1,1 @@
+{ "type": "autowork:painting", "dye": { "item": "minecraft:orange_dye" }, "input": { "tag": "minecraft:wool" }, "result": { "id": "minecraft:orange_wool" } }

@@ -8,6 +8,8 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import org.prism.autowork.Autowork;
 import org.prism.autowork.recipe.BulkSmeltRecipe.BulkSmeltRecipe;
+import org.prism.autowork.recipe.CrushingRecipe.CrushingRecipe;
+import org.prism.autowork.recipe.PaintRecipe.PaintRecipe;
 import org.prism.autowork.recipe.SpillingRecipe.SpillingRecipe;
 
 public class ModRecipes {
@@ -25,6 +27,22 @@ public class ModRecipes {
                 }
             });
 
+    public static final DeferredHolder<RecipeType<?>, RecipeType<CrushingRecipe>> CRUSHING_RECIPE_TYPE =
+            TYPES.register("crushing", () -> new RecipeType<>() {
+                @Override
+                public String toString() {
+                    return "crushing";
+                }
+            });
+
+    public static final DeferredHolder<RecipeType<?>, RecipeType<PaintRecipe>> PAINTING_RECIPE_TYPE =
+            TYPES.register("painting", () -> new RecipeType<>() {
+                @Override
+                public String toString() {
+                    return "painting";
+                }
+            });
+
     public static final DeferredHolder<RecipeType<?>, RecipeType<BulkSmeltRecipe>> BULK_SMELTING_RECIPE_TYPE =
             TYPES.register("bulk_smelting", () -> new RecipeType<>() {
                 @Override
@@ -32,6 +50,12 @@ public class ModRecipes {
                     return "bulk_smelting";
                 }
             });
+
+    public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<PaintRecipe>> PAINTING_RECIPE_SERIALIZER =
+            SERIALIZERS.register("painting", PaintRecipe.Serializer::new);
+
+    public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<CrushingRecipe>> CRUSHING_RECIPE_SERIALIZER =
+            SERIALIZERS.register("crushing", CrushingRecipe.Serializer::new);
 
     public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<BulkSmeltRecipe>> BULK_SMELTING_RECIPE_SERIALIZER =
             SERIALIZERS.register("bulk_smelting", BulkSmeltRecipe.Serializer::new);

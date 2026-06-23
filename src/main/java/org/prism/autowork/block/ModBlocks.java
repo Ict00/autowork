@@ -37,6 +37,7 @@ import org.prism.autowork.block.filterchute.FilterChuteBlock;
 import org.prism.autowork.block.fluidbarrel.FluidBarrelBlock;
 import org.prism.autowork.block.fluidextractor.FluidExtractorBlock;
 import org.prism.autowork.block.holder.HolderBlock;
+import org.prism.autowork.block.painter.PainterBlock;
 import org.prism.autowork.block.placer.PlacerBlock;
 import org.prism.autowork.block.precise_observer.PreciseObserverBlock;
 import org.prism.autowork.block.pump.PumpBlock;
@@ -83,6 +84,9 @@ public class ModBlocks {
 
     public static final DeferredBlock<Block> ENRICHER = registerBlock("enricher",
             () -> new EnricherBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).sound(SoundType.METAL).requiresCorrectToolForDrops().isRedstoneConductor(ModBlocks::neverConductor)));
+
+    public static final DeferredBlock<Block> PAINTER = registerBlock("painter",
+            () -> new PainterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.LOOM).isRedstoneConductor(ModBlocks::neverConductor)));
 
     public static final DeferredBlock<Block> SCULK_MOVER = registerBlock("sculk_mover",
             () -> new SculkMoverBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).sound(SoundType.METAL).requiresCorrectToolForDrops().isRedstoneConductor(ModBlocks::neverConductor)));

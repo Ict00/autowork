@@ -20,5 +20,10 @@ public class CommonConfig {
     public static final ModConfigSpec.IntValue TRANSMITTER_SIGNAL_LIFETIME = BUILDER
             .defineInRange("transmitterSignalLifetime", 80, 20, Integer.MAX_VALUE);
 
+    // for FUTURE (TM) purposes
+    /*    public static final ModConfigSpec.BooleanValue MINECART_WITH_CHEST_LOAD_CHUNK = BUILDER
+            .define("chestMinecartLoadChunks", true);*/
+
+
     static final ModConfigSpec SPEC = BUILDER.build();
 }

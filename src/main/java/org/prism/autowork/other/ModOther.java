@@ -5,16 +5,22 @@ import net.mcexpanded.fancytabsections.FancyTabSections;
 import net.mcexpanded.fancytabsections.creativetab.ConglomerateOfItems;
 import net.mcexpanded.fancytabsections.creativetab.SectionColored;
 import net.mcexpanded.fancytabsections.creativetab.SectionTextured;
+import net.minecraft.client.Minecraft;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.TicketType;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.item.enchantment.Enchantments;
+import net.minecraft.world.item.enchantment.ItemEnchantments;
+import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.common.loot.IGlobalLootModifier;
@@ -26,6 +32,7 @@ import org.prism.autowork.block.ModBlocks;
 import org.prism.autowork.item.ModItems;
 import org.prism.autowork.other.lmod.CrushingModifier;
 
+import java.util.Comparator;
 import java.util.function.Supplier;
 
 public class ModOther {
@@ -35,6 +42,8 @@ public class ModOther {
                     NeoForgeRegistries.Keys.GLOBAL_LOOT_MODIFIER_SERIALIZERS,
                     Autowork.MODID
             );
+
+    public static final TicketType<ChunkPos> MINECART_TICKET = TicketType.create("minecart_chest_loader", Comparator.comparingLong(ChunkPos::toLong), 100);
 
     public static final DeferredHolder<
                 MapCodec<? extends IGlobalLootModifier>,
@@ -90,6 +99,7 @@ public class ModOther {
                                 .add(ModBlocks.DISTRIBUTOR)
                                 .add(ModBlocks.SCULK_MOVER)
                                 .add(ModBlocks.ENRICHER)
+                                .add(ModBlocks.PAINTER)
                 )
         );
 
