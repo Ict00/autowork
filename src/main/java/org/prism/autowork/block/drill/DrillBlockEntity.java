@@ -190,12 +190,16 @@ public class DrillBlockEntity extends BlockEntity implements MenuProvider {
         var maxProgress = Math.max(1, (int)(speed * 20 / toolSpeed));
 
         int durabilityDamage = 1 + (int)(speed / 3f);
-
-        int unbreakingLevel = tool.getEnchantmentLevel(level.registryAccess().lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(Enchantments.UNBREAKING));
-
         boolean applyDamage = true;
-        if (unbreakingLevel > 0) {
-            applyDamage = level.random.nextInt(unbreakingLevel + 1) == 0;
+        try {
+            int unbreakingLevel = tool.getEnchantmentLevel(level.registryAccess().lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(Enchantments.UNBREAKING));
+
+            if (unbreakingLevel > 0) {
+                applyDamage = level.random.nextInt(unbreakingLevel + 1) == 0;
+            }
+        }
+        catch (Exception ignore) {
+
         }
 
         if (progress >= maxProgress) {
