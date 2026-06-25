@@ -18,10 +18,14 @@ import org.prism.autowork.screens.enricher.EnricherMenu;
 import org.prism.autowork.screens.painter.PainterMenu;
 import org.prism.autowork.screens.placer.PlacerMenu;
 import org.prism.autowork.screens.pump.PumpMenu;
+import org.prism.autowork.screens.templater.TemplaterMenu;
 
 public class ModMenus {
     public static final DeferredRegister<MenuType<?>> MENUS =
             DeferredRegister.create(Registries.MENU, Autowork.MODID);
+
+    public static final DeferredHolder<MenuType<?>, MenuType<TemplaterMenu>> TEMPLATER_MENU =
+            regType("templater_menu", TemplaterMenu::new);
 
     public static final DeferredHolder<MenuType<?>, MenuType<DrillMenu>> DRILL_MENU =
             regType("drill_menu", DrillMenu::new);

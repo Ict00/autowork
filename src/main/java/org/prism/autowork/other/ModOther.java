@@ -77,6 +77,7 @@ public class ModOther {
                                 .add(ModBlocks.HOLDER)
                                 .add(ModItems.WRENCH)
                                 .add(ModItems.REDSTONE_CHARGE)
+                                .add(ModItems.TEMPLATE_CARD)
                 )
         );
 
@@ -88,6 +89,9 @@ public class ModOther {
                         0xfffcfcfc,
                         ConglomerateOfItems.create()
                                 .add(ModBlocks.CHUTE)
+                                .add(ModBlocks.ROTATOR)
+                                .add(ModBlocks.CARRIER)
+                                .add(ModBlocks.MODULAR_CARRIER)
                                 .add(ModBlocks.FILTER_CHUTE)
                                 .add(ModBlocks.EXTRACTOR)
                                 .add(ModBlocks.DRILL)
@@ -100,6 +104,7 @@ public class ModOther {
                                 .add(ModBlocks.SCULK_MOVER)
                                 .add(ModBlocks.ENRICHER)
                                 .add(ModBlocks.PAINTER)
+                                .add(ModBlocks.TEMPLATER)
                 )
         );
 
@@ -194,6 +199,8 @@ public class ModOther {
     public static final TagKey<Block> BLOCK_ENTITY_MOVABLE = TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(Autowork.MODID, "block_entity_movable"));
     public static final TagKey<Block> MOVABLE = TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(Autowork.MODID, "movable"));
 
+    public static final TagKey<Block> SCULK_MOVER_IMMOVABLE = TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(Autowork.MODID, "immovable/sculk_mover"));
+    public static final TagKey<Block> CARRIER_IMMOVABLE = TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(Autowork.MODID, "immovable/carrier"));
 
     public static void register(IEventBus bus) {
         LOOT_MODIFIERS.register(bus);

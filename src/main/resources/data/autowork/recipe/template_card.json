@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "B",
+    "A",
+    "A"
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:paper"
+    },
+    "B": {
+      "item": "minecraft:copper_ingot"
+    }
+  },
+  "result": {
+    "id": "autowork:template_card",
+    "count": 1
+  }
+}

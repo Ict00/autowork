@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "AA ",
+    "BCD",
+    "AA "
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:copper_ingot"
+    },
+    "B": {
+      "item": "minecraft:redstone"
+    },
+    "C": {
+      "tag": "minecraft:stone_crafting_materials"
+    },
+    "D": {
+      "item": "minecraft:slime_ball"
+    }
+  },
+  "result": {
+    "id": "autowork:modular_carrier",
+    "count": 1
+  }
+}

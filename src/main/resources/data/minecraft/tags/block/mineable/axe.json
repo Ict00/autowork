@@ -3,6 +3,9 @@
   "values": [
     "autowork:fluid_barrel",
     "autowork:redstone_coil",
-    "autowork:painter"
+    "autowork:painter",
+    "autowork:rotator",
+    "autowork:modular_carrier",
+    "autowork:carrier"
   ]
 }

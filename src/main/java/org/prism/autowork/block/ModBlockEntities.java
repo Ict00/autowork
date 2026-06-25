@@ -20,6 +20,7 @@ import org.prism.autowork.block.placer.PlacerBlockEntity;
 import org.prism.autowork.block.precise_observer.PreciseObserverBlock;
 import org.prism.autowork.block.precise_observer.PreciseObserverBlockEntity;
 import org.prism.autowork.block.pump.PumpBlockEntity;
+import org.prism.autowork.block.templater.TemplaterBlockEntity;
 import org.prism.autowork.block.ticker.TickerBlockEntity;
 
 import java.util.function.Supplier;
@@ -36,6 +37,11 @@ public class ModBlockEntities {
     public static final Supplier<BlockEntityType<EnricherBlockEntity>> ENRICHER_BE =
             BLOCK_ENTITIES.register("enricher_be", () -> BlockEntityType.Builder.of(
                     EnricherBlockEntity::new, ModBlocks.ENRICHER.get()
+            ).build(null));
+
+    public static final Supplier<BlockEntityType<TemplaterBlockEntity>> TEMPLATER_BE =
+            BLOCK_ENTITIES.register("templater_be", () -> BlockEntityType.Builder.of(
+                    TemplaterBlockEntity::new, ModBlocks.TEMPLATER.get()
             ).build(null));
 
     public static final Supplier<BlockEntityType<HolderBlockEntity>> HOLDER_BE =

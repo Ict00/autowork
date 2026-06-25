@@ -1,0 +1,23 @@
+
+{
+  "variants": {
+    "facing=east": {
+      "model": "autowork:block/modular_carrier",
+      "y": 90
+    },
+
+    "facing=north": {
+      "model": "autowork:block/modular_carrier"
+    },
+
+    "facing=south": {
+      "model": "autowork:block/modular_carrier",
+      "y": 180
+    },
+
+    "facing=west": {
+      "model": "autowork:block/modular_carrier",
+      "y": 270
+    }
+  }
+}

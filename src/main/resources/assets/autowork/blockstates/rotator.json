@@ -1,0 +1,60 @@
+
+{
+  "variants": {
+    "facing=down,powered=false,angle=90": {
+      "model": "autowork:block/rotator/90_off",
+      "x": 90
+    },
+    "facing=up,powered=false,angle=90": {
+      "model": "autowork:block/rotator/90_off",
+      "x": 270
+    },
+
+    "facing=down,powered=true,angle=90": {
+      "model": "autowork:block/rotator/90_on",
+      "x": 90
+    },
+    "facing=up,powered=true,angle=90": {
+      "model": "autowork:block/rotator/90_on",
+      "x": 270
+    },
+
+
+    "facing=down,powered=false,angle=180": {
+      "model": "autowork:block/rotator/180_off",
+      "x": 90
+    },
+    "facing=up,powered=false,angle=180": {
+      "model": "autowork:block/rotator/180_off",
+      "x": 270
+    },
+
+    "facing=down,powered=true,angle=180": {
+      "model": "autowork:block/rotator/180_on",
+      "x": 90
+    },
+    "facing=up,powered=true,angle=180": {
+      "model": "autowork:block/rotator/180_on",
+      "x": 270
+    },
+
+
+    "facing=down,powered=false,angle=270": {
+      "model": "autowork:block/rotator/270_off",
+      "x": 90
+    },
+    "facing=up,powered=false,angle=270": {
+      "model": "autowork:block/rotator/270_off",
+      "x": 270
+    },
+
+    "facing=down,powered=true,angle=270": {
+      "model": "autowork:block/rotator/270_on",
+      "x": 90
+    },
+    "facing=up,powered=true,angle=270": {
+      "model": "autowork:block/rotator/270_on",
+      "x": 270
+    }
+  }
+}

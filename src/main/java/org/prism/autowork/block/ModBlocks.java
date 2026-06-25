@@ -21,6 +21,8 @@ import org.prism.autowork.block.andgate.AndGateBlock;
 import org.prism.autowork.block.breezecollector.BreezeCollectorBlock;
 import org.prism.autowork.block.breezecollector.buffered.BufferedBreezeCollectorBlock;
 import org.prism.autowork.block.buffer.BufferBlock;
+import org.prism.autowork.block.carrier.CarrierBlock;
+import org.prism.autowork.block.carrier.ModularCarrierBlock;
 import org.prism.autowork.block.cart_manipulators.buffered.loader.CartLoaderBufferedBlock;
 import org.prism.autowork.block.cart_manipulators.buffered.refiller.CartRefillerBufferedBlock;
 import org.prism.autowork.block.cart_manipulators.buffered.unloader.CartUnloaderBufferedBlock;
@@ -44,9 +46,11 @@ import org.prism.autowork.block.pump.PumpBlock;
 import org.prism.autowork.block.railwayobserver.RailwayObserverBlock;
 import org.prism.autowork.block.redstone_coil.RedstoneCoilBlock;
 import org.prism.autowork.block.redstone_hub.RedstoneHubBlock;
+import org.prism.autowork.block.rotator.RotatorBlock;
 import org.prism.autowork.block.sculkmover.SculkMoverBlock;
 import org.prism.autowork.block.smelter.SmelterBlock;
 import org.prism.autowork.block.spiller.SpillerBlock;
+import org.prism.autowork.block.templater.TemplaterBlock;
 import org.prism.autowork.block.ticker.TickerBlock;
 import org.prism.autowork.block.toggler.TogglerBlock;
 import org.prism.autowork.block.transmitter.TransmitterBlock;
@@ -192,6 +196,18 @@ public class ModBlocks {
 
     public static final DeferredBlock<Block> CHUTE = registerBlock("chute",
             () -> new ChuteBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).sound(SoundType.METAL).requiresCorrectToolForDrops().isRedstoneConductor(ModBlocks::neverConductor)));
+
+    public static final DeferredBlock<Block> TEMPLATER = registerBlock("templater",
+            () -> new TemplaterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).sound(SoundType.METAL).requiresCorrectToolForDrops().isRedstoneConductor(ModBlocks::neverConductor)));
+
+    public static final DeferredBlock<Block> ROTATOR = registerBlock("rotator",
+            () -> new RotatorBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SPRUCE_PLANKS).isRedstoneConductor(ModBlocks::neverConductor)));
+
+    public static final DeferredBlock<Block> CARRIER = registerBlock("carrier",
+            () -> new CarrierBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SPRUCE_PLANKS).isRedstoneConductor(ModBlocks::neverConductor)));
+
+    public static final DeferredBlock<Block> MODULAR_CARRIER = registerBlock("modular_carrier",
+            () -> new ModularCarrierBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SPRUCE_PLANKS).isRedstoneConductor(ModBlocks::neverConductor)));
 
     public static final DeferredBlock<Block> EXTRACTOR = registerBlock("extractor",
             () -> new ExtractorBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).sound(SoundType.METAL).requiresCorrectToolForDrops().isRedstoneConductor(ModBlocks::neverConductor)));

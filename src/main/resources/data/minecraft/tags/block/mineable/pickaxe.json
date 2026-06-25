@@ -28,6 +28,7 @@
     "autowork:railway_observer",
     "autowork:buffer",
     "autowork:enricher",
+    "autowork:templater",
 
 
     "autowork:deepslate_enriched_coal_ore",

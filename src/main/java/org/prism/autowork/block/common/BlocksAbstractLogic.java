@@ -34,6 +34,13 @@ import java.util.function.Supplier;
 public final class BlocksAbstractLogic {
     private BlocksAbstractLogic() { }
 
+    public static boolean checkMovable(BlockState state, Level level, BlockPos pos) {
+        return ((!(state.getPistonPushReaction() == PushReaction.DESTROY ||
+                state.getPistonPushReaction() == PushReaction.IGNORE ||
+                state.getPistonPushReaction() == PushReaction.BLOCK || state.getDestroySpeed(level, pos) == -1) || state.is(ModOther.MOVABLE)) || state.is(ModOther.BLOCK_ENTITY_MOVABLE)) &&
+                !state.canBeReplaced();
+    }
+
     public static boolean abstractMover(Level level, BlockPos from, BlockPos to) {
         var currentState = level.getBlockState(from);
         var toState = level.getBlockState(to);

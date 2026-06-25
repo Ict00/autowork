@@ -24,6 +24,7 @@
     "autowork:railway_observer",
     "autowork:enricher",
     "autowork:redstone_hub",
-    "autowork:painter"
+    "autowork:painter",
+    "autowork:rotator"
   ]
 }

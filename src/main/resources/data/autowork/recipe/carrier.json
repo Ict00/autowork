@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "AC ",
+    "BCD",
+    "AC "
+  ],
+  "key": {
+    "A": {
+      "tag": "minecraft:stone_crafting_materials"
+    },
+    "B": {
+      "item": "minecraft:redstone"
+    },
+    "C": {
+      "tag": "minecraft:planks"
+    },
+    "D": {
+      "item": "minecraft:slime_ball"
+    }
+  },
+  "result": {
+    "id": "autowork:carrier",
+    "count": 1
+  }
+}

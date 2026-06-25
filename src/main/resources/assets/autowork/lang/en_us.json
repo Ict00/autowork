@@ -20,8 +20,13 @@
 
   "item.autowork.redstone_charge": "Redstone Charge",
   "item.autowork.wrench": "Wrench",
+  "item.autowork.template_card": "Template Card",
 
   "block.autowork.chute": "Chute",
+  "block.autowork.rotator": "Rotator",
+  "block.autowork.carrier": "Carrier",
+  "block.autowork.templater": "Templater",
+  "block.autowork.modular_carrier": "Modular Carrier",
   "block.autowork.painter": "Painter",
   "block.autowork.holder": "Holder",
   "block.autowork.redstone_hub": "Redstone Hub",
@@ -83,9 +88,28 @@
   "autowork.recipe.smelting": "Smelting",
   "autowork.recipe.required": "%dmb of Lava",
 
+  "block.autowork.rotator.angle": "Angle: ",
+
   "autowork.crushing_description": "Requires 'Crushing' Enchantment",
 
   "itemhelp.autowork.wrench": "Sometimes machines freeze (mostly because of crashes). Use wrench to make them tick again.",
+  "itemhelp.autowork.template_card": "Template card is required for templater. Shift + Right-click on container to make a template of its inventory (direction is taken into account). Then you can use it in templater",
+
+  "item.autowork.template_card.sides": "Sides",
+  "item.autowork.template_card.items": "Items",
+
+  "blockhelp.autowork.templater.details": "Tries to put items by given template (in exactly same slots). Will not do anything if there's not enough items. Requires template card.",
+
+  "blockhelp.autowork.modular_carrier.front": "Block to move",
+  "blockhelp.autowork.modular_carrier.top": "Other Modular Carrier",
+  "blockhelp.autowork.modular_carrier.bottom": "Other Modular Carrier",
+  "blockhelp.autowork.modular_carrier.details": "Moves block in front of itself along when rotated. Also rotates other Modular Carriers above or below itself",
+
+  "blockhelp.autowork.carrier.front": "Block to move",
+  "blockhelp.autowork.carrier.details": "Moves block in front of itself along when powered and rotated",
+
+  "blockhelp.autowork.rotator.front": "Block to rotate",
+  "blockhelp.autowork.rotator.details": "Rotates block in front of itself. Angle is configurable by right-clicking: 90, 180 or 270",
 
   "blockhelp.autowork.redstone_coil.details": "Emits concrete power of signal, configurable by right-clicking",
   "blockhelp.autowork.redstone_coil.side": "Redstone Output",

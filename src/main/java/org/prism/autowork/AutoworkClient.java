@@ -34,6 +34,7 @@ import org.prism.autowork.screens.enricher.EnricherScreen;
 import org.prism.autowork.screens.painter.PainterScreen;
 import org.prism.autowork.screens.placer.PlacerScreen;
 import org.prism.autowork.screens.pump.PumpScreen;
+import org.prism.autowork.screens.templater.TemplaterScreen;
 
 @Mod(value = Autowork.MODID, dist = Dist.CLIENT)
 @EventBusSubscriber(modid = Autowork.MODID, value = Dist.CLIENT)
@@ -80,6 +81,7 @@ public class AutoworkClient {
         event.register(ModMenus.PUMP_MENU.get(), PumpScreen::new);
         event.register(ModMenus.ENRICHER_MENU.get(), EnricherScreen::new);
         event.register(ModMenus.PAINTER_MENU.get(), PainterScreen::new);
+        event.register(ModMenus.TEMPLATER_MENU.get(), TemplaterScreen::new);
     }
 
     @SubscribeEvent

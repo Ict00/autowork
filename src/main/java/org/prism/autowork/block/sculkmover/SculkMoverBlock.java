@@ -75,7 +75,7 @@ public class SculkMoverBlock extends Block implements BlockHelpProvider {
                     var currentState = level.getBlockState(cPos);
 
                     if (!currentState.canBeReplaced()) {
-                        if (currentState.is(Blocks.SCULK)) {
+                        if (currentState.is(ModOther.SCULK_MOVER_IMMOVABLE)) {
                             break;
                         }
 

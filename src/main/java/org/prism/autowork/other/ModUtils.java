@@ -12,8 +12,10 @@ import net.minecraft.world.phys.Vec3;
 import org.joml.Quaterniondc;
 import org.joml.Vector3d;
 import org.prism.autowork.CommonConfig;
+import org.prism.autowork.block.rotator.RotatorBlock;
 
 import java.util.Arrays;
+import java.util.function.Function;
 
 public class ModUtils {
     public static Vec3 direction2vec(Direction direction) {
@@ -179,6 +181,18 @@ public class ModUtils {
                 (float) forward.y,
                 (float) forward.z
         );
+    }
+
+    public static Direction tweakedRotate(Function<Direction, Direction> _90, Function<Direction, Direction> _180, Function<Direction, Direction> _270, Direction direction, RotatorBlock.AngleState angleState) {
+        if (direction == Direction.UP || direction == Direction.DOWN) {
+            return direction;
+        }
+
+        return switch (angleState) {
+            case _90 -> _90.apply(direction);
+            case _180 -> _180.apply(direction);
+            case _270 -> _270.apply(direction);
+        };
     }
 
     public static boolean hasSignal(Level level, BlockPos pos, Direction face) {

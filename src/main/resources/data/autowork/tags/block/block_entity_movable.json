@@ -4,6 +4,7 @@
     "#autowork:fixable",
     "autowork:ticker",
     "autowork:enricher",
+    "autowork:templater",
     "autowork:fluid_barrel",
     "minecraft:blast_furnace",
     "minecraft:smoker",

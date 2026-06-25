@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "ABA",
+    "ACA",
+    "DED"
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:amethyst_shard"
+    },
+    "B": {
+      "tag": "minecraft:planks"
+    },
+    "C": {
+      "item": "minecraft:piston"
+    },
+    "D": {
+      "tag": "minecraft:stone_crafting_materials"
+    },
+    "E": {
+      "item": "minecraft:redstone"
+    }
+  },
+  "result": {
+    "id": "autowork:rotator",
+    "count": 1
+  }
+}
