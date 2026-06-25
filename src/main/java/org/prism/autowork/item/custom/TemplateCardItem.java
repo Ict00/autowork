@@ -92,7 +92,7 @@ public class TemplateCardItem extends Item {
                             stack.set(ModData.TEMPLATE_CARD, data);
                         }
 
-                        level.playSound(null, pos, SoundEvents.ARMOR_STAND_PLACE, SoundSource.BLOCKS, 1, 1.5f);
+                        level.playSound(null, pos, SoundEvents.ITEM_FRAME_ADD_ITEM, SoundSource.BLOCKS, 1, 1.5f);
                         return InteractionResult.SUCCESS;
                     }
                 }
@@ -103,7 +103,7 @@ public class TemplateCardItem extends Item {
                 if (tryCap != null) {
                     data = TemplateCardComponent.EMPTY.setBlock(level.getBlockState(pos).getBlock()).addItems(tryCap, face);
                     stack.set(ModData.TEMPLATE_CARD, data);
-                    level.playSound(null, pos, SoundEvents.ARMOR_STAND_PLACE, SoundSource.BLOCKS, 1, 1.5f);
+                    level.playSound(null, pos, SoundEvents.ITEM_FRAME_ADD_ITEM, SoundSource.BLOCKS, 1, 1.5f);
                     return InteractionResult.SUCCESS;
                 }
             }
