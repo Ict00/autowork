@@ -13,12 +13,24 @@ public class EnergyProxy implements IEnergyStorage {
 
     @Override
     public int receiveEnergy(int i, boolean b) {
-        return handler.receiveEnergy(i, b);
+        var x = handler.receiveEnergy(i, b);
+
+        if (!b) {
+            onContentsChanged();
+        }
+
+        return x;
     }
 
     @Override
     public int extractEnergy(int i, boolean b) {
-        return handler.extractEnergy(i, b);
+        var x = handler.extractEnergy(i, b);
+
+        if (!b) {
+            onContentsChanged();
+        }
+
+        return x;
     }
 
     @Override
@@ -39,5 +51,9 @@ public class EnergyProxy implements IEnergyStorage {
     @Override
     public boolean canReceive() {
         return handler.canReceive();
+    }
+
+    public void onContentsChanged() {
+
     }
 }

@@ -42,6 +42,7 @@ public class FluidProxy implements IFluidHandler {
         if (fluidAction.execute()) {
             var st = handler.getContainer();
             containerChangedCallback.accept(st);
+            onContentsChanged();
         }
         return filled;
     }
@@ -52,6 +53,7 @@ public class FluidProxy implements IFluidHandler {
         if (fluidAction.execute()) {
             var st = handler.getContainer();
             containerChangedCallback.accept(st);
+            onContentsChanged();
         }
         return drained;
     }
@@ -62,7 +64,12 @@ public class FluidProxy implements IFluidHandler {
         if (fluidAction.execute()) {
             var st = handler.getContainer();
             containerChangedCallback.accept(st);
+            onContentsChanged();
         }
         return drained;
+    }
+
+    public void onContentsChanged() {
+
     }
 }

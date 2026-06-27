@@ -150,6 +150,8 @@ public class ModOther {
                                 .add(ModBlocks.AND_GATE)
                                 .add(ModBlocks.TRANSMITTER)
                                 .add(ModBlocks.TOGGLER)
+                                .add(ModBlocks.AMETHYST_BULB)
+                                .add(ModBlocks.QUARTZ_BULB)
                                 .add(ModBlocks.TICKER)
                                 .add(ModBlocks.PRECISE_OBSERVER)
                                 .add(ModBlocks.REDSTONE_HUB_BLOCK)

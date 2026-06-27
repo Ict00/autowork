@@ -121,6 +121,12 @@ public class Autowork {
         );
 
         event.registerBlockEntity(
+                Capabilities.EnergyStorage.BLOCK,
+                ModBlockEntities.HOLDER_BE.get(),
+                HolderBlockEntity::getProxyEnergy
+        );
+
+        event.registerBlockEntity(
                 Capabilities.ItemHandler.BLOCK,
                 ModBlockEntities.HOLDER_BE.get(),
                 HolderBlockEntity::getProxyItem

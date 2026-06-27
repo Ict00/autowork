@@ -82,7 +82,16 @@ public class HolderBlockEntity extends BlockEntity {
             return null;
         }
 
-        return new ItemProxy(stack);
+        return new ItemProxy(stack) {
+            @Override
+            public void onContentsChanged() {
+                setChanged();
+
+                if (level != null && !level.isClientSide) {
+                    level.sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), HolderBlock.UPDATE_ALL);
+                }
+            }
+        };
     }
 
     public IFluidHandler getProxyFluid(Direction side) {
@@ -108,7 +117,16 @@ public class HolderBlockEntity extends BlockEntity {
                 handler.extractItem(0, 1, false);
                 handler.insertItem(0, x.copy(), false);
             }
-        });
+        }) {
+            @Override
+            public void onContentsChanged() {
+                setChanged();
+
+                if (level != null && !level.isClientSide) {
+                    level.sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), HolderBlock.UPDATE_ALL);
+                }
+            }
+        };
     }
 
 
@@ -129,7 +147,16 @@ public class HolderBlockEntity extends BlockEntity {
             return null;
         }
 
-        return new EnergyProxy(stack);
+        return new EnergyProxy(stack) {
+            @Override
+            public void onContentsChanged() {
+                setChanged();
+
+                if (level != null && !level.isClientSide) {
+                    level.sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), HolderBlock.UPDATE_ALL);
+                }
+            }
+        };
     }
 
     @Override

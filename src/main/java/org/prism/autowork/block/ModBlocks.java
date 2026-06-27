@@ -21,6 +21,8 @@ import org.prism.autowork.block.andgate.AndGateBlock;
 import org.prism.autowork.block.breezecollector.BreezeCollectorBlock;
 import org.prism.autowork.block.breezecollector.buffered.BufferedBreezeCollectorBlock;
 import org.prism.autowork.block.buffer.BufferBlock;
+import org.prism.autowork.block.bulbs.amethyst.AmethystBulbBlock;
+import org.prism.autowork.block.bulbs.quartz.QuartzBulbBlock;
 import org.prism.autowork.block.carrier.CarrierBlock;
 import org.prism.autowork.block.carrier.ModularCarrierBlock;
 import org.prism.autowork.block.cart_manipulators.buffered.loader.CartLoaderBufferedBlock;
@@ -52,7 +54,7 @@ import org.prism.autowork.block.smelter.SmelterBlock;
 import org.prism.autowork.block.spiller.SpillerBlock;
 import org.prism.autowork.block.templater.TemplaterBlock;
 import org.prism.autowork.block.ticker.TickerBlock;
-import org.prism.autowork.block.toggler.TogglerBlock;
+import org.prism.autowork.block.bulbs.toggler.TogglerBlock;
 import org.prism.autowork.block.transmitter.TransmitterBlock;
 import org.prism.autowork.blockhelp.HelpfulBlockItem;
 import org.prism.autowork.item.ModItems;
@@ -169,6 +171,12 @@ public class ModBlocks {
 
     public static final DeferredBlock<Block> TOGGLER = registerBlock("toggler",
             () -> new TogglerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).sound(SoundType.METAL).requiresCorrectToolForDrops().isRedstoneConductor(ModBlocks::neverConductor).lightLevel((x) -> x.getValue(BlockStateProperties.LIT) ? 15 : 0)));
+
+    public static final DeferredBlock<Block> AMETHYST_BULB = registerBlock("amethyst_bulb",
+            () -> new AmethystBulbBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).sound(SoundType.METAL).requiresCorrectToolForDrops().isRedstoneConductor(ModBlocks::neverConductor).lightLevel((x) -> x.getValue(BlockStateProperties.LIT) ? 15 : 0)));
+
+    public static final DeferredBlock<Block> QUARTZ_BULB = registerBlock("quartz_bulb",
+            () -> new QuartzBulbBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).sound(SoundType.METAL).requiresCorrectToolForDrops().isRedstoneConductor(ModBlocks::neverConductor).lightLevel((x) -> x.getValue(BlockStateProperties.LIT) ? 15 : 0)));
 
     public static final DeferredBlock<Block> TRANSMITTER = registerBlock("transmitter",
             () -> new TransmitterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).sound(SoundType.METAL).requiresCorrectToolForDrops().isRedstoneConductor(ModBlocks::neverConductor)));

@@ -1,0 +1,24 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "bottom": "autowork:block/bulbs/amethyst/side_lit_off",
+    "side": "autowork:block/bulbs/amethyst/side_lit_off",
+    "top": "autowork:block/bulbs/amethyst/side_lit_off",
+    "front": "autowork:block/bulbs/amethyst/top_lit_off",
+    "back": "autowork:block/toggler/toggler_bottom",
+    "particle": "autowork:block/toggler/toggler_bottom"
+  },
+  "elements": [
+    {   "from": [ 0, 0, 0 ],
+      "to": [ 16, 16, 16 ],
+      "faces": {
+        "down":  { "uv": [ 0, 0, 16, 16 ], "rotation": 270, "texture": "#side", "cullface": "down" },
+        "up":    { "uv": [ 0, 16, 16, 0 ], "rotation": 90, "texture": "#side", "cullface": "up" },
+        "north": { "uv": [ 0, 0, 16, 16 ], "texture": "#front", "cullface": "north" },
+        "south": { "uv": [ 0, 0, 16, 16 ], "texture": "#back", "cullface": "south" },
+        "west":  { "uv": [ 0, 0, 16, 16 ], "texture": "#side", "cullface": "west" },
+        "east":  { "uv": [ 0, 0, 16, 16 ], "rotation": 180, "texture": "#side", "cullface": "east" }
+      }
+    }
+  ]
+}

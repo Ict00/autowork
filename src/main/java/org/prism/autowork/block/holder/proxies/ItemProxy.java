@@ -23,12 +23,24 @@ public class ItemProxy implements IItemHandler {
 
     @Override
     public ItemStack insertItem(int i, ItemStack itemStack, boolean b) {
-        return handler.insertItem(i, itemStack, b);
+        var x = handler.insertItem(i, itemStack, b);
+
+        if (!b) {
+            onContentsChanged();
+        }
+
+        return x;
     }
 
     @Override
     public ItemStack extractItem(int i, int i1, boolean b) {
-        return handler.extractItem(i, i1, b);
+        var x = handler.extractItem(i, i1, b);
+
+        if (!b) {
+            onContentsChanged();
+        }
+
+        return x;
     }
 
     @Override
@@ -39,5 +51,9 @@ public class ItemProxy implements IItemHandler {
     @Override
     public boolean isItemValid(int i, ItemStack itemStack) {
         return handler.isItemValid(i, itemStack);
+    }
+
+    public void onContentsChanged() {
+
     }
 }

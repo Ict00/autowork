@@ -23,6 +23,8 @@
   "item.autowork.template_card": "Template Card",
 
   "block.autowork.chute": "Chute",
+  "block.autowork.amethyst_bulb": "Amethyst Bulb",
+  "block.autowork.quartz_bulb": "Quartz Bulb",
   "block.autowork.rotator": "Rotator",
   "block.autowork.carrier": "Carrier",
   "block.autowork.templater": "Templater",
@@ -99,6 +101,12 @@
   "item.autowork.template_card.items": "Items",
 
   "blockhelp.autowork.templater.details": "Tries to put items by given template (in exactly same slots). Will not do anything if there's not enough items. Requires template card.",
+
+  "blockhelp.autowork.amethyst_bulb.back": "Redstone output",
+  "blockhelp.autowork.amethyst_bulb.details": "Emits signal impulse when redstone signal disappears on all the sides",
+
+  "blockhelp.autowork.quartz_bulb.back": "Redstone output",
+  "blockhelp.autowork.quartz_bulb.details": "Emits signal impulse when redstone signal appears on at least one side",
 
   "blockhelp.autowork.modular_carrier.front": "Block to move",
   "blockhelp.autowork.modular_carrier.top": "Other Modular Carrier",

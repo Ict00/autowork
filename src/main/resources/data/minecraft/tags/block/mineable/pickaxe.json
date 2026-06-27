@@ -29,6 +29,8 @@
     "autowork:buffer",
     "autowork:enricher",
     "autowork:templater",
+    "autowork:amethyst_bulb",
+    "autowork:quartz_bulb",
 
 
     "autowork:deepslate_enriched_coal_ore",
