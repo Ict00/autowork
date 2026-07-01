@@ -32,6 +32,7 @@ import org.prism.autowork.block.cart_manipulators.unbuffered.CartLoaderBlock;
 import org.prism.autowork.block.cart_manipulators.unbuffered.CartRefillerBlock;
 import org.prism.autowork.block.cart_manipulators.unbuffered.CartUnloaderBlock;
 import org.prism.autowork.block.chute.ChuteBlock;
+import org.prism.autowork.block.controlled_catalyst.ControlledCatalystBlock;
 import org.prism.autowork.block.distributor.DistributorBlock;
 import org.prism.autowork.block.drill.DrillBlock;
 import org.prism.autowork.block.enricher.EnricherBlock;
@@ -48,7 +49,9 @@ import org.prism.autowork.block.pump.PumpBlock;
 import org.prism.autowork.block.railwayobserver.RailwayObserverBlock;
 import org.prism.autowork.block.redstone_coil.RedstoneCoilBlock;
 import org.prism.autowork.block.redstone_hub.RedstoneHubBlock;
+import org.prism.autowork.block.repair_station.RepairStationBlock;
 import org.prism.autowork.block.rotator.RotatorBlock;
+import org.prism.autowork.block.sculk_cell.SculkCellBlock;
 import org.prism.autowork.block.sculkmover.SculkMoverBlock;
 import org.prism.autowork.block.smelter.SmelterBlock;
 import org.prism.autowork.block.spiller.SpillerBlock;
@@ -240,6 +243,15 @@ public class ModBlocks {
 
     public static final DeferredBlock<Block> PLACER = registerBlock("placer",
             () -> new PlacerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).sound(SoundType.METAL).requiresCorrectToolForDrops().isRedstoneConductor(ModBlocks::neverConductor)));
+
+    public static final DeferredBlock<Block> SCULK_CELL = registerBlock("sculk_cell",
+            () -> new SculkCellBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).sound(SoundType.SCULK_CATALYST).requiresCorrectToolForDrops().isRedstoneConductor(ModBlocks::neverConductor)), false);
+
+    public static final DeferredBlock<Block> CONTROLLED_CATALYST = registerBlock("controlled_catalyst",
+            () -> new ControlledCatalystBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).sound(SoundType.SCULK_CATALYST).requiresCorrectToolForDrops().isRedstoneConductor(ModBlocks::neverConductor)));
+
+    public static final DeferredBlock<Block> REPAIR_STATION = registerBlock("repair_station",
+            () -> new RepairStationBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).sound(SoundType.WOOD).requiresCorrectToolForDrops().isRedstoneConductor(ModBlocks::neverConductor)));
 
 
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {

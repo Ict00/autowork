@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "autowork:block/sculk_cell/top",
+    "east": "autowork:block/sculk_cell/side_6",
+    "north": "autowork:block/sculk_cell/side_6",
+    "particle": "autowork:block/sculk_cell/side_6",
+    "south": "autowork:block/sculk_cell/side_6",
+    "up": "autowork:block/sculk_cell/top",
+    "west": "autowork:block/sculk_cell/side_6"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "A",
+    "B"
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:sculk_catalyst"
+    },
+    "B": {
+      "item": "autowork:chute"
+    }
+  },
+  "result": {
+    "id": "autowork:controlled_catalyst",
+    "count": 1
+  }
+}

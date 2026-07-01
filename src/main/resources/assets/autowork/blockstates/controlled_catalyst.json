@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=true": {
+      "model": "autowork:block/controlled_catalyst/on"
+    },
+    "powered=false": {
+      "model": "autowork:block/controlled_catalyst/off"
+    }
+  }
+}

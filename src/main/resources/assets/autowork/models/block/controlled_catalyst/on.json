@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "autowork:block/chute/chute_body_top",
+    "east": "autowork:block/controlled_catalyst/side_on",
+    "north": "autowork:block/controlled_catalyst/side_on",
+    "particle": "autowork:block/controlled_catalyst/side_on",
+    "south": "autowork:block/controlled_catalyst/side_on",
+    "up": "autowork:block/sculk_cell/top",
+    "west": "autowork:block/controlled_catalyst/side_on"
+  }
+}

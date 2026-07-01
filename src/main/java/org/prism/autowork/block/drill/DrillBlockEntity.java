@@ -181,7 +181,7 @@ public class DrillBlockEntity extends BlockEntity implements MenuProvider {
 
         float toolSpeed = tool.getDestroySpeed(blockInFront);
 
-        int effLevel = tool.getEnchantmentLevel(level.registryAccess().lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(Enchantments.EFFICIENCY));
+        int effLevel = ModUtils.getEnchantment(tool, Enchantments.EFFICIENCY, level.registryAccess());
 
         if (effLevel > 0 && tool.isCorrectToolForDrops(blockInFront)) {
             toolSpeed += effLevel * effLevel + 1;
@@ -192,7 +192,7 @@ public class DrillBlockEntity extends BlockEntity implements MenuProvider {
         int durabilityDamage = 1 + (int)(speed / 3f);
         boolean applyDamage = true;
         try {
-            int unbreakingLevel = tool.getEnchantmentLevel(level.registryAccess().lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(Enchantments.UNBREAKING));
+            int unbreakingLevel = ModUtils.getEnchantment(tool, Enchantments.UNBREAKING, level.registryAccess());
 
             if (unbreakingLevel > 0) {
                 applyDamage = level.random.nextInt(unbreakingLevel + 1) == 0;

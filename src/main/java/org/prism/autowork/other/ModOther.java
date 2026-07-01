@@ -74,10 +74,11 @@ public class ModOther {
                         Autowork.loc("textures/gui/sections/misc.png"),
                         0xfffcd442,
                         ConglomerateOfItems.create()
+                                .add(ModBlocks.TEMPLATER)
+                                .add(ModItems.TEMPLATE_CARD)
                                 .add(ModBlocks.HOLDER)
                                 .add(ModItems.WRENCH)
                                 .add(ModItems.REDSTONE_CHARGE)
-                                .add(ModItems.TEMPLATE_CARD)
                 )
         );
 
@@ -122,6 +123,19 @@ public class ModOther {
                                 .add(ModBlocks.BUFFERED_CARTLOADER)
                                 .add(ModBlocks.BUFFERED_CARTUNLOADER)
                                 .add(ModBlocks.BUFFERED_CARTREFILLER)
+                )
+        );
+
+        FancyTabSections.addSection(tabRs,
+                new SectionTextured(
+                        Autowork.loc("experience"),
+                        Component.translatable("creativetab.autowork.experience"),
+                        Autowork.loc("textures/gui/sections/experience.png"),
+                        0xff58f5ae,
+                        ConglomerateOfItems.create()
+                                .add(ModBlocks.SCULK_CELL)
+                                .add(ModBlocks.CONTROLLED_CATALYST)
+                                .add(ModBlocks.REPAIR_STATION)
                 )
         );
 

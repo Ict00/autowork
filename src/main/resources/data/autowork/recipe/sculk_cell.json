@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "BAB",
+    "BEB",
+    "BAB"
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:sculk_catalyst"
+    },
+    "B": {
+      "item": "minecraft:sculk"
+    },
+    "E": {
+      "item": "minecraft:experience_bottle"
+    }
+  },
+  "result": {
+    "id": "autowork:sculk_cell",
+    "count": 1
+  }
+}

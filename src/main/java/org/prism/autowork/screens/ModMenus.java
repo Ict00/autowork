@@ -9,6 +9,7 @@ import net.neoforged.neoforge.network.IContainerFactory;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import org.prism.autowork.Autowork;
+import org.prism.autowork.block.repair_station.RepairStationBlockEntity;
 import org.prism.autowork.screens.breeze_collector.BreezeCollectorMenu;
 import org.prism.autowork.screens.cartloader.CartLoaderMenu;
 import org.prism.autowork.screens.cartrefiller.CartRefillerMenu;
@@ -18,6 +19,7 @@ import org.prism.autowork.screens.enricher.EnricherMenu;
 import org.prism.autowork.screens.painter.PainterMenu;
 import org.prism.autowork.screens.placer.PlacerMenu;
 import org.prism.autowork.screens.pump.PumpMenu;
+import org.prism.autowork.screens.repair_station.RepairStationMenu;
 import org.prism.autowork.screens.templater.TemplaterMenu;
 
 public class ModMenus {
@@ -50,6 +52,10 @@ public class ModMenus {
 
     public static final DeferredHolder<MenuType<?>, MenuType<CartLoaderMenu>> CARTLOADER_MENU =
             regType("cartloader_menu", CartLoaderMenu::new);
+
+    public static final DeferredHolder<MenuType<?>, MenuType<RepairStationMenu>> REPAIR_STATION_MENU =
+            regType("repair_station_menu", RepairStationMenu::new);
+
 
     public static final DeferredHolder<MenuType<?>, MenuType<CartUnloaderMenu>> CARTUNLOADER_MENU =
             regType("cartunloader_menu", CartUnloaderMenu::new);

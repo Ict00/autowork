@@ -6,6 +6,7 @@
     "autowork:painter",
     "autowork:rotator",
     "autowork:modular_carrier",
-    "autowork:carrier"
+    "autowork:carrier",
+    "autowork:repair_station"
   ]
 }

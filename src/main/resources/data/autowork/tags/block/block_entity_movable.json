@@ -16,6 +16,8 @@
     "#c:barrels",
     "#c:player_workstations/furnaces",
     "#c:villager_job_sites",
-    "#minecraft:anvil"
+    "#minecraft:anvil",
+    "autowork:sculk_cell",
+    "autowork:repair_station"
   ]
 }

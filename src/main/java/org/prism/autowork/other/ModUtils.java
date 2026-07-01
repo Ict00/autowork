@@ -5,7 +5,13 @@ import dev.ryanhcode.sable.companion.SubLevelAccess;
 import dev.ryanhcode.sable.companion.math.Pose3dc;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.RegistryAccess;
 import net.minecraft.core.Vec3i;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
@@ -27,6 +33,15 @@ public class ModUtils {
             case UP -> new Vec3(0, 1, 0);
             case DOWN -> new Vec3(0, -1, 0);
         };
+    }
+
+    public static int getEnchantment(ItemStack stack, ResourceKey<Enchantment> enchantment, RegistryAccess access) {
+        try {
+            return stack.getEnchantmentLevel(access.lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(enchantment));
+        }
+        catch (Exception ignore) {
+            return 0;
+        }
     }
 
     public static AABB safeAABBfromTwoVec(Vec3 aP, Vec3 bP, Level level) {

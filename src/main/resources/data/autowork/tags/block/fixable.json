@@ -13,6 +13,7 @@
     "autowork:distributor",
     "autowork:extractor",
     "autowork:fluid_extractor",
+    "autowork:controlled_catalyst",
     "autowork:precise_observer",
     "autowork:spiller",
     "autowork:sculk_mover",

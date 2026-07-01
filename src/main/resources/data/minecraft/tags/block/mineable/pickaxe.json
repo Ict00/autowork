@@ -31,6 +31,11 @@
     "autowork:templater",
     "autowork:amethyst_bulb",
     "autowork:quartz_bulb",
+    "autowork:controlled_catalyst",
+    "autowork:rotator",
+    "autowork:modular_carrier",
+    "autowork:carrier",
+    "autowork:repair_station",
 
 
     "autowork:deepslate_enriched_coal_ore",

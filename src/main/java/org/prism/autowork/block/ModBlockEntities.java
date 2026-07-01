@@ -20,6 +20,8 @@ import org.prism.autowork.block.placer.PlacerBlockEntity;
 import org.prism.autowork.block.precise_observer.PreciseObserverBlock;
 import org.prism.autowork.block.precise_observer.PreciseObserverBlockEntity;
 import org.prism.autowork.block.pump.PumpBlockEntity;
+import org.prism.autowork.block.repair_station.RepairStationBlockEntity;
+import org.prism.autowork.block.sculk_cell.SculkCellBlockEntity;
 import org.prism.autowork.block.templater.TemplaterBlockEntity;
 import org.prism.autowork.block.ticker.TickerBlockEntity;
 
@@ -28,6 +30,16 @@ import java.util.function.Supplier;
 public class ModBlockEntities {
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES =
             DeferredRegister.create(BuiltInRegistries.BLOCK_ENTITY_TYPE, Autowork.MODID);
+
+    public static final Supplier<BlockEntityType<RepairStationBlockEntity>> REPAIR_STATION_BE =
+            BLOCK_ENTITIES.register("repair_station_be", () -> BlockEntityType.Builder.of(
+                    RepairStationBlockEntity::new, ModBlocks.REPAIR_STATION.get()
+            ).build(null));
+
+    public static final Supplier<BlockEntityType<SculkCellBlockEntity>> SCULK_CELL_BE =
+            BLOCK_ENTITIES.register("sculk_cell_be", () -> BlockEntityType.Builder.of(
+                    SculkCellBlockEntity::new, ModBlocks.SCULK_CELL.get()
+            ).build(null));
 
     public static final Supplier<BlockEntityType<PainterBlockEntity>> PAINTER_BE =
             BLOCK_ENTITIES.register("painter_be", () -> BlockEntityType.Builder.of(

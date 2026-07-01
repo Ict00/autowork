@@ -1,0 +1,26 @@
+
+{
+  "variants": {
+    "state=0": {
+      "model": "autowork:block/sculk_cell/0"
+    },
+    "state=1": {
+      "model": "autowork:block/sculk_cell/1"
+    },
+    "state=2": {
+      "model": "autowork:block/sculk_cell/2"
+    },
+    "state=3": {
+      "model": "autowork:block/sculk_cell/3"
+    },
+    "state=4": {
+      "model": "autowork:block/sculk_cell/4"
+    },
+    "state=5": {
+      "model": "autowork:block/sculk_cell/5"
+    },
+    "state=6": {
+      "model": "autowork:block/sculk_cell/6"
+    }
+  }
+}

@@ -17,6 +17,9 @@ public class ModData {
     public static final Supplier<DataComponentType<FluidStackComponent>> BARREL_FLUID = DATA_COMPONENTS.register("barrel_fluid",
             () -> DataComponentType.<FluidStackComponent>builder().persistent(FluidStackComponent.CODEC).build());
 
+    public static final Supplier<DataComponentType<Integer>> SCULK_CELL_EXPERIENCE = DATA_COMPONENTS.register("sculk_cell_experience",
+            () -> DataComponentType.<Integer>builder().persistent(Codec.INT).build());
+
     public static final Supplier<DataComponentType<TemplateCardComponent>> TEMPLATE_CARD = DATA_COMPONENTS.register("template_card",
             () -> DataComponentType.<TemplateCardComponent>builder().persistent(TemplateCardComponent.CODEC).build());
 

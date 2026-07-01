@@ -30,6 +30,7 @@ import org.prism.autowork.block.holder.HolderBlockEntity;
 import org.prism.autowork.block.painter.PainterBlockEntity;
 import org.prism.autowork.block.placer.PlacerBlockEntity;
 import org.prism.autowork.block.pump.PumpBlockEntity;
+import org.prism.autowork.block.repair_station.RepairStationBlockEntity;
 import org.prism.autowork.block.templater.TemplaterBlockEntity;
 import org.prism.autowork.entities.ModEntities;
 import org.prism.autowork.item.ModItems;
@@ -112,6 +113,12 @@ public class Autowork {
                 Capabilities.ItemHandler.BLOCK,
                 ModBlockEntities.PAINTER_BE.get(),
                 PainterBlockEntity::getCapability
+        );
+
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                ModBlockEntities.REPAIR_STATION_BE.get(),
+                RepairStationBlockEntity::getCapability
         );
 
         event.registerBlockEntity(

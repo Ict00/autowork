@@ -8,6 +8,7 @@
   "autowork.configuration.holderDecorRender": "Render decorations of item when looking at holder",
   "autowork.configuration.pumpRange": "Pump range",
   "autowork.configuration.chestMinecartLoadChunks": "Minecarts with chest loading chunks",
+  "autowork.configuration.sculkCellCapacity": "Sculk cell capacity",
 
   "itemGroup.autowork": "Autowork",
 
@@ -17,12 +18,16 @@
   "creativetab.autowork.fluids": "Fluids",
   "creativetab.autowork.misc": "Misc",
   "creativetab.autowork.ores": "Ores",
+  "creativetab.autowork.experience": "Experience",
 
   "item.autowork.redstone_charge": "Redstone Charge",
   "item.autowork.wrench": "Wrench",
   "item.autowork.template_card": "Template Card",
 
   "block.autowork.chute": "Chute",
+  "block.autowork.repair_station": "Smither",
+  "block.autowork.sculk_cell": "Sculk Cell",
+  "block.autowork.controlled_catalyst": "Controlled Catalyst",
   "block.autowork.amethyst_bulb": "Amethyst Bulb",
   "block.autowork.quartz_bulb": "Quartz Bulb",
   "block.autowork.rotator": "Rotator",
@@ -101,6 +106,13 @@
   "item.autowork.template_card.items": "Items",
 
   "blockhelp.autowork.templater.details": "Tries to put items by given template (in exactly same slots). Will not do anything if there's not enough items. Requires template card.",
+
+  "blockhelp.autowork.sculk_cell.details": "Stores experience. Right-click to deposit your experience and shift + right-click to take experience.",
+
+  "blockhelp.autowork.controlled_catalyst.details": "Collects and puts experience orbs into Sculk Cell below when powered",
+  "blockhelp.autowork.controlled_catalyst.bottom": "Sculk cell required",
+
+  "blockhelp.autowork.repair_station.details": "Tries to repair tool when powered. If the tool has mending enchantment it'll only use experience, if not - it'll require both experience and repair material. Tries to put repaired tool in storage in front of itself, if fails - drops it",
 
   "blockhelp.autowork.amethyst_bulb.back": "Redstone output",
   "blockhelp.autowork.amethyst_bulb.details": "Emits signal impulse when redstone signal disappears on all the sides",

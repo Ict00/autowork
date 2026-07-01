@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "CA ",
+    "CBE",
+    "CCC"
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:smithing_table"
+    },
+    "B": {
+      "tag": "minecraft:anvil"
+    },
+    "C": {
+      "item": "minecraft:iron_ingot"
+    },
+    "E": {
+      "item": "minecraft:crafter"
+    }
+  },
+  "result": {
+    "id": "autowork:repair_station",
+    "count": 1
+  }
+}
