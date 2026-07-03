@@ -6,18 +6,20 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.fluids.FluidStack;
 import net.neoforged.neoforge.fluids.capability.IFluidHandler;
 import org.prism.autowork.CommonConfig;
 import org.prism.autowork.block.fluidbarrel.FluidBarrelBlockEntity;
+import org.prism.autowork.block.placer.ISpecialPlaceable;
 import org.prism.autowork.blockhelp.HelpfulBlockItem;
 import org.prism.autowork.other.ModData;
 import org.prism.autowork.other.data.FluidStackComponent;
 
 import java.util.List;
 
-public class SculkCellItem extends HelpfulBlockItem {
+public class SculkCellItem extends HelpfulBlockItem implements ISpecialPlaceable {
     public SculkCellItem(Block block, Properties properties) {
         super(block, properties);
     }
@@ -73,5 +75,13 @@ public class SculkCellItem extends HelpfulBlockItem {
         }
 
         return res;
+    }
+
+    @Override
+    public void placePostAction(ItemStack stack, Level level, BlockPos pos) {
+        var xp = stack.get(ModData.SCULK_CELL_EXPERIENCE);
+        if (level.getBlockEntity(pos) instanceof SculkCellBlockEntity entity && xp != null) {
+            entity.putXp(xp, false);
+        }
     }
 }

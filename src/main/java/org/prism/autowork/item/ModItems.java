@@ -11,6 +11,7 @@ import org.prism.autowork.Autowork;
 import org.prism.autowork.block.ModBlocks;
 import org.prism.autowork.block.fluidbarrel.FluidBarrelItem;
 import org.prism.autowork.block.sculk_cell.SculkCellItem;
+import org.prism.autowork.item.custom.DyeCartridge;
 import org.prism.autowork.item.custom.RedstoneChargeItem;
 import org.prism.autowork.item.custom.TemplateCardItem;
 import org.prism.autowork.item.custom.WrenchItem;
@@ -24,6 +25,7 @@ public class ModItems {
     public static final DeferredItem<Item> TEMPLATE_CARD = ITEMS.register("template_card", () -> new TemplateCardItem(new Item.Properties().stacksTo(1)));
     public static final DeferredItem<Item> FLUID_BARREL_ITEM = ITEMS.register("fluid_barrel", () -> new FluidBarrelItem(ModBlocks.FLUID_BARREL.get(), new Item.Properties()));
     public static final DeferredItem<Item> SCULK_CELL_ITEM = ITEMS.register("sculk_cell", () -> new SculkCellItem(ModBlocks.SCULK_CELL.get(), new Item.Properties()));
+    public static final DeferredItem<Item> DYE_CARTRIDGE = ITEMS.register("dye_cartridge", () -> new DyeCartridge(new Item.Properties().stacksTo(1)));
 
     public static void register(IEventBus bus) {
         ITEMS.register(bus);

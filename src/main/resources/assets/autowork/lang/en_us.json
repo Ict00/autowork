@@ -20,8 +20,13 @@
   "creativetab.autowork.ores": "Ores",
   "creativetab.autowork.experience": "Experience",
 
+  "item.autowork.dye_cartridge.uses": "%d / %d uses",
+  "item.autowork.dye_cartridge.dyes": "%d / %d dyes",
+  "item.autowork.dye_cartridge.insert_dye": "Click with dye on the cartridge to insert it",
+
   "item.autowork.redstone_charge": "Redstone Charge",
   "item.autowork.wrench": "Wrench",
+  "item.autowork.dye_cartridge": "Dye Cartridge",
   "item.autowork.template_card": "Template Card",
 
   "block.autowork.chute": "Chute",

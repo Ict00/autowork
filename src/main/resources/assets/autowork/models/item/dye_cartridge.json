@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "autowork:item/dye_cartridge/0",
+    "layer1": "autowork:item/dye_cartridge/1"
+  }
+}

@@ -12,11 +12,20 @@ import mezz.jei.api.recipe.category.IRecipeCategory;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.DyeItem;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.Ingredient;
 import org.jetbrains.annotations.Nullable;
 import org.prism.autowork.Autowork;
 import org.prism.autowork.block.ModBlocks;
+import org.prism.autowork.item.ModItems;
+import org.prism.autowork.other.ModData;
+import org.prism.autowork.other.data.CartridgeComponent;
 import org.prism.autowork.recipe.PaintRecipe.PaintRecipe;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.stream.Stream;
 
 public class PaintingRecipeCategory implements IRecipeCategory<PaintRecipe> {
     public static final ResourceLocation UID = ResourceLocation.fromNamespaceAndPath(Autowork.MODID, "painting_recipe");
@@ -70,7 +79,27 @@ public class PaintingRecipeCategory implements IRecipeCategory<PaintRecipe> {
     @Override
     public void setRecipe(IRecipeLayoutBuilder builder, PaintRecipe recipe, IFocusGroup focuses) {
         builder.addSlot(RecipeIngredientRole.INPUT, 7, 12).addIngredients(recipe.getIngredients().getFirst());
-        builder.addSlot(RecipeIngredientRole.INPUT, 40, 12).addIngredients(recipe.getIngredients().get(1));
+
+        Ingredient target;
+        var dye = recipe.getIngredients().get(1);
+        var items = dye.getItems();
+        ArrayList<ItemStack> newItems = new ArrayList<>();
+        for (var item : items) {
+            if (item.getItem() instanceof DyeItem dyeItem) {
+                var newStack = new ItemStack(ModItems.DYE_CARTRIDGE.get());
+                newStack.set(ModData.CARTRIDGE, new CartridgeComponent(dyeItem, item.getCount()*8, dyeItem.getDyeColor().getTextureDiffuseColor()));
+                newItems.add(newStack);
+            }
+        }
+
+        if (newItems.isEmpty()) {
+            target = dye;
+        }
+        else {
+            target = Ingredient.of(Stream.concat(Arrays.stream(items), Arrays.stream(newItems.toArray(new ItemStack[0]))));
+        }
+
+        builder.addSlot(RecipeIngredientRole.INPUT, 40, 12).addIngredients(target);
 
         builder.addSlot(RecipeIngredientRole.OUTPUT, 72, 12).addItemStack(recipe.getResultItem(null));
     }

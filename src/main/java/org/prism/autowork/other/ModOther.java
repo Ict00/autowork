@@ -79,6 +79,7 @@ public class ModOther {
                                 .add(ModBlocks.HOLDER)
                                 .add(ModItems.WRENCH)
                                 .add(ModItems.REDSTONE_CHARGE)
+                                .add(ModItems.DYE_CARTRIDGE)
                 )
         );
 

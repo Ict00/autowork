@@ -17,6 +17,7 @@ import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.inventory.ClickAction;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.DyeItem;
 import net.minecraft.world.item.ItemStack;
@@ -29,7 +30,11 @@ import net.neoforged.neoforge.items.ItemStackHandler;
 import org.jetbrains.annotations.Nullable;
 import org.prism.autowork.block.ModBlockEntities;
 import org.prism.autowork.block.ModBlocks;
+import org.prism.autowork.item.ModItems;
+import org.prism.autowork.item.custom.DyeCartridge;
+import org.prism.autowork.other.ModData;
 import org.prism.autowork.other.ModUtils;
+import org.prism.autowork.other.data.CartridgeComponent;
 import org.prism.autowork.recipe.ModRecipes;
 import org.prism.autowork.recipe.PaintRecipe.PaintRecipeInput;
 import org.prism.autowork.recipe.SpillingRecipe.SpillingRecipeInput;
@@ -39,7 +44,7 @@ public class PainterBlockEntity extends BlockEntity implements MenuProvider {
     public ItemStackHandler handler = new ItemStackHandler(1) {
         @Override
         public boolean isItemValid(int slot, ItemStack stack) {
-            return stack.getItem() instanceof DyeItem;
+            return stack.is(ModItems.DYE_CARTRIDGE) || stack.getItem() instanceof DyeItem;
         }
 
         @Override
@@ -59,8 +64,6 @@ public class PainterBlockEntity extends BlockEntity implements MenuProvider {
         handler.deserializeNBT(registries, tag.getCompound("dye"));
     }
 
-
-
     @Override
     protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
         super.saveAdditional(tag, registries);
@@ -73,16 +76,23 @@ public class PainterBlockEntity extends BlockEntity implements MenuProvider {
         if (!state.getValue(BlockStateProperties.POWERED)) {
             var stack = handler.getStackInSlot(0);
             var level = getLevel();
+            boolean isCartridge = stack.has(ModData.CARTRIDGE);
+            DyeItem dye = null;
+            if (isCartridge) {
+                dye = ((DyeItem) DyeCartridge.getDye(stack).getItem());
+            }
+            else if (stack.getItem() instanceof DyeItem dyeItem){
+                dye = dyeItem;
+            }
 
-            if (!stack.isEmpty() && level != null) {
+            if (dye != null && level != null) {
                 var facing = getBlockState().getValue(BlockStateProperties.FACING);
                 var front = ModUtils.lookTo(getBlockPos(), facing);
 
                 var block = level.getBlockState(front).getBlock();
 
                 var s = new ItemStack(block.asItem());
-                var input = new PaintRecipeInput(stack, s);
-
+                var input = new PaintRecipeInput(new ItemStack(dye), s);
 
                 var optionalRecipe = level.getRecipeManager().getRecipeFor(ModRecipes.PAINTING_RECIPE_TYPE.get(), input, level);
 
@@ -95,8 +105,12 @@ public class PainterBlockEntity extends BlockEntity implements MenuProvider {
                         level.setBlockAndUpdate(getBlockPos(), state.setValue(BlockStateProperties.POWERED, true));
                         level.playSound(null, getBlockPos(), SoundEvents.PAINTING_PLACE, SoundSource.BLOCKS, 1, 1.5f);
                         level.scheduleTick(getBlockPos(), ModBlocks.PAINTER.get(), 15);
-
-                        stack.shrink(1);
+                        if (isCartridge) {
+                            DyeCartridge.useDye(stack);
+                        }
+                        else {
+                            stack.shrink(1);
+                        }
                     }
                 }
             }
@@ -131,7 +145,13 @@ public class PainterBlockEntity extends BlockEntity implements MenuProvider {
     public int getColor() {
         ItemStack stack = handler.getStackInSlot(0);
         if (!stack.isEmpty()) {
-            return (stack.getItem() instanceof DyeItem dye)
+            var component = stack.get(ModData.CARTRIDGE);
+            if (component == null) {
+                return (stack.getItem() instanceof DyeItem dye)
+                        ? dye.getDyeColor().getTextureDiffuseColor()
+                        : 0xfff2d585;
+            }
+            return (component.dye() instanceof DyeItem dye)
                     ? dye.getDyeColor().getTextureDiffuseColor()
                     : 0xfff2d585;
         }

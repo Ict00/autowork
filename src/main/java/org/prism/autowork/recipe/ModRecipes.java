@@ -3,12 +3,14 @@ package org.prism.autowork.recipe;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
+import net.minecraft.world.item.crafting.ShapelessRecipe;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import org.prism.autowork.Autowork;
 import org.prism.autowork.recipe.BulkSmeltRecipe.BulkSmeltRecipe;
 import org.prism.autowork.recipe.CrushingRecipe.CrushingRecipe;
+import org.prism.autowork.recipe.DyeCartridge.DyeCartridgeRecipe;
 import org.prism.autowork.recipe.PaintRecipe.PaintRecipe;
 import org.prism.autowork.recipe.SpillingRecipe.SpillingRecipe;
 
@@ -50,6 +52,9 @@ public class ModRecipes {
                     return "bulk_smelting";
                 }
             });
+
+    public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<DyeCartridgeRecipe>> DYING_CARTRIDGE_SERIALIZER =
+            SERIALIZERS.register("cartridge_dying", DyeCartridgeRecipe.MySerializer::new);
 
     public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<PaintRecipe>> PAINTING_RECIPE_SERIALIZER =
             SERIALIZERS.register("painting", PaintRecipe.Serializer::new);

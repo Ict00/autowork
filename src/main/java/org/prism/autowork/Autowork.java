@@ -2,6 +2,7 @@ package org.prism.autowork;
 
 import com.mojang.logging.LogUtils;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.DyeItem;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -34,6 +35,7 @@ import org.prism.autowork.block.repair_station.RepairStationBlockEntity;
 import org.prism.autowork.block.templater.TemplaterBlockEntity;
 import org.prism.autowork.entities.ModEntities;
 import org.prism.autowork.item.ModItems;
+import org.prism.autowork.item.custom.DyeCartridge;
 import org.prism.autowork.other.ModData;
 import org.prism.autowork.other.ModDataMaps;
 import org.prism.autowork.other.ModOther;
@@ -62,6 +64,7 @@ public class Autowork {
         modEventBus.addListener(this::registerCapabilityProvider);
         modEventBus.addListener(this::registerDataMapTypes);
         modEventBus.addListener(this::registerColors);
+        modEventBus.addListener(this::registerColorsForItems);
 
         NeoForge.EVENT_BUS.register(this);
 
@@ -83,6 +86,21 @@ public class Autowork {
 
     public static ResourceLocation loc(String id) {
         return ResourceLocation.fromNamespaceAndPath(Autowork.MODID, id);
+    }
+
+    public void registerColorsForItems(RegisterColorHandlersEvent.Item event) {
+        event.register((stack, tint) -> {
+            if (tint != 1) {
+                return 0xffffffff;
+            }
+
+            var component = stack.get(ModData.CARTRIDGE);
+            if (component == null) {
+                return 0xfff2d585;
+            }
+
+            return component.color();
+        }, ModItems.DYE_CARTRIDGE.get());
     }
 
     public void registerColors(RegisterColorHandlersEvent.Block event) {

@@ -1,6 +1,6 @@
 {
   "type": "autowork:bulk_smelting",
-  "amount": 1000,
+  "amount": 100,
   "block": {
     "item": "minecraft:stone"
   },

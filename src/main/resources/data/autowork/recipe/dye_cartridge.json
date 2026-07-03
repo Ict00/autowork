@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "BCB",
+    "AAA"
+  ],
+  "key": {
+    "C": {
+      "item": "minecraft:white_dye"
+    },
+    "B": {
+      "item": "minecraft:iron_nugget"
+    },
+    "A": [
+      {
+        "item": "minecraft:feather"
+      },
+      {
+        "item": "minecraft:paper"
+      }
+    ]
+  },
+  "result": {
+    "id": "autowork:dye_cartridge",
+    "count": 1
+  }
+}

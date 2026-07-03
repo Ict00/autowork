@@ -7,7 +7,7 @@
     }
   ],
   "result": {
-    "id": "minecraft:barrel",
+    "id": "autowork:fluid_barrel",
     "count": 1
   }
 }
