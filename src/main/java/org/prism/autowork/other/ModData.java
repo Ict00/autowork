@@ -7,6 +7,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.fluids.FluidStack;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import org.prism.autowork.Autowork;
+import org.prism.autowork.other.data.CanComponent;
 import org.prism.autowork.other.data.CartridgeComponent;
 import org.prism.autowork.other.data.FluidStackComponent;
 import org.prism.autowork.other.data.template_card.TemplateCardComponent;
@@ -26,6 +27,9 @@ public class ModData {
 
     public static final Supplier<DataComponentType<CartridgeComponent>> CARTRIDGE = DATA_COMPONENTS.register("cartridge",
             () -> DataComponentType.<CartridgeComponent>builder().persistent(CartridgeComponent.CODEC).build());
+
+    public static final Supplier<DataComponentType<CanComponent>> CAN = DATA_COMPONENTS.register("can",
+            () -> DataComponentType.<CanComponent>builder().persistent(CanComponent.CODEC).build());
 
     public static void register(IEventBus bus) {
         DATA_COMPONENTS.register(bus);

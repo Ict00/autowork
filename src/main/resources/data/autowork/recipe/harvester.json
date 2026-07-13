@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " CA",
+    "DBA",
+    " CA"
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:iron_ingot"
+    },
+    "B": {
+      "tag": "minecraft:hoes"
+    },
+    "D": {
+      "item": "autowork:buffer"
+    },
+    "C": {
+      "tag": "c:crops"
+    }
+  },
+  "result": {
+    "id": "autowork:harvester",
+    "count": 1
+  }
+}

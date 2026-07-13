@@ -9,6 +9,7 @@ version = mod_version
 group = mod_group_id
 
 repositories {
+    maven { url = "https://maven.createmod.net" }
     mavenLocal()
     maven {
         name = "Jared's maven"
@@ -115,12 +116,17 @@ sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 
 dependencies {
-    jarJar(implementation("maven.modrinth:fancytabsections:2.0-NEOFORGE-1.21.1"))
+    jarJar(implementation("maven.modrinth:fancytabsections:4.0-NEOFORGE-1.21.1"))
     jarJar(api("dev.ryanhcode.sable-companion:sable-companion-common-1.21.1:[${project.sable_companion_version},)")) {
         version {
             prefer(project.sable_companion_version)
         }
     }
+
+    implementation("net.createmod.ponder:ponder-neoforge:${ponder_version}+mc${minecraft_version}")
+
+    compileOnly("dev.engine-room.flywheel:flywheel-neoforge-api-${minecraft_version}:${flywheel_version}")
+    runtimeOnly("dev.engine-room.flywheel:flywheel-neoforge-${minecraft_version}:${flywheel_version}")
 
     compileOnly("mezz.jei:jei-${minecraft_version}-neoforge-api:${jei_version}")
     runtimeOnly("mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}")

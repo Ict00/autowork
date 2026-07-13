@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "autowork:block/canner/off"
+    },
+    "powered=true": {
+      "model": "autowork:block/canner/on"
+    }
+  }
+}

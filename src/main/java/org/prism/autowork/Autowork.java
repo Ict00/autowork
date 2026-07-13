@@ -20,18 +20,22 @@ import org.prism.autowork.block.ModBlockEntities;
 import org.prism.autowork.block.ModBlocks;
 import org.prism.autowork.block.breezecollector.buffered.BufferedBreezeCollectorBlockEntity;
 import org.prism.autowork.block.buffer.BufferBlockEntity;
+import org.prism.autowork.block.canner.CannerBlockEntity;
 import org.prism.autowork.block.cart_manipulators.buffered.loader.CartLoaderBufferedBlockEntity;
 import org.prism.autowork.block.cart_manipulators.buffered.refiller.CartRefillerBufferedBlockEntity;
 import org.prism.autowork.block.cart_manipulators.buffered.unloader.CartUnloaderBufferedBlockEntity;
 import org.prism.autowork.block.drill.DrillBlockEntity;
 import org.prism.autowork.block.enricher.EnricherBlockEntity;
+import org.prism.autowork.block.fisher.FisherBlockEntity;
 import org.prism.autowork.block.fluidbarrel.FluidBarrelBlockEntity;
 import org.prism.autowork.block.fluidbarrel.FluidBarrelItemWrapper;
+import org.prism.autowork.block.harvester.HarvesterBlockEntity;
 import org.prism.autowork.block.holder.HolderBlockEntity;
 import org.prism.autowork.block.painter.PainterBlockEntity;
 import org.prism.autowork.block.placer.PlacerBlockEntity;
 import org.prism.autowork.block.pump.PumpBlockEntity;
 import org.prism.autowork.block.repair_station.RepairStationBlockEntity;
+import org.prism.autowork.block.saw.SawBlockEntity;
 import org.prism.autowork.block.templater.TemplaterBlockEntity;
 import org.prism.autowork.entities.ModEntities;
 import org.prism.autowork.item.ModItems;
@@ -131,6 +135,36 @@ public class Autowork {
                 Capabilities.ItemHandler.BLOCK,
                 ModBlockEntities.PAINTER_BE.get(),
                 PainterBlockEntity::getCapability
+        );
+
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                ModBlockEntities.HARVESTER_BE.get(),
+                HarvesterBlockEntity::getCapability
+        );
+
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                ModBlockEntities.FISHER_BE.get(),
+                FisherBlockEntity::getCapability
+        );
+
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                ModBlockEntities.CANNER_BE.get(),
+                CannerBlockEntity::getCapability
+        );
+
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                ModBlockEntities.SAW_BE.get(),
+                SawBlockEntity::getCapability
+        );
+
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                ModBlockEntities.FISHER_BE.get(),
+                FisherBlockEntity::getCapability
         );
 
         event.registerBlockEntity(

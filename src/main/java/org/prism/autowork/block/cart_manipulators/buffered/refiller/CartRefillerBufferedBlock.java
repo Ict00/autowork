@@ -80,13 +80,7 @@ public class CartRefillerBufferedBlock extends BaseEntityBlock implements BlockH
     protected void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean movedByPiston) {
         if (!level.isClientSide && !state.is(newState.getBlock()) && !movedByPiston) {
             if (level.getBlockEntity(pos) instanceof CartRefillerBufferedBlockEntity be) {
-                for (int i = 0; i < be.handler.getSlots(); i++) {
-                    var stack = be.handler.getStackInSlot(i);
-                    if (!stack.isEmpty()) {
-                        var newItemEntity = new ItemEntity(level, pos.getX()+0.5, pos.getY()+0.5, pos.getZ()+0.5, stack);
-                        level.addFreshEntity(newItemEntity);
-                    }
-                }
+                BlocksAbstractLogic.itemHandlerDropper(be.handler, pos, level);
             }
         }
 

@@ -30,6 +30,7 @@ import net.minecraft.world.phys.BlockHitResult;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.prism.autowork.block.ModBlockEntities;
+import org.prism.autowork.block.common.BlocksAbstractLogic;
 import org.prism.autowork.blockhelp.BlockHelpInfo;
 import org.prism.autowork.blockhelp.BlockHelpProvider;
 import org.prism.autowork.hudinv.HudInventoryProvider;
@@ -80,19 +81,8 @@ public class DrillBlock extends BaseEntityBlock implements BlockHelpProvider {
     protected void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean movedByPiston) {
         if (!level.isClientSide && !state.is(newState.getBlock()) && !movedByPiston) {
             if (level.getBlockEntity(pos) instanceof DrillBlockEntity be) {
-                for (int i = 0; i < be.handler.getSlots(); i++) {
-                    var stack = be.handler.getStackInSlot(i);
-                    if (!stack.isEmpty()) {
-                        var newItemEntity = new ItemEntity(level, pos.getX()+0.5, pos.getY()+0.5, pos.getZ()+0.5, stack);
-                        level.addFreshEntity(newItemEntity);
-                    }
-                }
-
-                if (be.hasTool()) {
-                    var toolEntity = new ItemEntity(level, pos.getX()+0.5, pos.getY()+0.5, pos.getZ()+0.5, be.extractTool());
-
-                    level.addFreshEntity(toolEntity);
-                }
+                BlocksAbstractLogic.itemHandlerDropper(be.handler, pos, level);
+                BlocksAbstractLogic.itemHandlerDropper(be.toolHandler, pos, level);
             }
         }
 

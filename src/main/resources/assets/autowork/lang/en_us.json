@@ -9,6 +9,8 @@
   "autowork.configuration.pumpRange": "Pump range",
   "autowork.configuration.chestMinecartLoadChunks": "Minecarts with chest loading chunks",
   "autowork.configuration.sculkCellCapacity": "Sculk cell capacity",
+  "autowork.configuration.sawBlockLimit": "Saw block limit",
+  "autowork.configuration.sawBlockSpeed": "Saw block speed",
 
   "itemGroup.autowork": "Autowork",
 
@@ -19,6 +21,7 @@
   "creativetab.autowork.misc": "Misc",
   "creativetab.autowork.ores": "Ores",
   "creativetab.autowork.experience": "Experience",
+  "creativetab.autowork.farming": "Farming",
 
   "item.autowork.dye_cartridge.uses": "%d / %d uses",
   "item.autowork.dye_cartridge.dyes": "%d / %d dyes",
@@ -29,7 +32,18 @@
   "item.autowork.dye_cartridge": "Dye Cartridge",
   "item.autowork.template_card": "Template Card",
 
+  "block.autowork.can.info.n": "Nutrition: %s",
+  "block.autowork.can.info.s": "Saturation: %s",
+  "block.autowork.can.info.uses": "Uses: %d / 9",
+
   "block.autowork.chute": "Chute",
+  "block.autowork.harvester": "Harvester",
+  "block.autowork.saw": "Saw",
+  "block.autowork.can": "Can",
+  "block.autowork.canner": "Canner",
+  "block.autowork.opened_can": "Opened Can",
+  "block.autowork.empty_can": "Empty Can",
+  "block.autowork.fisher": "Fisher",
   "block.autowork.repair_station": "Smither",
   "block.autowork.sculk_cell": "Sculk Cell",
   "block.autowork.controlled_catalyst": "Controlled Catalyst",
@@ -273,5 +287,18 @@
 
   "blockhelp.autowork.andgate.front": "Signal output",
   "blockhelp.autowork.andgate.side": "Signal input",
-  "blockhelp.autowork.andgate.details": "Emits signal only when both sides are powered"
+  "blockhelp.autowork.andgate.details": "Emits signal only when both sides are powered",
+
+
+  "autowork.ponder.canner.header": "Canning a can",
+  "autowork.ponder.canner.text_1": "This is a canner",
+  "autowork.ponder.canner.text_2": "Place an empty can under it, then put some food in it as well",
+  "autowork.ponder.canner.text_3": "Then, power it with redstone signal",
+  "autowork.ponder.canner.text_4": "Congratulations! You canned your first can",
+
+  "autowork.ponder.saw.header": "How to use a saw",
+  "autowork.ponder.saw.text_1": "This is a saw",
+  "autowork.ponder.saw.text_2": "Place a saw in front of tree, put some fuel in it",
+  "autowork.ponder.saw.text_3": "Then, power it by constant redstone signal",
+  "autowork.ponder.saw.text_4": "It'll begin to destroy the tree"
 }

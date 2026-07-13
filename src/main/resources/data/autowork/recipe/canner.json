@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "pattern": [
+    "B",
+    "A"
+  ],
+  "key": {
+    "A": {
+      "item": "autowork:empty_can"
+    },
+    "B": {
+      "item": "minecraft:dropper"
+    }
+  },
+  "result": {
+    "id": "autowork:canner",
+    "count": 1
+  }
+}

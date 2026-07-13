@@ -23,6 +23,9 @@ import org.prism.autowork.block.breezecollector.buffered.BufferedBreezeCollector
 import org.prism.autowork.block.buffer.BufferBlock;
 import org.prism.autowork.block.bulbs.amethyst.AmethystBulbBlock;
 import org.prism.autowork.block.bulbs.quartz.QuartzBulbBlock;
+import org.prism.autowork.block.can.CanBlock;
+import org.prism.autowork.block.can.OpenedCanBlock;
+import org.prism.autowork.block.canner.CannerBlock;
 import org.prism.autowork.block.carrier.CarrierBlock;
 import org.prism.autowork.block.carrier.ModularCarrierBlock;
 import org.prism.autowork.block.cart_manipulators.buffered.loader.CartLoaderBufferedBlock;
@@ -39,8 +42,10 @@ import org.prism.autowork.block.enricher.EnricherBlock;
 import org.prism.autowork.block.extractor.ExtractorBlock;
 import org.prism.autowork.block.fan.FanBlock;
 import org.prism.autowork.block.filterchute.FilterChuteBlock;
+import org.prism.autowork.block.fisher.FisherBlock;
 import org.prism.autowork.block.fluidbarrel.FluidBarrelBlock;
 import org.prism.autowork.block.fluidextractor.FluidExtractorBlock;
+import org.prism.autowork.block.harvester.HarvesterBlock;
 import org.prism.autowork.block.holder.HolderBlock;
 import org.prism.autowork.block.painter.PainterBlock;
 import org.prism.autowork.block.placer.PlacerBlock;
@@ -51,6 +56,7 @@ import org.prism.autowork.block.redstone_coil.RedstoneCoilBlock;
 import org.prism.autowork.block.redstone_hub.RedstoneHubBlock;
 import org.prism.autowork.block.repair_station.RepairStationBlock;
 import org.prism.autowork.block.rotator.RotatorBlock;
+import org.prism.autowork.block.saw.SawBlock;
 import org.prism.autowork.block.sculk_cell.SculkCellBlock;
 import org.prism.autowork.block.sculkmover.SculkMoverBlock;
 import org.prism.autowork.block.smelter.SmelterBlock;
@@ -252,6 +258,27 @@ public class ModBlocks {
 
     public static final DeferredBlock<Block> REPAIR_STATION = registerBlock("repair_station",
             () -> new RepairStationBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).sound(SoundType.WOOD).requiresCorrectToolForDrops().isRedstoneConductor(ModBlocks::neverConductor)));
+
+    public static final DeferredBlock<Block> CANNER = registerBlock("canner",
+            () -> new CannerBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).sound(SoundType.WOOD).requiresCorrectToolForDrops().isRedstoneConductor(ModBlocks::neverConductor)));
+
+    public static final DeferredBlock<Block> CAN = registerBlock("can",
+            () -> new CanBlock(BlockBehaviour.Properties.of().sound(SoundType.METAL).instabreak().isRedstoneConductor(ModBlocks::neverConductor)), false);
+
+    public static final DeferredBlock<Block> OPENED_CAN = registerBlock("opened_can",
+            () -> new OpenedCanBlock(BlockBehaviour.Properties.of().sound(SoundType.METAL).instabreak().isRedstoneConductor(ModBlocks::neverConductor)), false);
+
+    public static final DeferredBlock<Block> EMPTY_CAN = registerBlock("empty_can",
+            () -> new Block(BlockBehaviour.Properties.of().sound(SoundType.METAL).instabreak().isRedstoneConductor(ModBlocks::neverConductor)));
+
+    public static final DeferredBlock<Block> HARVESTER = registerBlock("harvester",
+            () -> new HarvesterBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).sound(SoundType.METAL).requiresCorrectToolForDrops().isRedstoneConductor(ModBlocks::neverConductor)));
+
+    public static final DeferredBlock<Block> SAW = registerBlock("saw",
+            () -> new SawBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).sound(SoundType.METAL).requiresCorrectToolForDrops().isRedstoneConductor(ModBlocks::neverConductor)));
+
+    public static final DeferredBlock<Block> FISHER = registerBlock("fisher",
+            () -> new FisherBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).sound(SoundType.METAL).requiresCorrectToolForDrops().isRedstoneConductor(ModBlocks::neverConductor)));
 
 
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {

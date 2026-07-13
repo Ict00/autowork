@@ -1,5 +1,6 @@
 package org.prism.autowork;
 
+import net.createmod.ponder.foundation.PonderIndex;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.neoforged.api.distmarker.Dist;
@@ -8,33 +9,42 @@ import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
+import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
+import net.neoforged.neoforge.client.event.RegisterItemDecorationsEvent;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 import net.neoforged.neoforge.client.gui.ConfigurationScreen;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 import org.prism.autowork.block.ModBlockEntities;
 import org.prism.autowork.block.ModBlocks;
+import org.prism.autowork.block.can.CanItemDecorator;
 import org.prism.autowork.block.filterchute.FilterChuteBlockRenderer;
 import org.prism.autowork.block.fluidbarrel.FluidBarrelBlockRenderer;
 import org.prism.autowork.block.holder.HolderBlockRenderer;
 import org.prism.autowork.block.precise_observer.PreciseObserverRenderer;
+import org.prism.autowork.compat.wPonder.AutoworkPonderPlugin;
 import org.prism.autowork.entities.ModEntities;
 import org.prism.autowork.entities.signal.SignalEntityModel;
 import org.prism.autowork.entities.signal.SignalEntityRenderer;
+import org.prism.autowork.item.ModItems;
 import org.prism.autowork.particles.ModParticles;
 import org.prism.autowork.particles.SignalParticles;
 import org.prism.autowork.screens.ModMenus;
 import org.prism.autowork.screens.breeze_collector.BreezeCollectorScreen;
+import org.prism.autowork.screens.canner.CannerScreen;
 import org.prism.autowork.screens.cartloader.CartLoaderScreen;
 import org.prism.autowork.screens.cartrefiller.CartRefillerScreen;
 import org.prism.autowork.screens.cartunloader.CartUnloaderScreen;
 import org.prism.autowork.screens.drill.DrillScreen;
 import org.prism.autowork.screens.enricher.EnricherScreen;
+import org.prism.autowork.screens.fisher.FisherScreen;
+import org.prism.autowork.screens.harvester.HarvesterScreen;
 import org.prism.autowork.screens.painter.PainterScreen;
 import org.prism.autowork.screens.placer.PlacerScreen;
 import org.prism.autowork.screens.pump.PumpScreen;
 import org.prism.autowork.screens.repair_station.RepairStationScreen;
+import org.prism.autowork.screens.saw.SawScreen;
 import org.prism.autowork.screens.templater.TemplaterScreen;
 
 @Mod(value = Autowork.MODID, dist = Dist.CLIENT)
@@ -46,6 +56,18 @@ public class AutoworkClient {
     }
 
     @SubscribeEvent
+    public static void registerItemDecorators(RegisterItemDecorationsEvent event) {
+        event.register(ModItems.CAN_ITEM.get(), new CanItemDecorator());
+    }
+
+
+    @SubscribeEvent
+    public static void clientInit(final FMLClientSetupEvent event) {
+        PonderIndex.addPlugin(new AutoworkPonderPlugin());
+    }
+
+
+    @SubscribeEvent
     public static void onClientSetup(EntityRenderersEvent.RegisterRenderers event) {
         event.registerEntityRenderer(
                 ModEntities.SIGNAL_ENTITY.get(),
@@ -54,6 +76,7 @@ public class AutoworkClient {
 
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.HOLDER.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.PAINTER.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.SAW.get(), RenderType.cutout());
     }
 
     @SubscribeEvent
@@ -84,6 +107,10 @@ public class AutoworkClient {
         event.register(ModMenus.PAINTER_MENU.get(), PainterScreen::new);
         event.register(ModMenus.TEMPLATER_MENU.get(), TemplaterScreen::new);
         event.register(ModMenus.REPAIR_STATION_MENU.get(), RepairStationScreen::new);
+        event.register(ModMenus.HARVESTER_MENU.get(), HarvesterScreen::new);
+        event.register(ModMenus.SAW_MENU.get(), SawScreen::new);
+        event.register(ModMenus.FISHER_MENU.get(), FisherScreen::new);
+        event.register(ModMenus.CANNER_MENU.get(), CannerScreen::new);
     }
 
     @SubscribeEvent

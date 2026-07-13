@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "autowork:block/canner/bottom",
+    "east": "autowork:block/canner/side",
+    "north": "autowork:block/canner/side",
+    "particle": "autowork:block/canner/side",
+    "south": "autowork:block/canner/side",
+    "up": "autowork:block/canner/top_on",
+    "west": "autowork:block/canner/side"
+  }
+}

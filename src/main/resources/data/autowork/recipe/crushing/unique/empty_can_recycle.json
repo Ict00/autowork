@@ -1,0 +1,10 @@
+{
+  "type": "autowork:crushing",
+  "block": {
+    "item": "autowork:empty_can"
+  },
+  "result": {
+    "id": "minecraft:iron_ingot",
+    "count": 1
+  }
+}

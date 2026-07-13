@@ -2,9 +2,12 @@ package org.prism.autowork.block.common;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.RegistryAccess;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
@@ -13,6 +16,7 @@ import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.vehicle.MinecartChest;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -39,6 +43,45 @@ public final class BlocksAbstractLogic {
                 state.getPistonPushReaction() == PushReaction.IGNORE ||
                 state.getPistonPushReaction() == PushReaction.BLOCK || state.getDestroySpeed(level, pos) == -1) || state.is(ModOther.MOVABLE)) || state.is(ModOther.BLOCK_ENTITY_MOVABLE)) &&
                 !state.canBeReplaced();
+    }
+
+    public static void itemHandlerDropper(IItemHandler handler, BlockPos pos, Level level) {
+        for (int i = 0; i < handler.getSlots(); i++) {
+            var stack = handler.getStackInSlot(i);
+            if (!stack.isEmpty()) {
+                var newItemEntity = new ItemEntity(level, pos.getX()+0.5, pos.getY()+0.5, pos.getZ()+0.5, stack);
+                level.addFreshEntity(newItemEntity);
+            }
+        }
+    }
+
+    public static void itemUser(BlockPos pos, ItemStack stack, Level level) {
+        int durabilityDamage = 1;
+        boolean applyDamage = true;
+        try {
+            int unbreakingLevel = ModUtils.getEnchantment(stack, Enchantments.UNBREAKING, level.registryAccess());
+
+            if (unbreakingLevel > 0) {
+                applyDamage = level.random.nextInt(unbreakingLevel + 1) == 0;
+            }
+        }
+        catch (Exception ignore) {
+
+        }
+
+        if (stack.has(DataComponents.DAMAGE) && stack.has(DataComponents.MAX_DAMAGE)) {
+            if (applyDamage) {
+                var dmgCurrent = stack.get(DataComponents.DAMAGE);
+                var dmgMax = stack.get(DataComponents.MAX_DAMAGE);
+                dmgCurrent += durabilityDamage;
+                if (dmgCurrent >= dmgMax) {
+                    level.playSound(null, pos, SoundEvents.ITEM_BREAK, SoundSource.BLOCKS, 1, 1.5f);
+                    stack.setCount(0);
+                } else {
+                    stack.set(DataComponents.DAMAGE, dmgCurrent);
+                }
+            }
+        }
     }
 
     public static boolean abstractMover(Level level, BlockPos from, BlockPos to) {

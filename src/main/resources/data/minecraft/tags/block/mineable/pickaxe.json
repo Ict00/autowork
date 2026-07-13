@@ -36,6 +36,10 @@
     "autowork:modular_carrier",
     "autowork:carrier",
     "autowork:repair_station",
+    "autowork:harvester",
+    "autowork:saw",
+    "autowork:fisher",
+    "autowork:canner",
 
 
     "autowork:deepslate_enriched_coal_ore",

@@ -1,0 +1,10 @@
+{
+  "values": [
+    "#minecraft:crops",
+    "minecraft:sugar_cane",
+    "minecraft:cactus",
+    "minecraft:cocoa",
+    "minecraft:nether_wart",
+    "#autowork:harvestable/fruit"
+  ]
+}

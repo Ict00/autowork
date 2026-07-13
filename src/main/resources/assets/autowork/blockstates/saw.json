@@ -1,0 +1,52 @@
+
+{
+  "variants": {
+    "facing=east,state=still": {
+      "model": "autowork:block/saw/off",
+      "y": 90
+    },
+    "facing=north,state=still": {
+      "model": "autowork:block/saw/off"
+    },
+    "facing=south,state=still": {
+      "model": "autowork:block/saw/off",
+      "y": 180
+    },
+    "facing=west,state=still": {
+      "model": "autowork:block/saw/off",
+      "y": 270
+    },
+
+    "facing=east,state=powered": {
+      "model": "autowork:block/saw/powered",
+      "y": 90
+    },
+    "facing=north,state=powered": {
+      "model": "autowork:block/saw/powered"
+    },
+    "facing=south,state=powered": {
+      "model": "autowork:block/saw/powered",
+      "y": 180
+    },
+    "facing=west,state=powered": {
+      "model": "autowork:block/saw/powered",
+      "y": 270
+    },
+
+    "facing=east,state=working": {
+      "model": "autowork:block/saw/on",
+      "y": 90
+    },
+    "facing=north,state=working": {
+      "model": "autowork:block/saw/on"
+    },
+    "facing=south,state=working": {
+      "model": "autowork:block/saw/on",
+      "y": 180
+    },
+    "facing=west,state=working": {
+      "model": "autowork:block/saw/on",
+      "y": 270
+    }
+  }
+}

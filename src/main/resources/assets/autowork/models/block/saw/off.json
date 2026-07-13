@@ -1,0 +1,38 @@
+{
+  "format_version": "1.9.0",
+  "credit": "Made with Blockbench",
+  "parent": "minecraft:block/block",
+  "textures": {
+    "particle": "minecraft:block/stonecutter_bottom",
+    "saw": "autowork:block/saw/still_saw",
+    "side": "autowork:block/saw/side_off",
+    "back": "autowork:block/saw/back_off",
+    "front": "minecraft:block/stonecutter_top"
+  },
+  "elements": [
+    {
+      "from": [0, 0, 7],
+      "to": [16, 16, 16],
+      "rotation": {"angle": 0, "axis": "y", "origin": [0, 0, 14]},
+      "color": 7,
+      "faces": {
+        "north": {"uv": [0, 0, 16, 16], "texture": "#front"},
+        "east": {"uv": [0, 0, 16, 16], "texture": "#side", "rotation": 180},
+        "south": {"uv": [0, 0, 16, 16], "texture": "#back"},
+        "west": {"uv": [0, 0, 16, 16], "texture": "#side"},
+        "up": {"uv": [0, 0, 16, 16], "texture": "#side", "rotation": 90},
+        "down": {"uv": [0, 0, 16, 16], "texture": "#side", "rotation": 90}
+      }
+    },
+    {
+      "from": [0, 8, 0],
+      "to": [16, 8, 16],
+      "rotation": {"angle": 0, "axis": "y", "origin": [7, 8, 4]},
+      "color": 1,
+      "faces": {
+        "up": {"uv": [16, 0, 0, 16], "texture": "#saw", "rotation": 180},
+        "down": {"uv": [16, 0, 0, 16], "texture": "#saw", "rotation": 180}
+      }
+    }
+  ]
+}

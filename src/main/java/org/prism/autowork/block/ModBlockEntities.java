@@ -7,13 +7,17 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import org.prism.autowork.Autowork;
 import org.prism.autowork.block.breezecollector.buffered.BufferedBreezeCollectorBlockEntity;
 import org.prism.autowork.block.buffer.BufferBlockEntity;
+import org.prism.autowork.block.can.CanBlockEntity;
+import org.prism.autowork.block.canner.CannerBlockEntity;
 import org.prism.autowork.block.cart_manipulators.buffered.loader.CartLoaderBufferedBlockEntity;
 import org.prism.autowork.block.cart_manipulators.buffered.refiller.CartRefillerBufferedBlockEntity;
 import org.prism.autowork.block.cart_manipulators.buffered.unloader.CartUnloaderBufferedBlockEntity;
 import org.prism.autowork.block.drill.DrillBlockEntity;
 import org.prism.autowork.block.enricher.EnricherBlockEntity;
 import org.prism.autowork.block.filterchute.FilterChuteBlockEntity;
+import org.prism.autowork.block.fisher.FisherBlockEntity;
 import org.prism.autowork.block.fluidbarrel.FluidBarrelBlockEntity;
+import org.prism.autowork.block.harvester.HarvesterBlockEntity;
 import org.prism.autowork.block.holder.HolderBlockEntity;
 import org.prism.autowork.block.painter.PainterBlockEntity;
 import org.prism.autowork.block.placer.PlacerBlockEntity;
@@ -21,6 +25,7 @@ import org.prism.autowork.block.precise_observer.PreciseObserverBlock;
 import org.prism.autowork.block.precise_observer.PreciseObserverBlockEntity;
 import org.prism.autowork.block.pump.PumpBlockEntity;
 import org.prism.autowork.block.repair_station.RepairStationBlockEntity;
+import org.prism.autowork.block.saw.SawBlockEntity;
 import org.prism.autowork.block.sculk_cell.SculkCellBlockEntity;
 import org.prism.autowork.block.templater.TemplaterBlockEntity;
 import org.prism.autowork.block.ticker.TickerBlockEntity;
@@ -34,6 +39,31 @@ public class ModBlockEntities {
     public static final Supplier<BlockEntityType<RepairStationBlockEntity>> REPAIR_STATION_BE =
             BLOCK_ENTITIES.register("repair_station_be", () -> BlockEntityType.Builder.of(
                     RepairStationBlockEntity::new, ModBlocks.REPAIR_STATION.get()
+            ).build(null));
+
+    public static final Supplier<BlockEntityType<HarvesterBlockEntity>> HARVESTER_BE =
+            BLOCK_ENTITIES.register("harvester_be", () -> BlockEntityType.Builder.of(
+                    HarvesterBlockEntity::new, ModBlocks.HARVESTER.get()
+            ).build(null));
+
+    public static final Supplier<BlockEntityType<CannerBlockEntity>> CANNER_BE =
+            BLOCK_ENTITIES.register("canner_be", () -> BlockEntityType.Builder.of(
+                    CannerBlockEntity::new, ModBlocks.CANNER.get()
+            ).build(null));
+
+    public static final Supplier<BlockEntityType<CanBlockEntity>> CAN_BE =
+            BLOCK_ENTITIES.register("can_be", () -> BlockEntityType.Builder.of(
+                    CanBlockEntity::new, ModBlocks.CAN.get(), ModBlocks.OPENED_CAN.get()
+            ).build(null));
+
+    public static final Supplier<BlockEntityType<FisherBlockEntity>> FISHER_BE =
+            BLOCK_ENTITIES.register("fisher_be", () -> BlockEntityType.Builder.of(
+                    FisherBlockEntity::new, ModBlocks.FISHER.get()
+            ).build(null));
+
+    public static final Supplier<BlockEntityType<SawBlockEntity>> SAW_BE =
+            BLOCK_ENTITIES.register("saw_be", () -> BlockEntityType.Builder.of(
+                    SawBlockEntity::new, ModBlocks.SAW.get()
             ).build(null));
 
     public static final Supplier<BlockEntityType<SculkCellBlockEntity>> SCULK_CELL_BE =

@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "pattern": [
+    "A",
+    "B"
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:stonecutter"
+    },
+    "B": {
+      "item": "autowork:buffer"
+    }
+  },
+  "result": {
+    "id": "autowork:saw",
+    "count": 1
+  }
+}

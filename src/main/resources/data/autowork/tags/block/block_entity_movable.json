@@ -18,6 +18,10 @@
     "#c:villager_job_sites",
     "#minecraft:anvil",
     "autowork:sculk_cell",
-    "autowork:repair_station"
+    "autowork:repair_station",
+    "autowork:harvester",
+    "autowork:fisher",
+    "autowork:canner",
+    "autowork:saw"
   ]
 }

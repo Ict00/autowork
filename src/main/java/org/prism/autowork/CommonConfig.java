@@ -11,6 +11,12 @@ public class CommonConfig {
     public static final ModConfigSpec.BooleanValue NEW_REDSTONE_DETECTION = BUILDER
             .define("newRedstoneDetection", true);
 
+    public static final ModConfigSpec.IntValue SAW_BLOCK_LIMIT = BUILDER
+            .defineInRange("sawBlockLimit", 250, 1, 1000);
+
+    public static final ModConfigSpec.IntValue SAW_BLOCK_SPEED = BUILDER
+            .defineInRange("sawBlockSpeed", 20, 1, 100);
+
     public static final ModConfigSpec.IntValue SCULK_MOVER_RANGE = BUILDER
             .defineInRange("sculkMoverRange", 32, 2, 64);
 
